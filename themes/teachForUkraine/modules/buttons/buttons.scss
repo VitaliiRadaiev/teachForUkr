@@ -1,0 +1,149 @@
+@use "./utils/abstracts" as *;
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px;
+    min-height: 61px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    color: var(--accent);
+    background-color: var(--accent-5);
+    transition: background-color $tran, border $tran;
+    font-size: rem(18px);
+    font-weight: 500;
+    line-height: 1.5em;
+    letter-spacing: -0.01em;
+    outline: 2px solid var(--accent);
+
+    @media (min-width: $mq-4xl) {
+        min-height: 66px;
+        font-size: rem(21px);
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    @media #{$mouse-device} {
+        &:hover {
+            border-color: var(--accent);
+        }
+    }
+
+    &:active {
+        background-color: var(--accent-10);
+    }
+
+    &.disabled {
+        opacity: 1;
+        outline-color: $color-light-primary-40;
+        color: $color-dark-primary-60;
+        background-color: $backgound;
+    }
+}
+
+.btn-secondary {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    min-height: 44px;
+    padding: 8px 20px;
+    background-color: var(--accent);
+    color: $color-light-primary;
+    font-size: rem(14px);
+    line-height: 1.5em;
+    letter-spacing: -0.01em;
+    transition: background-color $tran;
+
+    @media (min-width: $mq-2xl) {
+        min-height: 50px;
+        font-size: rem(16px);
+    }
+
+    @media (min-width: $mq-4xl) {
+        min-height: 55px;
+        font-size: rem(18px);
+        padding: 10px 30px;
+    }
+
+    @media #{$mouse-device} {
+        &:hover {
+            background-color: var(--accent-100);
+        }
+    }
+
+    &-sm {
+        padding: 6px 24px;
+        min-height: 40px !important;
+
+        @media (min-width: $mq-4xl) {
+            min-height: 46px !important;
+            padding: 8px 24px;
+        }
+    }
+}
+
+.btn-with-enter-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 63px;
+    background-color: var(--accent);
+    color: $color-light-primary;
+    padding: 12px 110px 12px 58px;
+    font-weight: 500;
+    font-size: rem(18px);
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    position: relative;
+    border-radius: 10px;
+    transition: background-color $tran;
+
+    @media (min-width: $mq-4xl) {
+        min-height: 68px;
+        padding: 16px 118px 16px 60px;
+        font-size: rem(21px);
+    }
+
+    @media #{$mouse-device} {
+        &:hover {
+            background-color: var(--accent-80);
+        }
+    }
+
+    &:active {
+        background-color: var(--accent-100) !important;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDMiIGhlaWdodD0iNDMiIHZpZXdCb3g9IjAgMCA0MyA0MyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQzIiBoZWlnaHQ9IjQzIiByeD0iNiIgZmlsbD0id2hpdGUiLz4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzEzODNfMzAyNDcpIj4KPHBhdGggZD0iTTI0LjEyNSAyMS41TDI4LjA2MjUgMjUuNDM3NUwyNC4xMjUgMjkuMzc1IiBzdHJva2U9IiMxRjFGMUYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xNi4yNSAxMy42MjVMMTYuMjUgMjMuNDM3NUMxNi4yNSAyNC41NDIxIDE3LjE0NTQgMjUuNDM3NSAxOC4yNSAyNS40Mzc1TDI4LjA2MjUgMjUuNDM3NSIgc3Ryb2tlPSIjMUYxRjFGIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzEzODNfMzAyNDciPgo8cmVjdCB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIGZpbGw9IndoaXRlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMSAxMSkiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 43px;
+        width: 43px;
+
+        @media (min-width: $mq-4xl) {
+            height: 48px;
+            width: 48px;
+        }
+    }
+
+    &.disabled {
+        pointer-events: none;
+        background-color: $color-light-primary-60;
+        color: $color-dark-primary-60;
+    }
+}
+
+.btn-with-with-arrow {
+
+}

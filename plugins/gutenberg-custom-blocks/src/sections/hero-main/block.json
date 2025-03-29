@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/hero-main",
+	"version": "0.1.0",
+	"title": "Основний баннер",
+	"category": "hero",
+	"icon": "layout",
+	"description": "",
+    "example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {},
+	"textdomain": "hero-main",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

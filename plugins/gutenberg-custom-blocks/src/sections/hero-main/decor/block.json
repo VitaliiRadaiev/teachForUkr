@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/hero-main-decor",
+	"version": "0.1.0",
+	"title": "Декор",
+	"description": "",
+    "example": {},
+	"supports": {
+		"html": false
+	},
+	"parent": ["t4u/hero-main"],
+	"attributes": {},
+	"textdomain": "hero-main-decor",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

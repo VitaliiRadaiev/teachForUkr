@@ -1,0 +1,13 @@
+@use "./utils/abstracts" as *;
+
+.social-item {
+    @media #{$mouse-device} {
+        &:hover {
+            background-color: $color-accent-second;
+
+            & img {
+                filter: $color-accent-first-5-filter;
+            }
+        }
+    }
+}

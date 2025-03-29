@@ -1,0 +1,54 @@
+$fonts-folder: "../fonts";
+
+@font-face {
+    font-family: "BasisGrotesquePro";
+    src: url("#{$fonts-folder}/BasisGrotesquePro-Black.woff") format("woff"),
+         url("#{$fonts-folder}/BasisGrotesquePro-Black.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BasisGrotesquePro";
+    src: url("#{$fonts-folder}/BasisGrotesquePro-Bold.woff") format("woff"),
+         url("#{$fonts-folder}/BasisGrotesquePro-Bold.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BasisGrotesquePro";
+    src: url("#{$fonts-folder}/BasisGrotesquePro-Medium.woff") format("woff"),
+         url("#{$fonts-folder}/BasisGrotesquePro-Medium.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BasisGrotesquePro";
+    src: url("#{$fonts-folder}/BasisGrotesquePro-Regular.woff") format("woff"),
+         url("#{$fonts-folder}/BasisGrotesquePro-Regular.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "BasisGrotesquePro-italic";
+    src: url("#{$fonts-folder}/BasisGrotesquePro-Italic.woff") format("woff"),
+         url("#{$fonts-folder}/BasisGrotesquePro-Italic.woff2") format("woff2");
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BasisGrotesquePro";
+    src: url("#{$fonts-folder}/BasisGrotesquePro-Light.woff") format("woff"),
+         url("#{$fonts-folder}/BasisGrotesquePro-Light.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/hero-main-titles-text",
+  "version": "0.1.0",
+  "title": "Title - text",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "supTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "parent": [
+    "t4u/hero-main"
+  ],
+  "textdomain": "hero-main-titles-text",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

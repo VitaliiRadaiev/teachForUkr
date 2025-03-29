@@ -1,0 +1,80 @@
+.size-controll-container {
+    display: grid;
+    gap: 8px;
+
+    &__row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__buttons-group {
+        display: flex;
+        border: 1px solid rgba(0,0,0,0.2);
+        flex: 1 1 auto;
+    }
+}
+
+.size-controll-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 8px;
+    flex: 1 1 auto;
+    cursor: pointer;
+    transition: all .3s ease;
+    text-transform: uppercase;
+    font-size: 13px;
+
+    &:hover {
+        background-color: rgba(0,0,0,0.2);
+    }
+
+    &.active {
+        background-color: black;
+        color: #fff;
+    }
+}
+
+.direction-icon {
+    height: 24px;
+    width: 24px;
+    flex: 0 0 auto;
+    position: relative;
+}
+
+.direction-icon-item {
+    position: absolute;
+    background-color: rgba(0,0,0,0.2);
+    display: block;
+    
+    &.active {
+        background-color: rgba(0,0,0,1);
+    }
+
+    &:nth-child(1) {
+        height: 3px;
+        width: 16px;
+        top: 0;
+        left: 4px;
+    }
+    &:nth-child(2) {
+        height: 16px;
+        width: 3px;
+        top: 4px;
+        right: 0;
+    }
+    &:nth-child(3) {
+        height: 3px;
+        width: 16px;
+        bottom: 0;
+        left: 4px;
+    }
+    &:nth-child(4) {
+        height: 16px;
+        width: 3px;
+        top: 4px;
+        left: 0;
+    }
+}

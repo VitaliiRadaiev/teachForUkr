@@ -1,0 +1,282 @@
+@use "./utils/abstracts" as *;
+
+.main-font-family {
+    font-family: $main-font-family;
+}
+
+.h1 {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+
+    @media (min-width: $mq-md) {
+        font-size: 100px;
+    }
+
+    @media (min-width: $mq-2xl) {
+        font-size: 105px;
+    }
+
+    @media (min-width: $mq-4xl) {
+        font-size: 130px;
+    }
+
+    &>*:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+
+    &>*:last-child {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: $mq-md) {
+        font-size: 45px;
+    }
+
+    @media (min-width: $mq-2xl) {
+        font-size: 50px;
+    }
+
+    @media (min-width: $mq-4xl) {
+        font-size: 65px;
+    }
+}
+
+.h3 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+
+    &>*:last-child {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: $mq-md) {
+        font-size: 21px;
+    }
+
+    @media (min-width: $mq-2xl) {
+        font-size: 24px;
+    }
+
+    @media (min-width: $mq-4xl) {
+        font-size: 32px;
+    }
+}
+
+.h4 {
+    font-weight: 500;
+    font-size: rem(18px);
+    line-height: 120%;
+    letter-spacing: -0.03em;
+
+    &>*:last-child {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: $mq-2xl) {
+        font-size: rem(20px);
+    }
+
+    @media (min-width: $mq-4xl) {
+        font-size: rem(24px);
+    }
+}
+
+.h5 {
+    font-weight: 700;
+    font-size: rem(15px);
+    line-height: 140%;
+    letter-spacing: -0.01em;
+
+    &>*:last-child {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: $mq-md) {
+        font-size: rem(16px);
+    }
+
+    @media (min-width: $mq-4xl) {
+        font-size: rem(18px);
+    }
+}
+
+.text-lg {
+    font-size: rem(16px);
+    line-height: 140%;
+    letter-spacing: -0.02em;
+
+    @media (min-width: $mq-md) {
+        font-size: rem(18px);
+    }
+
+    @media (min-width: $mq-4xl) {
+        font-size: rem(21px);
+    }
+}
+
+.text-md {
+    font-size: rem(15px);
+    line-height: 140%;
+
+    @media (min-width: $mq-md) {
+        font-size: rem(16px);
+    }
+
+    @media (min-width: $mq-4xl) {
+        font-size: rem(18px);
+    }
+}
+
+.text-sm {
+    font-size: rem(13px);
+    line-height: 140%;
+    letter-spacing: -0.01em;
+
+    @media (min-width: $mq-md) {
+        font-size: rem(14px);
+    }
+
+    @media (min-width: $mq-4xl) {
+        font-size: rem(15px);
+    }
+}
+
+.text-content {
+    &>*:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    &>*:first-child {
+        margin-top: 0 !important;
+    }
+
+    & h1,
+    & .text-h1,
+    & h2,
+    & .text-h2,
+    & h3,
+    & .text-h3,
+    & h4,
+    & .text-h4,
+    & h5,
+    & .text-h5,
+    & h6,
+    & .text-h6 {}
+
+    & h1,
+    & .text-h1 {}
+
+
+    & h2,
+    & .text-h2 {}
+
+    & h3,
+    & .text-h3 {}
+
+    & h4,
+    & .text-h4 {}
+
+    & h6,
+    & .text-h6 {}
+
+
+    & p,
+    & ul:not(.no-style),
+    & ol:not(.no-style) {
+        margin-bottom: 1em;
+    }
+
+
+    & ul:not(.no-style) {
+        padding-left: 1.5em;
+
+        &>li {
+            list-style: disc;
+
+            &:not(:last-child) {
+                margin-bottom: 0.7em;
+
+                @media (min-width: $mq-lg) {
+                    margin-bottom: 0.56em;
+                }
+            }
+
+            &>*:last-child {
+                margin-bottom: 0;
+            }
+
+            &::marker {
+                font-size: 0.8em;
+            }
+        }
+    }
+
+    & ul.color-dots {
+        &>li {
+            list-style: none;
+            position: relative;
+            padding-left: 1.5em;
+
+            &:not(:last-child) {
+                margin-bottom: rem(8px);
+
+                @media (min-width: $mq-lg) {
+                    margin-bottom: rem(24px);
+                }
+            }
+
+            &>*:last-child {
+                margin-bottom: 0;
+            }
+
+            & p {
+                margin-bottom: rem(8px);
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0.34em;
+                left: 0;
+                width: rem(10px);
+                height: rem(10px);
+                border-radius: 20px;
+                background-color: var(--accent);
+            }
+        }
+    }
+
+    & ol:not(.no-style) {
+        padding-left: 0em;
+        list-style: number;
+        list-style-position: inside;
+
+        &>li {
+            &:not(:last-child) {
+                margin-bottom: 0.1em;
+            }
+
+            &>*:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    & a {}
+
+    & figure:not(.no-style) {}
+}

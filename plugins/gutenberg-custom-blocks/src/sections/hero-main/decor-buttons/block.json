@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/hero-main-decor-buttons",
+	"version": "0.1.0",
+	"title": "decor",
+	"description": "",
+    "example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {},
+	"parent": ["t4u/hero-main"],
+	"textdomain": "hero-main-decor-buttons",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

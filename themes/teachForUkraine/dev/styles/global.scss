@@ -1,0 +1,27 @@
+@use "./utils/abstracts" as *;
+@use "./typography.scss";
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: $backgound;
+    font-size: rem(15px);
+    font-family: $main-font-family;
+    color: $color-dark-primary-80;
+    font-weight: 400;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    @extend .text-md;
+
+    @media (min-width: $mq-lg) {
+        font-size: rem(16px);
+    }
+}
+
+main {
+    flex: 1 1 auto;
+    z-index: 2;
+}

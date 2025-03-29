@@ -1,0 +1,17 @@
+node_modules/
+backups-dup-lite/
+languages/
+upgrade/
+upgrade-temp-backup/
+uploads/
+webp-express/
+plugins/*
+!plugins/gutenberg-custom-blocks/
+themes/*
+!themes/teachForUkraine/
+upgrade/
+upgrade-temp-backup/
+uploads/
+webp-express/
+index.php
+wp-cache-config.php

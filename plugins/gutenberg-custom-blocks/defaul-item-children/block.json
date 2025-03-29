@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/heading......",
+	"version": "0.1.0",
+	"title": "......",
+	"category": ".....",
+	"icon": "smail",
+	"description": "",
+    "example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {},
+	"parent": [],
+	"textdomain": "heading......",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

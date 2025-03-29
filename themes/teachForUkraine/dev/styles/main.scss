@@ -1,0 +1,33 @@
+@use "./fonts.scss";
+
+@use "./tailwind";
+
+@use "./icomoon/style.css";
+
+// plugins
+@use "../plugins/swiper/swiper-bundle.scss";
+@use "../plugins/fancybox/fancybox.scss";
+@use "../plugins/aos/aos.css";
+// /= plugins
+
+@use "./global.scss";
+
+@use "./utils/sup-classes.scss";
+@use "./typography.scss";
+
+
+// modules
+@use "../../modules/buttons/buttons.scss";
+@use "../../modules/form-fields/form-fields.scss";
+@use "../../modules/subscribe-form/subscribe-form.scss";
+// /= modulse
+
+
+// sections
+@use "../../sections/header/header.scss";
+@use "../../sections/footer/footer.scss";
+// /= sections
+
+// gutenberg-blocks
+@use "./gutenberg-blocks/sections/hero-main.scss"
+// /= gutenberg-blocks

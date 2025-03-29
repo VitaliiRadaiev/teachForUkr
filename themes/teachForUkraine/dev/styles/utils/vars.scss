@@ -1,0 +1,144 @@
+@use "sass:map";
+
+$minwidth: 320px;
+$mq-sm: 576px;
+$mq-md: 744px;
+$mq-lg: 1024px;
+$mq-xl: 1280px;
+$mq-2xl: 1440px;
+$mq-3xl: 1600px;
+$mq-4xl: 1920px;
+$mq-sm-max: 575.98px;
+$mq-md-max: 743.98px;
+$mq-lg-max: 1023.98px;
+$mq-xl-max: 1279.98px;
+$mq-2xl: 1439.98px;
+$mq-3xl-max: 1599.98px;
+$mq-4xl-max: 1919.98px;
+$mouse-device: "(hover: hover) and (pointer: fine)";
+$touch-device: "(hover: none) and (pointer: coarse)";
+
+$main-font-family: "BasisGrotesquePro", sans-serif;
+$main-font-family-italic: "BasisGrotesquePro-italic", sans-serif;
+
+// interface colors
+$backgound: #f6f6f6; // --backgraund
+
+$color-accent-first: #0536FC; // --blue
+$color-accent-first-filter: invert(10%) sepia(100%) saturate(7473%) hue-rotate(238deg) brightness(99%) contrast(100%);
+$color-accent-first-100: #032ccd;
+$color-accent-first-80: #2853ff;
+$color-accent-first-50: #829BFE; // --blue-500
+$color-accent-first-10: #E6EBFF; // --blue-100
+$color-accent-first-5: #F2F5FF; // --blue-50
+$color-accent-first-5-filter: invert(90%) sepia(3%) saturate(1336%) hue-rotate(198deg) brightness(104%) contrast(107%);
+
+$color-accent-second: #FF8200; // --orange
+$color-accent-second-filter: invert(74%) sepia(55%) saturate(6802%) hue-rotate(1deg) brightness(104%) contrast(103%);
+$color-accent-second-100: #ff6200; // --orange-light
+$color-accent-second-80: #fa7e31; // 
+$color-accent-second-50: #FFC07F; // 
+$color-accent-second-20: #ffe6cc; // --orange-200
+$color-accent-second-10: #FFF3E6;
+$color-accent-second-5: #FFF8F2; // --orange-50
+$color-accent-second-5-filter: invert(80%) sepia(0%) saturate(6600%) hue-rotate(323deg) brightness(123%) contrast(100%);
+
+$color-accent-third: #FF4242; // --red:
+$color-accent-fourth: #1CD175; // --green
+$color-accent-fifth: #FFF200; // --yellow
+
+
+$color-dark-primary: #1f1f1f; // --black
+$color-dark-primary-80: #4c4c4c; // --black-800
+$color-dark-primary-60: #787878; // --black-600
+$color-dark-primary-10: #e9e9e9; // --black-100
+
+$color-light-primary: #FFFFFF; 
+$color-light-primary-80: #F6F6F6; // --backgraund;
+$color-light-primary-60: #D1D4D4; // --dark-grey
+$color-light-primary-40: #BBBBBB; // --white-700
+
+// transition
+$tran: .15s ease;
+
+$colors: (
+    first: (base: $color-accent-first,
+        filter: $color-accent-first-filter,
+        100: $color-accent-first-100,
+        80: $color-accent-first-80,
+        50: $color-accent-first-50,
+        10: $color-accent-first-10,
+        5: $color-accent-first-5,
+        5-filter: $color-accent-first-5-filter),
+    second: (base: $color-accent-second,
+        filter: $color-accent-second-filter,
+        100: $color-accent-second-100,
+        80: $color-accent-second-80,
+        50: $color-accent-second-50,
+        10: $color-accent-second-10,
+        5: $color-accent-second-5,
+        5-filter: $color-accent-second-5-filter )
+);
+
+$margin: (
+    sm: (
+        sm: 10px,
+        md: 10px,
+        xl: 15px,
+        4xl: 20px
+    ),
+    md: (
+        sm: 20px,
+        md: 20px,
+        xl: 25px,
+        4xl: 35px
+    ),
+    lg: (
+        sm: 30px,
+        md: 30px,
+        xl: 40px,
+        4xl: 50px
+    ),
+    xl: (
+        sm: 40px,
+        md: 40px,
+        xl: 50px,
+        4xl: 60px
+    )
+);
+
+
+:root {
+    --main-font-family: #{$main-font-family};
+    --main-font-family-italic: #{$main-font-family-italic};
+
+    --color-background: #{$backgound};
+
+    --color-accent-first: #{$color-accent-first};
+    --color-accent-first-100: #{$color-accent-first-100};
+    --color-accent-first-50: #{$color-accent-first-50};
+    --color-accent-first-10: #{$color-accent-first-10};
+    --color-accent-first-5: #{$color-accent-first-5};
+
+    --color-accent-second: #{$color-accent-second};
+    --color-accent-second-filter: #{$color-accent-second-filter};
+    --color-accent-second-100: #{$color-accent-second-100};
+    --color-accent-second-50: #{$color-accent-second-50};
+    --color-accent-second-10: #{$color-accent-second-10};
+    --color-accent-second-5: #{$color-accent-second-5};
+    --color-accent-second-5-filter: #{$color-accent-second-5-filter};
+
+    --color-accent-third: #{$color-accent-third};
+    --color-accent-fourth: #{$color-accent-fourth};
+    --color-accent-fifth: #{$color-accent-fifth};
+
+    --color-dark-primary: #{$color-dark-primary};
+    --color-dark-primary-80: #{$color-dark-primary-80};
+    --color-dark-primary-60: #{$color-dark-primary-60};
+    --color-dark-primary-10: #{$color-dark-primary-10};
+
+    --color-light-primary: #{$color-light-primary};
+    --color-light-primary-80: #{$color-light-primary-80};
+    --color-light-primary-60: #{$color-light-primary-60};
+    --color-light-primary-40: #{$color-light-primary-40};
+}
