@@ -11,6 +11,19 @@
     "html": false
   },
   "attributes": {
+    "isHide": {
+      "type": "boolean",
+      "default": false
+    },
+    "margin": {
+      "type": "object",
+      "default": {
+        "top": "no",
+        "right": "no",
+        "bottom": "no",
+        "left": "no"
+      }
+    },
     "classes": {
       "type": "string",
       "default": ""
@@ -18,6 +31,39 @@
     "text": {
       "type": "string",
       "default": ""
+    },
+    "htmlTeg": {
+      "type": "string",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "span"
+      ],
+      "default": "h2"
+    },
+    "size": {
+      "type": "string",
+      "enum": [
+        "sm",
+        "md",
+        "lg",
+        "xl",
+        "2xl"
+      ],
+      "default": "xl"
+    },
+    "aligment": {
+      "type": "string",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "left"
     }
   },
   "textdomain": "heading",

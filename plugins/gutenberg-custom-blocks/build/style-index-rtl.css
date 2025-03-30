@@ -8,6 +8,11 @@
   text-align: center;
 }
 
+.block-editor-iframe__body {
+  font-size: 15px;
+  line-height: 140%;
+}
+
 .wp-block-post-content {
   font-family: "BasisGrotesquePro", sans-serif;
 }
@@ -68,4 +73,20 @@ html :where(.wp-block) {
 
 .block-editor-inserter__all-blocks > *:nth-last-child(-n+2) {
   display: none;
+}
+
+.canAddItem {
+  box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 744px) {
+  .block-editor-iframe__body {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .block-editor-iframe__body {
+    font-size: 18px;
+  }
 }

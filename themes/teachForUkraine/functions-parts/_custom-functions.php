@@ -111,3 +111,16 @@ function getMarginClasses($margin) {
 
   return trim("$top$right$bottom$left");
 }
+
+function getHeadingSizeClass($size)
+{
+    $sizesMap = [
+        'sm' => 'h5',
+        'md' => 'h4',
+        'lg' => 'h3',
+        'xl' => 'h2',
+        '2xl' => 'h1'
+    ];
+
+    return isset($sizesMap[$size]) ? $sizesMap[$size] : '';
+}

@@ -945,10 +945,6 @@ video {
 .bg-dark-primary {
   background-color: var(--color-dark-primary);
 }
-.bg-slate-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity, 1));
-}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
@@ -989,9 +985,6 @@ video {
 }
 .pr-\[16px\] {
   padding-right: 16px;
-}
-.pt-6 {
-  padding-top: 1.5rem;
 }
 .pt-\[112px\] {
   padding-top: 112px;
@@ -5595,22 +5588,6 @@ main {
   margin-left: 40px;
 }
 
-.mt-0 {
-  margin-top: 0;
-}
-
-.mr-0 {
-  margin-right: 0;
-}
-
-.mb-0 {
-  margin-bottom: 0;
-}
-
-.ml-0 {
-  margin-left: 0;
-}
-
 flag {
   display: inline;
   position: relative;
@@ -5638,6 +5615,26 @@ flag::before {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .btn-primary {

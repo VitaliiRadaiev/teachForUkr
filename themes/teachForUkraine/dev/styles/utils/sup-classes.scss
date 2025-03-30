@@ -198,19 +198,6 @@
     }
 }
 
-.mt-0 {
-    margin-top: 0;
-}
-.mr-0 {
-    margin-right: 0;
-}
-.mb-0 {
-    margin-bottom: 0;
-}
-.ml-0 {
-    margin-left: 0;
-}
-
 flag {
     display: inline;
     position: relative;
@@ -237,4 +224,22 @@ flag {
 
 .overflow-hidden {
     overflow: hidden;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
 }

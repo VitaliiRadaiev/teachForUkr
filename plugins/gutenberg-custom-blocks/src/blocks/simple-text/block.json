@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/simple-text",
+	"version": "0.1.0",
+	"title": "Текстовий контейнер",
+	"icon": "text",
+	"category": "blocks",
+	"description": "",
+    "example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"isHide": {
+			"type": "boolean",
+			"default": false
+		},
+		"margin": {
+			"type": "object",
+			"default": {
+				"top": "no",
+				"right": "no",
+				"bottom": "no",
+				"left": "no"
+			}
+		},
+		"classes": {
+			"type": "string",
+			"default": ""
+		},
+		"size": {
+			"type": "string",
+			"enum": ["default", "sm", "md", "lg"],
+			"default": "md"
+		},
+		"canAddItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"aligment": {
+			"type": "string",
+			"enum": ["left", "center", "right"],
+			"default": "left"
+		}
+	},
+	"textdomain": "simple-text",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

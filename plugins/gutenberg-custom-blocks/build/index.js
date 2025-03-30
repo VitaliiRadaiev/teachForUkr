@@ -27,7 +27,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const FORMAT_NAME = 'custom-format/color-highlight';
+const FORMAT_HIGHLIGHT = 'custom-format/color-highlight';
+const FORMAT_UPPERCASE = 'custom-format/uppercase';
+const FORMAT_LOWERCASE = 'custom-format/lowercase';
 const HighlightButton = ({
   isActive,
   value,
@@ -70,14 +72,13 @@ const HighlightButton = ({
           const selectedColor = colors.find(c => c.color === color);
           if (selectedColor) {
             onChange((0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.applyFormat)(value, {
-              type: FORMAT_NAME,
+              type: FORMAT_HIGHLIGHT,
               attributes: {
                 class: selectedColor.className
               }
             }));
           } else {
-            console.log(color);
-            onChange((0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.removeFormat)(value, FORMAT_NAME));
+            onChange((0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.removeFormat)(value, FORMAT_HIGHLIGHT));
           }
           setIsOpen(false);
         }
@@ -85,11 +86,63 @@ const HighlightButton = ({
     })]
   });
 };
-(0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.registerFormatType)(FORMAT_NAME, {
+const UppercaseButton = ({
+  isActive,
+  value,
+  onChange
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichTextToolbarButton, {
+    icon: "editor-textcolor",
+    title: "Uppercase",
+    isActive: isActive,
+    onClick: () => {
+      if (isActive) {
+        onChange((0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.removeFormat)(value, FORMAT_UPPERCASE));
+      } else {
+        onChange((0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.applyFormat)(value, {
+          type: FORMAT_UPPERCASE
+        }));
+      }
+    }
+  });
+};
+const LowercaseButton = ({
+  isActive,
+  value,
+  onChange
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichTextToolbarButton, {
+    icon: "editor-textcolor",
+    title: "Lowercase",
+    isActive: isActive,
+    onClick: () => {
+      if (isActive) {
+        onChange((0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.removeFormat)(value, FORMAT_LOWERCASE));
+      } else {
+        onChange((0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.applyFormat)(value, {
+          type: FORMAT_LOWERCASE
+        }));
+      }
+    }
+  });
+};
+(0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.registerFormatType)(FORMAT_HIGHLIGHT, {
   title: 'Виділення кольором',
   tagName: 'span',
   className: 'color-highlight',
   edit: HighlightButton
+});
+(0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.registerFormatType)(FORMAT_UPPERCASE, {
+  title: 'Uppercase',
+  tagName: 'span',
+  className: 'uppercase',
+  edit: UppercaseButton
+});
+(0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.registerFormatType)(FORMAT_LOWERCASE, {
+  title: 'Lowercase',
+  tagName: 'span',
+  className: 'lowercase',
+  edit: LowercaseButton
 });
 
 /***/ }),

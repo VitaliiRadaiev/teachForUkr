@@ -4,7 +4,6 @@ import {
 } from "@wordpress/block-editor";
 import clsx from 'clsx';
 import { Fragment } from "@wordpress/element";
-import { useSelect } from "@wordpress/data";
 import "./editor.scss";
 
 
