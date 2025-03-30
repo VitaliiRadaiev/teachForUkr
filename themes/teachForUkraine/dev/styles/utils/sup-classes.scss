@@ -198,6 +198,137 @@
     }
 }
 
+@each $size, $mq in $section-spases {
+    .section-mt-#{$size} {
+        margin-top: #{map.get($mq, sm)};
+
+        @media (min-width: $mq-md) {
+            margin-top: #{map.get($mq, md)};
+        }
+
+        @media (min-width: $mq-xl) {
+            margin-top: #{map.get($mq, xl)};
+        }
+
+        @media (min-width: $mq-4xl) {
+            margin-top: #{map.get($mq, 4xl)};
+        }
+    }
+
+    .section-mr-#{$size} {
+        margin-right: #{map.get($mq, sm)};
+
+        @media (min-width: $mq-md) {
+            margin-right: #{map.get($mq, md)};
+        }
+
+        @media (min-width: $mq-xl) {
+            margin-right: #{map.get($mq, xl)};
+        }
+
+        @media (min-width: $mq-4xl) {
+            margin-right: #{map.get($mq, 4xl)};
+        }
+    }
+
+    .section-mb-#{$size} {
+        margin-bottom: #{map.get($mq, sm)};
+
+        @media (min-width: $mq-md) {
+            margin-bottom: #{map.get($mq, md)};
+        }
+
+        @media (min-width: $mq-xl) {
+            margin-bottom: #{map.get($mq, xl)};
+        }
+
+        @media (min-width: $mq-4xl) {
+            margin-bottom: #{map.get($mq, 4xl)};
+        }
+    }
+
+    .section-ml-#{$size} {
+        margin-left: #{map.get($mq, sm)};
+
+        @media (min-width: $mq-md) {
+            margin-left: #{map.get($mq, md)};
+        }
+
+        @media (min-width: $mq-xl) {
+            margin-left: #{map.get($mq, xl)};
+        }
+
+        @media (min-width: $mq-4xl) {
+            margin-left: #{map.get($mq, 4xl)};
+        }
+    }
+
+
+    .section-pt-#{$size} {
+        padding-top: #{map.get($mq, sm)};
+
+        @media (min-width: $mq-md) {
+            padding-top: #{map.get($mq, md)};
+        }
+
+        @media (min-width: $mq-xl) {
+            padding-top: #{map.get($mq, xl)};
+        }
+
+        @media (min-width: $mq-4xl) {
+            padding-top: #{map.get($mq, 4xl)};
+        }
+    }
+
+    .section-pr-#{$size} {
+        padding-right: #{map.get($mq, sm)};
+
+        @media (min-width: $mq-md) {
+            padding-right: #{map.get($mq, md)};
+        }
+
+        @media (min-width: $mq-xl) {
+            padding-right: #{map.get($mq, xl)};
+        }
+
+        @media (min-width: $mq-4xl) {
+            padding-right: #{map.get($mq, 4xl)};
+        }
+    }
+
+    .section-pb-#{$size} {
+        padding-bottom: #{map.get($mq, sm)};
+
+        @media (min-width: $mq-md) {
+            padding-bottom: #{map.get($mq, md)};
+        }
+
+        @media (min-width: $mq-xl) {
+            padding-bottom: #{map.get($mq, xl)};
+        }
+
+        @media (min-width: $mq-4xl) {
+            padding-bottom: #{map.get($mq, 4xl)};
+        }
+    }
+
+    .section-pl-#{$size} {
+        padding-left: #{map.get($mq, sm)};
+
+        @media (min-width: $mq-md) {
+            padding-left: #{map.get($mq, md)};
+        }
+
+        @media (min-width: $mq-xl) {
+            padding-left: #{map.get($mq, xl)};
+        }
+
+        @media (min-width: $mq-4xl) {
+            padding-left: #{map.get($mq, 4xl)};
+        }
+    }
+}
+
 flag {
     display: inline;
     position: relative;
@@ -242,4 +373,27 @@ flag {
 }
 .text-right {
     text-align: right;
+}
+.grid {
+    display: grid;
+}
+
+.bg-light-primary .nested-bg-item {
+    background-color: $color-light-primary-80;
+}
+.bg-light-primary-80 .nested-bg-item {
+    background-color: $color-light-primary;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+.mr-0 {
+    margin-right: 0;
+}
+.mb-0 {
+    margin-bottom: 0;
+}
+.ml-0 {
+    margin-left: 0;
 }

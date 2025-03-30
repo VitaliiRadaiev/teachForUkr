@@ -218,7 +218,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
 /* harmony import */ var _hooks_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../hooks/hooks */ "./src/hooks/hooks.js");
 /* harmony import */ var _components_colorPallets_AccentColorPallet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/colorPallets/AccentColorPallet */ "./src/components/colorPallets/AccentColorPallet.js");
-/* harmony import */ var _components_size_control_MarginYControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/size-control/MarginYControl */ "./src/components/size-control/MarginYControl.js");
+/* harmony import */ var _components_space_control_MarginYControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/space-control/MarginYControl */ "./src/components/space-control/MarginYControl.js");
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
 /* harmony import */ var _components_is_hide_IsHide__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/is-hide/IsHide */ "./src/components/is-hide/IsHide.js");
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/button/editor.scss");
@@ -349,7 +349,7 @@ function Edit({
             accent: val
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_size_control_MarginYControl__WEBPACK_IMPORTED_MODULE_7__.MarginYControl, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_space_control_MarginYControl__WEBPACK_IMPORTED_MODULE_7__.MarginYControl, {
         size: margin,
         setSize: s => setAttributes({
           margin: s
@@ -486,40 +486,6 @@ const IsHide = ({
           children: "\u041F\u0440\u0438\u0445\u043E\u0432\u0430\u0442\u0438"
         })]
       })
-    })
-  });
-};
-
-/***/ }),
-
-/***/ "./src/components/size-control/MarginYControl.js":
-/*!*******************************************************!*\
-  !*** ./src/components/size-control/MarginYControl.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MarginYControl: () => (/* binding */ MarginYControl)
-/* harmony export */ });
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _SizeControl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SizeControl */ "./src/components/size-control/SizeControl.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-const MarginYControl = ({
-  size,
-  setSize
-}) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelBody, {
-    title: "\u0417\u043E\u0432\u043D\u0456\u0448\u043D\u0456 \u043E\u0442\u0441\u0442\u0443\u043F\u0438",
-    initialOpen: false,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_SizeControl__WEBPACK_IMPORTED_MODULE_1__.SizeControl, {
-      size: size,
-      setSize: setSize
     })
   });
 };
@@ -672,6 +638,42 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/components/space-control/MarginYControl.js":
+/*!********************************************************!*\
+  !*** ./src/components/space-control/MarginYControl.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MarginYControl: () => (/* binding */ MarginYControl)
+/* harmony export */ });
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _size_control_SizeControl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../size-control/SizeControl */ "./src/components/size-control/SizeControl.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const MarginYControl = ({
+  size,
+  setSize,
+  sizesMap = ['no', 'sm', 'md', 'lg', 'xl']
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelBody, {
+    title: "\u0417\u043E\u0432\u043D\u0456\u0448\u043D\u0456 \u043E\u0442\u0441\u0442\u0443\u043F\u0438",
+    initialOpen: false,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_size_control_SizeControl__WEBPACK_IMPORTED_MODULE_1__.SizeControl, {
+      size: size,
+      setSize: setSize,
+      sizesMap: sizesMap
+    })
+  });
+};
+
+/***/ }),
+
 /***/ "./src/hooks/hooks.js":
 /*!****************************!*\
   !*** ./src/hooks/hooks.js ***!
@@ -729,6 +731,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   getMarginClasses: () => (/* binding */ getMarginClasses),
 /* harmony export */   getOptionsField: () => (/* binding */ getOptionsField),
+/* harmony export */   getSectionsMarginClasses: () => (/* binding */ getSectionsMarginClasses),
+/* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
 /* harmony export */   removeDomain: () => (/* binding */ removeDomain)
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
@@ -741,10 +745,24 @@ const getOptionsField = fieldName => {
   });
 };
 const getMarginClasses = margin => {
-  const top = margin.top !== 'no' ? `mt-${margin.top}` : '';
-  const right = margin.right !== 'no' ? ` mr-${margin.right}` : '';
-  const bottom = margin.bottom !== 'no' ? ` mb-${margin.bottom}` : '';
-  const left = margin.left !== 'no' ? ` ml-${margin.left}` : '';
+  const top = margin.top ? margin.top !== 'no' ? `mt-${margin.top}` : 'mt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` mr-${margin.right}` : ' mr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` mb-${margin.bottom}` : ' mb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` ml-${margin.left}` : ' ml-0' : '';
+  return `${top}${right}${bottom}${left}`;
+};
+const getSectionsMarginClasses = margin => {
+  const top = margin.top ? margin.top !== 'no' ? `section-mt-${margin.top}` : 'mt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` section-mr-${margin.right}` : ' mr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` section-mb-${margin.bottom}` : ' mb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` section-ml-${margin.left}` : ' ml-0' : '';
+  return `${top}${right}${bottom}${left}`;
+};
+const getSectionsPaddingClasses = margin => {
+  const top = margin.top ? margin.top !== 'no' ? `section-pt-${margin.top}` : 'pt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` section-pr-${margin.right}` : ' pr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` section-pb-${margin.bottom}` : ' pb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` section-pl-${margin.left}` : ' pl-0' : '';
   return `${top}${right}${bottom}${left}`;
 };
 function removeDomain(url) {

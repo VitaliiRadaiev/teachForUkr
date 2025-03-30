@@ -100,20 +100,34 @@ function Edit({
           render: ({
             open
           }) => {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-              variant: "primary",
-              className: "media-select",
-              onClick: e => {
-                open(e);
-                setisOpenPopup(true);
-              },
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              className: "flex items-center gap-x-[10px]",
               onMouseEnter: () => {
                 setBtnhover(true);
               },
               onMouseLeave: () => {
                 setBtnhover(false);
               },
-              children: imageSelected ? "Замінити зображення" : "Обрати зображення"
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                variant: "primary",
+                className: "media-select",
+                onClick: e => {
+                  open(e);
+                  setisOpenPopup(true);
+                },
+                children: imageSelected ? "Замінити зображення" : "Обрати зображення"
+              }), imageId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                variant: "secondary",
+                onClick: () => {
+                  setAttributes({
+                    imageId: null,
+                    url: null
+                  });
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Dashicon, {
+                  icon: "no-alt"
+                })
+              })]
             });
           },
           value: imageId,
@@ -184,6 +198,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   getMarginClasses: () => (/* binding */ getMarginClasses),
 /* harmony export */   getOptionsField: () => (/* binding */ getOptionsField),
+/* harmony export */   getSectionsMarginClasses: () => (/* binding */ getSectionsMarginClasses),
+/* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
 /* harmony export */   removeDomain: () => (/* binding */ removeDomain)
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
@@ -196,10 +212,24 @@ const getOptionsField = fieldName => {
   });
 };
 const getMarginClasses = margin => {
-  const top = margin.top !== 'no' ? `mt-${margin.top}` : '';
-  const right = margin.right !== 'no' ? ` mr-${margin.right}` : '';
-  const bottom = margin.bottom !== 'no' ? ` mb-${margin.bottom}` : '';
-  const left = margin.left !== 'no' ? ` ml-${margin.left}` : '';
+  const top = margin.top ? margin.top !== 'no' ? `mt-${margin.top}` : 'mt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` mr-${margin.right}` : ' mr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` mb-${margin.bottom}` : ' mb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` ml-${margin.left}` : ' ml-0' : '';
+  return `${top}${right}${bottom}${left}`;
+};
+const getSectionsMarginClasses = margin => {
+  const top = margin.top ? margin.top !== 'no' ? `section-mt-${margin.top}` : 'mt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` section-mr-${margin.right}` : ' mr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` section-mb-${margin.bottom}` : ' mb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` section-ml-${margin.left}` : ' ml-0' : '';
+  return `${top}${right}${bottom}${left}`;
+};
+const getSectionsPaddingClasses = margin => {
+  const top = margin.top ? margin.top !== 'no' ? `section-pt-${margin.top}` : 'pt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` section-pr-${margin.right}` : ' pr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` section-pb-${margin.bottom}` : ' pb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` section-pl-${margin.left}` : ' pl-0' : '';
   return `${top}${right}${bottom}${left}`;
 };
 function removeDomain(url) {

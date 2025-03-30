@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/hero-main-sup-title",
+	"version": "0.1.0",
+	"title": "Suptitle",
+	"description": "",
+    "example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"text": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"parent": ["t4u/hero-main"],
+	"textdomain": "hero-main-sup-title",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

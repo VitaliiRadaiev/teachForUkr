@@ -1,23 +1,15 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "t4u/hero-main-titles-text",
+  "name": "t4u/hero-main-sup-title",
   "version": "0.1.0",
-  "title": "Title - text",
+  "title": "Suptitle",
   "description": "",
   "example": {},
   "supports": {
     "html": false
   },
   "attributes": {
-    "supTitle": {
-      "type": "string",
-      "default": ""
-    },
-    "title": {
-      "type": "string",
-      "default": ""
-    },
     "text": {
       "type": "string",
       "default": ""
@@ -26,7 +18,7 @@
   "parent": [
     "t4u/hero-main"
   ],
-  "textdomain": "hero-main-titles-text",
+  "textdomain": "hero-main-sup-title",
   "editorScript": "file:./index.js",
   "render": "file:./render.php"
 }

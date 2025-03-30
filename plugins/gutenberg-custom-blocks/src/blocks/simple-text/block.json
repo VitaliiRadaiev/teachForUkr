@@ -5,7 +5,6 @@
 	"version": "0.1.0",
 	"title": "Текстовий контейнер",
 	"icon": "text",
-	"category": "blocks",
 	"description": "",
     "example": {},
 	"supports": {
@@ -41,7 +40,7 @@
 		"aligment": {
 			"type": "string",
 			"enum": ["left", "center", "right"],
-			"default": "left"
+			"default": ""
 		}
 	},
 	"textdomain": "simple-text",

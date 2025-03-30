@@ -10,7 +10,7 @@ import clsx from "clsx";
 import { getOptionsField } from "../../utils/utils";
 import useFetchOnVisible from "../../hooks/hooks";
 import { AccentColorPallet } from "../../components/colorPallets/AccentColorPallet";
-import { MarginYControl } from "../../components/size-control/MarginYControl";
+import { MarginYControl } from "../../components/space-control/MarginYControl";
 import { v4 as uuidv4 } from 'uuid';
 import { getMarginClasses } from "../../utils/utils";
 import { IsHide } from "../../components/is-hide/IsHide";

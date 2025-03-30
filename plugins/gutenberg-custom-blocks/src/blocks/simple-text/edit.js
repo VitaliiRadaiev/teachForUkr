@@ -7,7 +7,7 @@ import {
 } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
 import { IsHide } from "../../components/is-hide/IsHide";
-import { MarginYControl } from "../../components/size-control/MarginYControl";
+import { MarginYControl } from "../../components/space-control/MarginYControl";
 import { getMarginClasses } from "../../utils/utils";
 import { ButtonsGroup } from "../../components/size-control/ButtonsGroup";
 import clsx from "clsx";
@@ -18,6 +18,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const { isHide, margin, classes, size, canAddItem, aligment } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
+			'simple-text-content',
 			classes,
 			getMarginClasses(margin),
 			`text-${size}`,

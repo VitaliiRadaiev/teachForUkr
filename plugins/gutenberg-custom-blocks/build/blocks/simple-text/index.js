@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/simple-text","version":"0.1.0","title":"Текстовий контейнер","icon":"text","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"no","right":"no","bottom":"no","left":"no"}},"classes":{"type":"string","default":""},"size":{"type":"string","enum":["default","sm","md","lg"],"default":"md"},"canAddItem":{"type":"boolean","default":true},"aligment":{"type":"string","enum":["left","center","right"],"default":"left"}},"textdomain":"simple-text","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/simple-text","version":"0.1.0","title":"Текстовий контейнер","icon":"text","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"no","right":"no","bottom":"no","left":"no"}},"classes":{"type":"string","default":""},"size":{"type":"string","enum":["default","sm","md","lg"],"default":"md"},"canAddItem":{"type":"boolean","default":true},"aligment":{"type":"string","enum":["left","center","right"],"default":""}},"textdomain":"simple-text","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -42,7 +42,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_is_hide_IsHide__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/is-hide/IsHide */ "./src/components/is-hide/IsHide.js");
-/* harmony import */ var _components_size_control_MarginYControl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/size-control/MarginYControl */ "./src/components/size-control/MarginYControl.js");
+/* harmony import */ var _components_space_control_MarginYControl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/space-control/MarginYControl */ "./src/components/space-control/MarginYControl.js");
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
 /* harmony import */ var _components_size_control_ButtonsGroup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/size-control/ButtonsGroup */ "./src/components/size-control/ButtonsGroup.js");
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
@@ -71,7 +71,7 @@ function Edit({
     aligment
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: (0,clsx__WEBPACK_IMPORTED_MODULE_6__["default"])(classes, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getMarginClasses)(margin), `text-${size}`, `text-${aligment}`, {
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_6__["default"])('simple-text-content', classes, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getMarginClasses)(margin), `text-${size}`, `text-${aligment}`, {
       ['hide-block']: isHide,
       'canAddItem': canAddItem
     })
@@ -108,7 +108,7 @@ function Edit({
           }),
           valuesMap: _global_global__WEBPACK_IMPORTED_MODULE_7__.TEXT_SIZES
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_size_control_MarginYControl__WEBPACK_IMPORTED_MODULE_3__.MarginYControl, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_space_control_MarginYControl__WEBPACK_IMPORTED_MODULE_3__.MarginYControl, {
         size: margin,
         setSize: s => setAttributes({
           margin: s
@@ -216,40 +216,6 @@ const ButtonsGroup = ({
       onClick: () => setValue(v),
       children: v
     }))
-  });
-};
-
-/***/ }),
-
-/***/ "./src/components/size-control/MarginYControl.js":
-/*!*******************************************************!*\
-  !*** ./src/components/size-control/MarginYControl.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MarginYControl: () => (/* binding */ MarginYControl)
-/* harmony export */ });
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _SizeControl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SizeControl */ "./src/components/size-control/SizeControl.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-const MarginYControl = ({
-  size,
-  setSize
-}) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelBody, {
-    title: "\u0417\u043E\u0432\u043D\u0456\u0448\u043D\u0456 \u043E\u0442\u0441\u0442\u0443\u043F\u0438",
-    initialOpen: false,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_SizeControl__WEBPACK_IMPORTED_MODULE_1__.SizeControl, {
-      size: size,
-      setSize: setSize
-    })
   });
 };
 
@@ -401,6 +367,42 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/components/space-control/MarginYControl.js":
+/*!********************************************************!*\
+  !*** ./src/components/space-control/MarginYControl.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MarginYControl: () => (/* binding */ MarginYControl)
+/* harmony export */ });
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _size_control_SizeControl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../size-control/SizeControl */ "./src/components/size-control/SizeControl.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const MarginYControl = ({
+  size,
+  setSize,
+  sizesMap = ['no', 'sm', 'md', 'lg', 'xl']
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelBody, {
+    title: "\u0417\u043E\u0432\u043D\u0456\u0448\u043D\u0456 \u043E\u0442\u0441\u0442\u0443\u043F\u0438",
+    initialOpen: false,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_size_control_SizeControl__WEBPACK_IMPORTED_MODULE_1__.SizeControl, {
+      size: size,
+      setSize: setSize,
+      sizesMap: sizesMap
+    })
+  });
+};
+
+/***/ }),
+
 /***/ "./src/global/global.js":
 /*!******************************!*\
   !*** ./src/global/global.js ***!
@@ -410,10 +412,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   RICH_TEXT_FORMATS: () => (/* binding */ RICH_TEXT_FORMATS),
+/* harmony export */   SECTIONS_MARGIN_MAP: () => (/* binding */ SECTIONS_MARGIN_MAP),
+/* harmony export */   SECTIONS_PADDING_MAP: () => (/* binding */ SECTIONS_PADDING_MAP),
 /* harmony export */   TEXT_SIZES: () => (/* binding */ TEXT_SIZES)
 /* harmony export */ });
 const RICH_TEXT_FORMATS = ['core/bold', 'core/italic', 'core/link', 'core/strikethrough', 'custom-format/color-highlight', 'custom-format/uppercase', 'custom-format/lowercase'];
 const TEXT_SIZES = ["default", "sm", "md", "lg"];
+const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg'];
+const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg'];
 
 /***/ }),
 
@@ -427,6 +433,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   getMarginClasses: () => (/* binding */ getMarginClasses),
 /* harmony export */   getOptionsField: () => (/* binding */ getOptionsField),
+/* harmony export */   getSectionsMarginClasses: () => (/* binding */ getSectionsMarginClasses),
+/* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
 /* harmony export */   removeDomain: () => (/* binding */ removeDomain)
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
@@ -439,10 +447,24 @@ const getOptionsField = fieldName => {
   });
 };
 const getMarginClasses = margin => {
-  const top = margin.top !== 'no' ? `mt-${margin.top}` : '';
-  const right = margin.right !== 'no' ? ` mr-${margin.right}` : '';
-  const bottom = margin.bottom !== 'no' ? ` mb-${margin.bottom}` : '';
-  const left = margin.left !== 'no' ? ` ml-${margin.left}` : '';
+  const top = margin.top ? margin.top !== 'no' ? `mt-${margin.top}` : 'mt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` mr-${margin.right}` : ' mr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` mb-${margin.bottom}` : ' mb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` ml-${margin.left}` : ' ml-0' : '';
+  return `${top}${right}${bottom}${left}`;
+};
+const getSectionsMarginClasses = margin => {
+  const top = margin.top ? margin.top !== 'no' ? `section-mt-${margin.top}` : 'mt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` section-mr-${margin.right}` : ' mr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` section-mb-${margin.bottom}` : ' mb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` section-ml-${margin.left}` : ' ml-0' : '';
+  return `${top}${right}${bottom}${left}`;
+};
+const getSectionsPaddingClasses = margin => {
+  const top = margin.top ? margin.top !== 'no' ? `section-pt-${margin.top}` : 'pt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` section-pr-${margin.right}` : ' pr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` section-pb-${margin.bottom}` : ' pb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` section-pl-${margin.left}` : ' pl-0' : '';
   return `${top}${right}${bottom}${left}`;
 };
 function removeDomain(url) {

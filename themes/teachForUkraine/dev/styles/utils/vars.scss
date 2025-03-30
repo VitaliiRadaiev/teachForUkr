@@ -107,6 +107,30 @@ $margin: (
     )
 );
 
+//py-[70px] md:py-[80px] xl:py-[100px]
+
+$section-spases: (
+    sm: (
+        sm: 40px,
+        md: 50px,
+        xl: 70px,
+        4xl: 70px
+    ),
+    md: (
+        sm: 70px,
+        md: 80px,
+        xl: 100px,
+        4xl: 100px
+    ),
+    lg: (
+        sm: 100px,
+        md: 120px,
+        xl: 150px,
+        4xl: 150px
+    )
+);
+
+
 
 :root {
     --main-font-family: #{$main-font-family};
@@ -124,6 +148,7 @@ $margin: (
     --color-accent-second-filter: #{$color-accent-second-filter};
     --color-accent-second-100: #{$color-accent-second-100};
     --color-accent-second-50: #{$color-accent-second-50};
+    --color-accent-second-20: #{$color-accent-second-20};
     --color-accent-second-10: #{$color-accent-second-10};
     --color-accent-second-5: #{$color-accent-second-5};
     --color-accent-second-5-filter: #{$color-accent-second-5-filter};

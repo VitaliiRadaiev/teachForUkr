@@ -4,6 +4,7 @@ import {
 	RichText
 } from "@wordpress/block-editor";
 import "./editor.scss";
+import clsx from "clsx";
 
 
 export default function Edit({ attributes, setAttributes }) {

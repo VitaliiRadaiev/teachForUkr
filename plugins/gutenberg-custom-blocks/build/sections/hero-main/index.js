@@ -128,7 +128,13 @@ function Edit({
     template: [["t4u/inner-block", {
       classes: 'md-max:mx-auto md-max:max-w-[375px] xl:shrink-0 xl:grow-0 xl:max-w-[660px] 4xl:max-w-[840px] xl:py-[57px] 4xl:py-[104px]',
       options: {
-        template: [['t4u/hero-main-titles-text', {}], ["t4u/inner-block", {
+        template: [['t4u/hero-main-sup-title', {}], ['t4u/heading', {
+          classes: "mt-[15px] md:mt-[20px]",
+          htmlTeg: "h1",
+          size: "2xl"
+        }], ['t4u/simple-text', {
+          classes: "mt-[20px] xl:mt-[25px] 4xl:mt-[35px] text-dark-primary max-w-[19.25rem] md:max-w-[25.375rem] 4xl:max-w-[29.6875rem]"
+        }], ["t4u/inner-block", {
           classes: 'mt-[30px] md:mt-[40px] xl:mt-[65px] 4xl:mt-[80px]',
           options: {
             template: [["t4u/button", {

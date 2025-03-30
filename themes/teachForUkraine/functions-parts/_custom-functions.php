@@ -65,21 +65,23 @@ function check($var)
   return $var && isset($var) && !empty($var);
 }
 
-function build_menu_hierarchy($items, $parent = 0) {
+function build_menu_hierarchy($items, $parent = 0)
+{
   $menu = array();
   foreach ($items as $item) {
-      if ($item->menu_item_parent == $parent) {
-          $children = build_menu_hierarchy($items, $item->ID);
-          if ($children) {
-              $item->children = $children;
-          }
-          $menu[] = $item;
+    if ($item->menu_item_parent == $parent) {
+      $children = build_menu_hierarchy($items, $item->ID);
+      if ($children) {
+        $item->children = $children;
       }
+      $menu[] = $item;
+    }
   }
   return $menu;
 }
 
-function get_social_icon_by_url($url) {
+function get_social_icon_by_url($url)
+{
   $icons = [
     'facebook' => get_template_directory_uri() . '/assets/images/icons/facebook.svg',
     'instagram' => get_template_directory_uri() . '/assets/images/icons/instagram.svg',
@@ -103,24 +105,45 @@ function get_social_icon_by_url($url) {
   return null;
 }
 
-function getMarginClasses($margin) {
-  $top = ($margin['top'] !== 'no') ? "mt-{$margin['top']}" : '';
-  $right = ($margin['right'] !== 'no') ? " mr-{$margin['right']}" : '';
-  $bottom = ($margin['bottom'] !== 'no') ? " mb-{$margin['bottom']}" : '';
-  $left = ($margin['left'] !== 'no') ? " ml-{$margin['left']}" : '';
+function get_margin_classes($margin)
+{
+  $top = !empty($margin['top']) ? ($margin['top'] !== 'no' ? "mt-{$margin['top']}" : 'mt-0') : '';
+  $right = !empty($margin['right']) ? ($margin['right'] !== 'no' ? " mr-{$margin['right']}" : ' mr-0') : '';
+  $bottom = !empty($margin['bottom']) ? ($margin['bottom'] !== 'no' ? " mb-{$margin['bottom']}" : ' mb-0') : '';
+  $left = !empty($margin['left']) ? ($margin['left'] !== 'no' ? " ml-{$margin['left']}" : ' ml-0') : '';
+
+  return trim("$top$right$bottom$left");
+}
+
+function get_sections_margin_classes($margin)
+{
+  $top = !empty($margin['top']) ? ($margin['top'] !== 'no' ? "section-mt-{$margin['top']}" : 'mt-0') : '';
+  $right = !empty($margin['right']) ? ($margin['right'] !== 'no' ? " section-mr-{$margin['right']}" : ' mr-0') : '';
+  $bottom = !empty($margin['bottom']) ? ($margin['bottom'] !== 'no' ? " section-mb-{$margin['bottom']}" : ' mb-0') : '';
+  $left = !empty($margin['left']) ? ($margin['left'] !== 'no' ? " section-ml-{$margin['left']}" : ' ml-0') : '';
+
+  return trim("$top$right$bottom$left");
+}
+
+function get_sections_padding_classes($padding)
+{
+  $top = !empty($padding['top']) ? ($padding['top'] !== 'no' ? "section-pt-{$padding['top']}" : 'pt-0') : '';
+  $right = !empty($padding['right']) ? ($padding['right'] !== 'no' ? " section-pr-{$padding['right']}" : ' pr-0') : '';
+  $bottom = !empty($padding['bottom']) ? ($padding['bottom'] !== 'no' ? " section-pb-{$padding['bottom']}" : ' pb-0') : '';
+  $left = !empty($padding['left']) ? ($padding['left'] !== 'no' ? " section-pl-{$padding['left']}" : ' pl-0') : '';
 
   return trim("$top$right$bottom$left");
 }
 
 function getHeadingSizeClass($size)
 {
-    $sizesMap = [
-        'sm' => 'h5',
-        'md' => 'h4',
-        'lg' => 'h3',
-        'xl' => 'h2',
-        '2xl' => 'h1'
-    ];
+  $sizesMap = [
+    'sm' => 'h5',
+    'md' => 'h4',
+    'lg' => 'h3',
+    'xl' => 'h2',
+    '2xl' => 'h1'
+  ];
 
-    return isset($sizesMap[$size]) ? $sizesMap[$size] : '';
+  return isset($sizesMap[$size]) ? $sizesMap[$size] : '';
 }

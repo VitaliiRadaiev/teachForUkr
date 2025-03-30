@@ -10,7 +10,7 @@
         <span class="text-accent-first">ДЛЯ</span>
         <span class="text-accent-first">УКРАЇНИ</span>
       </h1>
-      <div class="mt-[20px] xl:mt-[25px] 4xl:mt-[35px] last-no-margin text-lg text-dark-primary max-w-[308px] md:max-w-[406px] 4xl:max-w-[475px]">
+      <div class="mt-[20px] xl:mt-[25px] 4xl:mt-[35px] last-no-margin text-lg text-dark-primary max-w-[19.25rem] md:max-w-[25.375rem] 4xl:max-w-[29.6875rem]">
         <p>
           Ми працюємо над тим, аби <strong>кожна дитина в Україні могла реалізувати власний потенціал,</strong> незалежно від місця народження чи проживання
         </p>

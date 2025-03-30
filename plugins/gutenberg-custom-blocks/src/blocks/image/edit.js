@@ -50,25 +50,42 @@ export default function Edit({ attributes, setAttributes }) {
 							allowedTypes={["image"]}
 							render={({ open }) => {
 								return (
-									<Button 
-									variant="primary" 
-									className="media-select" 
-									onClick={(e) => {
-										open(e);
-										setisOpenPopup(true);
-									}}
-									onMouseEnter={() => {
-										setBtnhover(true)
-									}}
-									onMouseLeave={() => {
-										setBtnhover(false)
-									}}
+									<div
+										className="flex items-center gap-x-[10px]"
+										onMouseEnter={() => {
+											setBtnhover(true)
+										}}
+										onMouseLeave={() => {
+											setBtnhover(false)
+										}}
 									>
-										{imageSelected
-											? "Замінити зображення"
-											: "Обрати зображення"
+										<Button
+											variant="primary"
+											className="media-select"
+											onClick={(e) => {
+												open(e);
+												setisOpenPopup(true);
+											}}
+										>
+											{imageSelected
+												? "Замінити зображення"
+												: "Обрати зображення"
+											}
+										</Button>
+										{imageId &&
+											<Button
+												variant="secondary"
+												onClick={() => {
+													setAttributes({
+														imageId: null,
+														url: null
+													})
+												}}
+											>
+												<Dashicon icon="no-alt" />
+											</Button>
 										}
-									</Button>
+									</div>
 								);
 							}}
 							value={imageId}

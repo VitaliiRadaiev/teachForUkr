@@ -17,8 +17,8 @@
   font-family: "BasisGrotesquePro", sans-serif;
 }
 
-.wp-block-post-content section {
-  margin: 0;
+section {
+  margin: initial;
   max-width: none;
 }
 
@@ -66,7 +66,7 @@ html :where(.wp-block) {
   max-width: initial;
 }
 
-.editor-styles-wrapper :where(:not(.is-layout-flex, .is-layout-grid)) > .wp-block {
+.editor-styles-wrapper :where(:not(.is-layout-flex, .is-layout-grid)) > .wp-block:not(.mx-auto) {
   margin-left: initial;
   margin-right: initial;
 }

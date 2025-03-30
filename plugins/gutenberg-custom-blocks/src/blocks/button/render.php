@@ -1,10 +1,10 @@
 <?php
-if (!($attributes['isHide'] ?? null)):
+if (!($attributes['isHide'])):
 
     $text = '';
     $url = '#';
     $target = '_self';
-    $classes = $attributes['variant'] . ' ' . $attributes['accent'] . ' ' . getMarginClasses($attributes['margin']) . ' ' . $attributes['classes'];
+    $classes = $attributes['variant'] . ' ' . $attributes['accent'] . ' ' . get_margin_classes($attributes['margin']) . ' ' . $attributes['classes'];
 
     if ($attributes['acfField'] ?? null) {
         $option_link = get_field($attributes['acfField'], 'options');

@@ -7,7 +7,7 @@ import {
 } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
 import { RICH_TEXT_FORMATS, TEXT_SIZES } from "../../global/global";
-import { MarginYControl } from "../../components/size-control/MarginYControl";
+import { MarginYControl } from "../../components/space-control/MarginYControl";
 import { getMarginClasses } from "../../utils/utils";
 import { ButtonsGroup } from "../../components/size-control/ButtonsGroup";
 import clsx from "clsx";
@@ -29,7 +29,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 	const blockProps = useBlockProps({
 		className: clsx(
-			'simple-text-content',
 			classes,
 			getMarginClasses(margin),
 			(size !== 'default' && `text-${size}`),

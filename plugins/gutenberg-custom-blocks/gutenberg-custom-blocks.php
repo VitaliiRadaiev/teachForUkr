@@ -36,6 +36,10 @@ function create_block_gutenberg_custom_blocks_block_init()
 			'title' => 'Вcтупні баннери'
 		]);
 		array_unshift($categories, [
+			'slug' => 'numbers',
+			'title' => 'Цифри'
+		]);
+		array_unshift($categories, [
 			'slug' => 'blocks',
 			'title' => 'Блоки'
 		]);

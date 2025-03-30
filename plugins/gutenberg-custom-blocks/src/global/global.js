@@ -9,3 +9,6 @@ export const RICH_TEXT_FORMATS = [
 ];
 
 export const TEXT_SIZES = ["default", "sm", "md", "lg"];
+
+export const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg'];
+export const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg'];

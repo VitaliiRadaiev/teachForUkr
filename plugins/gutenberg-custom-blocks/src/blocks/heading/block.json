@@ -45,7 +45,7 @@
 		"aligment": {
 			"type": "string",
 			"enum": ["left", "center", "right"],
-			"default": "left"
+			"default": ""
 		}
 	},
 	"textdomain": "heading",

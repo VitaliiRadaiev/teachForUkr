@@ -62,6 +62,7 @@ module.exports = {
 
         'accent-second': 'var(--color-accent-second)',
         'accent-second-50': 'var(--color-accent-second-50)',
+        'accent-second-20': 'var(--color-accent-second-20)',
         'accent-second-10': 'var(--color-accent-second-10)',
         'accent-second-5': 'var(--color-accent-second-5)',
 
@@ -87,6 +88,7 @@ module.exports = {
 
         'accent-second': 'var(--color-accent-second)',
         'accent-second-50': 'var(--color-accent-second-50)',
+        'accent-second-20': 'var(--color-accent-second-20)',
         'accent-second-10': 'var(--color-accent-second-10)',
 
         'accent-third': 'var(--color-accent-third)',

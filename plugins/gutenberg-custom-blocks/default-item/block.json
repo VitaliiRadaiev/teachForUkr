@@ -1,20 +1,37 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "t4u/heading......",
+	"name": "t4u/my-block",
 	"version": "0.1.0",
-	"title": "......",
-	"category": ".....",
-	"icon": "smail",
+	"title": "Заголовок",
+	"icon": "smiley",
+	"category": "blocks",
 	"description": "",
-    "example": {},
+	"example": {},
 	"supports": {
-		"html": false
+	  "html": false
 	},
-	"attributes": {},
-	"parent": [],
-	"textdomain": "heading......",
+	"attributes": {
+	  "isHide": {
+		"type": "boolean",
+		"default": false
+	  },
+	  "margin": {
+		"type": "object",
+		"default": {
+		  "top": "no",
+		  "right": "no",
+		  "bottom": "no",
+		  "left": "no"
+		}
+	  },
+	  "classes": {
+		"type": "string",
+		"default": ""
+	  }
+	},
+	"textdomain": "my-block",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"render": "file:./render.php"
-}
+  }
