@@ -115,6 +115,13 @@ function get_margin_classes($margin)
   return trim("$top$right$bottom$left");
 }
 
+function get_gap_classes($gap) {
+  $x = !empty($gap['x']) ? "gap-x-{$gap['x']}" : '';
+  $y = !empty($gap['y']) ? "gap-y-{$gap['y']}" : '';
+
+  return combine_classes($x,$y);
+}
+
 function get_sections_margin_classes($margin)
 {
   $top = !empty($margin['top']) ? ($margin['top'] !== 'no' ? "section-mt-{$margin['top']}" : 'mt-0') : '';
@@ -172,4 +179,19 @@ function combine_string(array $options, string $value): string {
   }
   
   return $prefix . $value . $postfix;
+}
+
+function get_flex_justify_alignment_classes($key) {
+  if (!check($key)) {
+      return '';
+  }
+
+  $classes_map = [
+      'left' => 'justify-start',
+      'right' => 'justify-end',
+      'center' => 'justify-center',
+      'space-between' => 'justify-between'
+  ];
+
+  return isset($classes_map[$key]) ? $classes_map[$key] : '';
 }

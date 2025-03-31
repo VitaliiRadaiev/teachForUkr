@@ -197,6 +197,8 @@ function Save() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   combineString: () => (/* binding */ combineString),
+/* harmony export */   getFlexAligmentClasses: () => (/* binding */ getFlexAligmentClasses),
+/* harmony export */   getGapClasses: () => (/* binding */ getGapClasses),
 /* harmony export */   getMarginClasses: () => (/* binding */ getMarginClasses),
 /* harmony export */   getOptionsField: () => (/* binding */ getOptionsField),
 /* harmony export */   getSectionsMarginClasses: () => (/* binding */ getSectionsMarginClasses),
@@ -206,6 +208,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
+
 
 const getOptionsField = fieldName => {
   if (!fieldName) return null;
@@ -219,6 +223,11 @@ const getMarginClasses = margin => {
   const bottom = margin.bottom ? margin.bottom !== 'no' ? ` mb-${margin.bottom}` : ' mb-0' : '';
   const left = margin.left ? margin.left !== 'no' ? ` ml-${margin.left}` : ' ml-0' : '';
   return `${top}${right}${bottom}${left}`;
+};
+const getGapClasses = gap => {
+  const x = gap.x ? `gap-x-${gap.x}` : '';
+  const y = gap.y ? `gap-y-${gap.y}` : '';
+  return (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])(x, y);
 };
 const getSectionsMarginClasses = margin => {
   const top = margin.top ? margin.top !== 'no' ? `section-mt-${margin.top}` : 'mt-0' : '';
@@ -252,6 +261,16 @@ const combineString = ({
 }, value) => {
   if (!value) return '';
   return `${prefix}${value}${postfix}`;
+};
+const getFlexAligmentClasses = key => {
+  if (!key) return '';
+  const classesMap = {
+    left: 'justify-start',
+    right: 'justify-end',
+    center: 'justify-center',
+    ['space-between']: 'justify-between'
+  };
+  return classesMap[key] || '';
 };
 
 /***/ }),

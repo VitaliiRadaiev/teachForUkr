@@ -1,4 +1,5 @@
 import apiFetch from "@wordpress/api-fetch";
+import clsx from "clsx";
 
 export const getOptionsField = (fieldName) => {
     if(!fieldName) return null;
@@ -12,6 +13,13 @@ export const getMarginClasses = (margin) => {
     const left = margin.left ? (margin.left !== 'no' ? ` ml-${margin.left}` : ' ml-0') : '';
 
     return `${top}${right}${bottom}${left}`;
+}
+
+export const getGapClasses = (gap) => {
+    const x = gap.x ? `gap-x-${gap.x}` : '';
+    const y = gap.y ? `gap-y-${gap.y}` : '';
+
+    return clsx(x, y);
 }
 
 export const getSectionsMarginClasses = (margin) => {
@@ -49,4 +57,17 @@ export const getUrlToStaticImages = (endUrl) => {
 export const combineString = ({ prefix = '', postfix = '' }, value ) => {
     if(!value) return '';
     return `${prefix}${value}${postfix}`;
+}
+
+export const getFlexAligmentClasses = (key) => {
+    if(!key) return '';
+
+    const classesMap = {
+        left: 'justify-start',
+        right: 'justify-end',
+        center: 'justify-center',
+        ['space-between']: 'justify-between'
+    }
+
+    return classesMap[key] || '';
 }

@@ -107,7 +107,32 @@ $margin: (
     )
 );
 
-//py-[70px] md:py-[80px] xl:py-[100px]
+$gap: (
+    sm: (
+        sm: 10px,
+        md: 20px,
+        xl: 20px,
+        4xl: 20px
+    ),
+    md: (
+        sm: 20px,
+        md: 30px,
+        xl: 30px,
+        4xl: 30px
+    ),
+    lg: (
+        sm: 30px,
+        md: 40px,
+        xl: 40px,
+        4xl: 40px
+    ),
+    xl: (
+        sm: 50px,
+        md: 60px,
+        xl: 60px,
+        4xl: 60px
+    )
+);
 
 $section-spases: (
     sm: (

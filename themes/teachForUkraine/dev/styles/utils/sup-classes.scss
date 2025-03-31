@@ -329,6 +329,39 @@
     }
 }
 
+@each $size, $mq in $gap {
+    .gap-x-#{$size} {
+        column-gap: #{map.get($mq, sm)};
+
+        @media (min-width: $mq-md) {
+            column-gap: #{map.get($mq, md)};
+        }
+
+        @media (min-width: $mq-xl) {
+            column-gap: #{map.get($mq, xl)};
+        }
+
+        @media (min-width: $mq-4xl) {
+            column-gap: #{map.get($mq, 4xl)};
+        }
+    }
+    .gap-y-#{$size} {
+        row-gap: #{map.get($mq, sm)};
+
+        @media (min-width: $mq-md) {
+            row-gap: #{map.get($mq, md)};
+        }
+
+        @media (min-width: $mq-xl) {
+            row-gap: #{map.get($mq, xl)};
+        }
+
+        @media (min-width: $mq-4xl) {
+            row-gap: #{map.get($mq, 4xl)};
+        }
+    }
+}
+
 flag {
     display: inline;
     position: relative;
@@ -368,12 +401,15 @@ flag {
 .text-center {
     text-align: center;
 }
+
 .text-left {
     text-align: left;
 }
+
 .text-right {
     text-align: right;
 }
+
 .grid {
     display: grid;
 }
@@ -381,6 +417,7 @@ flag {
 .bg-light-primary .nested-bg-item {
     background-color: $color-light-primary-80;
 }
+
 .bg-light-primary-80 .nested-bg-item {
     background-color: $color-light-primary;
 }
@@ -388,12 +425,31 @@ flag {
 .mt-0 {
     margin-top: 0;
 }
+
 .mr-0 {
     margin-right: 0;
 }
+
 .mb-0 {
     margin-bottom: 0;
 }
+
 .ml-0 {
     margin-left: 0;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
 }

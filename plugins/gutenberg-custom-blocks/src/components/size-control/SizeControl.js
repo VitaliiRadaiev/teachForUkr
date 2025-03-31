@@ -2,6 +2,7 @@ import { React, useState } from "@wordpress/element";
 import "./SizeControl.scss";
 import clsx from "clsx";
 import { ButtonsGroup } from "../buttons-group/ButtonsGroup";
+import { DirectionIcon } from "../direction-icon/DirectionIcon";
 
 
 export const SizeControl = ({ size, setSize, sizesMap = ['no', 'sm', 'md', 'lg', 'xl'], direction = 'top bottom' }) => {
@@ -55,13 +56,3 @@ export const SizeControl = ({ size, setSize, sizesMap = ['no', 'sm', 'md', 'lg',
     );
 }
 
-function DirectionIcon({ direction }) {
-    return (
-        <div className="direction-icon">
-            <span className={clsx('direction-icon-item', { ['active']: direction.includes('top') })}></span>
-            <span className={clsx('direction-icon-item', { ['active']: direction.includes('right') })}></span>
-            <span className={clsx('direction-icon-item', { ['active']: direction.includes('bottom') })}></span>
-            <span className={clsx('direction-icon-item', { ['active']: direction.includes('left') })}></span>
-        </div>
-    );
-}

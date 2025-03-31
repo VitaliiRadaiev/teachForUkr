@@ -33,7 +33,7 @@ export default function Edit({ attributes, setAttributes }) {
 							classes: "mt-[20px] xl:mt-[25px] 4xl:mt-[35px] text-dark-primary max-w-[19.25rem] md:max-w-[25.375rem] 4xl:max-w-[29.6875rem]",
 							fontSize: "md"
 						}],
-						["t4u/inner-block", {
+						["t4u/buttons-group", {
 							classes: 'mt-[30px] md:mt-[40px] xl:mt-[65px] 4xl:mt-[80px]',
 							options: {
 								template: [
@@ -42,7 +42,7 @@ export default function Edit({ attributes, setAttributes }) {
 										classes: 'md-max:w-full md-max:max-w-[375px]'
 									}],
 								],
-								allowedBlocks: []
+								allowedBlocks: ['t4u/button']
 							}
 						}]
 					],
