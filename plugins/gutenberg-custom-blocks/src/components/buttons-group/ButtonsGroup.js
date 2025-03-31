@@ -1,13 +1,14 @@
 import { React } from "@wordpress/element";
 import clsx from "clsx";
+import "./ButtonsGroup.scss";
 
 export const ButtonsGroup = ({ value, setValue, valuesMap = ['no', 'sm', 'md', 'lg', 'xl'] }) => {
     return (
-        <div className="size-controll-container__buttons-group">
+        <div className="buttons-group">
             {valuesMap.map(v => (
                 <button
-                    className={clsx('size-controll-btn', { ['active']: v === value })}
-                    onClick={() => setValue(v)}
+                    className={clsx('buttons-group-btn', { ['active']: v === value })}
+                    onClick={() => setValue(v === value ? '' : v)}
                 >{v}</button>
             ))}
         </div>

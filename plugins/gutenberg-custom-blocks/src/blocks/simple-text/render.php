@@ -1,6 +1,12 @@
 <?php
 if (!($attributes['isHide'])):
-    $classes = get_margin_classes($attributes['margin']) . ' ' . 'text-' . $attributes['size'] . ' ' . $attributes['classes'] . (check($attributes['aligment']) ? ' text-' . $attributes['aligment'] : '');
+    $classes = combine_classes(
+        get_margin_classes($attributes['margin']),
+        combine_string(['prefix' => 'text-'], $attributes['fontSize']),
+        combine_string(['prefix' => 'text-'], $attributes['aligment']),
+        $attributes['classes'],
+        ($attributes['className'] ?? '')
+    );
 ?>
     <div class="<?= $classes ?>">
         <?= $content; ?>

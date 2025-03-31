@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "title": "Заголовок",
   "icon": "heading",
+  "category": "blocks",
   "description": "",
   "example": {},
   "supports": {
@@ -45,7 +46,7 @@
       ],
       "default": "h2"
     },
-    "size": {
+    "fontSize": {
       "type": "string",
       "enum": [
         "sm",

@@ -5,6 +5,7 @@
 	"version": "0.1.0",
 	"title": "Простий параграф",
 	"icon": "editor-paragraph",
+	"category": "blocks",
 	"description": "",
     "example": {},
 	"supports": {
@@ -15,9 +16,9 @@
 			"type": "object",
 			"default": {
 				"top": "sm",
-				"right": "no",
-				"bottom": "no",
-				"left": "no"
+				"right": "",
+				"bottom": "",
+				"left": ""
 			}
 		},
 		"classes": {
@@ -28,10 +29,10 @@
 			"type": "string",
 			"default": ""
 		},
-		"size": {
+		"fontSize": {
 			"type": "string",
-			"enum": ["default", "sm", "md", "lg"],
-			"default": "default"
+			"enum": ["no", "sm", "md", "lg"],
+			"default": "md"
 		},
 		"aligment": {
 			"type": "string",

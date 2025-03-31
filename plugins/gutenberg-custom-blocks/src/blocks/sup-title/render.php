@@ -1,7 +1,11 @@
 <?php
 
 if (!($attributes['isHide'])):
-   $classes = get_margin_classes($attributes['margin']) . ' ' . $attributes['classes'];
+   $classes = combine_classes(
+      get_margin_classes($attributes['margin']),
+      $attributes['classes'],
+      ($attributes['className'] ?? '')
+   );
 ?>
 
    <?php if (check($attributes['text'])): ?>

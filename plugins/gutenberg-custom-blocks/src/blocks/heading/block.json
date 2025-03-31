@@ -5,6 +5,7 @@
 	"version": "0.1.0",
 	"title": "Заголовок",
 	"icon": "heading",
+	"category": "blocks",
 	"description": "",
     "example": {},
 	"supports": {
@@ -37,7 +38,7 @@
 			"enum": ["h1", "h2", "h3", "h4", "h5", "h6", "span"],
 			"default": "h2"
 		},
-		"size": {
+		"fontSize": {
 			"type": "string",
 			"enum": ["sm", "md", "lg", "xl", "2xl"],
 			"default": "xl"

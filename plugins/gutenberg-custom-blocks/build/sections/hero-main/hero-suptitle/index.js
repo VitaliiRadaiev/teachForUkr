@@ -16,9 +16,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   TEXT_SIZES: () => (/* binding */ TEXT_SIZES)
 /* harmony export */ });
 const RICH_TEXT_FORMATS = ['core/bold', 'core/italic', 'core/link', 'core/strikethrough', 'custom-format/color-highlight', 'custom-format/uppercase', 'custom-format/lowercase'];
-const TEXT_SIZES = ["default", "sm", "md", "lg"];
-const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg'];
-const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg'];
+const TEXT_SIZES = ["no", "sm", "md", "lg"];
+const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
+const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 
 /***/ }),
 
@@ -45,8 +45,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _global_global__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../global/global */ "./src/global/global.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -58,15 +60,15 @@ function Edit({
     text
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     ...blockProps,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "text-md uppercase text-dark-primary font-bold flex items-center gap-x-[10px] md:gap-x-[13px]",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
         className: "h-[20px] md:h-[24px] 4xl:h-[28px] 4 w-[20px] md:w-[24px] 4xl:w-[28px] shrink-0 grow-0",
-        src: `${document.location.origin}/wp-content/themes/teachForUkraine/assets/images/icons/main-hero-suptitle-icon.svg`,
+        src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_2__.getUrlToStaticImages)('icons/main-hero-suptitle-icon.svg'),
         alt: "icon"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
         placeholder: "\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A",
         value: text,
         allowedFormats: _global_global__WEBPACK_IMPORTED_MODULE_1__.RICH_TEXT_FORMATS,
@@ -96,6 +98,84 @@ __webpack_require__.r(__webpack_exports__);
 function Save() {
   return null;
 }
+
+/***/ }),
+
+/***/ "./src/utils/utils.js":
+/*!****************************!*\
+  !*** ./src/utils/utils.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   combineString: () => (/* binding */ combineString),
+/* harmony export */   getMarginClasses: () => (/* binding */ getMarginClasses),
+/* harmony export */   getOptionsField: () => (/* binding */ getOptionsField),
+/* harmony export */   getSectionsMarginClasses: () => (/* binding */ getSectionsMarginClasses),
+/* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
+/* harmony export */   getUrlToStaticImages: () => (/* binding */ getUrlToStaticImages),
+/* harmony export */   removeDomain: () => (/* binding */ removeDomain)
+/* harmony export */ });
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__);
+
+const getOptionsField = fieldName => {
+  if (!fieldName) return null;
+  return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
+    path: `/site-core/v1/options/?field=${fieldName}`
+  });
+};
+const getMarginClasses = margin => {
+  const top = margin.top ? margin.top !== 'no' ? `mt-${margin.top}` : 'mt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` mr-${margin.right}` : ' mr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` mb-${margin.bottom}` : ' mb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` ml-${margin.left}` : ' ml-0' : '';
+  return `${top}${right}${bottom}${left}`;
+};
+const getSectionsMarginClasses = margin => {
+  const top = margin.top ? margin.top !== 'no' ? `section-mt-${margin.top}` : 'mt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` section-mr-${margin.right}` : ' mr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` section-mb-${margin.bottom}` : ' mb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` section-ml-${margin.left}` : ' ml-0' : '';
+  return `${top}${right}${bottom}${left}`;
+};
+const getSectionsPaddingClasses = margin => {
+  const top = margin.top ? margin.top !== 'no' ? `section-pt-${margin.top}` : 'pt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` section-pr-${margin.right}` : ' pr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` section-pb-${margin.bottom}` : ' pb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` section-pl-${margin.left}` : ' pl-0' : '';
+  return `${top}${right}${bottom}${left}`;
+};
+function removeDomain(url) {
+  try {
+    const parsedUrl = new URL(url);
+    return parsedUrl.pathname;
+  } catch (e) {
+    console.error("Invalid URL:", e);
+    return null;
+  }
+}
+const getUrlToStaticImages = endUrl => {
+  return `${document.location.origin}/wp-content/themes/teachForUkraine/assets/images/${endUrl}`;
+};
+const combineString = ({
+  prefix = '',
+  postfix = ''
+}, value) => {
+  if (!value) return '';
+  return `${prefix}${value}${postfix}`;
+};
+
+/***/ }),
+
+/***/ "@wordpress/api-fetch":
+/*!**********************************!*\
+  !*** external ["wp","apiFetch"] ***!
+  \**********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["apiFetch"];
 
 /***/ }),
 

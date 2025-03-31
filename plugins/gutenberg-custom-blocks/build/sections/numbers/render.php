@@ -1,6 +1,6 @@
 <?php
 if (!($attributes['isHide'])):
-   $classes = get_sections_margin_classes($attributes['margin']) . ' ' . get_sections_padding_classes($attributes['padding']) . ' ' . $attributes['background'];
+   $classes = combine_classes(get_default_section_classes($attributes));
 ?>
    <section class="numbers-section rounded-[20px] md:rounded-[30px] <?= $classes ?>">
       <div class="container">

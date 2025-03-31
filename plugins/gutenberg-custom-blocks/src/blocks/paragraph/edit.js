@@ -8,15 +8,15 @@ import {
 import { PanelBody } from "@wordpress/components";
 import { RICH_TEXT_FORMATS, TEXT_SIZES } from "../../global/global";
 import { MarginYControl } from "../../components/space-control/MarginYControl";
-import { getMarginClasses } from "../../utils/utils";
-import { ButtonsGroup } from "../../components/size-control/ButtonsGroup";
+import { combineString, getMarginClasses } from "../../utils/utils";
+import { ButtonsGroup } from "../../components/buttons-group/ButtonsGroup";
 import clsx from "clsx";
 
 import { useDispatch, useSelect } from '@wordpress/data';
 
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-	const { margin, classes, text, size, aligment } = attributes;
+	const { margin, classes, text, fontSize, aligment } = attributes;
 	const { insertBlock, removeBlock, selectPreviousBlock } = useDispatch('core/block-editor');
 	const { parentClientId, index } = useSelect((select) => {
 		const { getBlockRootClientId, getBlockIndex } = select('core/block-editor');
@@ -31,8 +31,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		className: clsx(
 			classes,
 			getMarginClasses(margin),
-			(size !== 'default' && `text-${size}`),
-			(aligment && `text-${aligment}`)
+			combineString({prefix: 'text-'}, fontSize),
+			combineString({prefix: 'text-'}, aligment),
 		)
 	});
 
@@ -62,8 +62,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			<InspectorControls>
 				<PanelBody title="Розмір тексту" initialOpen={false}>
 					<ButtonsGroup
-						value={size}
-						setValue={(val) => setAttributes({ size: val })}
+						value={fontSize}
+						setValue={(val) => setAttributes({ fontSize: val })}
 						valuesMap={TEXT_SIZES}
 					/>
 				</PanelBody>

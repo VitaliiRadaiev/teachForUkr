@@ -40,6 +40,10 @@ function create_block_gutenberg_custom_blocks_block_init()
 			'title' => 'Цифри'
 		]);
 		array_unshift($categories, [
+			'slug' => 'image-text-button-row',
+			'title' => 'Картинка + текст горизонтально'
+		]);
+		array_unshift($categories, [
 			'slug' => 'blocks',
 			'title' => 'Блоки'
 		]);

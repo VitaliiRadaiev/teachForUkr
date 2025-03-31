@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "title": "Зображення",
   "icon": "format-image",
+  "category": "blocks",
   "description": "",
   "example": {},
   "supports": {

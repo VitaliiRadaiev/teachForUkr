@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/image","version":"0.1.0","title":"Зображення","icon":"format-image","description":"","example":{},"supports":{"html":false},"attributes":{"imageId":{"type":"number"},"url":{"type":"string"},"classes":{"type":"string","default":""}},"textdomain":"image","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/image","version":"0.1.0","title":"Зображення","icon":"format-image","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"imageId":{"type":"number"},"url":{"type":"string"},"classes":{"type":"string","default":""}},"textdomain":"image","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -196,10 +196,12 @@ function Save() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   combineString: () => (/* binding */ combineString),
 /* harmony export */   getMarginClasses: () => (/* binding */ getMarginClasses),
 /* harmony export */   getOptionsField: () => (/* binding */ getOptionsField),
 /* harmony export */   getSectionsMarginClasses: () => (/* binding */ getSectionsMarginClasses),
 /* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
+/* harmony export */   getUrlToStaticImages: () => (/* binding */ getUrlToStaticImages),
 /* harmony export */   removeDomain: () => (/* binding */ removeDomain)
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
@@ -241,6 +243,16 @@ function removeDomain(url) {
     return null;
   }
 }
+const getUrlToStaticImages = endUrl => {
+  return `${document.location.origin}/wp-content/themes/teachForUkraine/assets/images/${endUrl}`;
+};
+const combineString = ({
+  prefix = '',
+  postfix = ''
+}, value) => {
+  if (!value) return '';
+  return `${prefix}${value}${postfix}`;
+};
 
 /***/ }),
 

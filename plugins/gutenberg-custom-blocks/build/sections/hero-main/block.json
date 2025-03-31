@@ -11,7 +11,38 @@
   "supports": {
     "html": false
   },
-  "attributes": {},
+  "attributes": {
+    "background": {
+      "type": "string",
+      "enum": [
+        "bg-light-primary",
+        "bg-light-primary-80"
+      ],
+      "default": "bg-light-primary-80"
+    },
+    "isHide": {
+      "type": "boolean",
+      "default": false
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": "md",
+        "right": "",
+        "bottom": "md",
+        "left": ""
+      }
+    },
+    "margin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    }
+  },
   "textdomain": "hero-main",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",

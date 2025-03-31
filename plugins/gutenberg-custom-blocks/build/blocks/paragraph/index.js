@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/paragraph","version":"0.1.0","title":"Простий параграф","icon":"editor-paragraph","description":"","example":{},"supports":{"html":false},"attributes":{"margin":{"type":"object","default":{"top":"sm","right":"no","bottom":"no","left":"no"}},"classes":{"type":"string","default":""},"text":{"type":"string","default":""},"size":{"type":"string","enum":["default","sm","md","lg"],"default":"default"},"aligment":{"type":"string","enum":["left","center","right"],"default":""}},"textdomain":"paragraph","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/paragraph","version":"0.1.0","title":"Простий параграф","icon":"editor-paragraph","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"margin":{"type":"object","default":{"top":"sm","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"text":{"type":"string","default":""},"fontSize":{"type":"string","enum":["no","sm","md","lg"],"default":"md"},"aligment":{"type":"string","enum":["left","center","right"],"default":""}},"textdomain":"paragraph","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -44,7 +44,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _global_global__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../global/global */ "./src/global/global.js");
 /* harmony import */ var _components_space_control_MarginYControl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/space-control/MarginYControl */ "./src/components/space-control/MarginYControl.js");
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
-/* harmony import */ var _components_size_control_ButtonsGroup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/size-control/ButtonsGroup */ "./src/components/size-control/ButtonsGroup.js");
+/* harmony import */ var _components_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/buttons-group/ButtonsGroup */ "./src/components/buttons-group/ButtonsGroup.js");
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_7__);
@@ -68,7 +68,7 @@ function Edit({
     margin,
     classes,
     text,
-    size,
+    fontSize,
     aligment
   } = attributes;
   const {
@@ -90,7 +90,11 @@ function Edit({
     };
   }, []);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: (0,clsx__WEBPACK_IMPORTED_MODULE_6__["default"])(classes, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getMarginClasses)(margin), size !== 'default' && `text-${size}`, aligment && `text-${aligment}`)
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_6__["default"])(classes, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getMarginClasses)(margin), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.combineString)({
+      prefix: 'text-'
+    }, fontSize), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.combineString)({
+      prefix: 'text-'
+    }, aligment))
   });
   const handleKeyDown = e => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -117,10 +121,10 @@ function Edit({
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: "\u0420\u043E\u0437\u043C\u0456\u0440 \u0442\u0435\u043A\u0441\u0442\u0443",
         initialOpen: false,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_size_control_ButtonsGroup__WEBPACK_IMPORTED_MODULE_5__.ButtonsGroup, {
-          value: size,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_5__.ButtonsGroup, {
+          value: fontSize,
           setValue: val => setAttributes({
-            size: val
+            fontSize: val
           }),
           valuesMap: _global_global__WEBPACK_IMPORTED_MODULE_2__.TEXT_SIZES
         })
@@ -165,10 +169,10 @@ function Save() {
 
 /***/ }),
 
-/***/ "./src/components/size-control/ButtonsGroup.js":
-/*!*****************************************************!*\
-  !*** ./src/components/size-control/ButtonsGroup.js ***!
-  \*****************************************************/
+/***/ "./src/components/buttons-group/ButtonsGroup.js":
+/*!******************************************************!*\
+  !*** ./src/components/buttons-group/ButtonsGroup.js ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -178,8 +182,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _ButtonsGroup_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ButtonsGroup.scss */ "./src/components/buttons-group/ButtonsGroup.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -188,17 +194,29 @@ const ButtonsGroup = ({
   setValue,
   valuesMap = ['no', 'sm', 'md', 'lg', 'xl']
 }) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "size-controll-container__buttons-group",
-    children: valuesMap.map(v => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-      className: (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('size-controll-btn', {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "buttons-group",
+    children: valuesMap.map(v => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      className: (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('buttons-group-btn', {
         ['active']: v === value
       }),
-      onClick: () => setValue(v),
+      onClick: () => setValue(v === value ? '' : v),
       children: v
     }))
   });
 };
+
+/***/ }),
+
+/***/ "./src/components/buttons-group/ButtonsGroup.scss":
+/*!********************************************************!*\
+  !*** ./src/components/buttons-group/ButtonsGroup.scss ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -216,8 +234,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _SizeControl_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SizeControl.scss */ "./src/components/size-control/SizeControl.scss");
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../buttons-group/ButtonsGroup */ "./src/components/buttons-group/ButtonsGroup.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -228,83 +248,63 @@ const SizeControl = ({
   sizesMap = ['no', 'sm', 'md', 'lg', 'xl'],
   direction = 'top bottom'
 }) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "size-controll-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('size-controll-container__row', {
         ['hidden']: !direction.includes('top')
       }),
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(DirectionIcon, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(DirectionIcon, {
         direction: "top"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "size-controll-container__buttons-group",
-        children: sizesMap.map(s => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('size-controll-btn', {
-            ['active']: s === size.top
-          }),
-          onClick: () => setSize({
-            ...size,
-            top: s
-          }),
-          children: s
-        }))
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_3__.ButtonsGroup, {
+        value: size.top,
+        setValue: val => setSize({
+          ...size,
+          top: val
+        }),
+        valuesMap: sizesMap
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('size-controll-container__row', {
         ['hidden']: !direction.includes('bottom')
       }),
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(DirectionIcon, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(DirectionIcon, {
         direction: "bottom"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "size-controll-container__buttons-group",
-        children: sizesMap.map(s => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('size-controll-btn', {
-            ['active']: s === size.bottom
-          }),
-          onClick: () => setSize({
-            ...size,
-            bottom: s
-          }),
-          children: s
-        }))
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_3__.ButtonsGroup, {
+        value: size.bottom,
+        setValue: val => setSize({
+          ...size,
+          bottom: val
+        }),
+        valuesMap: sizesMap
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('size-controll-container__row', {
         ['hidden']: !direction.includes('right')
       }),
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(DirectionIcon, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(DirectionIcon, {
         direction: "right"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "size-controll-container__buttons-group",
-        children: sizesMap.map(s => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('size-controll-btn', {
-            ['active']: s === size.right
-          }),
-          onClick: () => setSize({
-            ...size,
-            right: s
-          }),
-          children: s
-        }))
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_3__.ButtonsGroup, {
+        value: size.right,
+        setValue: val => setSize({
+          ...size,
+          right: val
+        }),
+        valuesMap: sizesMap
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('size-controll-container__row', {
         ['hidden']: !direction.includes('left')
       }),
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(DirectionIcon, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(DirectionIcon, {
         direction: "left"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "size-controll-container__buttons-group",
-        children: sizesMap.map(s => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('size-controll-btn', {
-            ['active']: s === size.left
-          }),
-          onClick: () => setSize({
-            ...size,
-            left: s
-          }),
-          children: s
-        }))
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_3__.ButtonsGroup, {
+        value: size.left,
+        setValue: val => setSize({
+          ...size,
+          left: val
+        }),
+        valuesMap: sizesMap
       })]
     })]
   });
@@ -312,21 +312,21 @@ const SizeControl = ({
 function DirectionIcon({
   direction
 }) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "direction-icon",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
       className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('direction-icon-item', {
         ['active']: direction.includes('top')
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
       className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('direction-icon-item', {
         ['active']: direction.includes('right')
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
       className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('direction-icon-item', {
         ['active']: direction.includes('bottom')
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
       className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('direction-icon-item', {
         ['active']: direction.includes('left')
       })
@@ -398,9 +398,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   TEXT_SIZES: () => (/* binding */ TEXT_SIZES)
 /* harmony export */ });
 const RICH_TEXT_FORMATS = ['core/bold', 'core/italic', 'core/link', 'core/strikethrough', 'custom-format/color-highlight', 'custom-format/uppercase', 'custom-format/lowercase'];
-const TEXT_SIZES = ["default", "sm", "md", "lg"];
-const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg'];
-const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg'];
+const TEXT_SIZES = ["no", "sm", "md", "lg"];
+const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
+const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 
 /***/ }),
 
@@ -412,10 +412,12 @@ const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg'];
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   combineString: () => (/* binding */ combineString),
 /* harmony export */   getMarginClasses: () => (/* binding */ getMarginClasses),
 /* harmony export */   getOptionsField: () => (/* binding */ getOptionsField),
 /* harmony export */   getSectionsMarginClasses: () => (/* binding */ getSectionsMarginClasses),
 /* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
+/* harmony export */   getUrlToStaticImages: () => (/* binding */ getUrlToStaticImages),
 /* harmony export */   removeDomain: () => (/* binding */ removeDomain)
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
@@ -457,6 +459,16 @@ function removeDomain(url) {
     return null;
   }
 }
+const getUrlToStaticImages = endUrl => {
+  return `${document.location.origin}/wp-content/themes/teachForUkraine/assets/images/${endUrl}`;
+};
+const combineString = ({
+  prefix = '',
+  postfix = ''
+}, value) => {
+  if (!value) return '';
+  return `${prefix}${value}${postfix}`;
+};
 
 /***/ }),
 

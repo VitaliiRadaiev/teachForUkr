@@ -1,0 +1,27 @@
+.buttons-group {
+    display: flex;
+    border: 1px solid rgba(0,0,0,0.2);
+    flex: 1 1 auto;
+}
+
+.buttons-group-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 8px;
+    flex: 1 1 auto;
+    cursor: pointer;
+    transition: all .3s ease;
+    text-transform: uppercase;
+    font-size: 13px;
+
+    &:hover {
+        background-color: rgba(0,0,0,0.2);
+    }
+
+    &.active {
+        background-color: black;
+        color: #fff;
+    }
+}

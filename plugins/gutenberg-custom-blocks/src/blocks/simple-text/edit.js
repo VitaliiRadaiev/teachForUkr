@@ -8,21 +8,21 @@ import {
 import { PanelBody } from "@wordpress/components";
 import { IsHide } from "../../components/is-hide/IsHide";
 import { MarginYControl } from "../../components/space-control/MarginYControl";
-import { getMarginClasses } from "../../utils/utils";
-import { ButtonsGroup } from "../../components/size-control/ButtonsGroup";
+import { combineString, getMarginClasses } from "../../utils/utils";
+import { ButtonsGroup } from "../../components/buttons-group/ButtonsGroup";
 import clsx from "clsx";
 import { TEXT_SIZES } from "../../global/global";
 
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, margin, classes, size, canAddItem, aligment } = attributes;
+	const { isHide, margin, classes, fontSize, canAddItem, aligment } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
 			'simple-text-content',
 			classes,
 			getMarginClasses(margin),
-			`text-${size}`,
-			`text-${aligment}`,
+			combineString({prefix: 'text-'}, fontSize),
+			combineString({prefix: 'text-'}, aligment),
 			{
 				['hide-block']: isHide,
 				'canAddItem': canAddItem
@@ -48,8 +48,8 @@ export default function Edit({ attributes, setAttributes }) {
 				<IsHide isHide={isHide} setIsHide={(val) => setAttributes({ isHide: val })} />
 				<PanelBody title="Розмір тексту" initialOpen={false}>
 					<ButtonsGroup
-						value={size}
-						setValue={(val) => setAttributes({ size: val })}
+						value={fontSize}
+						setValue={(val) => setAttributes({ fontSize: val })}
 						valuesMap={TEXT_SIZES}
 					/>
 				</PanelBody>

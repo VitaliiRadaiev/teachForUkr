@@ -12,7 +12,7 @@
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start && wp-scripts build-blocks-manifest"
+		"start": "node addDefaultAttributes.js && wp-scripts start && wp-scripts build-blocks-manifest"
 	},
 	"devDependencies": {
 		"@wordpress/icons": "^10.20.0",

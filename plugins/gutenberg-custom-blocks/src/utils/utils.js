@@ -41,3 +41,12 @@ export function removeDomain(url) {
         return null;
     }
 }
+
+export const getUrlToStaticImages = (endUrl) => {
+    return `${document.location.origin}/wp-content/themes/teachForUkraine/assets/images/${endUrl}`;
+}
+
+export const combineString = ({ prefix = '', postfix = '' }, value ) => {
+    if(!value) return '';
+    return `${prefix}${value}${postfix}`;
+}

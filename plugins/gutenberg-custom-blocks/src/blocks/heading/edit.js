@@ -9,11 +9,11 @@ import { PanelBody } from "@wordpress/components";
 import { RICH_TEXT_FORMATS } from "../../global/global";
 import { IsHide } from "../../components/is-hide/IsHide";
 import { MarginYControl } from "../../components/space-control/MarginYControl";
-import { getMarginClasses } from "../../utils/utils";
-import { ButtonsGroup } from "../../components/size-control/ButtonsGroup";
+import { getMarginClasses, combineString } from "../../utils/utils";
+import { ButtonsGroup } from "../../components/buttons-group/ButtonsGroup";
 import clsx from "clsx";
 
-const getHtmlTeg = (size) => {
+const getHeadingSizeClass = (size) => {
 	const sizesMap = {
 		sm: 'h5',
 		md: 'h4',
@@ -22,18 +22,18 @@ const getHtmlTeg = (size) => {
 		'2xl': 'h1'
 	}
 
-	return sizesMap[size];
+	return sizesMap[size] || 'h2';
 }
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, margin, classes, text, htmlTeg, size, aligment } = attributes;
+	const { isHide, margin, classes, text, htmlTeg, fontSize, aligment } = attributes;
 
 	const blockProps = useBlockProps({
 		className: clsx(
 			classes,
 			getMarginClasses(margin),
-			getHtmlTeg(size),
-			`text-${aligment}`,
+			getHeadingSizeClass(fontSize),
+			combineString({ prefix: 'text-' }, aligment),
 			{
 				['hide-block']: isHide
 			}
@@ -54,8 +54,8 @@ export default function Edit({ attributes, setAttributes }) {
 				<IsHide isHide={isHide} setIsHide={(val) => setAttributes({ isHide: val })} />
 				<PanelBody title="Розмір заголовка" initialOpen={false}>
 					<ButtonsGroup
-						value={size}
-						setValue={(val) => setAttributes({ size: val })}
+						value={fontSize}
+						setValue={(val) => setAttributes({ fontSize: val })}
 						valuesMap={["sm", "md", "lg", "xl", "2xl"]}
 					/>
 				</PanelBody>

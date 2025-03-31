@@ -1,13 +1,20 @@
 import {
 	useBlockProps,
-	useInnerBlocksProps
+	useInnerBlocksProps,
+	InspectorControls
 } from "@wordpress/block-editor";
 import "./editor.scss";
+import { IsHide } from "../../components/is-hide/IsHide";
+import clsx from "clsx";
 
 export default function Edit({ attributes, setAttributes }) {
+	const { isHide } = attributes;
 
 	const blockProps = useBlockProps({
-		className: "alignfull main-hero pt-[112px] md:pt-[127px] xl:pt-[102px] overflow-hidden",
+		className: clsx(
+			"alignfull main-hero pt-[112px] md:pt-[127px] xl:pt-[102px] overflow-hidden",
+			{ ['hide-block']: isHide }
+		)
 	});
 
 	const { children } = useInnerBlocksProps({}, {
@@ -20,10 +27,11 @@ export default function Edit({ attributes, setAttributes }) {
 						['t4u/heading', {
 							classes: "mt-[15px] md:mt-[20px]",
 							htmlTeg: "h1",
-							size: "2xl"
+							fontSize: "2xl"
 						}],
 						['t4u/simple-text', {
-							classes: "mt-[20px] xl:mt-[25px] 4xl:mt-[35px] text-dark-primary max-w-[19.25rem] md:max-w-[25.375rem] 4xl:max-w-[29.6875rem]"
+							classes: "mt-[20px] xl:mt-[25px] 4xl:mt-[35px] text-dark-primary max-w-[19.25rem] md:max-w-[25.375rem] 4xl:max-w-[29.6875rem]",
+							fontSize: "md"
 						}],
 						["t4u/inner-block", {
 							classes: 'mt-[30px] md:mt-[40px] xl:mt-[65px] 4xl:mt-[80px]',
@@ -34,7 +42,7 @@ export default function Edit({ attributes, setAttributes }) {
 										classes: 'md-max:w-full md-max:max-w-[375px]'
 									}],
 								],
-								allowedBlocks: ["t4u/button"]
+								allowedBlocks: []
 							}
 						}]
 					],
@@ -67,10 +75,15 @@ export default function Edit({ attributes, setAttributes }) {
 	})
 
 	return (
-		<section {...blockProps}>
-			<div className="container xl:flex xl:gap-x-[30px] xl:justify-between">
-				{children}
-			</div>
-		</section>
+		<>
+			<InspectorControls>
+				<IsHide isHide={isHide} setIsHide={(val) => setAttributes({ isHide: val })} />
+			</InspectorControls>
+			<section {...blockProps}>
+				<div className="container xl:flex xl:gap-x-[30px] xl:justify-between">
+					{children}
+				</div>
+			</section>
+		</>
 	);
 }

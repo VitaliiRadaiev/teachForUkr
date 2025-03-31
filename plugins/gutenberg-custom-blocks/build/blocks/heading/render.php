@@ -1,6 +1,12 @@
 <?php
 if (!($attributes['isHide'])):
-    $classes = get_margin_classes($attributes['margin']) . ' ' . getHeadingSizeClass($attributes['size']) . ' ' . $attributes['classes'] . ' text-' . $attributes['aligment'];
+    $classes = combine_classes(
+        get_margin_classes($attributes['margin']),
+        get_heading_size_class($attributes['fontSize']),
+        $attributes['classes'],
+        ($attributes['className'] ?? ''),
+        combine_string(['prefix' => 'text-'], $attributes['aligment'])
+    );
 ?>
     <?php if (check($attributes['text'])): ?>
         <<?= $attributes['htmlTeg'] ?> class="<?= $classes ?>">

@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "title": "Контейнер блоків",
   "icon": "tagcloud",
+  "category": "blocks",
   "description": "",
   "example": {},
   "supports": {

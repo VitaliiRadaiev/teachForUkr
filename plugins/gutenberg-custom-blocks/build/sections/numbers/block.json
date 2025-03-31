@@ -40,7 +40,7 @@
         "bg-light-primary",
         "bg-light-primary-80"
       ],
-      "default": "bg-light-primary"
+      "default": "bg-light-primary-80"
     }
   },
   "textdomain": "numbers",

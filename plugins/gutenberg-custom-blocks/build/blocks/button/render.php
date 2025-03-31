@@ -4,7 +4,13 @@ if (!($attributes['isHide'])):
     $text = '';
     $url = '#';
     $target = '_self';
-    $classes = $attributes['variant'] . ' ' . $attributes['accent'] . ' ' . get_margin_classes($attributes['margin']) . ' ' . $attributes['classes'];
+    $classes = combine_classes(
+        $attributes['variant'],
+        $attributes['accent'],
+        get_margin_classes($attributes['margin']),
+        $attributes['classes'],
+        ($attributes['className'] ?? '')
+    );
 
     if ($attributes['acfField'] ?? null) {
         $option_link = get_field($attributes['acfField'], 'options');

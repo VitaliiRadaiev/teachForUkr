@@ -135,7 +135,7 @@ function get_sections_padding_classes($padding)
   return trim("$top$right$bottom$left");
 }
 
-function getHeadingSizeClass($size)
+function get_heading_size_class($size)
 {
   $sizesMap = [
     'sm' => 'h5',
@@ -146,4 +146,30 @@ function getHeadingSizeClass($size)
   ];
 
   return isset($sizesMap[$size]) ? $sizesMap[$size] : '';
+}
+
+function combine_classes(...$classes)
+{
+  return implode(' ', array_filter($classes, fn($class) => !empty($class)));
+}
+
+function get_default_section_classes($attributes)
+{
+  return combine_classes(
+    get_sections_margin_classes($attributes['margin']),
+    get_sections_padding_classes($attributes['padding']),
+    $attributes['background'],
+    ($attributes['className'] ?? '')
+  );
+}
+
+function combine_string(array $options, string $value): string {
+  $prefix = $options['prefix'] ?? '';
+  $postfix = $options['postfix'] ?? '';
+  
+  if (!$value) {
+      return '';
+  }
+  
+  return $prefix . $value . $postfix;
 }

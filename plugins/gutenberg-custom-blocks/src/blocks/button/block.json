@@ -5,6 +5,7 @@
 	"version": "0.1.0",
 	"title": "Кнопка",
 	"icon": "button",
+	"category": "blocks",
 	"description": "",
     "example": {},
 	"supports": {
@@ -45,10 +46,10 @@
 		"margin": {
 			"type": "object",
 			"default": {
-				"top": "no",
-				"right": "no",
-				"bottom": "no",
-				"left": "no"
+				"top": "",
+				"right": "",
+				"bottom": "",
+				"left": ""
 			}
 		}
 	},
