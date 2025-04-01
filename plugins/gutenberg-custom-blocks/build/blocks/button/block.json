@@ -25,6 +25,14 @@
     "acfField": {
       "type": "string"
     },
+    "acfFieldType": {
+      "type": "string",
+      "enum": [
+        "link",
+        "text"
+      ],
+      "default": "link"
+    },
     "variant": {
       "type": "string",
       "enum": [

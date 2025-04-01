@@ -49,6 +49,7 @@ $color-accent-fifth: #FFF200; // --yellow
 
 
 $color-dark-primary: #1f1f1f; // --black
+$color-dark-primary-filter: invert(0%) sepia(7%) saturate(1043%) hue-rotate(316deg) brightness(95%) contrast(76%);
 $color-dark-primary-80: #4c4c4c; // --black-800
 $color-dark-primary-60: #787878; // --black-600
 $color-dark-primary-10: #e9e9e9; // --black-100
@@ -60,6 +61,7 @@ $color-light-primary-40: #BBBBBB; // --white-700
 
 // transition
 $tran: .15s ease;
+$tf-bouncing: cubic-bezier(.47,1.64,.41,.8);
 
 $colors: (
     first: (base: $color-accent-first,

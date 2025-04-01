@@ -13,13 +13,17 @@ if (!($attributes['isHide'])):
     );
 
     if ($attributes['acfField'] ?? null) {
-        $option_link = get_field($attributes['acfField'], 'options');
+        $option_field = get_field($attributes['acfField'], 'options');
     }
 
-    if ($option_link ?? null) {
-        $text = $option_link['title'];
-        $url = $option_link['url'];
-        $target = check($option_link['target']) ? $option_link['target'] : '_self';
+    if ($option_field ?? null) {
+        if($attributes['acfFieldType'] === 'link') {
+            $text = $option_field['title'];
+            $url = $option_field['url'];
+            $target = check($option_field['target']) ? $option_field['target'] : '_self';
+        } else {
+            $text = $option_field;
+        }
     }
 
     if (check($attributes['text'])) {

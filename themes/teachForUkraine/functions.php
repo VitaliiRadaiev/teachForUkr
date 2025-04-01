@@ -237,35 +237,4 @@ function get_nav_menu_items_by_location($location, $args = [])
     return $relese;
 }
 
-
-function register_acf_options_endpoint() {
-    register_rest_route('site-core/v1', '/options/', array(
-        'methods'  => 'GET',
-        'callback' => 'get_acf_option_field',
-        'permission_callback' => '__return_true',
-        'args'     => array(
-            'field' => array(
-                'required' => true,
-                'validate_callback' => function ($param) {
-                    return is_string($param);
-                }
-            )
-        )
-    ));
-}
-
-function get_acf_option_field($request) {
-    $field_name = $request->get_param('field');
-    $field_value = get_field($field_name, 'option');
-
-    if ($field_value === null) {
-        return new WP_Error('no_field', 'Поле не найдено', array('status' => 404));
-    }
-
-    return rest_ensure_response([
-        'field' => $field_name,
-        'value' => $field_value
-    ]);
-}
-
 add_action('rest_api_init', 'register_acf_options_endpoint');

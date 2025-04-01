@@ -5,17 +5,23 @@
 	"version": "0.1.0",
 	"title": "Suptitle",
 	"description": "",
-    "example": {},
+	"example": {},
 	"supports": {
 		"html": false
 	},
 	"attributes": {
+		"isHide": {
+			"type": "boolean",
+			"default": false
+		},
 		"text": {
 			"type": "string",
 			"default": ""
 		}
 	},
-	"parent": ["t4u/hero-main"],
+	"parent": [
+		"t4u/hero-main"
+	],
 	"textdomain": "hero-main-sup-title",
 	"editorScript": "file:./index.js",
 	"render": "file:./render.php"

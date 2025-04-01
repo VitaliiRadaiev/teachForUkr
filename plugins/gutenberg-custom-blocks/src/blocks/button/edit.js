@@ -26,6 +26,7 @@ export default function Edit({ attributes, setAttributes }) {
 		accent,
 		classes,
 		acfField,
+		acfFieldType,
 		variant,
 		isHide,
 		margin,
@@ -34,6 +35,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const fetchData = () => getOptionsField(acfField);
 	const { ref, data } = useFetchOnVisible(fetchData, [acfField], (!text && !isTyping));
 	const uniqueId = blockId ? blockId : uuidv4();
+	const globalText = acfFieldType === 'link' ? (data?.value?.title || '') : (data?.value || '');
 
 	const blockProps = useBlockProps({
 		className: clsx(getMarginClasses(margin), {
@@ -47,6 +49,9 @@ export default function Edit({ attributes, setAttributes }) {
 		}
 	}, []);
 
+	console.log(postType);
+	
+
 	return (
 		<>
 			<InspectorControls>
@@ -58,7 +63,12 @@ export default function Edit({ attributes, setAttributes }) {
 					<LinkControl
 						key={blockId || uniqueId}
 						searchInputPlaceholder="Пошук..."
-						value={postType}
+						value={postType || (data && { 
+							id: data.value.url,
+							title: data.value.url,
+							type: 'link',
+							url: data.value.url
+						})}
 						settings={[
 							{
 								id: 'opensInNewTab',
@@ -66,8 +76,6 @@ export default function Edit({ attributes, setAttributes }) {
 							}
 						]}
 						onChange={(newPost) => {
-							console.log(newPost);
-
 							setAttributes({ postType: newPost })
 						}}
 						withCreateSuggestion={true}
@@ -111,7 +119,7 @@ export default function Edit({ attributes, setAttributes }) {
 					className={clsx(accent, variant, classes, className)}
 					placeholder="Кнопка"
 					tagName="span"
-					value={(text || data?.value?.title || '')}
+					value={(text || globalText)}
 					allowedFormats={[]}
 					multiline={false}
 					onSplit={() => { }}

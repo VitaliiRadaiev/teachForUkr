@@ -194,7 +194,7 @@ function validate(uuid) {
   \**************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/button","version":"0.1.0","title":"Кнопка","icon":"button","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"blockId":{"type":"number"},"postType":{"type":"object"},"text":{"type":"string","default":""},"acfField":{"type":"string"},"variant":{"type":"string","enum":["btn-primary","btn-secondary","btn-with-enter-arrow","btn-with-with-arrow"],"default":"btn-with-enter-arrow"},"accent":{"type":"string","enum":["accent-first","accent-second"],"default":"accent-first"},"classes":{"type":"string","default":""},"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}}},"textdomain":"button","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/button","version":"0.1.0","title":"Кнопка","icon":"button","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"blockId":{"type":"number"},"postType":{"type":"object"},"text":{"type":"string","default":""},"acfField":{"type":"string"},"acfFieldType":{"type":"string","enum":["link","text"],"default":"link"},"variant":{"type":"string","enum":["btn-primary","btn-secondary","btn-with-enter-arrow","btn-with-with-arrow"],"default":"btn-with-enter-arrow"},"accent":{"type":"string","enum":["accent-first","accent-second"],"default":"accent-first"},"classes":{"type":"string","default":""},"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}}},"textdomain":"button","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -249,6 +249,7 @@ function Edit({
     accent,
     classes,
     acfField,
+    acfFieldType,
     variant,
     isHide,
     margin
@@ -260,6 +261,7 @@ function Edit({
     data
   } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_5__["default"])(fetchData, [acfField], !text && !isTyping);
   const uniqueId = blockId ? blockId : (0,uuid__WEBPACK_IMPORTED_MODULE_11__["default"])();
+  const globalText = acfFieldType === 'link' ? data?.value?.title || '' : data?.value || '';
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
     className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getMarginClasses)(margin), {
       ['hide-block']: isHide
@@ -272,6 +274,7 @@ function Edit({
       });
     }
   }, []);
+  console.log(postType);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_is_hide_IsHide__WEBPACK_IMPORTED_MODULE_8__.IsHide, {
@@ -284,13 +287,17 @@ function Edit({
         isHide: false,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.__experimentalLinkControl, {
           searchInputPlaceholder: "\u041F\u043E\u0448\u0443\u043A...",
-          value: postType,
+          value: postType || data && {
+            id: data.value.url,
+            title: data.value.url,
+            type: 'link',
+            url: data.value.url
+          },
           settings: [{
             id: 'opensInNewTab',
             title: 'Відкрити в новій вкладці?'
           }],
           onChange: newPost => {
-            console.log(newPost);
             setAttributes({
               postType: newPost
             });
@@ -362,7 +369,7 @@ function Edit({
         className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(accent, variant, classes, className),
         placeholder: "\u041A\u043D\u043E\u043F\u043A\u0430",
         tagName: "span",
-        value: text || data?.value?.title || '',
+        value: text || globalText,
         allowedFormats: [],
         multiline: false,
         onSplit: () => {},

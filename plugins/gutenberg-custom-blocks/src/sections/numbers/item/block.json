@@ -14,6 +14,11 @@
 	  "decor": {
 		"type": "number",
 		"default": 1
+	  },
+	  "columns": {
+		"type": "string",
+		"enum": ["xl:col-span-3", "xl:col-span-4", "xl:col-span-6", "xl:col-span-12"],
+		"default": "xl:col-span-4"
 	  }
 	},
 	"parent": ["t4u/numbers"],

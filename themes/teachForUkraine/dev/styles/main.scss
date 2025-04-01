@@ -20,6 +20,7 @@
 @use "../../modules/buttons/buttons.scss";
 @use "../../modules/form-fields/form-fields.scss";
 @use "../../modules/subscribe-form/subscribe-form.scss";
+@use "../../modules/figurines-decors/figurines-decors.scss";
 // /= modulse
 
 
@@ -29,5 +30,5 @@
 // /= sections
 
 // gutenberg-blocks
-@use "./gutenberg-blocks/sections/hero-main.scss"
+@use "./gutenberg-blocks/sections/hero-main.scss";
 // /= gutenberg-blocks

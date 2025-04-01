@@ -1,0 +1,149 @@
+@use "./utils/abstracts" as *;
+@use "sass:map";
+
+$back-x: translateX(0%);
+$back-y: translateY(0%);
+$back-x-r: translateX(0%) rotate(0deg);
+$back-r: rotate(0deg);
+
+$figurines: (
+    1: (icon-1-forward: translateX(200%) rotate(-90deg),
+        icon-1-back: $back-x-r,
+        icon-1-filter: $color-dark-primary-filter,
+
+        icon-2-forward: translateX(-100%),
+        icon-2-back: $back-x,
+        icon-2-filter: $color-accent-second-filter,
+
+        icon-3-forward: translateX(-100%) rotate(-90deg),
+        icon-3-back: $back-x-r,
+        icon-3-filter: $color-accent-first-filter,
+    ),
+    2: (icon-1-forward: translateX(408%),
+        icon-1-back: $back-x,
+        icon-1-filter: $color-accent-first-filter,
+
+        icon-2-forward: translateX(-50%),
+        icon-2-back: $back-x,
+        icon-2-filter: $color-accent-second-filter,
+
+        icon-3-forward: translateX(-50%) rotate(-180deg),
+        icon-3-back: $back-x-r,
+        icon-3-filter: $color-dark-primary-filter,
+    ),
+    3: (icon-1-forward: translateX(304%) rotate(-180deg),
+        icon-1-back: $back-x-r,
+        icon-1-filter: $color-accent-first-filter,
+
+        icon-2-forward: translateX(-50%),
+        icon-2-back: $back-x,
+        icon-2-filter: $color-accent-second-filter,
+
+        icon-3-forward: translateX(-100%) rotate(180deg),
+        icon-3-back: $back-x-r,
+        icon-3-filter: $color-dark-primary-filter,
+    ),
+    4: (icon-1-forward: translateX(100%) rotate(-180deg),
+        icon-1-back: $back-x-r,
+        icon-1-filter: $color-dark-primary-filter,
+
+        icon-2-forward: translateX(-100%),
+        icon-2-back: $back-x,
+        icon-2-filter: $color-accent-second-filter,
+    ),
+    5: (icon-1-forward: translateX(100%),
+        icon-1-back: $back-x,
+        icon-1-filter: $color-accent-second-filter,
+
+        icon-2-forward: translateX(-100%) rotate(-180deg),
+        icon-2-back: $back-x-r,
+        icon-2-filter: $color-dark-primary-filter,
+    ),
+    6: (icon-1-forward: translateX(202%) rotate(-180deg),
+        icon-1-back: $back-x-r,
+        icon-1-filter: $color-dark-primary-filter,
+
+        icon-2-forward: translateX(-50%),
+        icon-2-back: $back-x,
+        icon-2-filter: $color-accent-second-filter,
+    ),
+    7: (icon-1-forward: translateX(100%) rotate(-90deg),
+        icon-1-back: $back-x-r,
+        icon-1-filter: $color-accent-second-filter,
+
+        icon-2-forward: translateX(-100%) rotate(-90deg),
+        icon-2-back: $back-x-r,
+        icon-2-filter: $color-dark-primary-filter,
+    ),
+    8: (icon-1-forward: rotate(-180deg),
+        icon-1-back: $back-x-r,
+        icon-1-filter: $color-dark-primary-filter,
+    ),
+    9: (icon-1-forward: rotate(540deg),
+        icon-1-back: $back-r,
+        icon-1-filter: $color-dark-primary-filter,
+    ),
+    10: (
+        icon-1-back: $back-y,
+        icon-1-filter: $color-dark-primary-filter,
+    ),
+);
+
+@each $num, $icon-options in $figurines {
+    .figurines-decor-#{$num} {
+        --icon-1: #{map.get($icon-options, icon-1-back)};
+        --icon-2: #{map.get($icon-options, icon-2-back)};
+        --icon-3: #{map.get($icon-options, icon-3-back)};
+
+        // --icon-1: #{map.get($icon-options, icon-1-forward)};
+        // --icon-2: #{map.get($icon-options, icon-2-forward)};
+        // --icon-3: #{map.get($icon-options, icon-3-forward)};
+
+        display: inline-flex;
+        height: 100%;
+
+        animation: figurines-decor-#{$num}-step 4s linear infinite;
+
+        @keyframes figurines-decor-#{$num}-step {
+            0% {
+                --icon-1: #{map.get($icon-options, icon-1-back)};
+                --icon-2: #{map.get($icon-options, icon-2-back)};
+                --icon-3: #{map.get($icon-options, icon-3-back)};
+            }
+
+            50% {
+                --icon-1: #{map.get($icon-options, icon-1-forward)};
+                --icon-2: #{map.get($icon-options, icon-2-forward)};
+                --icon-3: #{map.get($icon-options, icon-3-forward)};
+            }
+
+            100% {
+                --icon-1: #{map.get($icon-options, icon-1-back)};
+                --icon-2: #{map.get($icon-options, icon-2-back)};
+                --icon-3: #{map.get($icon-options, icon-3-back)};
+            }
+        }
+
+        &>img {
+            height: 100%;
+            width: auto;
+            transition: transform .5s $tf-bouncing;
+            transform-origin: center;
+
+            &:nth-child(1) {
+                transform: var(--icon-1);
+                filter:#{map.get($icon-options, icon-1-filter)};
+            }
+
+            &:nth-child(2) {
+                transform: var(--icon-2);
+                filter: #{map.get($icon-options, icon-2-filter)};
+            }
+
+            &:nth-child(3) {
+                transform: var(--icon-3);
+                filter: #{map.get($icon-options, icon-3-filter)};
+            }
+        }
+    }
+}

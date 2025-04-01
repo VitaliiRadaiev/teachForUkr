@@ -25,6 +25,11 @@
 		"acfField": {
 			"type": "string"
 		},
+		"acfFieldType": {
+			"type": "string",
+			"enum": ["link", "text"],
+			"default": "link"
+		},
 		"variant": {
 			"type": "string",
 			"enum": ["btn-primary", "btn-secondary", "btn-with-enter-arrow", "btn-with-with-arrow"],

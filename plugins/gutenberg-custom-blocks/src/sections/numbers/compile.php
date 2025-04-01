@@ -9,12 +9,14 @@
          </h2>
       </div>
 
-      <div class="mt-[30px] md:mt-[40px] xl:mt-[50px] grid xl:grid-cols-3 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px]">
-
+      <div class="mt-[30px] md:mt-[40px] xl:mt-[50px] grid lg:grid-cols-2 xl:grid-cols-12 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px]">
+         <?php 
+            $tailwind = 'xl:col-span-3 xl:col-span-4 xl:col-span-6 xl:col-span-12 pr-[80px] xl:pr-[125px] pr-[55px] xl:pr-[85px] pr-[30px] xl:pr-[45px] !h-[25px]'; 
+         ?>
          <div class="nested-bg-item p-[16px] md:p-[20px] xl:p-[30px] rounded-[12px] flex flex-col gap-[20px] xl:gap-[30px] relative text-dark-primary">
             <div class="absolute top-[16px] md:top-[20px] xl:top-[30px] right-[16px] md:right-[20px] xl:right-[30px] [&_svg]:h-full [&_svg]:w-auto h-[25px] md:h-[30px] xl:h-[35px] 4xl:h-[40px]">
             </div>
-            <span class="h2 pr-[95px] xl:pr-[125px]">
+            <span class="h2">
                15 000
             </span>
             <div class="text-md pr-[40px] xl:pr-[60px]">
@@ -25,7 +27,7 @@
          <div class="nested-bg-item p-[16px] md:p-[20px] xl:p-[30px] rounded-[12px] flex flex-col gap-[20px] xl:gap-[30px] relative text-dark-primary">
             <div class="absolute top-[16px] md:top-[20px] xl:top-[30px] right-[16px] md:right-[20px] xl:right-[30px] [&_svg]:h-full [&_svg]:w-auto h-[25px] md:h-[30px] xl:h-[35px] 4xl:h-[40px]">
             </div>
-            <span class="h2 pr-[95px] xl:pr-[125px]">
+            <span class="h2">
                38
             </span>
             <div class="text-md pr-[40px] xl:pr-[60px]">
@@ -36,7 +38,7 @@
          <div class="nested-bg-item p-[16px] md:p-[20px] xl:p-[30px] rounded-[12px] flex flex-col gap-[20px] xl:gap-[30px] relative text-dark-primary">
             <div class="absolute top-[16px] md:top-[20px] xl:top-[30px] right-[16px] md:right-[20px] xl:right-[30px] [&_svg]:h-full [&_svg]:w-auto h-[25px] md:h-[30px] xl:h-[35px] 4xl:h-[40px]">
             </div>
-            <span class="h2 pr-[95px] xl:pr-[125px]">
+            <span class="h2">
                70
             </span>
             <div class="text-md pr-[40px] xl:pr-[60px]">

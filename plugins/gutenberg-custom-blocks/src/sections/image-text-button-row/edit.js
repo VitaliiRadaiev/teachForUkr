@@ -5,13 +5,8 @@ import {
 } from "@wordpress/block-editor";
 import "./editor.scss";
 import clsx from "clsx";
-import { IsHide } from "../../components/is-hide/IsHide";
 import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages } from "../../utils/utils";
-import { MarginYControl } from "../../components/space-control/MarginYControl";
-import { PaddingYControl } from "../../components/space-control/PaddingYControl";
-
-import { SECTIONS_MARGIN_MAP, SECTIONS_PADDING_MAP } from "../../global/global";
-import { SectionsBgColorPallet } from "../../components/sections-bg-color-pallet/SectionsBgColorPallet";
+import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
 
 
 export default function Edit({ attributes, setAttributes }) {
@@ -53,16 +48,17 @@ export default function Edit({ attributes, setAttributes }) {
 							classes: "mt-[30px] md:mt-[20px] lg:mt-[30px]",
 							size: "md"
 						}],
-						["t4u/inner-block", {
+						["t4u/buttons-group", {
 							classes: 'mt-[30px] md:mt-[20px] lg:mt-[30px]',
-							simpleWrapper: true,
 							options: {
 								template: [
 									["t4u/button", {
-										variant: "btn-primary"
+										variant: "btn-primary",
+										acfField: "text_more_details",
+										acfFieldType: "text"
 									}],
 								],
-								allowedBlocks: []
+								allowedBlocks: ['t4u/button']
 							}
 						}]
 					],
@@ -76,21 +72,7 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<IsHide isHide={isHide} setIsHide={(val) => setAttributes({ isHide: val })} />
-				<SectionsBgColorPallet
-					color={background}
-					setColor={(val) => setAttributes({ background: val })}
-				/>
-				<PaddingYControl
-					size={padding}
-					setSize={(s) => setAttributes({ padding: s })}
-					sizesMap={SECTIONS_PADDING_MAP}
-				/>
-				<MarginYControl
-					size={margin}
-					setSize={(s) => setAttributes({ margin: s })}
-					sizesMap={SECTIONS_MARGIN_MAP}
-				/>
+				<DefaultSectionsControls attributes={attributes} setAttributes={setAttributes}/>
 			</InspectorControls>
 			<section {...blockProps}>
 				<div className="absolute z-3 pointer-events-none top-0 left-0 w-full h-full">

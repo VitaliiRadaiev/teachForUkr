@@ -4,8 +4,8 @@
 	"apiVersion": 3,
 	"name": "t4u/sup-title",
 	"version": "0.1.0",
-	"title": "Заголовок занчок",
-	"icon": "smiley",
+	"title": "Заголовок значок",
+	"icon": "nametag",
 	"category": "blocks",
 	"description": "",
     "example": {},
@@ -20,10 +20,10 @@
 		"margin": {
 			"type": "object",
 			"default": {
-				"top": "no",
-				"right": "no",
-				"bottom": "no",
-				"left": "no"
+				"top": "",
+				"right": "",
+				"bottom": "",
+				"left": ""
 			}
 		},
 		"classes": {
