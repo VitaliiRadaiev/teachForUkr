@@ -49,9 +49,6 @@ export default function Edit({ attributes, setAttributes }) {
 		}
 	}, []);
 
-	console.log(postType);
-	
-
 	return (
 		<>
 			<InspectorControls>
@@ -98,7 +95,7 @@ export default function Edit({ attributes, setAttributes }) {
 							{ label: <div className={clsx('btn-primary', accent)}>button</div>, value: 'btn-primary' },
 							{ label: <div className={clsx('btn-secondary', accent)}>button</div>, value: 'btn-secondary' },
 							{ label: <div className={clsx('btn-with-enter-arrow', accent)}>button</div>, value: 'btn-with-enter-arrow' },
-							{ label: <div className={clsx('btn-with-with-arrow', accent)}>button</div>, value: 'btn-with-with-arrow' },
+							{ label: <div className={clsx('btn-with-arrow', accent)}>button</div>, value: 'btn-with-with-arrow' },
 						]}
 						onChange={(value) => setAttributes({ variant: value })}
 					/>

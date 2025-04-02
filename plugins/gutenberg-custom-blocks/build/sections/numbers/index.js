@@ -482,7 +482,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   TEXT_SIZES: () => (/* binding */ TEXT_SIZES)
 /* harmony export */ });
 const RICH_TEXT_FORMATS = ['core/bold', 'core/italic', 'core/link', 'core/strikethrough', 'custom-format/color-highlight', 'custom-format/uppercase', 'custom-format/lowercase'];
-const TEXT_SIZES = ["no", "sm", "md", "lg"];
+const TEXT_SIZES = ["sm", "md", "lg", "xl"];
 const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 
@@ -547,6 +547,8 @@ function Edit({
       options: {
         template: [['t4u/sup-title', {}], ['t4u/heading', {
           classes: "mt-[16px] md:mt-[20px] text-dark-primary"
+        }], ['t4u/simple-text', {
+          classes: "mt-[30px] md:mt-[20px] lg:mt-[30px]"
         }]],
         allowedBlocks: []
       }
@@ -558,6 +560,15 @@ function Edit({
         allowedBlocks: ['t4u/numbers-item']
       },
       allowedBlocks: []
+    }], ["t4u/buttons-group", {
+      classes: 'mt-[40px] xl:mt-[50px]',
+      alignment: 'center',
+      options: {
+        template: [["t4u/button", {
+          acfField: 'link_become_partner'
+        }]],
+        allowedBlocks: ['t4u/button']
+      }
     }]],
     allowedBlocks: []
   });
@@ -841,13 +852,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/sections/numbers/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/sections/numbers/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/sections/numbers/block.json");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+
 
 
 
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_3__.name, {
   edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
-  save: _save__WEBPACK_IMPORTED_MODULE_2__["default"]
+  save: _save__WEBPACK_IMPORTED_MODULE_2__["default"],
+  example: {
+    innerBlocks: [{
+      name: "t4u/image",
+      attributes: {
+        classes: "",
+        url: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)('general/preview-section-numbers.jpg'),
+        imageId: 1
+      }
+    }]
+  }
 });
 })();
 

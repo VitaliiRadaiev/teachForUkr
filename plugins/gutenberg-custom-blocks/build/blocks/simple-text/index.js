@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/simple-text","version":"0.1.0","title":"Текстовий контейнер","icon":"text","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"fontSize":{"type":"string","enum":["no","sm","md","lg"],"default":"md"},"canAddItem":{"type":"boolean","default":true},"aligment":{"type":"string","enum":["left","center","right"],"default":""}},"textdomain":"simple-text","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/simple-text","version":"0.1.0","title":"Текстовий контейнер","icon":"text","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"fontSize":{"type":"string","enum":["no","sm","md","lg","xl"],"default":"md"},"canAddItem":{"type":"boolean","default":true},"aligment":{"type":"string","enum":["left","center","right"],"default":""}},"textdomain":"simple-text","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -437,7 +437,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   TEXT_SIZES: () => (/* binding */ TEXT_SIZES)
 /* harmony export */ });
 const RICH_TEXT_FORMATS = ['core/bold', 'core/italic', 'core/link', 'core/strikethrough', 'custom-format/color-highlight', 'custom-format/uppercase', 'custom-format/lowercase'];
-const TEXT_SIZES = ["no", "sm", "md", "lg"];
+const TEXT_SIZES = ["sm", "md", "lg", "xl"];
 const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 

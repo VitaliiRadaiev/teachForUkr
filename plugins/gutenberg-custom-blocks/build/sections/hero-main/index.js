@@ -283,6 +283,103 @@ function Save() {
 
 /***/ }),
 
+/***/ "./src/utils/utils.js":
+/*!****************************!*\
+  !*** ./src/utils/utils.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   combineString: () => (/* binding */ combineString),
+/* harmony export */   getFlexAligmentClasses: () => (/* binding */ getFlexAligmentClasses),
+/* harmony export */   getGapClasses: () => (/* binding */ getGapClasses),
+/* harmony export */   getMarginClasses: () => (/* binding */ getMarginClasses),
+/* harmony export */   getOptionsField: () => (/* binding */ getOptionsField),
+/* harmony export */   getSectionsMarginClasses: () => (/* binding */ getSectionsMarginClasses),
+/* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
+/* harmony export */   getUrlToStaticImages: () => (/* binding */ getUrlToStaticImages),
+/* harmony export */   removeDomain: () => (/* binding */ removeDomain)
+/* harmony export */ });
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
+
+
+const getOptionsField = fieldName => {
+  if (!fieldName) return null;
+  return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
+    path: `/site-core/v1/options/?field=${fieldName}`
+  });
+};
+const getMarginClasses = margin => {
+  const top = margin.top ? margin.top !== 'no' ? `mt-${margin.top}` : 'mt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` mr-${margin.right}` : ' mr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` mb-${margin.bottom}` : ' mb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` ml-${margin.left}` : ' ml-0' : '';
+  return `${top}${right}${bottom}${left}`;
+};
+const getGapClasses = gap => {
+  const x = gap.x ? `gap-x-${gap.x}` : '';
+  const y = gap.y ? `gap-y-${gap.y}` : '';
+  return (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])(x, y);
+};
+const getSectionsMarginClasses = margin => {
+  const top = margin.top ? margin.top !== 'no' ? `section-mt-${margin.top}` : 'mt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` section-mr-${margin.right}` : ' mr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` section-mb-${margin.bottom}` : ' mb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` section-ml-${margin.left}` : ' ml-0' : '';
+  return `${top}${right}${bottom}${left}`;
+};
+const getSectionsPaddingClasses = margin => {
+  const top = margin.top ? margin.top !== 'no' ? `section-pt-${margin.top}` : 'pt-0' : '';
+  const right = margin.right ? margin.right !== 'no' ? ` section-pr-${margin.right}` : ' pr-0' : '';
+  const bottom = margin.bottom ? margin.bottom !== 'no' ? ` section-pb-${margin.bottom}` : ' pb-0' : '';
+  const left = margin.left ? margin.left !== 'no' ? ` section-pl-${margin.left}` : ' pl-0' : '';
+  return `${top}${right}${bottom}${left}`;
+};
+function removeDomain(url) {
+  try {
+    const parsedUrl = new URL(url);
+    return parsedUrl.pathname;
+  } catch (e) {
+    console.error("Invalid URL:", e);
+    return null;
+  }
+}
+const getUrlToStaticImages = endUrl => {
+  return `${document.location.origin}/wp-content/themes/teachForUkraine/assets/images/${endUrl}`;
+};
+const combineString = ({
+  prefix = '',
+  postfix = ''
+}, value) => {
+  if (!value) return '';
+  return `${prefix}${value}${postfix}`;
+};
+const getFlexAligmentClasses = key => {
+  if (!key) return '';
+  const classesMap = {
+    left: 'justify-start',
+    right: 'justify-end',
+    center: 'justify-center',
+    ['space-between']: 'justify-between'
+  };
+  return classesMap[key] || '';
+};
+
+/***/ }),
+
+/***/ "@wordpress/api-fetch":
+/*!**********************************!*\
+  !*** external ["wp","apiFetch"] ***!
+  \**********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["apiFetch"];
+
+/***/ }),
+
 /***/ "@wordpress/block-editor":
 /*!*************************************!*\
   !*** external ["wp","blockEditor"] ***!
@@ -404,6 +501,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/sections/hero-main/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/sections/hero-main/block.json");
 /* harmony import */ var _decor_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./decor/index */ "./src/sections/hero-main/decor/index.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+
 
 
 
@@ -411,7 +510,17 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_3__.name, {
   edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
-  save: _save__WEBPACK_IMPORTED_MODULE_2__["default"]
+  save: _save__WEBPACK_IMPORTED_MODULE_2__["default"],
+  example: {
+    innerBlocks: [{
+      name: "t4u/image",
+      attributes: {
+        classes: "",
+        url: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.getUrlToStaticImages)('general/preview-section-hero-main.jpg'),
+        imageId: 1
+      }
+    }]
+  }
 });
 })();
 

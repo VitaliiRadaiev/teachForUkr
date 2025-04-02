@@ -32,12 +32,12 @@
     "fontSize": {
       "type": "string",
       "enum": [
-        "no",
         "sm",
         "md",
-        "lg"
+        "lg",
+        "xl"
       ],
-      "default": "md"
+      "default": ""
     },
     "aligment": {
       "type": "string",

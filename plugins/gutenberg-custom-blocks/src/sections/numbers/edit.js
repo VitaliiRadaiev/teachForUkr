@@ -31,6 +31,9 @@ export default function Edit({ attributes, setAttributes }) {
 					template: [
 						['t4u/sup-title', {}],
 						['t4u/heading', { classes: "mt-[16px] md:mt-[20px] text-dark-primary" }],
+						['t4u/simple-text', {
+							classes: "mt-[30px] md:mt-[20px] lg:mt-[30px]",
+						}],
 					],
 					allowedBlocks: []
 				}
@@ -46,7 +49,19 @@ export default function Edit({ attributes, setAttributes }) {
 					allowedBlocks: ['t4u/numbers-item']
 				},
 				allowedBlocks: []
-			}]
+			}],
+			["t4u/buttons-group", {
+				classes: 'mt-[40px] xl:mt-[50px]',
+				alignment: 'center',
+				options: {
+					template: [
+						["t4u/button", {
+							acfField: 'link_become_partner'
+						}],
+					],
+					allowedBlocks: ['t4u/button']
+				}
+			}],
 		],
 		allowedBlocks: []
 	})

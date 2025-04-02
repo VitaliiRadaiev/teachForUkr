@@ -31,8 +31,8 @@
 		},
 		"fontSize": {
 			"type": "string",
-			"enum": ["no", "sm", "md", "lg"],
-			"default": "md"
+			"enum": ["sm", "md", "lg", "xl"],
+			"default": ""
 		},
 		"aligment": {
 			"type": "string",

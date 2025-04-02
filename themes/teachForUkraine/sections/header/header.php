@@ -124,8 +124,8 @@ $text_searhc_placeholder = get_field('text_searhc_placeholder', 'options');
                 </button>
 
                 <div class="hidden xl:flex gap-x-[10px]">
-                    <?= render_link($link_join, 'btn-primary accent-first [&.btn-primary]:min-h-[48px] [&.btn-primary]:text-[1rem] 4xl:[&.btn-primary]:min-h-[53px] 4xl:[&.btn-primary]:text-[1.125rem] 4xl:[&.btn-primary]:px-[40px]'); ?>
-                    <?= render_link($link_support, 'btn-primary accent-second [&.btn-primary]:min-h-[48px] [&.btn-primary]:text-[1rem] 4xl:[&.btn-primary]:min-h-[53px] 4xl:[&.btn-primary]:text-[1.125rem] 4xl:[&.btn-primary]:px-[40px]'); ?>
+                    <?= render_button_link($link_join, 'btn-primary accent-first [&.btn-primary]:min-h-[48px] [&.btn-primary]:text-[1rem] 4xl:[&.btn-primary]:min-h-[53px] 4xl:[&.btn-primary]:text-[1.125rem] 4xl:[&.btn-primary]:px-[40px]'); ?>
+                    <?= render_button_link($link_support, 'btn-primary accent-second [&.btn-primary]:min-h-[48px] [&.btn-primary]:text-[1rem] 4xl:[&.btn-primary]:min-h-[53px] 4xl:[&.btn-primary]:text-[1.125rem] 4xl:[&.btn-primary]:px-[40px]'); ?>
                 </div>
             </div>
             <form data-ehader-search action="/" class="header-search absolute inset-0 z-3 flex items-center gap-x-[10px] p-[10px] opacity-0 invisible [&.active]:opacity-100 [&.active]:visible">
@@ -163,8 +163,8 @@ $text_searhc_placeholder = get_field('text_searhc_placeholder', 'options');
             </nav>
         </div>
         <div class="grid grid-cols-2 gap-x-[10px]">
-            <?= render_link($link_join, 'btn-primary accent-first [&.btn-primary]:min-h-[48px] [&.btn-primary]:text-[1rem] 4xl:[&.btn-primary]:min-h-[53px] 4xl:[&.btn-primary]:text-[1.125rem] 4xl:[&.btn-primary]:px-[40px]'); ?>
-            <?= render_link($link_support, 'btn-primary accent-second [&.btn-primary]:min-h-[48px] [&.btn-primary]:text-[1rem] 4xl:[&.btn-primary]:min-h-[53px] 4xl:[&.btn-primary]:text-[1.125rem] 4xl:[&.btn-primary]:px-[40px]'); ?>
+            <?= render_button_link($link_join, 'btn-primary accent-first [&.btn-primary]:min-h-[48px] [&.btn-primary]:text-[1rem] 4xl:[&.btn-primary]:min-h-[53px] 4xl:[&.btn-primary]:text-[1.125rem] 4xl:[&.btn-primary]:px-[40px]'); ?>
+            <?= render_button_link($link_support, 'btn-primary accent-second [&.btn-primary]:min-h-[48px] [&.btn-primary]:text-[1rem] 4xl:[&.btn-primary]:min-h-[53px] 4xl:[&.btn-primary]:text-[1.125rem] 4xl:[&.btn-primary]:px-[40px]'); ?>
         </div>
     </div>
 </div>

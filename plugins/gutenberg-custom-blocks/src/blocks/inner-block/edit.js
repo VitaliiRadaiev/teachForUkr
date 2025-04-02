@@ -7,8 +7,8 @@ import { Fragment } from "@wordpress/element";
 import "./editor.scss";
 
 
-export default function Edit({ attributes, setAttributes }) {
-	const { options, classes, wrapper, simpleWrapper, canAddItem } = attributes;
+export default function Edit({ attributes }) {
+	const { options, classes, dataAttributes, wrapper, simpleWrapper, canAddItem } = attributes;
 
 	const blockProps = useBlockProps({
 		className: clsx(classes, { 'canAddItem': canAddItem })
@@ -18,7 +18,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	if (wrapper) {
 		return (
-			<div {...(simpleWrapper ? { className: classes } : blockProps)}>
+			<div {...(simpleWrapper ? { className: classes } : blockProps)} {...dataAttributes}>
 				{children}
 			</div>
 		);

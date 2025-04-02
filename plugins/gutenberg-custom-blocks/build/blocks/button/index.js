@@ -274,7 +274,6 @@ function Edit({
       });
     }
   }, []);
-  console.log(postType);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_is_hide_IsHide__WEBPACK_IMPORTED_MODULE_8__.IsHide, {
@@ -338,7 +337,7 @@ function Edit({
             value: 'btn-with-enter-arrow'
           }, {
             label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('btn-with-with-arrow', accent),
+              className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('btn-with-arrow', accent),
               children: "button"
             }),
             value: 'btn-with-with-arrow'

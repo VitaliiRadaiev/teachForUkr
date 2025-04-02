@@ -7,7 +7,6 @@
   "category": "image-text-button-row",
   "icon": "layout",
   "description": "",
-  "example": {},
   "supports": {
     "html": false
   },
@@ -42,9 +41,17 @@
       ],
       "default": "bg-light-primary-80"
     },
-    "reverse": {
-      "type": "boolean",
-      "default": false
+    "directions": {
+      "type": "string",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "left"
+    },
+    "decor": {
+      "type": "number",
+      "default": 1
     }
   },
   "textdomain": "image-text-button-row",

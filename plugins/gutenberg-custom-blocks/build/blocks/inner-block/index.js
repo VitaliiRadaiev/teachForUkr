@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/inner-block","version":"0.1.0","title":"Контейнер блоків","icon":"tagcloud","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"options":{"type":"object"},"classes":{"type":"string","default":""},"wrapper":{"type":"boolean","default":true},"simpleWrapper":{"type":"boolean","default":false},"canAddItem":{"type":"boolean","default":false}},"textdomain":"inner-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/inner-block","version":"0.1.0","title":"Контейнер блоків","icon":"tagcloud","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"options":{"type":"object"},"classes":{"type":"string","default":""},"dataAttributes":{"type":"object","default":{}},"wrapper":{"type":"boolean","default":true},"simpleWrapper":{"type":"boolean","default":false},"canAddItem":{"type":"boolean","default":false}},"textdomain":"inner-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -51,12 +51,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Edit({
-  attributes,
-  setAttributes
+  attributes
 }) {
   const {
     options,
     classes,
+    dataAttributes,
     wrapper,
     simpleWrapper,
     canAddItem
@@ -74,6 +74,7 @@ function Edit({
       ...(simpleWrapper ? {
         className: classes
       } : blockProps),
+      ...dataAttributes,
       children: children
     });
   } else {

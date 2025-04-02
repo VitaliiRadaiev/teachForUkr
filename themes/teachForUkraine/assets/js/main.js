@@ -634,8 +634,8 @@ function createScrollContainer(htmlEl) {
 function initScrollContainers() {
     const containers = document.querySelectorAll('[data-scroll-container]');
     containers.forEach(container => {
-        if(container.classList.contains('_initialized')) return;
-        
+        if (container.classList.contains('_initialized')) return;
+
         const mode = container.getAttribute('data-scroll-container');
         if (window.innerWidth < 1024 && mode === 'desk') return;
         if (container.classList.contains('_initialized')) return;
@@ -715,7 +715,46 @@ function initFancybox() {
     });
 }
 
+function initSetElSizeVariables() {
+    const heightFnList = [];
+    const widthFnList = [];
+    const heightVariables = document.querySelectorAll('[data-height-var]');
+    const widthVariables = document.querySelectorAll('[data-width-var]');
+
+    heightVariables.forEach(el => {
+        const [varName, selector] = el.getAttribute('data-height-var').split(',');
+        const targetElem = selector.trim() === '_self' ? el : el.closest(selector.trim());
+        if (!targetElem) return;
+        heightFnList.push(debounce(() => {
+            targetElem.style.setProperty(varName, `${el.clientHeight}px`);
+        }, 150));
+    });
+
+    widthVariables.forEach(el => {
+        const [varName, selector] = el.getAttribute('data-width-var').split(',');
+        const targetElem = selector.trim() === '_self' ? el : el.closest(selector.trim());
+        if (!targetElem) return;
+        widthFnList.push(debounce(() => {
+            targetElem.style.setProperty(varName, `${el.clientWidth}px`);
+        }, 150));
+    });
+
+    heightFnList.forEach(fn => fn());
+    widthFnList.forEach(fn => fn());
+
+    window.addEventListener('resize', () => {
+        heightFnList.forEach(fn => fn());
+        widthFnList.forEach(fn => fn());
+    });
+}
+
 window.addEventListener("DOMContentLoaded", () => {
+    AOS && AOS.init({
+        duration: 600,
+        once: false,
+        offset: 500
+    });
+
     document.body.classList.add('page-loaded');
 
     if (isMobile()) {
@@ -737,6 +776,7 @@ window.addEventListener("DOMContentLoaded", () => {
     initInputMask();
     initFancybox();
     initScrollContainers();
+    initSetElSizeVariables();
 
     // sections
     {

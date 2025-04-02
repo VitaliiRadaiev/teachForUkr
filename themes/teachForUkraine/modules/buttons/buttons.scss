@@ -1,14 +1,58 @@
 @use "./utils/abstracts" as *;
 
-.btn-primary {
+@mixin common-styles {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+@mixin text-hover {
+    & [data-text] {
+        transform: translateY(-100%);
+
+        &::before {
+            opacity: 0;
+        }
+
+        &::after {
+            opacity: 1;
+        }
+    }
+}
+
+@mixin text-styles {
+    & [data-text] {
+        position: relative;
+        display: block;
+        transition: transform $tran;
+        pointer-events: none;
+
+        &::before {
+            content: attr(data-text);
+            display: block;
+            transition: opacity $tran;
+        }
+
+        &::after {
+            content: attr(data-text);
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 100%;
+            transition: opacity $tran;
+            opacity: 0;
+        }
+    }
+}
+
+.btn-primary {
+    @include common-styles();
     padding: 10px 30px;
     min-height: 61px;
     border-radius: 8px;
     border: 1px solid transparent;
-    cursor: pointer;
     color: var(--accent);
     background-color: var(--accent-5);
     transition: background-color $tran, border $tran;
@@ -28,6 +72,8 @@
     @media #{$mouse-device} {
         &:hover {
             border-color: var(--accent);
+
+            @include text-hover;
         }
     }
 
@@ -41,13 +87,12 @@
         color: $color-dark-primary-60;
         background-color: $backgound;
     }
+
+    @include text-styles;
 }
 
 .btn-secondary {
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    @include common-styles();
     border-radius: 8px;
     min-height: 44px;
     padding: 8px 20px;
@@ -72,6 +117,8 @@
     @media #{$mouse-device} {
         &:hover {
             background-color: var(--accent-100);
+
+            @include text-hover();
         }
     }
 
@@ -84,12 +131,12 @@
             padding: 8px 24px;
         }
     }
+
+    @include text-styles();
 }
 
 .btn-with-enter-arrow {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    @include common-styles();
     min-height: 63px;
     background-color: var(--accent);
     color: $color-light-primary;
@@ -111,6 +158,8 @@
     @media #{$mouse-device} {
         &:hover {
             background-color: var(--accent-80);
+
+            @include text-hover();
         }
     }
 
@@ -142,8 +191,94 @@
         background-color: $color-light-primary-60;
         color: $color-dark-primary-60;
     }
+
+    @include text-styles();
 }
 
-.btn-with-with-arrow {
+.btn-with-arrow {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-right: 1.5em;
+    font-weight: 500;
+    font-size: rem(18px);
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    transition: color $tran;
+    color: var(--accent);
 
+    @media #{$mouse-device} {
+        &:hover {
+            color: var(--accent-80);
+
+            &::after {
+                background-color: var(--accent-10);
+            }
+        }
+    }
+
+    @media (min-width: $mq-4xl) {
+        font-size: rem(21px);
+    }
+
+    &:active {
+        color: var(--accent-100) !important;
+
+        &::after {
+            background-color: var(--accent-100) !important;
+            color: $color-light-primary;
+        }
+    }
+
+    &::after {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.746em;
+        width: 1.746em;
+        border-radius: 100%;
+        font-size: 0.7em;
+        background-color: var(--accent-5);
+        transition: background-color $tran, color $tran;
+
+        content: "\e905";
+        font-family: 'icomoon' !important;
+        speak: never;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    & [data-text] {
+        &::before {
+            content: attr(data-text);
+        }
+    }
+
+    &.disabled {
+        opacity: 1;
+        pointer-events: none;
+        color: $color-dark-primary-60;
+
+        &::after {
+            background-color: $color-light-primary-80;
+        }
+    }
+}
+
+.button-group {
+    & > * {
+        
+        @media (min-width: 0px) and (max-width: 575.98px) {
+            width: 100%;
+        }
+    }
 }

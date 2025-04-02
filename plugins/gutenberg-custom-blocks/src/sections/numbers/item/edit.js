@@ -74,7 +74,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Варіанти декору" initialOpen={true}>
+				<PanelBody title="Варіанти декору" initialOpen={false}>
 					<RadioControl
 						selected={decor}
 						options={[...Array(10).keys()].map(i => ({
@@ -84,7 +84,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						onChange={(value) => setAttributes({ decor: +value })}
 					/>
 				</PanelBody>
-				<PanelBody title="Розмір карточки" initialOpen={true}>
+				<PanelBody title="Розмір карточки" initialOpen={false}>
 					<RadioControl
 						selected={columns}
 						options={[

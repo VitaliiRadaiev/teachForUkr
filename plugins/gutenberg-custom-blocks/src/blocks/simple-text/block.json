@@ -31,7 +31,7 @@
 		},
 		"fontSize": {
 			"type": "string",
-			"enum": ["no", "sm", "md", "lg"],
+			"enum": ["no", "sm", "md", "lg", "xl"],
 			"default": "md"
 		},
 		"canAddItem": {

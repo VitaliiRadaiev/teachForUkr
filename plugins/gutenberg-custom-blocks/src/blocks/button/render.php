@@ -39,6 +39,6 @@ if (!($attributes['isHide'])):
     }
 ?>
     <a href="<?= $url ?>" target="<?= $target ?>" class="<?= $classes ?>">
-        <?= $text ?>
+        <span data-text="<?= $text ?>"></span>
     </a>
 <?php endif; ?>

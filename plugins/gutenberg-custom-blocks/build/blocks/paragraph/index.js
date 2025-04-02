@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/paragraph","version":"0.1.0","title":"Простий параграф","icon":"editor-paragraph","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"margin":{"type":"object","default":{"top":"sm","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"text":{"type":"string","default":""},"fontSize":{"type":"string","enum":["no","sm","md","lg"],"default":"md"},"aligment":{"type":"string","enum":["left","center","right"],"default":""}},"textdomain":"paragraph","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/paragraph","version":"0.1.0","title":"Простий параграф","icon":"editor-paragraph","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"margin":{"type":"object","default":{"top":"sm","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"text":{"type":"string","default":""},"fontSize":{"type":"string","enum":["sm","md","lg","xl"],"default":""},"aligment":{"type":"string","enum":["left","center","right"],"default":""}},"textdomain":"paragraph","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -418,7 +418,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   TEXT_SIZES: () => (/* binding */ TEXT_SIZES)
 /* harmony export */ });
 const RICH_TEXT_FORMATS = ['core/bold', 'core/italic', 'core/link', 'core/strikethrough', 'custom-format/color-highlight', 'custom-format/uppercase', 'custom-format/lowercase'];
-const TEXT_SIZES = ["no", "sm", "md", "lg"];
+const TEXT_SIZES = ["sm", "md", "lg", "xl"];
 const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 

@@ -128,6 +128,21 @@
     }
 }
 
+.text-xl {
+    font-weight: 500;
+    font-size: rem(18px);
+    line-height: 120%;
+    letter-spacing: -0.03em;
+
+    @media (min-width: $mq-2xl) {
+        font-size: rem(20px);
+    }
+
+    @media (min-width: $mq-4xl) {
+        font-size: rem(24px);
+    }
+}
+
 .text-lg {
     font-size: rem(16px);
     line-height: 140%;

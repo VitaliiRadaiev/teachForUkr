@@ -195,3 +195,13 @@ function get_flex_justify_alignment_classes($key) {
 
   return isset($classes_map[$key]) ? $classes_map[$key] : '';
 }
+
+function generate_html_data_attributes($data_attributes) {
+  $attributes = [];
+
+  foreach ($data_attributes as $key => $value) {
+      $attributes[] = $key . '="' . esc_attr($value) . '"';
+  }
+
+  return implode(' ', $attributes);
+}

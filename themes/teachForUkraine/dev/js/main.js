@@ -7,6 +7,12 @@
 @@include('./scripts.js')
 
 window.addEventListener("DOMContentLoaded", () => {
+    AOS && AOS.init({
+        duration: 600,
+        once: false,
+        offset: 500
+    });
+
     document.body.classList.add('page-loaded');
 
     if (isMobile()) {
@@ -28,6 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
     initInputMask();
     initFancybox();
     initScrollContainers();
+    initSetElSizeVariables();
 
     // sections
     @@include("../../sections/header/header.js")
