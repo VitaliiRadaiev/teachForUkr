@@ -542,24 +542,31 @@ function Edit({
     children
   } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)({}, {
     template: [['t4u/inner-block', {
-      classes: 'text-center max-w-[30.5rem] xl:max-w-[45.5rem] 4xl:max-w-[59.125rem] mx-auto',
+      classes: 'max-w-[500px] xl:max-w-[614px] 4xl:max-w-[810px] md:order-1',
       simpleWrapper: true,
       options: {
         template: [['t4u/sup-title', {}], ['t4u/heading', {
           classes: "mt-[16px] md:mt-[20px] text-dark-primary"
         }], ['t4u/simple-text', {
-          classes: "mt-[30px] md:mt-[20px] lg:mt-[30px]"
-        }], ["t4u/buttons-group", {
-          classes: 'mt-[40px] xl:mt-[50px]',
-          alignment: 'center',
-          options: {
-            template: [["t4u/button", {
-              acfField: 'link_become_partner'
-            }]],
-            allowedBlocks: ['t4u/button']
-          }
+          classes: "mt-[20px] lg:mt-[30px] lg:max-w-[26.5rem] 4xl:max-w-[30.75rem]",
+          fontSize: "xl"
         }]],
         allowedBlocks: []
+      }
+    }], ['t4u/inner-block', {
+      classes: "mt-[30px] md:mt-[50px] lg:mt-0 grid gap-[10px] md:gap-[20px] lg:gap-[10px] md:order-3 lg:order-2 lg:row-span-2 xl:table xl:border-spacing-y-[10px] 4xl:border-spacing-y-[20px] xl:mt-[-10px] 4xl:mt-[-20px] xl:w-full",
+      canAddItem: true,
+      options: {
+        template: [['t4u/numbers-card', {}]],
+        allowedBlocks: ['t4u/numbers-card']
+      }
+    }], ["t4u/buttons-group", {
+      classes: "mt-[40px] xl:mt-[50px] 4xl:mt-[60px] button-group md:order-2 lg:order-3",
+      options: {
+        template: [["t4u/button", {
+          acfField: 'link_become_partner'
+        }]],
+        allowedBlocks: ['t4u/button']
       }
     }]],
     allowedBlocks: []
@@ -573,7 +580,7 @@ function Edit({
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("section", {
       ...blockProps,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "container",
+        className: "container md:grid lg:grid-rows-[auto_1fr] lg:grid-cols-[48%_1fr] lg:gap-x-[40px] 4xl:gap-x-[50px] lg:items-start",
         children: children
       })
     })]

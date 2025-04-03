@@ -345,6 +345,7 @@
             column-gap: #{map.get($mq, 4xl)};
         }
     }
+
     .gap-y-#{$size} {
         row-gap: #{map.get($mq, sm)};
 
@@ -414,12 +415,19 @@ flag {
     display: grid;
 }
 
-.bg-light-primary .nested-bg-item {
-    background-color: $color-light-primary-80;
+.bg-light-primary {
+    --nested-bg: #{$color-light-primary-80};
+    & .nested-bg-item {
+        background-color: $color-light-primary-80;
+    }
 }
 
-.bg-light-primary-80 .nested-bg-item {
-    background-color: $color-light-primary;
+.bg-light-primary-80 {
+    --nested-bg: #{$color-light-primary};
+    & .nested-bg-item {
+        background-color: $color-light-primary;
+    }
+
 }
 
 .mt-0.mt-0 {

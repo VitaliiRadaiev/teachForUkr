@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/number-card/index.css","mappings":";;;AACI;EACI;AAAR,C","sources":["webpack://gutenberg-custom-blocks/./src/blocks/number-card/editor.scss"],"sourcesContent":[".wp-block-t4u-numbers-card {\r\n    & .block-list-appender {\r\n        display: none !important;\r\n    }\r\n}"],"names":[],"sourceRoot":""}

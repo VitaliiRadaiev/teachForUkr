@@ -83,8 +83,7 @@ $figurines: (
         icon-1-back: $back-r,
         icon-1-filter: $color-dark-primary-filter,
     ),
-    10: (
-        icon-1-back: $back-y,
+    10: (icon-1-back: $back-y,
         icon-1-filter: $color-dark-primary-filter,
     ),
 );
@@ -144,6 +143,309 @@ $figurines: (
                 transform: var(--icon-3);
                 filter: #{map.get($icon-options, icon-3-filter)};
             }
+        }
+    }
+}
+
+
+.figurines-v2-decor-1 {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    aspect-ratio: 1 / 1;
+    height: 100%;
+
+    --icon-1: translateX(0%) translateY(0%) rotate(0deg);
+    --icon-2: translateX(0%) translateY(0%) rotate(0deg);
+    --icon-3: translateX(-50%) translateY(50%);
+
+    animation: figurines-decor-v2-1-step 4s linear infinite;
+
+    @keyframes figurines-decor-v2-1-step {
+        0% {
+            --icon-1: translateX(0%) translateY(0%) rotate(0deg);
+            --icon-2: translateX(0%) translateY(0%) rotate(0deg);
+            --icon-3: translateX(-50%) translateY(50%);
+        }
+
+        50% {
+            --icon-1: translateX(0%) translateY(100%) rotate(-180deg);
+            --icon-2: translateX(0%) translateY(-100%) rotate(-180deg);
+            --icon-3: translateX(-50%) translateY(-230%);
+        }
+
+        100% {
+            --icon-1: translateX(0%) translateY(0%) rotate(0deg);
+            --icon-2: translateX(0%) translateY(0%) rotate(0deg);
+            --icon-3: translateX(-50%) translateY(50%);
+        }
+    }
+
+    &>img {
+        transition: transform .5s $tf-bouncing;
+        transform-origin: center;
+        width: auto;
+
+        &:nth-child(1) {
+            height: 50%;
+            transform: var(--icon-1);
+            filter: $color-accent-second-filter;
+
+        }
+
+        &:nth-child(2) {
+            height: 50%;
+            transform: var(--icon-2);
+            filter: $color-dark-primary-filter;
+        }
+
+        &:nth-child(3) {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            height: 35%;
+            transform: var(--icon-3);
+            filter: $color-accent-first-filter;
+        }
+    }
+}
+
+.figurines-v2-decor-2 {
+    position: relative;
+    display: inline-flex;
+    justify-content: end;
+    aspect-ratio: 1 / 1;
+    flex-wrap: wrap;
+    height: 100%;
+
+    --icon-1: translateX(0%) translateY(0%);
+    --icon-2: translateX(0%) translateY(0%);
+    --icon-3: translateX(0%) translateY(0%);
+
+    animation: figurines-decor-v2-2-step 4s linear infinite;
+
+    @keyframes figurines-decor-v2-2-step {
+        0% {
+            --icon-1: translateX(0%) translateY(0%);
+            --icon-2: translateX(0%) translateY(0%);
+            --icon-3: translateX(0%) translateY(0%);
+        }
+
+        50% {
+            --icon-1: translateX(100%) translateY(0%);
+            --icon-2: translateX(0%) translateY(100%);
+            --icon-3: translateX(-100%) translateY(-100%);
+        }
+
+        100% {
+            --icon-1: translateX(0%) translateY(0%);
+            --icon-2: translateX(0%) translateY(0%);
+            --icon-3: translateX(0%) translateY(0%);
+        }
+    }
+
+    &>img {
+        transition: transform .5s $tf-bouncing;
+        transform-origin: center;
+        height: 50%;
+        width: auto;
+
+        &:nth-child(1) {
+            transform: var(--icon-1);
+            filter: $color-accent-second-filter;
+
+        }
+
+        &:nth-child(2) {
+            transform: var(--icon-2);
+            filter: $color-dark-primary-filter;
+        }
+
+        &:nth-child(3) {
+            transform: var(--icon-3);
+            filter: $color-accent-first-filter;
+        }
+    }
+}
+
+.figurines-v2-decor-3 {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    flex-wrap: wrap;
+    height: 100%;
+
+    --icon-1: translateX(0%) translateY(0%);
+    --icon-2: translateX(0%) translateY(0%);
+    --icon-3: translateX(0%) translateY(0%) rotate(0deg);
+
+    animation: figurines-decor-v2-3-step 4s linear infinite;
+
+    @keyframes figurines-decor-v2-3-step {
+        0% {
+            --icon-1: translateX(0%) translateY(0%);
+            --icon-2: translateX(0%) translateY(0%);
+            --icon-3: translateX(0%) translateY(0%) rotate(0deg);
+        }
+
+        50% {
+            --icon-1: translateX(100%) translateY(100%);
+            --icon-2: translateX(-100%) translateY(100%);
+            --icon-3: translateX(0%) translateY(-100%) rotate(-180deg);
+        }
+
+        100% {
+            --icon-1: translateX(0%) translateY(0%);
+            --icon-2: translateX(0%) translateY(0%);
+            --icon-3: translateX(0%) translateY(0%) rotate(0deg);
+        }
+    }
+
+    &>img {
+        transition: transform .5s $tf-bouncing;
+        transform-origin: center;
+        height: 50%;
+        width: 50%;
+
+        &:nth-child(1) {
+            transform: var(--icon-1);
+            filter: $color-accent-first-filter;
+
+        }
+
+        &:nth-child(2) {
+            transform: var(--icon-2);
+            filter: $color-accent-second-filter;
+        }
+
+        &:nth-child(3) {
+            transform: var(--icon-3);
+            filter: $color-dark-primary-filter;
+            width: 100%;
+        }
+    }
+}
+
+.figurines-v2-decor-4 {
+    position: relative;
+    display: inline-flex;
+    aspect-ratio: 1 / 1;
+    flex-wrap: wrap;
+    height: 100%;
+
+    --icon-1: translateX(0%) translateY(0%);
+    --icon-2: translateX(0%) translateY(0%);
+    --icon-3: translateX(0%) translateY(0%) rotate(0deg);
+
+    animation: figurines-decor-v2-4-step 4s linear infinite;
+
+    @keyframes figurines-decor-v2-4-step {
+        0% {
+            --icon-1: translateX(0%) translateY(0%);
+            --icon-2: translateX(0%) translateY(0%);
+            --icon-3: translateX(0%) translateY(0%) rotate(0deg);
+        }
+
+        50% {
+            --icon-1: translateX(100%) translateY(100%);
+            --icon-2: translateX(-100%) translateY(100%);
+            --icon-3: translateX(100%) translateY(-100%) rotate(180deg);
+        }
+
+        100% {
+            --icon-1: translateX(0%) translateY(0%);
+            --icon-2: translateX(0%) translateY(0%);
+            --icon-3: translateX(0%) translateY(0%) rotate(0deg);
+        }
+    }
+
+    &>img {
+        transition: transform .5s $tf-bouncing;
+        transform-origin: center;
+        height: 50%;
+        width: 50%;
+
+        &:nth-child(1) {
+            transform: var(--icon-1);
+            filter: $color-accent-first-filter;
+
+        }
+
+        &:nth-child(2) {
+            transform: var(--icon-2);
+            filter: $color-dark-primary-filter;
+        }
+
+        &:nth-child(3) {
+            transform: var(--icon-3);
+            filter: $color-accent-second-filter;
+        }
+    }
+}
+
+.figurines-v2-decor-5 {
+    position: relative;
+    display: inline-flex;
+    aspect-ratio: 1 / 1;
+    flex-wrap: wrap;
+    height: 100%;
+
+    --icon-1: translateX(0%) translateY(0%) scaleX(1);
+    --icon-2: translateX(0%) translateY(0%) scaleX(1);
+    --icon-3: translateX(0%) translateY(0%) scaleX(1);
+    --icon-4: translateX(0%) translateY(0%) scaleX(1);
+
+    animation: figurines-decor-v2-5-step 4s linear infinite;
+
+    @keyframes figurines-decor-v2-5-step {
+        0% {
+            --icon-1: translateX(0%) translateY(0%) scaleX(1);
+            --icon-2: translateX(0%) translateY(0%) scaleX(1);
+            --icon-3: translateX(0%) translateY(0%) scaleX(1);
+            --icon-4: translateX(0%) translateY(0%) scaleX(1);
+        }
+
+        50% {
+            --icon-1: translateX(100%) translateY(0%) scaleX(-1);
+            --icon-2: translateX(0%) translateY(100%) scaleX(-1);
+            --icon-3: translateX(0%) translateY(-100%) scaleX(-1);
+            --icon-4: translateX(-100%) translateY(0%) scaleX(-1);
+        }
+
+        100% {
+            --icon-1: translateX(0%) translateY(0%) scaleX(1);
+            --icon-2: translateX(0%) translateY(0%) scaleX(1);
+            --icon-3: translateX(0%) translateY(0%) scaleX(1);
+            --icon-4: translateX(0%) translateY(0%) scaleX(1);
+        }
+    }
+
+    &>img {
+        transition: transform .5s $tf-bouncing;
+        transform-origin: center;
+        height: 50%;
+        width: 50%;
+
+        &:nth-child(1) {
+            transform: var(--icon-1);
+            filter: $color-accent-first-filter;
+
+        }
+
+        &:nth-child(2) {
+            transform: var(--icon-2);
+            filter: $color-accent-second-filter;
+        }
+
+        &:nth-child(3) {
+            transform: var(--icon-3);
+            filter: $color-accent-second-filter;
+        }
+
+        &:nth-child(4) {
+            transform: var(--icon-4);
+            filter: $color-dark-primary;
         }
     }
 }

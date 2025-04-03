@@ -1,9 +1,8 @@
 import {
-	useBlockProps,
 	MediaUploadCheck,
 	MediaUpload,
 } from "@wordpress/block-editor";
-import { useEffect, useRef, useState } from "@wordpress/element";
+import { useState } from "@wordpress/element";
 import { Dashicon, Button, Popover } from "@wordpress/components";
 import "./editor.scss";
 import apiFetch from "@wordpress/api-fetch";
