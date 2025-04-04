@@ -94,7 +94,7 @@ function Edit({
         initialOpen: false,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RadioControl, {
           selected: decor,
-          options: [...Array(5).keys()].map(i => ({
+          options: [...Array(11).keys()].map(i => ({
             label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
               className: "!h-[40px] w-auto",
               src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)(`icons/figurines-v2-decor-${i + 1}.svg`),
@@ -170,6 +170,7 @@ function Save() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   combineString: () => (/* binding */ combineString),
+/* harmony export */   getContainerClasses: () => (/* binding */ getContainerClasses),
 /* harmony export */   getFlexAligmentClasses: () => (/* binding */ getFlexAligmentClasses),
 /* harmony export */   getGapClasses: () => (/* binding */ getGapClasses),
 /* harmony export */   getMarginClasses: () => (/* binding */ getMarginClasses),
@@ -201,6 +202,10 @@ const getGapClasses = gap => {
   const x = gap.x ? `gap-x-${gap.x}` : '';
   const y = gap.y ? `gap-y-${gap.y}` : '';
   return (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])(x, y);
+};
+const getContainerClasses = val => {
+  if (!(val && val?.trim())) return '';
+  return `block-container-${val}`;
 };
 const getSectionsMarginClasses = margin => {
   const top = margin.top ? margin.top !== 'no' ? `section-mt-${margin.top}` : 'mt-0' : '';

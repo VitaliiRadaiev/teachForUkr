@@ -17,19 +17,19 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
 
 /***/ }),
 
-/***/ "./src/blocks/simple-image/block.json":
+/***/ "./src/blocks/static-image/block.json":
 /*!********************************************!*\
-  !*** ./src/blocks/simple-image/block.json ***!
+  !*** ./src/blocks/static-image/block.json ***!
   \********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/simple-image","version":"0.1.0","title":"simple-image","icon":"smiley","description":"","example":{},"supports":{"html":false},"attributes":{"classes":{"type":"string","default":""},"url":{"type":"string"}},"textdomain":"simple-image","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/static-image","version":"0.1.0","title":"static-image","icon":"smiley","description":"","example":{},"supports":{"html":false},"attributes":{"classes":{"type":"string","default":""},"url":{"type":"string"}},"textdomain":"static-image","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
-/***/ "./src/blocks/simple-image/edit.js":
+/***/ "./src/blocks/static-image/edit.js":
 /*!*****************************************!*\
-  !*** ./src/blocks/simple-image/edit.js ***!
+  !*** ./src/blocks/static-image/edit.js ***!
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -37,7 +37,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Edit)
 /* harmony export */ });
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/simple-image/editor.scss");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/static-image/editor.scss");
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
@@ -62,9 +62,9 @@ function Edit({
 
 /***/ }),
 
-/***/ "./src/blocks/simple-image/editor.scss":
+/***/ "./src/blocks/static-image/editor.scss":
 /*!*********************************************!*\
-  !*** ./src/blocks/simple-image/editor.scss ***!
+  !*** ./src/blocks/static-image/editor.scss ***!
   \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -74,9 +74,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/blocks/simple-image/save.js":
+/***/ "./src/blocks/static-image/save.js":
 /*!*****************************************!*\
-  !*** ./src/blocks/simple-image/save.js ***!
+  !*** ./src/blocks/static-image/save.js ***!
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -99,6 +99,7 @@ function Save() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   combineString: () => (/* binding */ combineString),
+/* harmony export */   getContainerClasses: () => (/* binding */ getContainerClasses),
 /* harmony export */   getFlexAligmentClasses: () => (/* binding */ getFlexAligmentClasses),
 /* harmony export */   getGapClasses: () => (/* binding */ getGapClasses),
 /* harmony export */   getMarginClasses: () => (/* binding */ getMarginClasses),
@@ -130,6 +131,10 @@ const getGapClasses = gap => {
   const x = gap.x ? `gap-x-${gap.x}` : '';
   const y = gap.y ? `gap-y-${gap.y}` : '';
   return (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])(x, y);
+};
+const getContainerClasses = val => {
+  if (!(val && val?.trim())) return '';
+  return `block-container-${val}`;
 };
 const getSectionsMarginClasses = margin => {
   const top = margin.top ? margin.top !== 'no' ? `section-mt-${margin.top}` : 'mt-0' : '';
@@ -279,14 +284,14 @@ var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
 /*!******************************************!*\
-  !*** ./src/blocks/simple-image/index.js ***!
+  !*** ./src/blocks/static-image/index.js ***!
   \******************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/blocks/simple-image/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/blocks/simple-image/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blocks/simple-image/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/blocks/static-image/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/blocks/static-image/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blocks/static-image/block.json");
 
 
 

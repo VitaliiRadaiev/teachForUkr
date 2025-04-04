@@ -5,7 +5,8 @@ if (!($attributes['isHide'])):
         get_heading_size_class($attributes['fontSize']),
         $attributes['classes'],
         ($attributes['className'] ?? ''),
-        combine_string(['prefix' => 'text-'], $attributes['aligment'])
+        combine_string(['prefix' => 'text-'], $attributes['aligment']),
+        get_container_classes($attributes['container'])
     );
 ?>
     <?php if (check($attributes['text'])): ?>

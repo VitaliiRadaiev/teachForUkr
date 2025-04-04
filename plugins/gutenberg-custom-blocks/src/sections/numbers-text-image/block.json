@@ -41,6 +41,11 @@
         "bg-light-primary-80"
       ],
       "default": "bg-light-primary-80"
+    },
+    "directions": {
+      "type": "string",
+      "enum": ["left", "right"],
+      "default": "left"
     }
   },
   "textdomain": "numbers-text-image",

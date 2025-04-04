@@ -1,9 +1,9 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "t4u/simple-image",
+  "name": "t4u/static-image",
   "version": "0.1.0",
-  "title": "simple-image",
+  "title": "static-image",
   "icon": "smiley",
   "description": "",
   "example": {},
@@ -19,7 +19,7 @@
       "type": "string"
     }
   },
-  "textdomain": "simple-image",
+  "textdomain": "static-image",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "render": "file:./render.php"

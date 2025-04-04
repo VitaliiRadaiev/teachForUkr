@@ -56,7 +56,7 @@ export default function Edit({ attributes, setAttributes }) {
 				<PanelBody title="Варіанти декору" initialOpen={false}>
 					<RadioControl
 						selected={decor}
-						options={[...Array(5).keys()].map(i => ({
+						options={[...Array(11).keys()].map(i => ({
 							label: <img className="!h-[40px] w-auto" src={getUrlToStaticImages(`icons/figurines-v2-decor-${i + 1}.svg`)} alt="icon" />,
 							value: i + 1
 						}))}

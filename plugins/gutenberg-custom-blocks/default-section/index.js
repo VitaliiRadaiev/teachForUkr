@@ -3,7 +3,6 @@ import { registerBlockType } from "@wordpress/blocks";
 import edit from "./edit";
 import save from "./save";
 import metadata from "./block.json";
-import { getUrlToStaticImages } from "../../utils/utils";
 
 registerBlockType(metadata.name, {
 	edit,
@@ -11,11 +10,9 @@ registerBlockType(metadata.name, {
 	example: {
 		innerBlocks: [
 			{
-				name: "t4u/image",
+				name: "t4u/static-image",
 				attributes: {
-					classes: "",
-					url: getUrlToStaticImages('general/preview-section-numbers.jpg'),
-					imageId: 1
+					url: 'general/preview-section-numbers-text-image.jpg',
 				}
 			}
 		]

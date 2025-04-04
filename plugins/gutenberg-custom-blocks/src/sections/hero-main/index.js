@@ -4,7 +4,6 @@ import edit from "./edit";
 import save from "./save";
 import metadata from "./block.json";
 import "./decor/index";
-import { getUrlToStaticImages } from "../../utils/utils";
 
 registerBlockType(metadata.name, {
 	edit,
@@ -12,11 +11,9 @@ registerBlockType(metadata.name, {
 	example: {
 		innerBlocks: [
 			{
-				name: "t4u/image",
+				name: "t4u/static-image",
 				attributes: {
-					classes: "",
-					url: getUrlToStaticImages('general/preview-section-hero-main.jpg'),
-					imageId: 1
+					url: 'general/preview-section-hero-main.jpg',
 				}
 			}
 		]

@@ -81,6 +81,35 @@ function get_figurines_v2_decor_icon($num) {
             'icon-3' => 'square-rounded-right-top',
             'icon-4' => 'square-rounded-right-top',
         ],
+        [
+            'icon-1' => 'circle',
+            'icon-2' => 'circle',
+            'icon-3' => 'circle',
+        ],
+        [
+            'icon-1' => 'square-rounded-right',
+            'icon-2' => 'circle',
+            'icon-3' => 'square-rounded-top',
+        ],
+        [
+            'icon-1' => 'triangle-top-right',
+            'icon-2' => 'triangle-top-right',
+            'icon-3' => 'triangle-top-right',
+        ],
+        [
+            'icon-1' => 'nested-circles',
+        ],
+        [
+            'icon-1' => 'triangle-top-right',
+            'icon-2' => 'triangle-top-right',
+            'icon-3' => 'square',
+            'icon-4' => 'triangle-top-right',
+        ],
+        [
+            'icon-1' => 'circle',
+            'icon-2' => 'circle',
+            'icon-3' => 'square',
+        ],
     ];
     ob_start();
     ?>

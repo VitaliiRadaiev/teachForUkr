@@ -42,6 +42,11 @@
 			"type": "string",
 			"enum": ["left", "center", "right"],
 			"default": ""
+		},
+		"container": {
+			"type": "string",
+			"enum": ["sm", "md", "lg", "xl", "2xl", "full", false],
+			"default": false
 		}
 	},
 	"textdomain": "simple-text",

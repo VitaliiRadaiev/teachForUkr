@@ -461,3 +461,39 @@ flag {
 .justify-between {
     justify-content: space-between;
 }
+
+.block-container-sm {
+    max-width: rem(484px);
+
+    @media (min-width: $mq-4xl) {
+        max-width: rem(630px);
+    }
+}
+.block-container-md {
+    max-width: rem(618px);
+
+    @media (min-width: $mq-4xl) {
+        max-width: rem(804px);
+    }
+}
+.block-container-lg {
+    max-width: rem(728px);
+
+    @media (min-width: $mq-4xl) {
+        max-width: rem(946px);
+    }
+}
+.block-container-xl {
+    max-width: rem(872px);
+
+    @media (min-width: $mq-4xl) {
+        max-width: rem(1134px);
+    }
+}
+.block-container-2xl {
+    max-width: rem(1024px);
+
+    @media (min-width: $mq-4xl) {
+        max-width: rem(1330px);
+    }
+}

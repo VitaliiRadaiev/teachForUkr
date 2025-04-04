@@ -6,7 +6,8 @@ if (!($attributes['isHide'])):
         combine_string(['prefix' => 'text-'], $attributes['fontSize']),
         combine_string(['prefix' => 'text-'], $attributes['aligment']),
         $attributes['classes'],
-        ($attributes['className'] ?? '')
+        ($attributes['className'] ?? ''),
+        get_container_classes($attributes['container'])
     );
 ?>
     <div class="<?= $classes ?>">

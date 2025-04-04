@@ -3,14 +3,17 @@ import {
 	useInnerBlocksProps,
 	InspectorControls
 } from "@wordpress/block-editor";
+import { PanelBody, RadioControl } from "@wordpress/components";
+import { useSelect, useDispatch } from '@wordpress/data';
+import { useEffect } from '@wordpress/element';
 import "./editor.scss";
 import clsx from "clsx";
-import { getSectionsPaddingClasses, getSectionsMarginClasses } from "../../utils/utils";
+import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
 
 
-export default function Edit({ attributes, setAttributes }) {
-	const { isHide, padding, margin, background, className } = attributes;
+export default function Edit({ attributes, setAttributes, clientId }) {
+	const { isHide, padding, margin, background, className, directions } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
 			'numbers-text-image-section rounded-[20px] md:rounded-[30px] overflow-hidden',
@@ -22,15 +25,19 @@ export default function Edit({ attributes, setAttributes }) {
 		)
 	});
 
+	const { updateBlockAttributes } = useDispatch('core/block-editor');
+
+	const innerBlocks = useSelect((select) => select('core/block-editor').getBlocks(clientId), [clientId]);
+
 	const { children } = useInnerBlocksProps({}, {
 		template: [
-			['t4u/inner-block', { 
+			['t4u/inner-block', {
 				classes: 'lg:shrink-0 lg:grow-0 lg:w-[49%] lg:max-w-[468px] xl:max-w-[865px]',
 				simpleWrapper: true,
 				options: {
 					template: [
 						['t4u/sup-title', {}],
-						['t4u/heading', { 
+						['t4u/heading', {
 							classes: "mt-[16px] md:mt-[20px] text-dark-primary",
 							fontSize: "lg"
 						}],
@@ -72,9 +79,9 @@ export default function Edit({ attributes, setAttributes }) {
 						['t4u/image', {
 							classes: "ibg rounded-[12px] z-1"
 						}],
-						['t4u/simple-image', {
-							classes: "absolute z-2 top-0 h-[138px] md:h-[245px] w-auto right-[-64px] md:right-[-125px] lg:right-[-165px] aos-rotate-right",
-							url: "general/rectangle-turn-right.svg"
+						['t4u/static-image', {
+							classes: 'absolute z-2 top-0 h-[138px] md:h-[245px] w-auto left-[-64px] md:left-[-125px] lg:left-[-165px] aos-rotate-left',
+							url: "general/rectangle-turn-left.svg"
 						}]
 					],
 					allowedBlocks: []
@@ -84,13 +91,53 @@ export default function Edit({ attributes, setAttributes }) {
 		allowedBlocks: []
 	})
 
+	useEffect(() => {
+		if (innerBlocks[1]?.innerBlocks[1]?.name === 't4u/static-image') {
+			updateBlockAttributes(innerBlocks[1].innerBlocks[1].clientId, {
+				classes: clsx(
+					'absolute z-2 top-0 h-[138px] md:h-[245px] w-auto',
+					{
+						'left-[-64px] md:left-[-125px] lg:left-[-165px] aos-rotate-left': directions === 'left',
+						'right-[-64px] md:right-[-125px] lg:right-[-165px] aos-rotate-right': directions === 'right'
+					}
+				),
+				url: clsx({
+					'general/rectangle-turn-left.svg': directions === 'left',
+					'general/rectangle-turn-right.svg': directions === 'right',
+				})
+			});
+		}
+	}, [directions]);
+
 	return (
 		<>
 			<InspectorControls>
-				<DefaultSectionsControls attributes={attributes} setAttributes={setAttributes}/>
+				<DefaultSectionsControls attributes={attributes} setAttributes={setAttributes} />
+				<PanelBody title="Відображення секції" initialOpen={false}>
+					<RadioControl
+						selected={directions}
+						options={[
+							{
+								label: <img className="!h-[100px] w-auto" src={getUrlToStaticImages(`general/preview-section-numbers-text-image-left.jpg`)} alt="icon" />,
+								value: 'left'
+							},
+							{
+								label: <img className="!h-[100px] w-auto" src={getUrlToStaticImages(`general/preview-section-numbers-text-image.jpg`)} alt="icon" />,
+								value: 'right'
+							},
+						]}
+						onChange={(value) => setAttributes({ directions: value })}
+					/>
+				</PanelBody>
 			</InspectorControls>
 			<section {...blockProps}>
-				<div className="container lg:flex lg:flex-row lg:gap-x-[40px] 4xl:gap-x-[65px]">
+				<div className={clsx(
+					'container lg:flex lg:gap-x-[65px]',
+					{
+						'lg:flex-row-reverse': directions === 'left',
+						'lg:flex-row': directions === 'right',
+					}
+				)}>
 					{children}
 				</div>
 			</section>

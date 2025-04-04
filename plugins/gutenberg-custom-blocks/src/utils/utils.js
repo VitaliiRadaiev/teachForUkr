@@ -22,6 +22,12 @@ export const getGapClasses = (gap) => {
     return clsx(x, y);
 }
 
+export const getContainerClasses = (val) => {
+    if(!(val && val?.trim())) return '';
+
+    return `block-container-${val}`;
+}
+
 export const getSectionsMarginClasses = (margin) => {
     const top = margin.top ? (margin.top !== 'no' ? `section-mt-${margin.top}` : 'mt-0') : '';
     const right = margin.right ? (margin.right !== 'no' ? ` section-mr-${margin.right}` : ' mr-0') : '';

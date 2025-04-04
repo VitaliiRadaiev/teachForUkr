@@ -12,3 +12,5 @@ export const TEXT_SIZES = ["sm", "md", "lg", "xl"];
 
 export const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 export const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
+
+export const CONTAINER_SIZES = ["sm", "md", "lg", "xl", "2xl", "full"]

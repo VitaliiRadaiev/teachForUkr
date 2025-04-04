@@ -170,6 +170,15 @@ function get_default_section_classes($attributes)
   );
 }
 
+function get_container_classes($val) {
+  if (!check($val)) {
+      return '';
+  }
+
+  return 'block-container-' . $val;
+}
+
+
 function combine_string(array $options, string $value): string {
   $prefix = $options['prefix'] ?? '';
   $postfix = $options['postfix'] ?? '';

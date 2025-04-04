@@ -6,10 +6,11 @@ import {
 	BlockControls,
 } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
-import { RICH_TEXT_FORMATS } from "../../global/global";
+import { useState } from "@wordpress/element";
+import { CONTAINER_SIZES, RICH_TEXT_FORMATS } from "../../global/global";
 import { IsHide } from "../../components/is-hide/IsHide";
 import { MarginYControl } from "../../components/space-control/MarginYControl";
-import { getMarginClasses, combineString } from "../../utils/utils";
+import { getMarginClasses, combineString, getContainerClasses } from "../../utils/utils";
 import { ButtonsGroup } from "../../components/buttons-group/ButtonsGroup";
 import clsx from "clsx";
 
@@ -26,7 +27,8 @@ const getHeadingSizeClass = (size) => {
 }
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, margin, classes, text, htmlTeg, fontSize, aligment } = attributes;
+	const { isHide, margin, classes, text, htmlTeg, fontSize, aligment, container } = attributes;
+	const [isContainerChange, setIsContainerChange] = useState(false);
 
 	const blockProps = useBlockProps({
 		className: clsx(
@@ -35,8 +37,10 @@ export default function Edit({ attributes, setAttributes }) {
 			getHeadingSizeClass(fontSize),
 			combineString({ prefix: 'text-' }, aligment),
 			{
-				['hide-block']: isHide
-			}
+				['hide-block']: isHide,
+				'canChangeContainerSize': isContainerChange,
+			},
+			getContainerClasses(container),
 		)
 	});
 
@@ -67,6 +71,20 @@ export default function Edit({ attributes, setAttributes }) {
 					/>
 				</PanelBody>
 				<MarginYControl size={margin} setSize={(s) => setAttributes({ margin: s })} />
+				{container &&
+					<PanelBody
+						title="Розмір обмежуючого контейнера"
+						initialOpen={false}
+					>
+						<div onMouseEnter={() => setIsContainerChange(true)} onMouseLeave={() => setIsContainerChange(false)}>
+							<ButtonsGroup
+								value={container}
+								setValue={(val) => setAttributes({ container: val })}
+								valuesMap={CONTAINER_SIZES}
+							/>
+						</div>
+					</PanelBody>
+				}
 			</InspectorControls>
 			<div {...blockProps}>
 				<RichText

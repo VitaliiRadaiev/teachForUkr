@@ -1,5 +1,10 @@
+<?php 
+$tailwind = 'left-[-64px] md:left-[-125px] lg:left-[-165px] right-[-64px] md:right-[-125px] lg:right-[-165px]';
+$tailwind = 'lg:flex-row-reverse lg:flex-row';
+?>
+
 <section class="numbers-text-image-section rounded-[20px] md:rounded-[30px] overflow-hidden <?= $classes ?>">
-    <div class="container lg:flex lg:flex-row lg:gap-x-[40px] 4xl:gap-x-[65px]">
+    <div class="container lg:flex lg:flex-row lg:gap-x-[65px]">
         <div class="lg:shrink-0 lg:grow-0 lg:w-[49%] lg:max-w-[468px] xl:max-w-[865px]">
             <h2 class="h3 mt-[16px] md:mt-[20px] text-dark-primary">
                 Проєкт “0 stress”
