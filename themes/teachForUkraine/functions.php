@@ -8,6 +8,7 @@ include_once 'functions-parts/_taxonomies-registration.php';
 include_once 'functions-parts/_ajax.php';
 include_once 'functions-parts/_hooks.php';
 include_once 'functions-parts/_custom-functions.php';
+include_once 'functions-parts/_convert_to_webp.php';
 include_once 'modules/index.php';
 
 /*
@@ -17,10 +18,11 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
 
-add_action( 'admin_menu', 'remove_menu_pages' );
+add_action('admin_menu', 'remove_menu_pages');
 
-function remove_menu_pages() {
-    remove_menu_page('edit.php'); 
+function remove_menu_pages()
+{
+    remove_menu_page('edit.php');
 }
 
 
@@ -46,22 +48,22 @@ remove_action('template_redirect', 'rest_output_link_header', 11, 0);
  * */
 function remove_menus()
 {
-//    remove_menu_page('index.php');                  //Консоль
-//    remove_menu_page('edit.php');                   //Записи
-//    remove_menu_page('upload.php');                 //Медиафайлы
-//    remove_menu_page('edit.php?post_type=page');    //Страницы
-   remove_menu_page('edit-comments.php');          //Комментарии
-//    remove_menu_page('themes.php');                 //Внешний вид
-//    remove_menu_page('plugins.php');                //Плагины
-//    remove_menu_page('users.php');                  //Пользователи
-//    remove_menu_page('tools.php');                  //Инструменты
-//    remove_menu_page('options-general.php');        //Настройки
+    //    remove_menu_page('index.php');                  //Консоль
+    //    remove_menu_page('edit.php');                   //Записи
+    //    remove_menu_page('upload.php');                 //Медиафайлы
+    //    remove_menu_page('edit.php?post_type=page');    //Страницы
+    remove_menu_page('edit-comments.php');          //Комментарии
+    //    remove_menu_page('themes.php');                 //Внешний вид
+    //    remove_menu_page('plugins.php');                //Плагины
+    //    remove_menu_page('users.php');                  //Пользователи
+    //    remove_menu_page('tools.php');                  //Инструменты
+    //    remove_menu_page('options-general.php');        //Настройки
 
-//    remove_menu_page('admin.php?page=pmxi-admin-import');
-//    remove_menu_page('edit.php?post_type=acf-field-group');
-//        remove_menu_page( 'admin.php?page=Wordfence' );
-//        remove_menu_page( 'admin.php?page=pmxi-admin-import' );
-//        remove_menu_page( 'admin.php?page=wpseo_dashboard' );
+    //    remove_menu_page('admin.php?page=pmxi-admin-import');
+    //    remove_menu_page('edit.php?post_type=acf-field-group');
+    //        remove_menu_page( 'admin.php?page=Wordfence' );
+    //        remove_menu_page( 'admin.php?page=pmxi-admin-import' );
+    //        remove_menu_page( 'admin.php?page=wpseo_dashboard' );
 }
 
 add_action('admin_menu', 'remove_menus');
@@ -90,37 +92,41 @@ if (function_exists('acf_add_options_page')) acf_add_options_page();
 
 // Local acf fields
 
-function local_acf_json_save_point( $path ) {
-    
-    // update path
-	$path = get_stylesheet_directory() . '/acf';
-    
-	// return
-	return $path;
-}
-add_filter( 'acf/settings/save_json', 'local_acf_json_save_point' );
+function local_acf_json_save_point($path)
+{
 
-function my_acf_json_load_point( $paths ) {
+    // update path
+    $path = get_stylesheet_directory() . '/acf';
+
+    // return
+    return $path;
+}
+add_filter('acf/settings/save_json', 'local_acf_json_save_point');
+
+function my_acf_json_load_point($paths)
+{
     // Remove the original path (optional).
     unset($paths[0]);
 
     // Append the new path and return it.
     $paths[] = get_stylesheet_directory() . '/acf';
 
-    return $paths;    
+    return $paths;
 }
-add_filter( 'acf/settings/load_json', 'my_acf_json_load_point' );
+add_filter('acf/settings/load_json', 'my_acf_json_load_point');
 
 
 /*
  * Favicon for admin-panel
  * */
-function mojFavicon() {
+function mojFavicon()
+{
     echo '<link rel="Shortcut Icon" type="image/x-icon" href="" />';
 }
 //add_action( 'admin_head', 'mojFavicon' );
 
-function get_current_template() {
+function get_current_template()
+{
     global $template;
     return basename($template, '.php');
 }
@@ -128,21 +134,22 @@ function get_current_template() {
 
 // Serch form template
 // add_filter( 'get_search_form', 'my_search_form' );
-function my_search_form( $form ) {
+function my_search_form($form)
+{
 
-	$form = '
-	<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-		<input placeholder="'.get_field('search_title','options').'" type="text" value="' . get_search_query() . '" name="s" id="s" />
+    $form = '
+	<form role="search" method="get" id="searchform" action="' . home_url('/') . '" >
+		<input placeholder="' . get_field('search_title', 'options') . '" type="text" value="' . get_search_query() . '" name="s" id="s" />
 		<input type="submit" id="searchsubmit"  value="" />
 	</form>';
 
-	return $form;
+    return $form;
 }
 
 
 // добавление редактора меню
 if (function_exists('add_theme_support')) {
-	add_theme_support('menus');
+    add_theme_support('menus');
 }
 
 /*
@@ -160,13 +167,14 @@ add_theme_support('menus');
 
 
 
-add_theme_support( 'post-thumbnails' );
-add_image_size( 'full_hd', 1920, 1080 );
+add_theme_support('post-thumbnails');
+add_image_size('full_hd', 1920, 1080);
 
 
-add_action( 'wp_print_styles', 'wps_deregister_styles', 100 );
-function wps_deregister_styles() {
-    wp_deregister_style( 'contact-form-7' );
+add_action('wp_print_styles', 'wps_deregister_styles', 100);
+function wps_deregister_styles()
+{
+    wp_deregister_style('contact-form-7');
 }
 
 
@@ -177,11 +185,11 @@ function wps_deregister_styles() {
  * @param string $type URL type. Can be user, post or term.
  * @param object $object Data object for the URL.
  */
-add_filter( 'rank_math/sitemap/entry', function( $url, $type, $object ){
+add_filter('rank_math/sitemap/entry', function ($url, $type, $object) {
 
     $url = str_replace('/golovna', '', $url);
     return $url;
-}, 10, 3 );
+}, 10, 3);
 
 /**
  * Filter the URL Rank Math SEO uses in the XML sitemap for this post type archive.
@@ -189,9 +197,9 @@ add_filter( 'rank_math/sitemap/entry', function( $url, $type, $object ){
  * @param string $archive_url The URL of this archive
  * @param string $post_type   The post type this archive is for.
  */
-add_filter( 'rank_math/sitemap/post_type_archive_link', function( $archive_url, $post_type ){
+add_filter('rank_math/sitemap/post_type_archive_link', function ($archive_url, $post_type) {
     return 0;
-}, 10, 2 );
+}, 10, 2);
 
 // Redirect from Uppercase urls to Lowercase urls
 // add_action( 'init', 'redirect_to_lower_case' );

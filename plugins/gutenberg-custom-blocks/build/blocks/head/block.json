@@ -1,11 +1,10 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "t4u/head-sections",
+  "name": "t4u/head-block",
   "version": "0.1.0",
   "title": "Значок + Заголовок + Підзаголовок",
-  "category": "hero",
-  "icon": "layout",
+  "icon": "smiley",
   "description": "",
   "example": {},
   "supports": {
@@ -16,15 +15,6 @@
       "type": "boolean",
       "default": false
     },
-    "padding": {
-      "type": "object",
-      "default": {
-        "top": "lg",
-        "right": "",
-        "bottom": "lg",
-        "left": ""
-      }
-    },
     "margin": {
       "type": "object",
       "default": {
@@ -33,14 +23,6 @@
         "bottom": "",
         "left": ""
       }
-    },
-    "background": {
-      "type": "string",
-      "enum": [
-        "bg-light-primary",
-        "bg-light-primary-80"
-      ],
-      "default": "bg-light-primary-80"
     },
     "container": {
       "type": "string",
@@ -64,7 +46,7 @@
       "default": "center"
     }
   },
-  "textdomain": "head-sections",
+  "textdomain": "head-block",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "render": "file:./render.php"

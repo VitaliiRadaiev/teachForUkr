@@ -385,6 +385,23 @@
             "allow_in_bindings": 0
         },
         {
+            "key": "field_67f388523d224",
+            "label": "Реєстрація",
+            "name": "link_registration",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_67e159c72a139",
             "label": "Загальні текста",
             "name": "",
@@ -566,5 +583,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1743485316
+    "modified": 1744013428
 }

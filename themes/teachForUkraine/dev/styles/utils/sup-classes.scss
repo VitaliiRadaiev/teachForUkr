@@ -7,6 +7,17 @@
     }
 }
 
+.first-child-no-margin {
+    &:first-child {
+        margin-top: 0 !important;
+    }
+}
+.last-child-no-margin {
+    &:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
 .sequential-index {
     &>* {
         @for $i from 1 through 20 {

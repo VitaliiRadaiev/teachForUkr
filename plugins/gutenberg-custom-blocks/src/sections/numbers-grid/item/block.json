@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/numbers-grid-item",
+	"version": "0.1.0",
+	"title": "Картка",
+	"icon": "smiley",
+	"description": "",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"columns": {
+			"type": "string",
+			"enum": [
+				"lg:col-span-2"
+			],
+			"default": ""
+		},
+		"rows": {
+			"type": "string",
+			"enum": [
+				"lg:row-span-2"
+			],
+			"default": ""
+		},
+		"variants": {
+			"type": "string",
+			"enum": ["left", "right", "top"],
+			"default": "top"
+		}
+	},
+	"parent": ["t4u/numbers-grid"],
+	"textdomain": "numbers-grid-item",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

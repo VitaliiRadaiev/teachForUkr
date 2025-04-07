@@ -50,7 +50,8 @@ module.exports = {
         '50': '50',
       },
       screens: {
-        'lg-and-xl-max': { 'min': '1024px', 'max': '1279.98px' }
+        'md-and-lg-max': { 'min': '744px', 'max': '1023.98px' },
+        'lg-and-xl-max': { 'min': '1024px', 'max': '1279.98px' },
       },
       backgroundColor: {
         'background': 'var(--color-background)',

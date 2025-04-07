@@ -1,10 +1,10 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "t4u/head-sections",
+  "name": "t4u/numbers-grid",
   "version": "0.1.0",
-  "title": "Значок + Заголовок + Підзаголовок",
-  "category": "hero",
+  "title": "Цифри мікс, дві колонки",
+  "category": "numbers",
   "icon": "layout",
   "description": "",
   "example": {},
@@ -41,30 +41,9 @@
         "bg-light-primary-80"
       ],
       "default": "bg-light-primary-80"
-    },
-    "container": {
-      "type": "string",
-      "enum": [
-        "sm",
-        "md",
-        "lg",
-        "xl",
-        "2xl",
-        "full"
-      ],
-      "default": "xl"
-    },
-    "aligment": {
-      "type": "string",
-      "enum": [
-        "left",
-        "center",
-        "right"
-      ],
-      "default": "center"
     }
   },
-  "textdomain": "head-sections",
+  "textdomain": "numbers-grid",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "render": "file:./render.php"

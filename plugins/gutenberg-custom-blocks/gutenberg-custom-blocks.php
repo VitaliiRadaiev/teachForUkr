@@ -33,7 +33,7 @@ function create_block_gutenberg_custom_blocks_block_init()
 	add_filter('block_categories_all', function ($categories) {
 		array_unshift($categories, [
 			'slug' => 'hero',
-			'title' => 'Вcтупні баннери'
+			'title' => 'Вcтупні баннери / заголовки'
 		]);
 		array_unshift($categories, [
 			'slug' => 'numbers',

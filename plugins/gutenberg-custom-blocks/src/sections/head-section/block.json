@@ -4,7 +4,7 @@
   "name": "t4u/head-sections",
   "version": "0.1.0",
   "title": "Значок + Заголовок + Підзаголовок",
-  "category": "blocks",
+  "category": "hero",
   "icon": "layout",
   "description": "",
   "example": {},
