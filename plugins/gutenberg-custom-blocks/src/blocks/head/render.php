@@ -12,9 +12,9 @@ if (!($attributes['isHide'])):
       ($attributes['aligment'] === 'left' ? 'items-start' : ''),
    );
 ?>
-   <section class="head-block <?= $classes ?>">
+   <div class="head-block <?= $classes ?>">
       <div class="<?= $innet_classes; ?>">
          <? echo $content; ?>
       </div>
-   </section>
+   </div>
 <?php endif; ?>

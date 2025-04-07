@@ -8,7 +8,7 @@
             &:last-child {
                 &::before {
                     content: '';
-                    position: absolute; 
+                    position: absolute;
                     right: 0;
                     bottom: 100%;
                     height: 51px;
@@ -33,5 +33,254 @@
                 }
             }
         }
+    }
+}
+
+.hero-main-decor-buttons {
+    border-bottom: 2px solid $color-dark-primary;
+}
+
+.hero-main-decor-buttons-center {
+    transform-origin: top right;
+    transform: rotate(-29.5deg);
+    margin-left: -21px;
+    margin-top: -5px;
+    width: var(max-content + 20px);
+
+    @media (min-width: $mq-md) {
+        transform: rotate(-28.5deg);
+        margin-left: -25px;
+        margin-top: -7px;
+    }
+
+    &>.decor-btn {
+        min-width: 110px;
+
+        @media (min-width: $mq-md) {
+            min-width: 138px;
+        }
+    }
+}
+
+.hero-main-decor-buttons-right {
+    &>.decor-btn {
+        &:nth-child(1) {
+            margin-left: 11px;
+
+            @media (min-width: $mq-md) {
+                margin-left: 13px;
+            }
+        }
+
+        &:nth-child(2) {
+            margin-left: -15px;
+
+            @media (min-width: $mq-md) {
+                margin-left: -20px;
+            }
+        }
+    }
+}
+
+// init animations states
+$t: 0.8s;
+$tf: ease-out;
+$delay: .6s;
+$offset: 30px;
+
+body.page:has(section.main-hero) {
+    [data-header] {
+        transition: transform $t $tf $delay, opacity $t $tf $delay;
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    & .hero-main-bg-decor-inner {
+        &>* {
+            &:nth-child(1) {
+                position: relative;
+                overflow: hidden;
+                transition: transform .6s $tf $delay;
+                transform: scale(1.1);
+
+                &::before,
+                &::after {
+                    position: absolute;
+                    left: 0;
+                    content: '';
+                    background-color: $color-light-primary-80;
+                    z-index: 3;
+                    display: block;
+                    height: 51%;
+                    width: 100%;
+                    transition: transform 0.6s ease-in $delay;
+                }
+
+                &::before {
+                    top: 0;
+                }
+
+                &::after {
+                    bottom: 0;
+                }
+            }
+
+            &:nth-child(2) {
+                transition: transform $t $tf $delay, opacity 1s $tf $delay;
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+    }
+
+    & .decor-btn {
+        opacity: 0;
+        transform: translateY(-25px);
+
+        --t: .3s;
+
+        &-2 {
+            --delay: 1.2s;
+            transition: transform var(--t) $tf-bouncing var(--delay), opacity var(--t) $tf-bouncing var(--delay);
+        }
+
+        &-1 {
+            --delay: 1.3s;
+            transition: transform var(--t) $tf-bouncing var(--delay), opacity var(--t) $tf-bouncing var(--delay);
+        }
+
+        &-3 {
+            --delay: 1.4s;
+            transition: transform var(--t) $tf-bouncing var(--delay), opacity var(--t) $tf-bouncing var(--delay);
+        }
+
+        &-5 {
+            --delay: 1.5s;
+            transition: transform var(--t) $tf-bouncing var(--delay), opacity var(--t) $tf-bouncing var(--delay);
+        }
+
+
+        &-4 {
+            --delay: 1.6s;
+            transition: transform var(--t) $tf-bouncing var(--delay), opacity var(--t) $tf-bouncing var(--delay);
+        }
+
+    }
+
+    & .hero-main-suptitle {
+        transition: transform $t $tf $delay, opacity $t $tf .9s;
+        opacity: 0;
+        transform: translateX(-#{$offset});
+    }
+
+    & .hero-main-title {
+        &>span {
+            display: inline-block;
+
+            &:nth-child(1) {
+                transition: transform $t $tf $delay, opacity $t $tf $delay;
+                opacity: 0;
+                transform: translateX(-#{$offset});
+            }
+
+            &:nth-child(2),
+            &:nth-child(3) {
+                transition: transform $t $tf $delay, opacity $t $tf $delay;
+                opacity: 0;
+                transform: translateX(#{$offset});
+            }
+        }
+    }
+
+    & .hero-main-text {
+        transition: transform $t $tf $delay, opacity $t $tf $delay;
+        opacity: 0;
+        transform: translateY(-#{$offset});
+    }
+
+    & .hero-main-buttons {
+        transition: transform $t $tf $delay, opacity $t $tf $delay;
+        opacity: 0;
+        transform: translateY(#{$offset});
+    }
+
+    & .hero-main-image {
+        &>img {
+            clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+            transform: translateX(-50%) scale(1.2);
+            transition: transform $t $tf 1s, clip-path $t $tf 1s, ;
+        }
+    }
+}
+
+// animate
+body.page:has(section.main-hero).page-loaded {
+    [data-header] {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+    & .hero-main-bg-decor-inner {
+        &>* {
+            &:nth-child(1) {
+                transform: scale(1);
+
+                &::before {
+                    transform: translateY(-100%);
+                }
+
+                &::after {
+                    transform: translateY(100%);
+                }
+            }
+
+            &:nth-child(2) {
+                transform: translateX(0%);
+                opacity: 1;
+            }
+        }
+    }
+
+    & .hero-main-suptitle {
+        transition: transform $t $tf $delay, opacity $t $tf .9s;
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    & .hero-main-title {
+        &>span {
+            &:nth-child(1) {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+
+            &:nth-child(2),
+            &:nth-child(3) {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+    }
+
+    & .hero-main-text {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    & .hero-main-buttons {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    & .hero-main-image {
+        &>img {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            transform: translateX(-50%) scale(1);
+        }
+    }
+
+    & .decor-btn {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

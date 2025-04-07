@@ -20,21 +20,21 @@ export default function Edit({ attributes, setAttributes }) {
 	const { children } = useInnerBlocksProps({}, {
 		template: [
 			["t4u/inner-block", {
-				classes: 'md-max:mx-auto md-max:max-w-[375px] xl:shrink-0 xl:grow-0 xl:max-w-[660px] 4xl:max-w-[840px] xl:py-[57px] 4xl:py-[104px]',
+				classes: 'z-2 md-max:mx-auto md-max:max-w-[375px] xl:shrink-0 xl:grow-0 xl:max-w-[660px] 4xl:max-w-[840px] xl:py-[57px] 4xl:py-[104px]',
 				options: {
 					template: [
 						['t4u/hero-main-sup-title', {}],
 						['t4u/heading', {
-							classes: "mt-[15px] md:mt-[20px]",
+							classes: "mt-[15px] md:mt-[20px] hero-main-title",
 							htmlTeg: "h1",
 							fontSize: "2xl"
 						}],
 						['t4u/simple-text', {
-							classes: "mt-[20px] xl:mt-[25px] 4xl:mt-[35px] text-dark-primary max-w-[19.25rem] md:max-w-[25.375rem] 4xl:max-w-[29.6875rem]",
-							fontSize: "md"
+							classes: "mt-[20px] xl:mt-[25px] 4xl:mt-[35px] text-dark-primary max-w-[19.25rem] md:max-w-[25.375rem] 4xl:max-w-[29.6875rem] hero-main-text",
+							fontSize: "lg"
 						}],
 						["t4u/buttons-group", {
-							classes: 'mt-[30px] md:mt-[40px] xl:mt-[65px] 4xl:mt-[80px]',
+							classes: 'mt-[30px] md:mt-[40px] xl:mt-[65px] 4xl:mt-[80px] hero-main-buttons',
 							options: {
 								template: [
 									["t4u/button", {
@@ -55,7 +55,7 @@ export default function Edit({ attributes, setAttributes }) {
 				options: {
 					template: [
 						["t4u/inner-block", {
-							classes: "absolute top-0 left-1/2 xl:left-0 xl-max:-translate-x-1/2 w-svw h-full xl:w-[calc(100%+40px)] 2xl:w-[calc(100%+60px)] 4xl:w-[calc(100%+80px)]",
+							classes: "hero-main-image absolute top-0 left-1/2 xl:left-0 xl-max:-translate-x-1/2 w-svw h-full xl:w-[calc(100%+40px)] 2xl:w-[calc(100%+60px)] 4xl:w-[calc(100%+80px)]",
 							simpleWrapper: true,
 							options: {
 								template: [

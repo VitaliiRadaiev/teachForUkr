@@ -23,6 +23,16 @@ function get_acf_option_field($request) {
     ]);
 }
 
+function get_hero_main_decor_buttons_text() {
+    return rest_ensure_response([
+        get_field('text_participants', 'options'),
+        get_field('text_children', 'options'),
+        get_field('text_teach', 'options'),
+        get_field('text_teachers', 'options'),
+        get_field('text_schools', 'options'),
+    ]);
+}
+
 function register_acf_options_endpoint() {
     register_rest_route('site-core/v1', '/options/', array(
         'methods'  => 'GET',
@@ -36,5 +46,11 @@ function register_acf_options_endpoint() {
                 }
             )
         )
+    ));
+
+    register_rest_route('site-core/v1', 'hero-main-decor-buttons', array(
+        'methods'  => 'GET',
+        'callback' => 'get_hero_main_decor_buttons_text',
+        'permission_callback' => '__return_true'
     ));
 }

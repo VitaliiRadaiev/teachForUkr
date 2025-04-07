@@ -427,6 +427,7 @@ flag {
 }
 
 .bg-light-primary {
+    --bg: #{$color-light-primary};
     --nested-bg: #{$color-light-primary-80};
     & .nested-bg-item {
         background-color: $color-light-primary-80;
@@ -434,6 +435,7 @@ flag {
 }
 
 .bg-light-primary-80 {
+    --bg: #{$color-light-primary-80};
     --nested-bg: #{$color-light-primary};
     & .nested-bg-item {
         background-color: $color-light-primary;
