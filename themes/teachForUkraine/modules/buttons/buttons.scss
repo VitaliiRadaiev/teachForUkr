@@ -283,6 +283,25 @@
     }
 }
 
+.buttons-dance {
+    &>* {
+        flex-grow: 1;
+        flex-shrink: 0;
+        width: auto;
+    }
+}
+
+.md-max\:buttons-dance {
+    @media (max-width: $mq-md-max) {
+        &>* {
+            flex-grow: 1;
+            flex-shrink: 0;
+            width: auto;
+        }
+    }
+}
+
+
 .decor-btn {
     font-weight: 400;
     font-size: 14px;
@@ -324,4 +343,86 @@
             width: 10px;
         }
     }
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 59px;
+    padding: rem(8px) rem(30px);
+    border-radius: rem(12px);
+    background-color: $color-light-primary;
+    font-weight: 500;
+    font-size: rem(18px);
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    gap: rem(10px);
+    color: $color-dark-primary;
+    overflow: hidden;
+    position: relative;
+
+    @media #{$mouse-device} {
+        &:hover {
+            &::before {
+                background-color: $color-accent-first;
+            }
+
+            @include text-hover;
+        }
+    }
+
+    @media (min-width: $mq-md) {
+        min-height: 87px;
+        min-width: rem(200px);
+    }
+
+    @media (min-width: $mq-4xl) {
+        font-size: rem(21px);
+    }
+
+    &::after {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: rem(22px);
+        width: rem(22px);
+        border-radius: 100%;
+        font-size: rem(14px);
+        background-color: $color-accent-first-5;
+        transition: background-color $tran, color $tran;
+        color: $color-accent-first;
+
+        content: "\e905";
+        font-family: 'icomoon' !important;
+        speak: never;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 50%;
+        right: 0;
+        transform: translate(50%, -50%);
+        background-color: $color-accent-second;
+        height: rem(30px);
+        width: rem(30px);
+        border-radius: 100%;
+        transition: background-color $tran;
+
+        @media (min-width: $mq-md) {
+            height: rem(36px);
+            width: rem(36px);
+        }
+    }
+
+    @include text-styles;
 }

@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/hero-button",
+	"version": "0.1.0",
+	"title": "Кнопка",
+	"icon": "button",
+	"description": "",
+    "example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"blockId": {
+			"type": "number"
+		},
+		"postType": {
+			"type": "object"
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"classes": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "hero-button",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

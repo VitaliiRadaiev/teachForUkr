@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/breadcrumbs",
+	"version": "0.1.0",
+	"title": "Хлібні крихти",
+	"icon": "smiley",
+	"description": "",
+	"example": {},
+	"supports": {
+	  "html": false
+	},
+	"attributes": {
+	  "isHide": {
+		"type": "boolean",
+		"default": false
+	  },
+	  "margin": {
+		"type": "object",
+		"default": {
+		  "top": "no",
+		  "right": "no",
+		  "bottom": "no",
+		  "left": "no"
+		}
+	  },
+	  "classes": {
+		"type": "string",
+		"default": ""
+	  }
+	},
+	"parent": ["t4u/hero-v1", "t4u/hero-v2"],
+	"textdomain": "breadcrumbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+  }

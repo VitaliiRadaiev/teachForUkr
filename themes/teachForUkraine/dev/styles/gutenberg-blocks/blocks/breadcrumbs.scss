@@ -1,0 +1,41 @@
+@use "./utils/abstracts" as *;
+
+.breadcrumbs {
+    color: $color-light-primary-40;
+
+    & .separator {
+        display: none;
+    }
+
+    & a, & .last {
+        position: relative;
+        padding-left: rem(11px);
+
+        &:not(:first-child) {
+            margin-left: rem(15px);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: rem(6px);
+            width: rem(6px);
+            background-color: currentColor;
+        }
+    }
+
+    & a {
+        cursor: pointer;
+        color: $color-dark-primary-80;
+        transition: color $tran;
+
+        @media #{$mouse-device} {
+            &:hover {
+                color: $color-accent-first;
+            }
+        }
+    }
+}

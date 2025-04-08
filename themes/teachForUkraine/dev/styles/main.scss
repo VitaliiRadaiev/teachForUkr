@@ -31,5 +31,7 @@
 // /= sections
 
 // gutenberg-blocks
+@use "./gutenberg-blocks/blocks/breadcrumbs.scss";
+
 @use "./gutenberg-blocks/sections/hero-main.scss";
 // /= gutenberg-blocks

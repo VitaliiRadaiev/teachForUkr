@@ -202,7 +202,7 @@ function Edit({
           options: {
             template: [["t4u/button", {
               acfField: 'link_become_partner',
-              classes: 'md-max:w-full md-max:max-w-[375px]'
+              classes: 'sm-max:w-full'
             }]],
             allowedBlocks: ['t4u/button']
           }

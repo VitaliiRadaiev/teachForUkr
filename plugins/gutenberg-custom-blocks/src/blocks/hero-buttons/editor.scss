@@ -1,0 +1,9 @@
+.wp-block-t4u-hero-buttons {
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+
+    @media (min-width: 744px) {
+        margin-left: -40px !important;
+        margin-right: -40px !important;
+    }
+}

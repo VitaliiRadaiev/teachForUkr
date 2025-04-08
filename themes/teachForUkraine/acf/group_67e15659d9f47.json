@@ -402,6 +402,57 @@
             "allow_in_bindings": 0
         },
         {
+            "key": "field_67f530ddb03e8",
+            "label": "PayPal",
+            "name": "link_PayPal",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_67f53103b03e9",
+            "label": "Wayforpay",
+            "name": "link_Wayforpay",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_67f5310db03ea",
+            "label": "Bank Transfer",
+            "name": "link_BankTransfer",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_67e159c72a139",
             "label": "Загальні текста",
             "name": "",
@@ -751,5 +802,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1744032822
+    "modified": 1744122163
 }

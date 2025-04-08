@@ -1,0 +1,7 @@
+.wp-block-t4u-hero-buttons {
+    &.is-selected {
+        & .block-list-appender .block-list-appender__toggle {
+            display: flex;
+        }
+    }
+}

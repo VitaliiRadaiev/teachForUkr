@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/hero-buttons",
+  "version": "0.1.0",
+  "title": "Кнопки баннера",
+  "icon": "forms",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "isHide": {
+      "type": "boolean",
+      "default": false
+    },
+    "margin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "classes": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "parent": [
+    "t4u/hero-v1",
+    "t4u/hero-v2"
+  ],
+  "textdomain": "hero-buttons",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}
