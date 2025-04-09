@@ -1,0 +1,40 @@
+[data-name="category_icons"] .acf-radio-list label {
+    font-size: 0px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+[data-name="category_icons"] .acf-radio-list label::after {
+    content: '';
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+[data-name="category_icons"] .acf-radio-list li:not(:first-child) {
+    margin-top: 5px;
+}
+
+[data-name="category_icons"] .acf-radio-list li:nth-child(1) label::after {
+    background-image: url("/wp-content/themes/teachForUkraine/assets/images/icons/category-icon-1.svg");
+}
+[data-name="category_icons"] .acf-radio-list li:nth-child(2) label::after {
+    background-image: url("/wp-content/themes/teachForUkraine/assets/images/icons/category-icon-2.svg");
+}
+[data-name="category_icons"] .acf-radio-list li:nth-child(3) label::after {
+    background-image: url("/wp-content/themes/teachForUkraine/assets/images/icons/category-icon-3.svg");
+}
+[data-name="category_icons"] .acf-radio-list li:nth-child(4) label::after {
+    background-image: url("/wp-content/themes/teachForUkraine/assets/images/icons/category-icon-4.svg");
+}
+[data-name="category_icons"] .acf-radio-list li:nth-child(5) label::after {
+    background-image: url("/wp-content/themes/teachForUkraine/assets/images/icons/category-icon-5.svg");
+}
+[data-name="category_icons"] .acf-radio-list li:nth-child(6) label::after {
+    background-image: url("/wp-content/themes/teachForUkraine/assets/images/icons/category-icon-6.svg");
+}

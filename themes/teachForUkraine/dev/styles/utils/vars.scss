@@ -59,9 +59,54 @@ $color-light-primary-80: #F6F6F6; // --backgraund;
 $color-light-primary-60: #D1D4D4; // --dark-grey
 $color-light-primary-40: #BBBBBB; // --white-700
 
+$color-category-1: #1CD175;
+$color-category-1-light: #8EE8BA;
+
+$color-category-2: #1f1f1f;
+$color-category-2-light: #787878;
+
+$color-category-3: #FF4242;
+$color-category-3-light: #FFA1A1;
+
+$color-category-4: #FF8200;
+$color-category-4-light: #ff6200;
+
+$color-category-5: #0536FC;
+$color-category-5-light: #829BFE;
+
+$color-category-6: #FFF200;
+$color-category-6-light: #fff980;
+
 // transition
 $tran: .15s ease;
 $tf-bouncing: cubic-bezier(.47,1.64,.41,.8);
+
+$category-colors: (
+    1:(
+        main: $color-category-1,
+        light: $color-category-1-light,
+    ),
+    2:(
+        main: $color-category-2,
+        light: $color-category-2-light,
+    ),
+    3:(
+        main: $color-category-3,
+        light: $color-category-3-light,
+    ),
+    4:(
+        main: $color-category-4,
+        light: $color-category-4-light,
+    ),
+    5:(
+        main: $color-category-5,
+        light: $color-category-5-light,
+    ),
+    6:(
+        main: $color-category-6,
+        light: $color-category-6-light,
+    ),
+);
 
 $colors: (
     first: (base: $color-accent-first,
@@ -140,8 +185,8 @@ $section-spases: (
     sm: (
         sm: 40px,
         md: 50px,
-        xl: 70px,
-        4xl: 70px
+        xl: 50px,
+        4xl: 60px
     ),
     md: (
         sm: 70px,

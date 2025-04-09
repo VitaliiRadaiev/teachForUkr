@@ -723,6 +723,69 @@
             "append": ""
         },
         {
+            "key": "field_67f662b132847",
+            "label": "Текст \"Всі\"",
+            "name": "text_all",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Всі",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67f66ecc65269",
+            "label": "Текст \"Показати ще\"",
+            "name": "text_show_more",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Показати ще",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67f67f8fada71",
+            "label": "Текст \"Перейти\"",
+            "name": "text_go_to",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Перейти",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67e26a044512e",
             "label": "Соціальні мережі",
             "name": "",
@@ -802,5 +865,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1744122163
+    "modified": 1744207783
 }

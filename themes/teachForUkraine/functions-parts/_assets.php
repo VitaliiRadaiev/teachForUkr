@@ -23,12 +23,9 @@ function my_assets()
 add_action('wp_enqueue_scripts', 'my_assets');
 
 
-function load_gutenberg_editor_styles() {
-    wp_enqueue_style(
-        'editor-styles',
-        get_template_directory_uri() . '/admin-style.css',
-        array(),
-        filemtime(get_template_directory() . '/admin-style.css')
-    );
+add_action( 'admin_enqueue_scripts', 'load_admin_style' );
+function load_admin_style() {
+    wp_enqueue_style('admin-style-css', get_template_directory_uri() . '/admin-style.css');
+
 }
-add_action('enqueue_block_editor_assets', 'load_gutenberg_editor_styles');
+add_editor_style('admin-style.css');

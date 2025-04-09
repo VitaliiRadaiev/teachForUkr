@@ -47,6 +47,10 @@ function create_block_gutenberg_custom_blocks_block_init()
 			'slug' => 'blocks',
 			'title' => 'Блоки'
 		]);
+		array_unshift($categories, [
+			'slug' => 'partners',
+			'title' => 'Партнери'
+		]);
 		return $categories;
 	});
 

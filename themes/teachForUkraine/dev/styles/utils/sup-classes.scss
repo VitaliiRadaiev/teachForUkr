@@ -144,6 +144,13 @@
     }
 }
 
+@each $type, $color in $category-colors {
+    .category-colors-#{$type} {
+        --category-color: #{map.get($color, main)};
+        --category-color-light: #{map.get($color, light)};
+    }
+}
+
 @each $size, $mq in $margin {
     .mt-#{$size} {
         margin-top: #{map.get($mq, sm)};

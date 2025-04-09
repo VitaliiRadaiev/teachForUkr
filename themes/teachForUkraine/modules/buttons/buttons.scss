@@ -1,4 +1,5 @@
 @use "./utils/abstracts" as *;
+@use "../../dev/styles/typography.scss";
 
 @mixin common-styles {
     display: inline-flex;
@@ -426,4 +427,23 @@
     }
 
     @include text-styles;
+}
+
+.category-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(5px);
+    border-radius: 99px;
+    border: 1px solid var(--category-color-light);
+    padding: rem(3px) rem(10px);
+    @extend .text-sm;
+    background-color: $color-light-primary;
+
+    & img {
+        flex: 0 0 auto;
+        width: rem(12px);
+        height: rem(12px);
+        object-fit: contain;
+    }
 }

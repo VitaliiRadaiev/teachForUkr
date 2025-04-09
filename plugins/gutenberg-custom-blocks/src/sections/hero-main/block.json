@@ -27,9 +27,9 @@
     "padding": {
       "type": "object",
       "default": {
-        "top": "lg",
+        "top": "",
         "right": "",
-        "bottom": "lg",
+        "bottom": "",
         "left": ""
       }
     },

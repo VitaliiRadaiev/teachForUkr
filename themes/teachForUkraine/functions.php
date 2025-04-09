@@ -165,8 +165,6 @@ register_nav_menus(
 
 add_theme_support('menus');
 
-
-
 add_theme_support('post-thumbnails');
 add_image_size('full_hd', 1920, 1080);
 
@@ -246,3 +244,11 @@ function get_nav_menu_items_by_location($location, $args = [])
 }
 
 add_action('rest_api_init', 'register_acf_options_endpoint');
+
+function clean_post_slug_before_save($data) {
+    if (isset($data['post_name']) && !empty($data['post_name'])) {
+        $data['post_name'] = preg_replace('/[^a-zA-Z0-9_-]/', '', $data['post_name']);
+    }
+    return $data;
+}
+add_filter('wp_insert_post_data', 'clean_post_slug_before_save', 10, 1);

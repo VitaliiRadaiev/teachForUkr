@@ -5,14 +5,14 @@
 add_action('init', 'create_taxonomy');
 function create_taxonomy()
 {
-    register_taxonomy('news-type', array('news'), array(
+    register_taxonomy('post-category', array('partner'), array(
         'label' => '',
         'labels' => array(
-            'name' => 'Категорія новини',
+            'name' => 'Категорії',
             'singular_name' => 'Категорія',
-            'search_items' => 'Знайти новину',
+            'search_items' => 'Знайти катигорію',
         ),
-        'description' => 'Категорія новини', // описание таксономии
+        'description' => 'Категорія', // описание таксономии
         'public' => true,
         'publicly_queryable' => null, // равен аргументу public
         'show_in_nav_menus' => true, // равен аргументу public
