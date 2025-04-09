@@ -12,6 +12,10 @@
 		"html": false
 	},
 	"attributes": {
+		"isHide": {
+			"type": "boolean",
+			"default": false
+		},
 		"options": {
 			"type": "object"
 		},

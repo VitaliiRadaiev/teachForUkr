@@ -368,7 +368,7 @@ function Edit({
         className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(accent, variant, classes, className),
         placeholder: "\u041A\u043D\u043E\u043F\u043A\u0430",
         tagName: "span",
-        value: text || globalText,
+        value: text || !isTyping && globalText,
         allowedFormats: [],
         multiline: false,
         onSplit: () => {},

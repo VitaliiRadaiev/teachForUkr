@@ -78,14 +78,17 @@ function Edit({
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_7__.useDispatch)('core/block-editor');
   const {
     parentClientId,
+    parentBlock,
     index
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_7__.useSelect)(select => {
     const {
       getBlockRootClientId,
-      getBlockIndex
+      getBlockIndex,
+      getBlock
     } = select('core/block-editor');
     return {
       parentClientId: getBlockRootClientId(clientId),
+      parentBlock: getBlock(getBlockRootClientId(clientId)),
       index: getBlockIndex(clientId)
     };
   }, []);
@@ -102,7 +105,7 @@ function Edit({
       const newBlock = wp.blocks.createBlock('t4u/paragraph', {});
       insertBlock(newBlock, index + 1, parentClientId, true);
     }
-    if (e.key === 'Backspace' && !text) {
+    if (e.key === 'Backspace' && !text && parentBlock.name === 't4u/simple-text') {
       selectPreviousBlock(clientId);
       removeBlock(clientId);
     }

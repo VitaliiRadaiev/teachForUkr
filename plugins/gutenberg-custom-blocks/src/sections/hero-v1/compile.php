@@ -6,6 +6,7 @@
 <!-- === -->
 <img class="absolute z-2 accent-first-filter w-[9.83%] h-auto top-[4%] left-[4%] rotate-[-45deg]" src="<?= get_template_directory_uri() . '/assets/images/icons/rectangle-short.svg' ?>" alt="">
 <img class="ibg image-mask image-mask-3 image-mask-right-center z-1" src="<?= get_template_directory_uri() . '/assets/images/temp/nambers-text-image.jpg' ?>" alt="">
+<img class="absolute z-3 accent-second-filter w-[14.75%] h-auto left-[54%] bottom-0 -translate-x-1/2" src="<?= get_template_directory_uri() . '/assets/images/icons/circle.svg' ?>" alt="">
 <!-- === -->
 <!-- === -->
 <img class="absolute z-2 accent-second-filter w-[9.83%] h-auto top-[4%] right-[7%] rotate-[54deg]" src="<?= get_template_directory_uri() . '/assets/images/icons/rectangle-short.svg' ?>" alt="">

@@ -116,7 +116,7 @@ export default function Edit({ attributes, setAttributes }) {
 					className={clsx(accent, variant, classes, className)}
 					placeholder="Кнопка"
 					tagName="span"
-					value={(text || globalText)}
+					value={(text || (!isTyping && globalText))}
 					allowedFormats={[]}
 					multiline={false}
 					onSplit={() => { }}

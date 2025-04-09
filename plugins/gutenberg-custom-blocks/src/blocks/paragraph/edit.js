@@ -18,15 +18,15 @@ import { useDispatch, useSelect } from '@wordpress/data';
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const { margin, classes, text, fontSize, aligment } = attributes;
 	const { insertBlock, removeBlock, selectPreviousBlock } = useDispatch('core/block-editor');
-	const { parentClientId, index } = useSelect((select) => {
-		const { getBlockRootClientId, getBlockIndex } = select('core/block-editor');
+	const { parentClientId, parentBlock, index } = useSelect((select) => {
+		const { getBlockRootClientId, getBlockIndex, getBlock } = select('core/block-editor');
 
 		return {
 			parentClientId: getBlockRootClientId(clientId),
-			index: getBlockIndex(clientId)
+			parentBlock: getBlock(getBlockRootClientId(clientId)),
+			index: getBlockIndex(clientId),
 		};
 	}, []);
-
 	const blockProps = useBlockProps({
 		className: clsx(
 			classes,
@@ -43,7 +43,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			insertBlock(newBlock, (index + 1), parentClientId, true);
 		}
 
-		if (e.key === 'Backspace' && !text) {
+		if (e.key === 'Backspace' && !text && (parentBlock.name === 't4u/simple-text') ) {
 			selectPreviousBlock(clientId);
 			removeBlock(clientId);
 		}

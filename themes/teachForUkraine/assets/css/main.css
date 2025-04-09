@@ -656,6 +656,12 @@ video {
 .top-full {
   top: 100%;
 }
+.bottom-0 {
+  bottom: 0px;
+}
+.left-\[54\%\] {
+  left: 54%;
+}
 .z-1 {
   z-index: 1;
 }
@@ -10918,6 +10924,7 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
         hyphens: auto;
   }
   .md-max\:buttons-dance > * {
+    min-width: calc(50% - 5px);
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;

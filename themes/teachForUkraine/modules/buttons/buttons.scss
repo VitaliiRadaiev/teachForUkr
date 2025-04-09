@@ -294,6 +294,7 @@
 .md-max\:buttons-dance {
     @media (max-width: $mq-md-max) {
         &>* {
+            min-width: calc(50% - 5px);
             flex-grow: 1;
             flex-shrink: 0;
             width: auto;

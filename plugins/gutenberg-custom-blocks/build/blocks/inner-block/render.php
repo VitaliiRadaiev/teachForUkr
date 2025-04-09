@@ -1,8 +1,12 @@
 <?php
-if (!($attributes['isHide'] ?? null)):
+if (!($attributes['isHide'])):
+    $classes = combine_classes(
+        $attributes['classes'],
+        ($attributes['className'] ?? ''),
+    );
 ?>
     <?php if ($attributes['wrapper']): ?>
-        <div class="<?= $attributes['classes'] ?>" <?= generate_html_data_attributes($attributes['dataAttributes']) ?>>
+        <div class="<?= $classes?>" <?= generate_html_data_attributes($attributes['dataAttributes']) ?>>
             <? echo $content; ?>
         </div>
     <?php else: ?>
