@@ -13,7 +13,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const { isHide, padding, margin, background, className } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
-			'numbers-section rounded-[20px] md:rounded-[30px]',
+			'partners-slider-section rounded-[20px] md:rounded-[30px]',
 			className,
 			background,
 			getSectionsMarginClasses(margin),

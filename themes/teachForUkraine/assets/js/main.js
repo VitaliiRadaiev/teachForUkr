@@ -450,6 +450,86 @@ class Store {
     }
 }
 
+function createCustomSliderPagination($container) {
+    let initedSwiper = null;
+    let prevCurrentState = 0;
+    let shift = 0;
+    const bullets = $container.querySelector(".slider-bullets");
+    const wrapper = document.createElement('div');
+    wrapper.className = 'bullets-wrapper';
+    bullets.append(wrapper);
+
+    $container.addEventListener('click', (e) => {
+        if(e.target.closest('.bullet')) {
+            const $bullet = e.target.closest('.bullet');
+            const index = $bullet.getAttribute('data-index');
+            initedSwiper?.slideTo(index);
+        }
+    });
+
+    return {
+        el: wrapper,
+        type: 'custom',
+        dynamicBullets: true,
+        renderCustom: function (swiper, current, total) {
+            initedSwiper = swiper;
+            let paginationHtml = '';
+            const realCurrent = current - 1;
+            const shiftStep = 20;
+            const isShifting = total > 5;
+
+            bullets.classList.add('_animate');
+            if( typeof prevCurrentState === 'number' ) {
+                
+                if(prevCurrentState < realCurrent) {
+                    bullets.classList.add('forward');
+
+                    if(isShifting) {
+                        shift = shiftStep * (realCurrent - 2);
+                    }
+                    
+                    setTimeout(() => {
+                        bullets.classList.remove('forward');
+                    }, 250)
+                } else if (prevCurrentState > realCurrent) {
+                    bullets.classList.add('backward');
+
+                    if(isShifting) {
+                        shift = shiftStep * (realCurrent - 2);
+                    }
+                    setTimeout(() => {
+                        bullets.classList.remove('backward');
+                    }, 250)
+                }
+            }
+
+            prevCurrentState = +realCurrent;
+
+            for (let i = 0; i < total; i++) {
+                const neighboringCssClass = 
+                     i === (realCurrent - 1) ? "prev" :
+                     i === (realCurrent - 2) ? "prev-prev" :
+                     i === (realCurrent - 3) ? "prev-prev-prev" :
+                     i === (realCurrent + 1) ? "next" :
+                     i === (realCurrent + 2) ? "next-next" :
+                     i === (realCurrent + 3) ? "next-next-next" : "";
+
+                if (i === realCurrent) {
+                    paginationHtml += `
+                    <div class="bullet active" data-index="${i}"></div>
+                    `;
+                } else {
+                    paginationHtml += `
+                    <div class="bullet ${neighboringCssClass}" data-index="${i}"></div>
+                    `;
+                }
+            }
+
+            wrapper.style.setProperty('transform', `translateX(-${Math.min(Math.max(0, shift), (total - 5) * shiftStep)}px)`);
+            return paginationHtml;
+        }
+    }
+}
 function replaceImageToInlineSvg() {
     const images = document.querySelectorAll('.img-svg');
 

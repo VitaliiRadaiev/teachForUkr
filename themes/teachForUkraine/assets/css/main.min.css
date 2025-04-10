@@ -872,6 +872,9 @@ video {
 .h-\[59px\] {
   height: 59px;
 }
+.h-\[70px\] {
+  height: 70px;
+}
 .h-\[var\(--square-size\)\] {
   height: var(--square-size);
 }
@@ -1495,6 +1498,11 @@ video {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+.grayscale {
+  --tw-grayscale: grayscale(100%);
+  -webkit-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+          filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .backdrop-blur-sm {
   --tw-backdrop-blur: blur(4px);
@@ -6916,6 +6924,67 @@ flag::before {
      object-fit: contain;
 }
 
+.slider-bullets {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+}
+.slider-bullets .swiper-pagination-bullet {
+  height: 10px;
+  width: 10px;
+  background-color: #D1D4D4;
+  margin: 0 !important;
+  opacity: 1;
+}
+.slider-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #1f1f1f;
+}
+
+.slider-bullets {
+  max-width: 90px;
+  width: auto;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}
+
+.bullets-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  gap: 10px;
+  -webkit-transition: -webkit-transform 0.15s ease 0.25s;
+  transition: -webkit-transform 0.15s ease 0.25s;
+  transition: transform 0.15s ease 0.25s;
+  transition: transform 0.15s ease 0.25s, -webkit-transform 0.15s ease 0.25s;
+}
+.bullets-wrapper.swiper-pagination-lock {
+  display: none;
+}
+
+.bullet {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  height: 10px;
+  width: 10px;
+  background-color: #D1D4D4;
+  border-radius: 99px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+.bullet.active {
+  background-color: #1f1f1f;
+}
+
 .subscribe-form {
   padding: 5px;
   border-radius: 10px;
@@ -9836,6 +9905,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .md\:h-\[87px\] {
     height: 87px;
   }
+  .md\:h-\[84px\] {
+    height: 84px;
+  }
   .md\:min-h-\[106px\] {
     min-height: 106px;
   }
@@ -11131,6 +11203,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .\34xl\:h-\[772px\] {
     height: 772px;
   }
+  .\34xl\:h-\[112px\] {
+    height: 112px;
+  }
   .\34xl\:min-h-\[29px\] {
     min-height: 29px;
   }
@@ -11215,6 +11290,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
        -moz-column-gap: 50px;
             column-gap: 50px;
   }
+  .\34xl\:p-\[25px\] {
+    padding: 25px;
+  }
   .\34xl\:\!px-\[80px\] {
     padding-left: 80px !important;
     padding-right: 80px !important;
@@ -11293,6 +11371,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .lg-max\:pb-\[20px\] {
     padding-bottom: 20px;
+  }
+  .lg-max\:\[\&\.swiper\]\:overflow-visible.swiper {
+    overflow: visible;
   }
 }
 @media (max-width: 743.98px) {
@@ -11413,6 +11494,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .hero-btn:hover [data-text]::after {
     opacity: 1;
   }
+  .bullet:hover:not(.active) {
+    background-color: #F6F6F6;
+  }
   .language-switcher:hover .wpml-ls {
     opacity: 1;
     visibility: visible;
@@ -11487,5 +11571,10 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .hover\:\[\&_a\]\:text-accent-second a:hover {
     color: var(--color-accent-second);
+  }
+  .\[\&_img\]\:hover\:grayscale-0:hover img {
+    --tw-grayscale: grayscale(0);
+    -webkit-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+            filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
   }
 }
