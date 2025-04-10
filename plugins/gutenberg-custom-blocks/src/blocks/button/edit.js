@@ -30,6 +30,9 @@ export default function Edit({ attributes, setAttributes }) {
 		variant,
 		isHide,
 		margin,
+		renderAs,
+		dataAttributes,
+		simpleWrapper,
 	} = attributes;
 	const [isTyping, setIsTyping] = useState(false);
 	const fetchData = () => getOptionsField(acfField);
@@ -53,41 +56,43 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<IsHide isHide={isHide} setIsHide={(val) => setAttributes({ isHide: val })}/>
-				<PanelBody
-					title="Посилання"
-					isHide={false}
-				>
-					<LinkControl
-						key={blockId || uniqueId}
-						searchInputPlaceholder="Пошук..."
-						value={postType || (data && { 
-							id: data.value.url,
-							title: data.value.url,
-							type: 'link',
-							url: data.value.url
-						})}
-						settings={[
-							{
-								id: 'opensInNewTab',
-								title: 'Відкрити в новій вкладці?',
-							}
-						]}
-						onChange={(newPost) => {
-							setAttributes({ postType: newPost })
-						}}
-						withCreateSuggestion={true}
-						createSuggestion={(inputValue) => setAttributes({
-							postType: {
-								...postType,
-								title: inputValue,
-								type: "custom-url",
-								id: Date.now(),
-								url: inputValue
-							}
-						})}
+				{renderAs === 'link' && 
+					<PanelBody
+						title="Посилання"
+						isHide={false}
 					>
-					</LinkControl>
-				</PanelBody>
+						<LinkControl
+							key={blockId || uniqueId}
+							searchInputPlaceholder="Пошук..."
+							value={postType || (data && { 
+								id: data.value.url,
+								title: data.value.url,
+								type: 'link',
+								url: data.value.url
+							})}
+							settings={[
+								{
+									id: 'opensInNewTab',
+									title: 'Відкрити в новій вкладці?',
+								}
+							]}
+							onChange={(newPost) => {
+								setAttributes({ postType: newPost })
+							}}
+							withCreateSuggestion={true}
+							createSuggestion={(inputValue) => setAttributes({
+								postType: {
+									...postType,
+									title: inputValue,
+									type: "custom-url",
+									id: Date.now(),
+									url: inputValue
+								}
+							})}
+						>
+						</LinkControl>
+					</PanelBody>
+				}
 				<PanelBody title="Варіанти кнопок" initialOpen={false}>
 					<RadioControl
 						selected={variant}
@@ -110,10 +115,10 @@ export default function Edit({ attributes, setAttributes }) {
 				<MarginYControl size={margin} setSize={(s) => setAttributes({ margin: s })} />
 			</InspectorControls>
 
-			<div {...blockProps}>
+			<div {...(simpleWrapper ? {} : blockProps)} {...dataAttributes}>
 				<RichText
 					ref={ref}
-					className={clsx(accent, variant, classes, className)}
+					className={clsx(accent, variant, classes, className, { ['hide-block']: isHide })}
 					placeholder="Кнопка"
 					tagName="span"
 					value={(text || (!isTyping && globalText))}

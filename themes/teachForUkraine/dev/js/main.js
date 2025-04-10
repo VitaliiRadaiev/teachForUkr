@@ -5,6 +5,7 @@
 
 @@include('./utils.js')
 @@include('./scripts.js')
+@@include("../../modules/loader/loader.js")
 
 window.addEventListener("DOMContentLoaded", () => {
     AOS && AOS.init({
@@ -35,6 +36,10 @@ window.addEventListener("DOMContentLoaded", () => {
     initFancybox();
     initScrollContainers();
     initSetElSizeVariables();
+
+    // modules
+
+    // /= modules
 
     // sections
     @@include("../../sections/header/header.js")

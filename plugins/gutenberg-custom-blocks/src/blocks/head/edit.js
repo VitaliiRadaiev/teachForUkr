@@ -15,11 +15,12 @@ import { MarginYControl } from "../../components/space-control/MarginYControl";
 
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, margin, className, container, aligment } = attributes;
+	const { isHide, margin, classes, className, container, aligment } = attributes;
 	const [isContainerChange, setIsContainerChange] = useState(false);
 	const blockProps = useBlockProps({
 		className: clsx(
 			'head-block',
+			classes,
 			className,
 			getSectionsMarginClasses(margin),
 			{ ['hide-block']: isHide }

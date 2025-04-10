@@ -56,6 +56,19 @@
 				"bottom": "",
 				"left": ""
 			}
+		},
+		"renderAs": {
+			"type": "string",
+			"enum": ["link", "button"],
+			"default": "link"
+		},
+		"dataAttributes": {
+			"type": "object",
+			"default": {}
+		},
+		"simpleWrapper": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"textdomain": "button",

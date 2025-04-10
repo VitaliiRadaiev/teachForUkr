@@ -4,6 +4,7 @@
     & .h1 {
         & span {
             position: relative;
+            display: inline-block;
 
             &:last-child {
                 &::before {
@@ -17,18 +18,18 @@
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: contain;
-                    transform: translate(27px, 34px);
+                    transform: translate(26px, 25px);
 
                     @media (min-width: $mq-md) {
                         height: 88px;
                         width: 73px;
-                        transform: translate(42px, 59px);
+                        transform: translate(42px, 43px);
                     }
 
                     @media (min-width: $mq-4xl) {
                         height: 116px;
                         width: 97px;
-                        transform: translate(56px, 76px);
+                        transform: translate(56px, 56px);
                     }
                 }
             }

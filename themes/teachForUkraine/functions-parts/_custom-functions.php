@@ -115,11 +115,12 @@ function get_margin_classes($margin)
   return trim("$top$right$bottom$left");
 }
 
-function get_gap_classes($gap) {
+function get_gap_classes($gap)
+{
   $x = !empty($gap['x']) ? "gap-x-{$gap['x']}" : '';
   $y = !empty($gap['y']) ? "gap-y-{$gap['y']}" : '';
 
-  return combine_classes($x,$y);
+  return combine_classes($x, $y);
 }
 
 function get_sections_margin_classes($margin)
@@ -170,47 +171,89 @@ function get_default_section_classes($attributes)
   );
 }
 
-function get_container_classes($val) {
+function get_container_classes($val)
+{
   if (!check($val)) {
-      return '';
+    return '';
   }
 
   return 'block-container-' . $val;
 }
 
 
-function combine_string(array $options, string $value): string {
+function combine_string(array $options, string $value): string
+{
   $prefix = $options['prefix'] ?? '';
   $postfix = $options['postfix'] ?? '';
-  
+
   if (!$value) {
-      return '';
+    return '';
   }
-  
+
   return $prefix . $value . $postfix;
 }
 
-function get_flex_justify_alignment_classes($key) {
+function get_flex_justify_alignment_classes($key)
+{
   if (!check($key)) {
-      return '';
+    return '';
   }
 
   $classes_map = [
-      'left' => 'justify-start',
-      'right' => 'justify-end',
-      'center' => 'justify-center',
-      'space-between' => 'justify-between'
+    'left' => 'justify-start',
+    'right' => 'justify-end',
+    'center' => 'justify-center',
+    'space-between' => 'justify-between'
   ];
 
   return isset($classes_map[$key]) ? $classes_map[$key] : '';
 }
 
-function generate_html_data_attributes($data_attributes) {
+function generate_html_data_attributes($data_attributes)
+{
   $attributes = [];
 
   foreach ($data_attributes as $key => $value) {
-      $attributes[] = $key . '="' . esc_attr($value) . '"';
+    $attributes[] = $key . '="' . esc_attr($value) . '"';
   }
 
   return implode(' ', $attributes);
+}
+
+function get_partners_categories()
+{
+  $text_all = get_field('text_all', 'options');
+  $terms = get_terms(array(
+    'taxonomy' => 'post-category',
+    'hide_empty' => false,
+  ));
+
+  $categories = array();
+
+  foreach ($terms as $term) {
+    $related_posts = get_posts(array(
+      'post_type'      => 'partner',
+      'posts_per_page' => 1,
+      'tax_query'      => array(
+        array(
+          'taxonomy' => 'post-category',
+          'field'    => 'term_id',
+          'terms'    => $term->term_id,
+        )
+      )
+    ));
+
+    if (!empty($related_posts)) {
+      $categories[] = $term;
+    }
+  }
+
+  $all_term = (object) array(
+    'name' => $text_all,
+    'slug' => 'all'
+  );
+
+  array_unshift($categories, $all_term);
+
+  return $categories;
 }

@@ -2,6 +2,7 @@
 if (!($attributes['isHide'])):
    $classes = combine_classes(
       get_sections_margin_classes($attributes['margin']),
+      $attributes['classes'],
       ($attributes['className'] ?? '')
     );
    $innet_classes = combine_classes(

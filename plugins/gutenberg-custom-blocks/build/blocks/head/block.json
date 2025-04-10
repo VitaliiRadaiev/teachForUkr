@@ -44,6 +44,10 @@
         "right"
       ],
       "default": "center"
+    },
+    "classes": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "head-block",

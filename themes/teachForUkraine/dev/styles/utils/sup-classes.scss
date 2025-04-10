@@ -547,3 +547,30 @@ flag {
 .image-mask-right-center {
     mask-position: right center;
 }
+
+.card-rotate {
+    perspective: 1000px;
+
+    &.active {
+        & .card-rotate-front {
+            transform: rotateY(180deg);
+        }
+        & .card-rotate-back {
+            transform: rotateY(360deg);
+        }
+    }
+}
+
+.card-rotate-front {
+    backface-visibility: hidden;
+    transition: transform .6s ease;
+    z-index: 2;
+    position: relative;
+}
+
+.card-rotate-back {
+    backface-visibility: hidden;
+    transition: transform .6s ease;
+    transform: rotateY(180deg);
+    z-index: 1;
+}

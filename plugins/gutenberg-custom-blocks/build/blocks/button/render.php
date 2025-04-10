@@ -17,7 +17,7 @@ if (!($attributes['isHide'])):
     }
 
     if ($option_field ?? null) {
-        if($attributes['acfFieldType'] === 'link') {
+        if ($attributes['acfFieldType'] === 'link') {
             $text = $option_field['title'];
             $url = $option_field['url'];
             $target = check($option_field['target']) ? $option_field['target'] : '_self';
@@ -30,15 +30,21 @@ if (!($attributes['isHide'])):
         $text = $attributes['text'];
     }
 
-    if($attributes['postType'] ?? null) {
+    if ($attributes['postType'] ?? null) {
         $url = $attributes['postType']['url'];
 
-        if($attributes['postType']['opensInNewTab'] ?? null) {
+        if ($attributes['postType']['opensInNewTab'] ?? null) {
             $target = '_blank';
         }
     }
 ?>
-    <a href="<?= $url ?>" target="<?= $target ?>" class="<?= $classes ?>">
-        <span data-text="<?= $text ?>"></span>
-    </a>
+    <?php if ($attributes['renderAs'] === 'link'): ?>
+        <a href="<?= $url ?>" target="<?= $target ?>" class="<?= $classes ?>" <?= generate_html_data_attributes($attributes['dataAttributes']) ?>>
+            <span data-text="<?= $text ?>"></span>
+        </a>
+    <?php else: ?>
+        <button class="<?= $classes ?>" <?= generate_html_data_attributes($attributes['dataAttributes']) ?>>
+            <span data-text="<?= $text ?>"></span>
+        </button>
+    <?php endif; ?>
 <?php endif; ?>

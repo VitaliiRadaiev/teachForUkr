@@ -261,6 +261,37 @@ async function WpFetch(requestData) {
     }
 }
 
+async function Fetch(url) {
+    const controller = new AbortController();
+    const tId = setTimeout(() => controller.abort(), 5000);
+
+    try {
+        const res = await fetch(`${document.location.origin}/wp-json/site-core/v1${url}`, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            signal: controller.signal
+        });
+
+        clearTimeout(tId);
+
+        if (!res.ok) {
+            throw new Error('Network error: ' + res.status);
+        }
+    
+        return res.json(); 
+
+    } catch (err) {
+
+        if (err.name == 'AbortError') { 
+            return { success: false }
+        } else {
+            throw err;
+        }
+        
+    }
+}
+
 function createScrollTrigger(element) {
     return new Promise(res => {
         const observer = new IntersectionObserver((entries, observer) => {
@@ -360,4 +391,35 @@ function scrollToEl(target) {
             behavior: 'smooth',
         });
     }, 0);
+}
+
+class Store {
+    constructor(initialObject) {
+        this.state = initialObject;
+        this.prevState = null;
+        this.onUpdateFunctions = [];
+    }
+
+    onUpdate = (fn) => {
+        this.onUpdateFunctions.push(fn);
+    }
+
+    setState = (newPartOfState, runEvent = true) => {
+        this.prevState = { ...this.state }; 
+        this.state = {
+            ...this.state,
+            ...newPartOfState
+        };
+        if (runEvent) {
+            this.onUpdateFunctions.forEach(fn => fn(this.prevState, this.state));
+        }
+    }
+
+    getState = () => {
+        return this.state;
+    }
+
+    getPrevState = () => {
+        return this.prevState;
+    }
 }

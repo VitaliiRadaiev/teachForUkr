@@ -33,7 +33,11 @@
       "type": "string",
       "enum": ["left", "center", "right"],
       "default": "center"
-    }
+    },
+    "classes": {
+			"type": "string",
+			"default": ""
+		}
   },
   "textdomain": "head-block",
   "editorScript": "file:./index.js",

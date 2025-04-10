@@ -32,7 +32,7 @@ const path = {
     watch: {
         html: ["themes/teachForUkraine/*.php", "themes/teachForUkraine/sections/**/*.php", "themes/teachForUkraine/modules/**/*.php", "plugins/gutenberg-custom-blocks/src/**/**/*.php"],
         js: [src_folder + "/js/**/*.js", "themes/teachForUkraine/sections/**/*.js", "themes/teachForUkraine/modules/**/*.js"],
-        css: [src_folder + "/styles/**/*.scss",  "themes/teachForUkraine/sections/**/*.scss", "themes/teachForUkraine/modules/**/*.scss"]
+        css: [src_folder + "/styles/**/*.scss",  "themes/teachForUkraine/sections/**/*.scss", "themes/teachForUkraine/modules/**/*.scss", "plugins/gutenberg-custom-blocks/src/{blocks,sections}/**/_*.scss"]
     },
     clean: ["themes/teachForUkraine/" + project_name + "/js/main.js", "themes/teachForUkraine/" + project_name + "/js/pages/", "themes/teachForUkraine/" + project_name + "/css/"]
 };

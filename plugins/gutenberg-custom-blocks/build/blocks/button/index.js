@@ -194,7 +194,7 @@ function validate(uuid) {
   \**************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/button","version":"0.1.0","title":"Кнопка","icon":"button","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"blockId":{"type":"number"},"postType":{"type":"object"},"text":{"type":"string","default":""},"acfField":{"type":"string"},"acfFieldType":{"type":"string","enum":["link","text"],"default":"link"},"variant":{"type":"string","enum":["btn-primary","btn-secondary","btn-with-enter-arrow","btn-with-with-arrow"],"default":"btn-with-enter-arrow"},"accent":{"type":"string","enum":["accent-first","accent-second"],"default":"accent-first"},"classes":{"type":"string","default":""},"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}}},"textdomain":"button","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/button","version":"0.1.0","title":"Кнопка","icon":"button","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"blockId":{"type":"number"},"postType":{"type":"object"},"text":{"type":"string","default":""},"acfField":{"type":"string"},"acfFieldType":{"type":"string","enum":["link","text"],"default":"link"},"variant":{"type":"string","enum":["btn-primary","btn-secondary","btn-with-enter-arrow","btn-with-with-arrow"],"default":"btn-with-enter-arrow"},"accent":{"type":"string","enum":["accent-first","accent-second"],"default":"accent-first"},"classes":{"type":"string","default":""},"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"renderAs":{"type":"string","enum":["link","button"],"default":"link"},"dataAttributes":{"type":"object","default":{}},"simpleWrapper":{"type":"boolean","default":false}},"textdomain":"button","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -252,7 +252,10 @@ function Edit({
     acfFieldType,
     variant,
     isHide,
-    margin
+    margin,
+    renderAs,
+    dataAttributes,
+    simpleWrapper
   } = attributes;
   const [isTyping, setIsTyping] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
   const fetchData = () => (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getOptionsField)(acfField);
@@ -281,7 +284,7 @@ function Edit({
         setIsHide: val => setAttributes({
           isHide: val
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+      }), renderAs === 'link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: "\u041F\u043E\u0441\u0438\u043B\u0430\u043D\u043D\u044F",
         isHide: false,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.__experimentalLinkControl, {
@@ -362,10 +365,13 @@ function Edit({
         })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      ...blockProps,
+      ...(simpleWrapper ? {} : blockProps),
+      ...dataAttributes,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
         ref: ref,
-        className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(accent, variant, classes, className),
+        className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(accent, variant, classes, className, {
+          ['hide-block']: isHide
+        }),
         placeholder: "\u041A\u043D\u043E\u043F\u043A\u0430",
         tagName: "span",
         value: text || !isTyping && globalText,

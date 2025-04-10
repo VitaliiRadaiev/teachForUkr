@@ -490,13 +490,60 @@ const CONTAINER_SIZES = ["sm", "md", "lg", "xl", "2xl", "full"];
 
 /***/ }),
 
+/***/ "./src/hooks/hooks.js":
+/*!****************************!*\
+  !*** ./src/hooks/hooks.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
+  const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [error, setError] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [isFetched, setIsFetched] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const observerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!shouldFetch) return;
+    observerRef.current = new IntersectionObserver(([entry], observer) => {
+      if (entry.isIntersecting && !isFetched && typeof fetchCallback === 'function') {
+        fetchCallback()?.then(result => {
+          setData(result);
+          setIsFetched(true);
+          observer.disconnect();
+        })?.catch(setError);
+      }
+    }, {
+      threshold: 0.1
+    });
+    if (ref.current) {
+      observerRef.current.observe(ref.current);
+    }
+    return () => observerRef.current?.disconnect();
+  }, [isFetched, shouldFetch, ...deps]);
+  return {
+    ref,
+    data,
+    error
+  };
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useFetchOnVisible);
+
+/***/ }),
+
 /***/ "./src/sections/partners-grid/block.json":
 /*!***********************************************!*\
   !*** ./src/sections/partners-grid/block.json ***!
   \***********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/partners-grid","version":"0.1.0","title":"Партнери список","category":"partners","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"}},"textdomain":"partners-grid","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/partners-grid","version":"0.1.0","title":"Партнери список","category":"partners","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"}},"textdomain":"partners-grid","editorScript":"file:./index.js","editorStyle":"file:./index.css","viewScript":"file:./script.js","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -516,8 +563,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
 /* harmony import */ var _components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/default-sections-controls/DefaultSectionsControls */ "./src/components/default-sections-controls/DefaultSectionsControls.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _hooks_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../hooks/hooks */ "./src/hooks/hooks.js");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+
+
 
 
 
@@ -543,40 +595,133 @@ function Edit({
   const {
     children
   } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)({}, {
-    template: [['t4u/inner-block', {
-      classes: 'text-center max-w-[30.5rem] xl:max-w-[45.5rem] 4xl:max-w-[59.125rem] mx-auto',
-      simpleWrapper: true,
+    template: [['t4u/head-block', {
+      classes: "order-1"
+    }], ["t4u/buttons-group", {
+      classes: 'mt-[40px] md:mt-[50px] order-3',
+      alignment: 'center',
       options: {
-        template: [['t4u/sup-title', {}], ['t4u/heading', {
-          classes: "mt-[16px] md:mt-[20px] text-dark-primary"
-        }], ['t4u/simple-text', {
-          classes: "mt-[30px] md:mt-[20px] lg:mt-[30px]"
-        }], ["t4u/buttons-group", {
-          classes: 'mt-[40px] xl:mt-[50px]',
-          alignment: 'center',
-          options: {
-            template: [["t4u/button", {
-              acfField: 'link_become_partner'
-            }]],
-            allowedBlocks: ['t4u/button']
+        template: [["t4u/button", {
+          acfField: 'text_show_more',
+          acfFieldType: 'text',
+          variant: 'btn-primary',
+          renderAs: 'button',
+          simpleWrapper: true,
+          dataAttributes: {
+            'data-action': 'show-more-parnters'
           }
         }]],
-        allowedBlocks: []
+        allowedBlocks: ['t4u/button']
       }
     }]],
     allowedBlocks: []
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_4__.DefaultSectionsControls, {
+  const fetchCategories = () => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_6___default()({
+    path: 'site-core/v1/partners-categories'
+  });
+  const {
+    ref: categoriRef,
+    data: categories
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_5__["default"])(fetchCategories);
+  const fetchPartners = () => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_6___default()({
+    path: 'site-core/v1/partners?category=all'
+  });
+  const {
+    ref: partnersRef,
+    data: partners
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_5__["default"])(fetchPartners);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_4__.DefaultSectionsControls, {
         attributes: attributes,
         setAttributes: setAttributes
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("section", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("section", {
       ...blockProps,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "container",
-        children: children
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        ref: partnersRef,
+        className: "container flex flex-col",
+        children: [children, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          ref: categoriRef,
+          className: "mt-[30px] md:mt-[50px] 4xl:mt-[60px] first-child-no-margin order-2 flex flex-col",
+          children: [!!categories ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "self-center max-w-full",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              className: "mx-[-16px] md:mx-[-40px] lg-max:overflow-y-hidden lg-max:h-[60px]",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                className: "px-[16px] md:px-[40px] lg-max:pb-[20px] lg-max:overflow-x-auto",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                  className: "flex bg-[var(--nested-bg)] p-[5px] rounded-[12px] lg-max:w-max lg:flex-wrap lg:justify-center",
+                  children: categories?.map(category => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+                    "data-category-slug": category.slug,
+                    className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])({
+                      'active': category.slug === 'all'
+                    }, 'btn btn-secondary accent-second btn-secondary-sm grow-0 shrink-0 font-medium [&.btn]:min-h-[44px] lg:min-h-[50px] [&.btn]:px-[20px] [&.btn]:bg-transparent [&.btn]:text-dark-primary [&.btn.active]:bg-[var(--accent)] [&.btn.active]:text-white [&.btn.active]:pointer-events-none [&.btn]:hover:bg-transparent'),
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                      "data-text": category.name
+                    })
+                  }))
+                })
+              })
+            })
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "text-center text-lg",
+            children: "\u0417\u0430\u0432\u0430\u0442\u043D\u0430\u0436\u0443\u0454\u0442\u044C\u0441\u044F ..."
+          }), !!partners ? partners?.posts?.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "mt-[20px] md:mt-[30px] 4xl:mt-[40px] grid md:grid-cols-2 lg:grid-cols-3 gap-[10px] xl:gap-[24px]",
+            children: partners?.posts.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              class: "partner-card card-rotate relative md-and-lg-max:[&:last-child:nth-child(odd)]:col-span-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                class: "card-rotate-front nested-bg-item p-[5px] rounded-[12px] h-full flex flex-col",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                  class: "absolute top-[15px] left-0 right-0 pl-[15px] pr-[70px] flex flex-wrap gap-[5px]",
+                  children: post.categories.map(category => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                    class: `category-tag category-colors-${category.type}`,
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+                      src: category.img,
+                      alt: "category-icon"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                      children: category.name
+                    })]
+                  }))
+                }), !!post.excerpt && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+                  "data-action": "show-details",
+                  class: "absolute top-[15px] right-[15px] cursor-pointer hover:scale-105 transition-transform",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+                    class: "h-[44px] lg:h-[30px] w-[44px] lg:w-[30px] object-contain",
+                    src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_3__.getUrlToStaticImages)('icons/info.svg'),
+                    alt: "info"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                  class: "h-[177px] rounded-[8px] bg-[var(--bg)] pt-[44px] pb-[20px] px-[20px] flex items-center justify-center",
+                  dangerouslySetInnerHTML: {
+                    __html: post.logo
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                  class: "mt-[5px] p-[15px] lg:pt-[25px] lg:pb-[20px] shrink grow",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                    class: "h3 text-dark-primary",
+                    children: post.title
+                  }), !!post.url && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                    class: "mt-[20px]",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                      class: "btn-with-arrow accent-first",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                        "data-text": post.text_go_to
+                      })
+                    })
+                  })]
+                })]
+              })
+            }))
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "text-center text-lg",
+            children: "\u041D\u0435 \u0441\u0442\u0432\u043E\u0440\u0435\u043D\u043E"
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "text-center text-lg",
+            children: "\u0417\u0430\u0432\u0430\u0442\u043D\u0430\u0436\u0443\u0454\u0442\u044C\u0441\u044F ..."
+          })]
+        })]
       })
     })]
   });
@@ -758,6 +903,16 @@ module.exports = window["wp"]["components"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["element"];
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = window["React"];
 
 /***/ }),
 
