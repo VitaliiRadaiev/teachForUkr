@@ -7,16 +7,10 @@ if (!($attributes['isHide'])):
 
    $classes = combine_classes(get_default_section_classes($attributes));
 
-   $args = array(
-      'post_type' => 'partner',
-      'posts_per_page' => 9,
-      'post_status' => 'publish',
-      'paged' => 1,
-      'orderby' => 'date',
-      'order' => 'DESC'
-   );
-
-   $query = new WP_Query($args);
+   $query = get_partners([
+      'category' => 'all',
+      'page' => 1
+   ]);
 
    if ($query->have_posts()):
 ?>

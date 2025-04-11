@@ -144,6 +144,10 @@
     }
 }
 
+.color-light-primary-filter {
+    filter: $color-light-primary-filter;
+}
+
 @each $type, $color in $category-colors {
     .category-colors-#{$type} {
         --category-color: #{map.get($color, main)};
@@ -544,8 +548,20 @@ flag {
     }
 }
 
+.card-image-mask {
+    mask-size: 100%;
+    mask-repeat: no-repeat;
+    &-1 {
+        mask-image: url('../images/general/card-image-mask-1.svg'); 
+    }
+}
+
 .image-mask-right-center {
     mask-position: right center;
+}
+
+.image-mask-bottom-center {
+    mask-position: bottom center;
 }
 
 .card-rotate {

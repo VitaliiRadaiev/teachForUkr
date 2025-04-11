@@ -57,11 +57,13 @@ module.exports = {
         'background': 'var(--color-background)',
         
         'accent-first': 'var(--color-accent-first)',
+        'accent-first-80': 'var(--color-accent-first-580)',
         'accent-first-50': 'var(--color-accent-first-50)',
         'accent-first-10': 'var(--color-accent-first-10)',
         'accent-first-5': 'var(--color-accent-first-5)',
 
         'accent-second': 'var(--color-accent-second)',
+        'accent-second-80': 'var(--color-accent-second-80)',
         'accent-second-50': 'var(--color-accent-second-50)',
         'accent-second-20': 'var(--color-accent-second-20)',
         'accent-second-10': 'var(--color-accent-second-10)',

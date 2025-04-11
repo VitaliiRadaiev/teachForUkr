@@ -8,11 +8,12 @@ import clsx from "clsx";
 import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
 
+
 export default function Edit({ attributes, setAttributes }) {
 	const { preview, isHide, padding, margin, background, className } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
-			'numbers-section rounded-[20px] md:rounded-[30px]',
+			'tabs-section rounded-[20px] md:rounded-[30px]',
 			className,
 			background,
 			getSectionsMarginClasses(margin),

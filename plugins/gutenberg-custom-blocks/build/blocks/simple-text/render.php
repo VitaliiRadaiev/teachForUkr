@@ -1,5 +1,5 @@
 <?php
-if (!($attributes['isHide'])):
+if (!($attributes['isHide']) && check($content)):
     $classes = combine_classes(
         'simple-text-content',
         get_margin_classes($attributes['margin']),

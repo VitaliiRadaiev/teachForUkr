@@ -41,28 +41,10 @@ function ajax_get_partners($request)
     $page = $request->get_param('page');
     $text_go_to = get_field('text_go_to', 'options');
 
-    $args = array(
-        'post_type' => 'partner',
-        'posts_per_page' => 9,
-        'post_status' => 'publish',
-        'paged' => $page,
-        'orderby' => 'date',
-        'order' => 'DESC'
-    );
-
-    if ($category !== 'all') {
-        $args = array_merge($args, [
-            'tax_query' => [
-                [
-                    'taxonomy' => 'post-category',
-                    'field' => 'slug',
-                    'terms' => $category,
-                ],
-            ],
-        ]);
-    }
-
-    $query = new WP_Query($args);
+    $query = get_partners([
+        'category' => $category,
+        'page' => $page
+    ]);
     $posts = [];
 
     if ($query->have_posts()) {

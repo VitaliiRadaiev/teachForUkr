@@ -51,6 +51,10 @@ function create_block_gutenberg_custom_blocks_block_init()
 			'slug' => 'partners',
 			'title' => 'Партнери'
 		]);
+		array_unshift($categories, [
+			'slug' => 'tabs',
+			'title' => 'Картки з табами'
+		]);
 		return $categories;
 	});
 
