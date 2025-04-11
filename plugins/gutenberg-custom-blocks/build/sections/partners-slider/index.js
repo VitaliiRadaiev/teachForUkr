@@ -543,7 +543,7 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
   \*************************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/partners-slider","version":"0.1.0","title":"Партнери слайдер","category":"partners","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"}},"textdomain":"partners-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","viewScript":"file:./script.js","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/partners-slider","version":"0.1.0","title":"Партнери слайдер","category":"partners","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"preview":{"type":"string"},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"}},"textdomain":"partners-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","viewScript":"file:./script.js","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -594,7 +594,8 @@ function Edit({
     padding,
     margin,
     background,
-    className
+    className,
+    preview
   } = attributes;
   const {
     updateBlockAttributes
@@ -642,6 +643,11 @@ function Edit({
       });
     }
   }, [data]);
+  if (preview) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+      src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.getUrlToStaticImages)(preview)
+    });
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_6__.DefaultSectionsControls, {
@@ -1030,12 +1036,9 @@ __webpack_require__.r(__webpack_exports__);
   edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
   save: _save__WEBPACK_IMPORTED_MODULE_2__["default"],
   example: {
-    innerBlocks: [{
-      name: "t4u/static-image",
-      attributes: {
-        url: 'general/preview-section-partners-slider.jpg'
-      }
-    }]
+    attributes: {
+      preview: 'general/preview-section-partners-slider.jpg'
+    }
   }
 });
 })();

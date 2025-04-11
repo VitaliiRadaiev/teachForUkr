@@ -44,8 +44,14 @@
     },
     "directions": {
       "type": "string",
-      "enum": ["left", "right"],
+      "enum": [
+        "left",
+        "right"
+      ],
       "default": "left"
+    },
+    "preview": {
+      "type": "string"
     }
   },
   "textdomain": "numbers-text-image",

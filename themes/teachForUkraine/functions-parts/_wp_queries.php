@@ -39,7 +39,7 @@ function get_partners_categories()
 
 function get_partners_for_block_slider()
 {
-    $limit = 18;
+    $limit = 5;
 
     $args = array(
         'post_type' => 'partner',

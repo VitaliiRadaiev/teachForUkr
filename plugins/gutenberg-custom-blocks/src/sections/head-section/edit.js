@@ -7,13 +7,13 @@ import { PanelBody } from "@wordpress/components";
 import { useState } from "@wordpress/element";
 import "./editor.scss";
 import clsx from "clsx";
-import { getSectionsPaddingClasses, getSectionsMarginClasses, getContainerClasses } from "../../utils/utils";
+import { getSectionsPaddingClasses, getSectionsMarginClasses, getContainerClasses, getUrlToStaticImages } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
 import { ButtonsGroup } from "../../components/buttons-group/ButtonsGroup";
 import { CONTAINER_SIZES } from "../../global/global";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, padding, margin, background, className, container, aligment } = attributes;
+	const { preview, isHide, padding, margin, background, className, container, aligment } = attributes;
 	const [isContainerChange, setIsContainerChange] = useState(false);
 	const blockProps = useBlockProps({
 		className: clsx(
@@ -29,7 +29,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const { children } = useInnerBlocksProps({}, {
 		template: [
 			['t4u/sup-title', {}],
-			['t4u/heading', { 
+			['t4u/heading', {
 				classes: "mt-[16px] md:mt-[20px] text-dark-primary w-full",
 				container: "xl"
 			}],
@@ -40,6 +40,10 @@ export default function Edit({ attributes, setAttributes }) {
 		],
 		allowedBlocks: []
 	})
+
+	if (preview) {
+		return <img src={getUrlToStaticImages(preview)} />
+	}
 
 	return (
 		<>

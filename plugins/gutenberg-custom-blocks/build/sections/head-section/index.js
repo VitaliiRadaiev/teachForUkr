@@ -496,7 +496,7 @@ const CONTAINER_SIZES = ["sm", "md", "lg", "xl", "2xl", "full"];
   \**********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/head-sections","version":"0.1.0","title":"Значок + Заголовок + Підзаголовок","category":"hero","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"},"container":{"type":"string","enum":["sm","md","lg","xl","2xl","full"],"default":"xl"},"aligment":{"type":"string","enum":["left","center","right"],"default":"center"}},"textdomain":"head-sections","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/head-sections","version":"0.1.0","title":"Значок + Заголовок + Підзаголовок","category":"hero","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"},"container":{"type":"string","enum":["sm","md","lg","xl","2xl","full"],"default":"xl"},"aligment":{"type":"string","enum":["left","center","right"],"default":"center"},"preview":{"type":"string"}},"textdomain":"head-sections","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -539,6 +539,7 @@ function Edit({
   setAttributes
 }) {
   const {
+    preview,
     isHide,
     padding,
     margin,
@@ -565,6 +566,11 @@ function Edit({
     }]],
     allowedBlocks: []
   });
+  if (preview) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+      src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.getUrlToStaticImages)(preview)
+    });
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_6__.DefaultSectionsControls, {
@@ -890,12 +896,9 @@ __webpack_require__.r(__webpack_exports__);
   edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
   save: _save__WEBPACK_IMPORTED_MODULE_2__["default"],
   example: {
-    innerBlocks: [{
-      name: "t4u/static-image",
-      attributes: {
-        url: 'general/preview-section-head-section.png'
-      }
-    }]
+    attributes: {
+      preview: 'general/preview-section-head-section.png'
+    }
   }
 });
 })();

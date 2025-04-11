@@ -44,13 +44,27 @@
     },
     "container": {
       "type": "string",
-      "enum": ["sm", "md", "lg", "xl", "2xl", "full"],
+      "enum": [
+        "sm",
+        "md",
+        "lg",
+        "xl",
+        "2xl",
+        "full"
+      ],
       "default": "xl"
     },
     "aligment": {
       "type": "string",
-      "enum": ["left", "center", "right"],
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
       "default": "center"
+    },
+    "preview": {
+      "type": "string"
     }
   },
   "textdomain": "head-sections",

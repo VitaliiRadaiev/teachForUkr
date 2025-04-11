@@ -31,7 +31,10 @@ const requiredAttributes = {
         type: "string",
         enum: ["bg-light-primary", "bg-light-primary-80"],
         default: "bg-light-primary-80"
-    }
+    },
+    preview: {
+        type: "string"
+    },
 };
 
 function defaultUpdate() {

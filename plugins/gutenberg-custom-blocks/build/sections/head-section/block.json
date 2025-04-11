@@ -62,6 +62,9 @@
         "right"
       ],
       "default": "center"
+    },
+    "preview": {
+      "type": "string"
     }
   },
   "textdomain": "head-sections",

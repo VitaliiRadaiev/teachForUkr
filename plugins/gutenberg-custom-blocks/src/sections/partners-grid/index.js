@@ -8,13 +8,8 @@ registerBlockType(metadata.name, {
 	edit,
 	save,
 	example: {
-		innerBlocks: [
-			{
-				name: "t4u/static-image",
-				attributes: {
-					url: 'general/preview-section-partners-grid.jpg',
-				}
-			}
-		]
+		attributes: {
+			preview: 'general/preview-section-partners-grid.jpg'
+		}
 	},
 });

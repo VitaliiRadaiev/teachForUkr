@@ -49,6 +49,9 @@
     "variants": {
       "type": "number",
       "default": 1
+    },
+    "preview": {
+      "type": "string"
     }
   },
   "textdomain": "hero-v1",

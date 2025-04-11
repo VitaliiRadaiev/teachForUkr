@@ -41,6 +41,9 @@
         "bg-light-primary-80"
       ],
       "default": "bg-light-primary-80"
+    },
+    "preview": {
+      "type": "string"
     }
   },
   "textdomain": "numbers-text",

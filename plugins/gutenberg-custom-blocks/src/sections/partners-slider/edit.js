@@ -7,7 +7,7 @@ import { useEffect } from "@wordpress/element";
 import { useSelect, useDispatch } from '@wordpress/data';
 import "./editor.scss";
 import clsx from "clsx";
-import { getSectionsPaddingClasses, getSectionsMarginClasses } from "../../utils/utils";
+import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
 import useFetchOnVisible from "../../hooks/hooks";
 import apiFetch from "@wordpress/api-fetch";
@@ -15,8 +15,8 @@ import { SliderNav } from "../../ui/slider-nav/SliderNav";
 
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-	const { isHide, padding, margin, background, className } = attributes;
-
+	const { isHide, padding, margin, background, className, preview } = attributes;
+	
 	const { updateBlockAttributes } = useDispatch('core/block-editor');
 	const innerBlocks = useSelect((select) => select('core/block-editor').getBlocks(clientId), [clientId]);
 
@@ -70,6 +70,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			});
 		}
 	}, [data])
+
+	if(preview) {
+		return <img src={getUrlToStaticImages(preview)} />
+	}
 
 	return (
 		<>

@@ -34,6 +34,9 @@
         "left": ""
       }
     },
+    "preview": {
+      "type": "string"
+    },
     "background": {
       "type": "string",
       "enum": [

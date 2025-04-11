@@ -12,7 +12,7 @@ import apiFetch from "@wordpress/api-fetch";
 
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, padding, margin, background, className } = attributes;
+	const { preview, isHide, padding, margin, background, className } = attributes;
 
 	const blockProps = useBlockProps({
 		className: clsx(
@@ -58,6 +58,10 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const fetchPartners = () => apiFetch({ path: 'site-core/v1/partners?category=all' });
 	const { ref: partnersRef, data: partners } = useFetchOnVisible(fetchPartners);
+
+	if(preview) {
+		return <img src={getUrlToStaticImages(preview)} />
+	}
 
 	return (
 		<>

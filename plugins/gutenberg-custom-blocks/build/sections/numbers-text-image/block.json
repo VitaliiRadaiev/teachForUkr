@@ -49,6 +49,9 @@
         "right"
       ],
       "default": "left"
+    },
+    "preview": {
+      "type": "string"
     }
   },
   "textdomain": "numbers-text-image",

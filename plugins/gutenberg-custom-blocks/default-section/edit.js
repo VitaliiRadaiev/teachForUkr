@@ -7,10 +7,11 @@ import "./editor.scss";
 import clsx from "clsx";
 import { getSectionsPaddingClasses, getSectionsMarginClasses } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
+import { getUrlToStaticImages } from "../src/utils/utils";
 
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, padding, margin, background, className } = attributes;
+	const { preview, isHide, padding, margin, background, className } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
 			'numbers-section rounded-[20px] md:rounded-[30px]',
@@ -24,7 +25,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const { children } = useInnerBlocksProps({}, {
 		template: [
-			['t4u/inner-block', { 
+			['t4u/inner-block', {
 				classes: 'text-center max-w-[30.5rem] xl:max-w-[45.5rem] 4xl:max-w-[59.125rem] mx-auto',
 				simpleWrapper: true,
 				options: {
@@ -53,10 +54,14 @@ export default function Edit({ attributes, setAttributes }) {
 		allowedBlocks: []
 	})
 
+	if (preview) {
+		return <img src={getUrlToStaticImages(preview)} />
+	}
+
 	return (
 		<>
 			<InspectorControls>
-				<DefaultSectionsControls attributes={attributes} setAttributes={setAttributes}/>
+				<DefaultSectionsControls attributes={attributes} setAttributes={setAttributes} />
 			</InspectorControls>
 			<section {...blockProps}>
 				<div className="container">

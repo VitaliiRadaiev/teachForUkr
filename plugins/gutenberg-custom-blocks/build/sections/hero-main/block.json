@@ -41,6 +41,9 @@
         "bottom": "",
         "left": ""
       }
+    },
+    "preview": {
+      "type": "string"
     }
   },
   "textdomain": "hero-main",
