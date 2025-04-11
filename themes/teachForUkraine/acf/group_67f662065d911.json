@@ -3,6 +3,27 @@
     "title": "[single] Партнери",
     "fields": [
         {
+            "key": "field_67f8c5f45c8b0",
+            "label": "Відобразити в секціі \"Партнери слайдер\"",
+            "name": "show_in_partners_slider_block",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Так \/ Ні",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_67f662066a3c9",
             "label": "Посилання на сторінку партнера",
             "name": "url_partner",
@@ -39,5 +60,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1744200277
+    "modified": 1744357069
 }

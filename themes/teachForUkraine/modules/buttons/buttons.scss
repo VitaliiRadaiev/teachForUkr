@@ -502,7 +502,15 @@
 
     @media #{$mouse-device} {
         &:hover:not(.active) {
-            background-color: $color-light-primary-80;
+            background-color: $color-dark-primary-10;
         }
     }
+}
+
+.nav-btn {
+  &.swiper-button-disabled {
+    pointer-events: none;
+    background-color: $color-dark-primary-10;
+    color: $color-dark-primary-60;
+  }  
 }

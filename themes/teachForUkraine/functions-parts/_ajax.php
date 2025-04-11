@@ -46,20 +46,11 @@ function ajax_get_partners($request)
         'posts_per_page' => 9,
         'post_status' => 'publish',
         'paged' => $page,
+        'orderby' => 'date',
         'order' => 'DESC'
     );
 
-    if ($category === 'all') {
-        $args = array_merge($args, [
-            'tax_query' => [
-                [
-                    'taxonomy' => 'post-category',
-                    'field'    => 'slug',
-                    'operator' => 'EXISTS'
-                ],
-            ],
-        ]);
-    } else {
+    if ($category !== 'all') {
         $args = array_merge($args, [
             'tax_query' => [
                 [
@@ -110,6 +101,25 @@ function ajax_get_partners($request)
     return rest_ensure_response([
         'posts' => $posts,
         'max_num_pages' => $query->max_num_pages
+    ]);
+}
+function ajax_get_partners_for_block_slider()
+{
+    $partners_posts = get_partners_for_block_slider();
+    $posts = [];
+
+    foreach ($partners_posts as $partner_post) {
+        $logo = get_image(get_post_thumbnail_id($partner_post->ID), 'w-auto h-auto max-w-full max-h-full grayscale transition', false);
+        $url = get_field('url_partner', $partner_post->ID);
+
+        $posts[] = [
+            'logo' => $logo,
+            'url' => $url
+        ];
+    }
+
+    return rest_ensure_response([
+        'posts' => $posts,
     ]);
 }
 
@@ -164,6 +174,12 @@ function register_acf_options_endpoint()
     register_rest_route('site-core/v1', 'partners-categories', array(
         'methods'  => 'GET',
         'callback' => 'ajax_get_partners_categories',
+        'permission_callback' => '__return_true'
+    ));
+
+    register_rest_route('site-core/v1', 'partners-for-slider', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_partners_for_block_slider',
         'permission_callback' => '__return_true'
     ));
 }

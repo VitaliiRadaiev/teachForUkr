@@ -593,6 +593,9 @@ video {
 .bottom-\[9\%\] {
   bottom: 9%;
 }
+.bottom-\[calc\(100\%\+50px\)\] {
+  bottom: calc(100% + 50px);
+}
 .bottom-\[calc\(100\%-1px\)\] {
   bottom: calc(100% - 1px);
 }
@@ -863,6 +866,9 @@ video {
 .h-\[44px\] {
   height: 44px;
 }
+.h-\[50px\] {
+  height: 50px;
+}
 .h-\[54px\] {
   height: 54px;
 }
@@ -943,6 +949,9 @@ video {
 }
 .w-\[44px\] {
   width: 44px;
+}
+.w-\[60px\] {
+  width: 60px;
 }
 .w-\[9\.83\%\] {
   width: 9.83%;
@@ -1311,6 +1320,10 @@ video {
   padding-left: 20px;
   padding-right: 20px;
 }
+.px-\[30px\] {
+  padding-left: 30px;
+  padding-right: 30px;
+}
 .px-\[6px\] {
   padding-left: 6px;
   padding-right: 6px;
@@ -1421,6 +1434,9 @@ video {
 }
 .text-\[1rem\] {
   font-size: 1rem;
+}
+.text-\[20px\] {
+  font-size: 20px;
 }
 .text-\[21px\] {
   font-size: 21px;
@@ -6985,6 +7001,12 @@ flag::before {
   background-color: #1f1f1f;
 }
 
+.nav-btn.swiper-button-disabled {
+  pointer-events: none;
+  background-color: #e9e9e9;
+  color: #787878;
+}
+
 .subscribe-form {
   padding: 5px;
   border-radius: 10px;
@@ -9455,6 +9477,18 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
 .\[\&\.hide\]\:opacity-0.hide {
   opacity: 0;
 }
+.\[\&\.swiper-initialized_\.swiper-slide\]\:w-\[calc\(50\%-5px\)\].swiper-initialized .swiper-slide {
+  width: calc(50% - 5px);
+}
+.\[\&\:has\(\.swiper-pagination-lock\)\]\:hidden:has(.swiper-pagination-lock) {
+  display: none;
+}
+.\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(50\%-5px\)\]:not(.swiper-initialized) .swiper-slide {
+  width: calc(50% - 5px);
+}
+.\[\&\:not\(\.swiper-initialized\)_\.swiper-wrapper\]\:gap-\[10px\]:not(.swiper-initialized) .swiper-wrapper {
+  gap: 10px;
+}
 .\[\&\:not\(\:first-child\)\]\:pt-\[10px\]:not(:first-child) {
   padding-top: 10px;
 }
@@ -9691,12 +9725,12 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
     row-gap: 20px;
   }
   .gap-x-md {
-    -webkit-column-gap: 30px;
-       -moz-column-gap: 30px;
-            column-gap: 30px;
+    -webkit-column-gap: 24px;
+       -moz-column-gap: 24px;
+            column-gap: 24px;
   }
   .gap-y-md {
-    row-gap: 30px;
+    row-gap: 24px;
   }
   .gap-x-lg {
     -webkit-column-gap: 40px;
@@ -9902,11 +9936,11 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .md\:h-\[66px\] {
     height: 66px;
   }
-  .md\:h-\[87px\] {
-    height: 87px;
-  }
   .md\:h-\[84px\] {
     height: 84px;
+  }
+  .md\:h-\[87px\] {
+    height: 87px;
   }
   .md\:min-h-\[106px\] {
     min-height: 106px;
@@ -10064,6 +10098,12 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .md\:text-\[24px\] {
     font-size: 24px;
   }
+  .md\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(33\.3333\%-\(24px\*2\/3\)\)\]:not(.swiper-initialized) .swiper-slide {
+    width: calc(33.3333% - (24px * 2 / 3));
+  }
+  .md\:\[\&\:not\(\.swiper-initialized\)_\.swiper-wrapper\]\:gap-\[24px\]:not(.swiper-initialized) .swiper-wrapper {
+    gap: 24px;
+  }
   .md\:\[\&\>a\]\:min-h-\[1\.4em\]>a {
     min-height: 1.4em;
   }
@@ -10149,6 +10189,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .lg\:mt-\[60px\] {
     margin-top: 60px;
+  }
+  .lg\:block {
+    display: block;
   }
   .lg\:flex {
     display: -webkit-box;
@@ -10334,6 +10377,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .lg\:pt-\[70px\] {
     padding-top: 70px;
   }
+  .lg\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(16\.666\%-\(24px\*5\/6\)\)\]:not(.swiper-initialized) .swiper-slide {
+    width: calc(16.666% - (24px * 5 / 6));
+  }
 }
 @media (min-width: 1024px) and (max-width: 1279.98px) {
   .lg-and-xl-max\:\[\&\:last-child\:nth-child\(odd\)\]\:col-span-2:last-child:nth-child(odd) {
@@ -10497,12 +10543,12 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
     row-gap: 24px;
   }
   .gap-x-md {
-    -webkit-column-gap: 30px;
-       -moz-column-gap: 30px;
-            column-gap: 30px;
+    -webkit-column-gap: 24px;
+       -moz-column-gap: 24px;
+            column-gap: 24px;
   }
   .gap-y-md {
-    row-gap: 30px;
+    row-gap: 24px;
   }
   .gap-x-lg {
     -webkit-column-gap: 40px;
@@ -11185,6 +11231,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .\34xl\:mt-\[80px\] {
     margin-top: 80px;
   }
+  .\34xl\:h-\[112px\] {
+    height: 112px;
+  }
   .\34xl\:h-\[126px\] {
     height: 126px;
   }
@@ -11202,9 +11251,6 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .\34xl\:h-\[772px\] {
     height: 772px;
-  }
-  .\34xl\:h-\[112px\] {
-    height: 112px;
   }
   .\34xl\:min-h-\[29px\] {
     min-height: 29px;
@@ -11319,6 +11365,12 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .\34xl\:\[\&\.btn-primary\]\:text-\[1\.125rem\].btn-primary {
     font-size: 1.125rem;
+  }
+  .\34xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(16\.666\%-\(32px\*5\/6\)\)\]:not(.swiper-initialized) .swiper-slide {
+    width: calc(16.666% - (32px * 5 / 6));
+  }
+  .\34xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-wrapper\]\:gap-\[32px\]:not(.swiper-initialized) .swiper-wrapper {
+    gap: 32px;
   }
 }
 @media (max-width: 1279.98px) {
@@ -11495,7 +11547,7 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
     opacity: 1;
   }
   .bullet:hover:not(.active) {
-    background-color: #F6F6F6;
+    background-color: #e9e9e9;
   }
   .language-switcher:hover .wpml-ls {
     opacity: 1;
@@ -11542,6 +11594,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .hover\:bg-accent-first-10:hover {
     background-color: var(--color-accent-first-10);
   }
+  .hover\:bg-dark-primary-60:hover {
+    background-color: var(--color-dark-primary-60);
+  }
   .hover\:bg-dark-primary-80:hover {
     background-color: var(--color-dark-primary-80);
   }
@@ -11550,6 +11605,10 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .hover\:text-dark-primary:hover {
     color: var(--color-dark-primary);
+  }
+  .hover\:text-white:hover {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity, 1));
   }
   .\[\&\.btn\]\:hover\:bg-transparent:hover.btn {
     background-color: transparent;

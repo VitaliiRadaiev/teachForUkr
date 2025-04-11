@@ -21,10 +21,6 @@ window.addEventListener("DOMContentLoaded", () => {
                     spaceBetween: 24,
                 },
                 1024: {
-                    slidesPerView: 5,
-                    spaceBetween: 24,
-                },
-                1440: {
                     slidesPerView: 6,
                     spaceBetween: 24,
                 },

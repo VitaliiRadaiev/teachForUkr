@@ -12,14 +12,8 @@ if (!($attributes['isHide'])):
       'posts_per_page' => 9,
       'post_status' => 'publish',
       'paged' => 1,
-      'order' => 'DESC',
-      'tax_query' => array(
-         array(
-            'taxonomy' => 'post-category',
-            'field'    => 'slug',
-            'operator' => 'EXISTS'
-         )
-      )
+      'orderby' => 'date',
+      'order' => 'DESC'
    );
 
    $query = new WP_Query($args);
@@ -130,7 +124,7 @@ if (!($attributes['isHide'])):
 
                   <?php endwhile; ?>
                </div>
-               
+
             </div>
          </div>
       </section>
