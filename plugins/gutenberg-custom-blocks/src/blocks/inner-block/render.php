@@ -6,9 +6,9 @@ if (!($attributes['isHide'])):
     );
 ?>
     <?php if ($attributes['wrapper']): ?>
-        <div class="<?= $classes?>" <?= generate_html_data_attributes($attributes['dataAttributes']) ?>>
+        <<?= $attributes['tag'] ?> class="<?= $classes?>" <?= generate_html_data_attributes($attributes['dataAttributes']) ?>>
             <? echo $content; ?>
-        </div>
+        </<?= $attributes['tag'] ?>>
     <?php else: ?>
         <? echo $content; ?>
     <?php endif; ?>

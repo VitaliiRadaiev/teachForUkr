@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if(res?.posts) {
                 renderLoadedCards(res.posts, postsContainer, prevState.slug === state.slug);
                 initScrollContainers();
-                btnShowMore.classList.toggle('!hidden', res.max_num_pages == state.page);
+                btnShowMore && btnShowMore.classList.toggle('!hidden', res.max_num_pages == state.page);
             }
 
             loader.remove();

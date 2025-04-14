@@ -60,13 +60,17 @@ foreach ($menus_names as $menu_name) {
                                 <?= $item->title ?>
                             </div>
                             <div class="mt-[16px] grid md-max:grid-cols-2 gap-y-[14px] xl:gap-y-[10px] gap-x-[10px]  [&>a]:min-h-[0.4em] md:[&>a]:min-h-[1.4em]">
-                                <?php foreach ($item->children as $item) {
-                                    if ($item->url === '#empty') {
-                                        echo '<a></a>';
-                                    } else {
-                                        render_menu_link($item);
+                                <?php
+                                if (check($item->children)) {
+                                    foreach ($item->children as $item) {
+                                        if ($item->url === '#empty') {
+                                            echo '<a></a>';
+                                        } else {
+                                            render_menu_link($item);
+                                        }
                                     }
-                                } ?>
+                                }
+                                ?>
                             </div>
                         </div>
                     <?php endforeach; ?>

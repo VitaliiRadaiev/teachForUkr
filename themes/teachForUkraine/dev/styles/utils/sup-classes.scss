@@ -554,6 +554,9 @@ flag {
     &-1 {
         mask-image: url('../images/general/card-image-mask-1.svg'); 
     }
+    &-2 {
+        mask-image: url('../images/general/card-image-mask-2.svg'); 
+    }
 }
 
 .image-mask-right-center {
@@ -562,6 +565,16 @@ flag {
 
 .image-mask-bottom-center {
     mask-position: bottom center;
+}
+
+.md\:image-mask-bottom-center {
+    @media (min-width: $mq-md) {
+        mask-position: bottom center;
+    }
+}
+
+.image-mask-center {
+    mask-position: center;
 }
 
 .card-rotate {

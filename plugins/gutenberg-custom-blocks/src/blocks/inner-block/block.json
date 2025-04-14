@@ -38,6 +38,10 @@
 		"canAddItem": {
 			"type": "boolean",
 			"default": false
+		},
+		"tag": {
+			"type": "string",
+			"default": "div"
 		}
 	},
 	"textdomain": "inner-block",

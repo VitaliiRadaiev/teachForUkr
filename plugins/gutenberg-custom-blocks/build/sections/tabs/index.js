@@ -544,23 +544,23 @@ function Edit({
   const {
     children
   } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)({}, {
-    template: [['t4u/inner-block', {
-      classes: 'text-center max-w-[30.5rem] xl:max-w-[45.5rem] 4xl:max-w-[59.125rem] mx-auto',
-      simpleWrapper: true,
+    template: [['t4u/head-block', {
+      classes: ""
+    }], ['t4u/inner-block', {
+      classes: 'mt-[40px] grid md:grid-cols-2 lg:grid-cols-12 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px]',
+      canAddItem: true,
       options: {
-        template: [['t4u/head-block', {
-          classes: ""
-        }], ["t4u/buttons-group", {
-          classes: 'mt-[40px] xl:mt-[50px]',
-          alignment: 'center',
-          options: {
-            template: [["t4u/button", {
-              acfField: 'link_become_partner'
-            }]],
-            allowedBlocks: ['t4u/button']
-          }
+        template: [['t4u/card-with-image', {}]],
+        allowedBlocks: ['t4u/card-with-image']
+      }
+    }], ["t4u/buttons-group", {
+      classes: 'mt-[40px] xl:mt-[50px]',
+      alignment: 'center',
+      options: {
+        template: [["t4u/button", {
+          acfField: 'link_become_partner'
         }]],
-        allowedBlocks: []
+        allowedBlocks: ['t4u/button']
       }
     }]],
     allowedBlocks: []

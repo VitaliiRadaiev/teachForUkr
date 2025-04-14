@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/card-with-image",
+	"version": "0.1.0",
+	"title": "Карточка з картинкою",
+	"icon": "smiley",
+	"category": "blocks",
+	"description": "",
+	"example": {},
+	"supports": {
+	  "html": false
+	},
+	"attributes": {
+	  "isHide": {
+		"type": "boolean",
+		"default": false
+	  },
+	  "classes": {
+		"type": "string",
+		"default": ""
+	  },
+	  "columns": {
+		"type": "string",
+		"enum": ["lg:col-span-3", "lg:col-span-4", "lg:col-span-6", "lg:col-span-12"],
+		"default": "lg:col-span-3"
+	  },
+	  "mask": {
+		"type": "number",
+		"default": 1
+	  },
+	  "info": {
+		"type": "boolean",
+		"default": false
+	  },
+	  "icon": {
+		"type": "string",
+		"url": "icons/decor-icon-1.svg"
+	  }
+	},
+	"textdomain": "card-with-image",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+  }
