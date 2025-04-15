@@ -44,6 +44,10 @@
 			"type": "string",
 			"default": ""
 		},
+		"wrapperClasses": {
+			"type": "string",
+			"default": ""
+		},
 		"isHide": {
 			"type": "boolean",
 			"default": false

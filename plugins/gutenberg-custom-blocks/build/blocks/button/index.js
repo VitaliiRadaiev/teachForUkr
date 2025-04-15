@@ -194,7 +194,7 @@ function validate(uuid) {
   \**************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/button","version":"0.1.0","title":"Кнопка","icon":"button","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"blockId":{"type":"number"},"postType":{"type":"object"},"text":{"type":"string","default":""},"acfField":{"type":"string"},"acfFieldType":{"type":"string","enum":["link","text"],"default":"link"},"variant":{"type":"string","enum":["btn-primary","btn-secondary","btn-with-enter-arrow","btn-with-arrow"],"default":"btn-with-enter-arrow"},"accent":{"type":"string","enum":["accent-first","accent-second"],"default":"accent-first"},"classes":{"type":"string","default":""},"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"renderAs":{"type":"string","enum":["link","button"],"default":"link"},"dataAttributes":{"type":"object","default":{}},"simpleWrapper":{"type":"boolean","default":false}},"textdomain":"button","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/button","version":"0.1.0","title":"Кнопка","icon":"button","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"blockId":{"type":"number"},"postType":{"type":"object"},"text":{"type":"string","default":""},"acfField":{"type":"string"},"acfFieldType":{"type":"string","enum":["link","text"],"default":"link"},"variant":{"type":"string","enum":["btn-primary","btn-secondary","btn-with-enter-arrow","btn-with-arrow"],"default":"btn-with-enter-arrow"},"accent":{"type":"string","enum":["accent-first","accent-second"],"default":"accent-first"},"classes":{"type":"string","default":""},"wrapperClasses":{"type":"string","default":""},"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"renderAs":{"type":"string","enum":["link","button"],"default":"link"},"dataAttributes":{"type":"object","default":{}},"simpleWrapper":{"type":"boolean","default":false}},"textdomain":"button","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -248,6 +248,7 @@ function Edit({
     text,
     accent,
     classes,
+    wrapperClasses,
     acfField,
     acfFieldType,
     variant,
@@ -266,7 +267,7 @@ function Edit({
   const uniqueId = blockId ? blockId : (0,uuid__WEBPACK_IMPORTED_MODULE_11__["default"])();
   const globalText = acfFieldType === 'link' ? data?.value?.title || '' : data?.value || '';
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getMarginClasses)(margin), {
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(wrapperClasses, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getMarginClasses)(margin), {
       ['hide-block']: isHide
     })
   });
@@ -343,7 +344,7 @@ function Edit({
               className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('btn-with-arrow', accent),
               children: "button"
             }),
-            value: 'btn-with-with-arrow'
+            value: 'btn-with-arrow'
           }],
           onChange: value => setAttributes({
             variant: value

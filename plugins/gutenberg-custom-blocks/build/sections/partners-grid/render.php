@@ -16,7 +16,7 @@ if (!($attributes['isHide'])):
 ?>
       <section data-partners-grid class="partners-grid-section relative <?= $classes ?>">
          <div class="container flex flex-col">
-            <? echo $content; ?>
+            <?= $content; ?>
             <div class="mt-[30px] md:mt-[50px] 4xl:mt-[60px] first-child-no-margin order-2 flex flex-col">
 
                <div class="self-center max-w-full">

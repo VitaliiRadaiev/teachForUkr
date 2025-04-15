@@ -25,6 +25,7 @@ export default function Edit({ attributes, setAttributes }) {
 		text,
 		accent,
 		classes,
+		wrapperClasses,
 		acfField,
 		acfFieldType,
 		variant,
@@ -41,9 +42,12 @@ export default function Edit({ attributes, setAttributes }) {
 	const globalText = acfFieldType === 'link' ? (data?.value?.title || '') : (data?.value || '');
 
 	const blockProps = useBlockProps({
-		className: clsx(getMarginClasses(margin), {
-			['hide-block']: isHide
-		})
+		className: clsx(
+			wrapperClasses,
+			getMarginClasses(margin),
+			{
+				['hide-block']: isHide
+			})
 	});
 
 	useEffect(() => {
@@ -55,8 +59,8 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<IsHide isHide={isHide} setIsHide={(val) => setAttributes({ isHide: val })}/>
-				{renderAs === 'link' && 
+				<IsHide isHide={isHide} setIsHide={(val) => setAttributes({ isHide: val })} />
+				{renderAs === 'link' &&
 					<PanelBody
 						title="Посилання"
 						isHide={false}
@@ -64,7 +68,7 @@ export default function Edit({ attributes, setAttributes }) {
 						<LinkControl
 							key={blockId || uniqueId}
 							searchInputPlaceholder="Пошук..."
-							value={postType || (data && { 
+							value={postType || (data && {
 								id: data.value.url,
 								title: data.value.url,
 								type: 'link',
@@ -100,7 +104,7 @@ export default function Edit({ attributes, setAttributes }) {
 							{ label: <div className={clsx('btn-primary', accent)}>button</div>, value: 'btn-primary' },
 							{ label: <div className={clsx('btn-secondary', accent)}>button</div>, value: 'btn-secondary' },
 							{ label: <div className={clsx('btn-with-enter-arrow', accent)}>button</div>, value: 'btn-with-enter-arrow' },
-							{ label: <div className={clsx('btn-with-arrow', accent)}>button</div>, value: 'btn-with-with-arrow' },
+							{ label: <div className={clsx('btn-with-arrow', accent)}>button</div>, value: 'btn-with-arrow' },
 						]}
 						onChange={(value) => setAttributes({ variant: value })}
 					/>

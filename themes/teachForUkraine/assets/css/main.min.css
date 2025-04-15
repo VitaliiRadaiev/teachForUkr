@@ -857,6 +857,9 @@ video {
 .\!h-\[25px\] {
   height: 25px !important;
 }
+.\!h-\[30px\] {
+  height: 30px !important;
+}
 .\!h-\[40px\] {
   height: 40px !important;
 }
@@ -895,6 +898,9 @@ video {
 }
 .h-\[3\.6875rem\] {
   height: 3.6875rem;
+}
+.h-\[30px\] {
+  height: 30px;
 }
 .h-\[404px\] {
   height: 404px;
@@ -997,6 +1003,9 @@ video {
 }
 .w-\[281px\] {
   width: 281px;
+}
+.w-\[30px\] {
+  width: 30px;
 }
 .w-\[31\.5em\] {
   width: 31.5em;
@@ -9226,9 +9235,11 @@ flag::before {
   transition: color 0.15s ease;
 }
 
-.card-with-image .card-rotate-front {
-  -webkit-transition: background-color 0.15s ease;
-  transition: background-color 0.15s ease;
+.card-with-image:not(.wp-block-t4u-card-with-image) .card-rotate-front {
+  -webkit-transition: background-color 0.15s ease, -webkit-transform 0.6s ease;
+  transition: background-color 0.15s ease, -webkit-transform 0.6s ease;
+  transition: transform 0.6s ease, background-color 0.15s ease;
+  transition: transform 0.6s ease, background-color 0.15s ease, -webkit-transform 0.6s ease;
 }
 .card-with-image .decor-icon, .card-with-image .decor {
   -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.47, 1.64, 0.41, 0.8);
@@ -10620,6 +10631,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .lg\:gap-y-\[15px\] {
     row-gap: 15px;
   }
+  .lg\:gap-y-\[30px\] {
+    row-gap: 30px;
+  }
   .lg\:self-start {
     -ms-flex-item-align: start;
         align-self: flex-start;
@@ -11618,6 +11632,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .\34xl\:gap-y-\[20px\] {
     row-gap: 20px;
   }
+  .\34xl\:gap-y-\[40px\] {
+    row-gap: 40px;
+  }
   .\34xl\:p-\[25px\] {
     padding: 25px;
   }
@@ -11880,18 +11897,18 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .breadcrumbs a:hover {
     color: #0536FC;
   }
-  .card-with-image .card-rotate-front:hover {
+  .card-with-image:not(.wp-block-t4u-card-with-image) .card-rotate-front:hover {
     background-color: #FFC07F;
   }
-  .card-with-image .card-rotate-front:hover .decor {
+  .card-with-image:not(.wp-block-t4u-card-with-image) .card-rotate-front:hover .decor {
     -webkit-transform: rotate(225deg);
         -ms-transform: rotate(225deg);
             transform: rotate(225deg);
   }
-  .card-with-image .card-rotate-front:hover .decor-icon {
-    -webkit-transform: rotate(180deg);
-        -ms-transform: rotate(180deg);
-            transform: rotate(180deg);
+  .card-with-image:not(.wp-block-t4u-card-with-image) .card-rotate-front:hover .decor-icon {
+    -webkit-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+            transform: rotate(-180deg);
   }
   .hover\:scale-105:hover {
     --tw-scale-x: 1.05;

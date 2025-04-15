@@ -4,7 +4,7 @@ if (!($attributes['isHide'])):
 ?>
    <section class="numbers-grid-section rounded-[20px] md:rounded-[30px] <?= $classes ?>">
       <div class="container">
-         <? echo $content; ?>
+         <?= $content; ?>
       </div>
    </section>
 <?php endif; ?>

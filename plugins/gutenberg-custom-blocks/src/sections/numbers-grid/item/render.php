@@ -10,5 +10,5 @@ $classes = combine_classes(
 
 
 <div class="numbers-grid-card nested-bg-item p-[5px] rounded-[12px] flex flex-col gap-[5px] lg:gap-y-[15px] md-and-lg-max:[&:last-child:nth-child(odd)]:col-span-2 <?= $classes ?>">
-   <? echo $content; ?>
+   <?= $content; ?>
 </div>

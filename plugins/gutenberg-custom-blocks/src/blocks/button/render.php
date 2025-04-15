@@ -37,14 +37,19 @@ if (!($attributes['isHide'])):
             $target = '_blank';
         }
     }
+    if (check($text)):
 ?>
-    <?php if ($attributes['renderAs'] === 'link'): ?>
-        <a href="<?= $url ?>" target="<?= $target ?>" class="<?= $classes ?>" <?= generate_html_data_attributes($attributes['dataAttributes']) ?>>
-            <span data-text="<?= $text ?>"></span>
-        </a>
-    <?php else: ?>
-        <button class="<?= $classes ?>" <?= generate_html_data_attributes($attributes['dataAttributes']) ?>>
-            <span data-text="<?= $text ?>"></span>
-        </button>
-    <?php endif; ?>
-<?php endif; ?>
+        <?php if ($attributes['renderAs'] === 'link'): ?>
+            <a href="<?= $url ?>" target="<?= $target ?>" class="<?= $classes ?>" <?= generate_html_data_attributes($attributes['dataAttributes']) ?>>
+                <span data-text="<?= $text ?>"></span>
+            </a>
+        <?php else: ?>
+            <button class="<?= $classes ?>" <?= generate_html_data_attributes($attributes['dataAttributes']) ?>>
+                <span data-text="<?= $text ?>"></span>
+            </button>
+        <?php endif; ?>
+
+<?php
+    endif;
+endif;
+?>

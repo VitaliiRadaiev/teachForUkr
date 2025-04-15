@@ -1,1 +1,1 @@
-<? $attributes['html'] ?>
+<?= $attributes['html'] ?>

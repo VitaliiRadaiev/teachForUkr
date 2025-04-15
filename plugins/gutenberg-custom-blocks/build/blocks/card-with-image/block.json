@@ -25,8 +25,7 @@
       "enum": [
         "lg:col-span-3",
         "lg:col-span-4",
-        "lg:col-span-6",
-        "lg:col-span-12"
+        "lg:col-span-6"
       ],
       "default": "lg:col-span-3"
     },
@@ -40,11 +39,12 @@
     },
     "icon": {
       "type": "string",
-      "url": "icons/decor-icon-1.svg"
+      "default": "icons/decor-icon-1.svg"
     }
   },
   "textdomain": "card-with-image",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
+  "viewScript": "file:./script.js",
   "render": "file:./render.php"
 }

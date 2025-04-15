@@ -2,4 +2,4 @@
    // $attributes['']
 ?>
 
-<? echo $content; ?>
+<?= $content; ?>

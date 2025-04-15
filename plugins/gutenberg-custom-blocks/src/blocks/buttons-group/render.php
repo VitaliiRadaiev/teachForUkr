@@ -9,6 +9,6 @@ if (!($attributes['isHide'])):
    );
 ?>
    <div class="button-group flex flex-wrap items-center <?= $classes ?>">
-      <? echo $content; ?>
+      <?= $content; ?>
    </div>
 <?php endif; ?>

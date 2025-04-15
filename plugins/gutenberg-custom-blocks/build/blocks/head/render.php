@@ -4,7 +4,7 @@ if (!($attributes['isHide'])):
       get_sections_margin_classes($attributes['margin']),
       $attributes['classes'],
       ($attributes['className'] ?? '')
-    );
+   );
    $innet_classes = combine_classes(
       'flex flex-col',
       get_container_classes($attributes['container']),
@@ -15,7 +15,7 @@ if (!($attributes['isHide'])):
 ?>
    <div class="head-block <?= $classes ?>">
       <div class="<?= $innet_classes; ?>">
-         <? echo $content; ?>
+         <?= $content; ?>
       </div>
    </div>
 <?php endif; ?>

@@ -6,10 +6,10 @@ if (!($attributes['isHide'])):
     );
 ?>
     <?php if ($attributes['wrapper']): ?>
-        <<?= $attributes['tag'] ?> class="<?= $classes?>" <?= generate_html_data_attributes($attributes['dataAttributes']) ?>>
-            <? echo $content; ?>
+        <<?= $attributes['tag'] ?> class="<?= $classes ?>" <?= generate_html_data_attributes($attributes['dataAttributes']) ?>>
+            <?= $content; ?>
         </<?= $attributes['tag'] ?>>
     <?php else: ?>
-        <? echo $content; ?>
+        <?= $content; ?>
     <?php endif; ?>
 <?php endif; ?>

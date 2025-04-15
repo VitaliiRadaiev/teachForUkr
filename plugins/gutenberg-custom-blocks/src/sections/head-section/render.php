@@ -12,7 +12,7 @@ if (!($attributes['isHide'])):
    <section class="head-section rounded-[20px] md:rounded-[30px] <?= $classes ?>">
       <div class="container">
          <div class="<?= $innet_classes; ?>">
-            <? echo $content; ?>
+            <?= $content; ?>
          </div>
       </div>
    </section>

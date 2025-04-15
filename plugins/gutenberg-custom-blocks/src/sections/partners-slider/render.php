@@ -8,7 +8,7 @@ if (!($attributes['isHide'])):
 ?>
       <section class="partners-slider-section rounded-[20px] md:rounded-[30px] overflow-hidden <?= $classes ?>">
          <div class="container flex flex-col">
-            <? echo $content; ?>
+            <?= $content; ?>
             <div data-slider="partners" class="mt-[30px] md:mt-[40px] lg:mt-[50px] first-child-no-margin relative order-2">
                <div class="swiper lg-max:[&.swiper]:overflow-visible [&:not(.swiper-initialized)_.swiper-wrapper]:gap-[10px] md:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[24px] 4xl:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[32px] [&:not(.swiper-initialized)_.swiper-slide]:w-[calc(50%-5px)] md:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(33.3333%-(24px*2/3))] lg:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(16.666%-(24px*5/6))] 4xl:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(16.666%-(32px*5/6))]">
                   <div class="swiper-wrapper">

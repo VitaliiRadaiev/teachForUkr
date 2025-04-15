@@ -1,24 +1,28 @@
 @use "./utils/abstracts" as *;
 
 .card-with-image {
-    & .card-rotate-front {
-        transition: background-color $tran;
-        @media #{$mouse-device} {
-            &:hover {
-                background-color: $color-accent-second-50;
+    &:not(.wp-block-t4u-card-with-image) {
+        & .card-rotate-front {
+            transition: transform .6s ease, background-color $tran;
 
-                & .decor {
-                    transform: rotate(225deg);
-                }
+            @media #{$mouse-device} {
+                &:hover {
+                    background-color: $color-accent-second-50;
 
-                & .decor-icon {
-                    transform: rotate(180deg);
+                    & .decor {
+                        transform: rotate(225deg);
+                    }
+
+                    & .decor-icon {
+                        transform: rotate(-180deg);
+                    }
                 }
             }
         }
     }
 
-    & .decor-icon, & .decor {
+    & .decor-icon,
+    & .decor {
         transition: transform .4s $tf-bouncing;
     }
 
