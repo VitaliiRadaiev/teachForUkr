@@ -701,6 +701,12 @@ video {
 .top-full {
   top: 100%;
 }
+.right-\[20\%\] {
+  right: 20%;
+}
+.top-\[63\%\] {
+  top: 63%;
+}
 .z-1 {
   z-index: 1;
 }
@@ -10005,6 +10011,15 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .md\:top-\[92px\] {
     top: 92px;
   }
+  .md\:right-0 {
+    right: 0px;
+  }
+  .md\:right-\[10\%\] {
+    right: 10%;
+  }
+  .md\:top-\[62\%\] {
+    top: 62%;
+  }
   .md\:-order-1 {
     -webkit-box-ordinal-group: 0;
         -ms-flex-order: -1;
@@ -10403,6 +10418,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .lg\:top-auto {
     top: auto;
+  }
+  .lg\:top-\[20px\] {
+    top: 20px;
   }
   .lg\:z-3 {
     z-index: 3;

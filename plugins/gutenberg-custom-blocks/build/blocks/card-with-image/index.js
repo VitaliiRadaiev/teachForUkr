@@ -248,11 +248,11 @@ function Edit({
       })
     });
     decorIcon && updateBlockAttributes(decorIcon.clientId, {
-      classes: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])('decor-icon absolute z-2 aspect-square top-[16px] md:top-[20px] 4xl:top-[30px] flex items-center justify-center rounded-full bg-accent-first md:right-[-10%]', {
-        'w-[27%] right-0': !info,
-        'w-[18.95%] right-[10%]': info && mask === 1,
-        'w-[16.39%] right-0': info && mask === 2,
-        'md:w-[30.3%]': mask === 1,
+      classes: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])('decor-icon absolute z-2 aspect-square flex items-center justify-center rounded-full bg-accent-first md:right-[-10%]', {
+        'w-[27%] right-0 top-[16px] md:top-[20px] 4xl:top-[30px]': !info,
+        'w-[18.95%] right-[10%] top-[16px] md:top-[20px] 4xl:top-[30px]': info && mask === 1,
+        'w-[16.39%] right-0 top-[63%] right-[20%] md:top-[62%] md:right-[10%] lg:top-[20px]': info && mask === 2,
+        'md:w-[30.3%] md:right-0': mask === 1,
         'md:w-[25.53%]': mask === 2,
         'lg:w-[22.98%] lg:right-[6%]': mask === 1 && columns === 'lg:col-span-4',
         'lg:w-[15.07%] lg:right-[16%]': mask === 1 && columns === 'lg:col-span-6',

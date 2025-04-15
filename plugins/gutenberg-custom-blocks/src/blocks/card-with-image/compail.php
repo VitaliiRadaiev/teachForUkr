@@ -1,5 +1,5 @@
 <?php 
-$tailwind = 'lg:gap-y-[30px] 4xl:gap-y-[40px]';
+$tailwind = 'lg:gap-y-[30px] 4xl:gap-y-[40px] md:right-0 top-[63%] right-[20%] md:top-[62%] md:right-[10%] lg:top-[20px]';
 ?>
 
 <div class="card-with-image card-rotate md-and-lg-max:[&:last-child:nth-child(odd)]:col-span-2 lg:col-span-3">
