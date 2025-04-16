@@ -414,3 +414,16 @@ span {
         }
     }
 }
+
+.ul-square {
+    list-style: square;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+
+    & li {
+        &::marker {
+            color: var(--accent);
+        }
+    }
+}

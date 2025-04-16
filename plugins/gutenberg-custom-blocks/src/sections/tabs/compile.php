@@ -1,5 +1,5 @@
 <?php
-$tailwind = '!h-[30px]';
+$tailwind = '!h-[30px] lg:col-span-12';
 ?>
 
 <section class="tabs-section rounded-[20px] md:rounded-[30px] <?= $classes ?>">

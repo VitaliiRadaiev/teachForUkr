@@ -7,6 +7,12 @@
     }
 }
 
+.first-no-margin {
+    &>*:first-child {
+        margin-top: 0 !important;
+    }
+}
+
 .first-child-no-margin {
     &:first-child {
         margin-top: 0 !important;

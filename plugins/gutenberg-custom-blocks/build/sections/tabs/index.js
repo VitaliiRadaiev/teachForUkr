@@ -550,8 +550,8 @@ function Edit({
       classes: 'mt-[40px] grid md:grid-cols-2 lg:grid-cols-12 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px]',
       canAddItem: true,
       options: {
-        template: [['t4u/card-with-image', {}]],
-        allowedBlocks: ['t4u/card-with-image']
+        template: [['t4u/card-with-icon', {}]],
+        allowedBlocks: ['t4u/card-with-image', 't4u/card-with-icon']
       }
     }], ["t4u/buttons-group", {
       classes: 'mt-[40px] xl:mt-[50px]',

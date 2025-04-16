@@ -19,10 +19,10 @@
 	  "margin": {
 		"type": "object",
 		"default": {
-		  "top": "no",
-		  "right": "no",
-		  "bottom": "no",
-		  "left": "no"
+		  "top": "",
+		  "right": "",
+		  "bottom": "",
+		  "left": ""
 		}
 	  },
 	  "classes": {

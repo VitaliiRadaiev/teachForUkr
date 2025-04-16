@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/card-with-icon",
+  "version": "0.1.0",
+  "title": "Карточка з іконкою",
+  "icon": "smiley",
+  "category": "blocks",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "classes": {
+      "type": "string",
+      "default": ""
+    },
+    "columns": {
+      "type": "string",
+      "enum": [
+        "lg:col-span-3",
+        "lg:col-span-4",
+        "lg:col-span-6",
+        "lg:col-span-12"
+      ],
+      "default": "lg:col-span-3"
+    },
+    "icon": {
+      "type": "string",
+      "default": "icons/decor-icon-1.svg"
+    },
+    "direction": {
+      "type": "string",
+      "enum": [
+        "flex-col",
+        "flex-row"
+      ],
+      "default": "flex-col"
+    }
+  },
+  "textdomain": "card-with-icon",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}
