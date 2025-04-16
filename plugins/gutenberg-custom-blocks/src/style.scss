@@ -92,3 +92,7 @@ html :where(.wp-block) {
 .simple-text-content p {
     line-height: inherit;
 }
+
+.min-h-100 {
+    min-height: 100px;
+}

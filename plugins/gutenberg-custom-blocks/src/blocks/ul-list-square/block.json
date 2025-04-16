@@ -4,7 +4,7 @@
 	"name": "t4u/ul-list-square",
 	"version": "0.1.0",
 	"title": "Список",
-	"icon": "dashicons-editor-ul",
+	"icon": "editor-ul",
 	"category": "blocks",
 	"description": "",
 	"example": {},
@@ -41,6 +41,11 @@
 			"default": ""
 		},
 		"gap": {
+			"type": "string",
+			"enum": ["sm", "md", "lg", "xl"],
+			"default": "sm"
+		},
+		"spaceLeft": {
 			"type": "string",
 			"enum": ["sm", "md", "lg", "xl"],
 			"default": "sm"

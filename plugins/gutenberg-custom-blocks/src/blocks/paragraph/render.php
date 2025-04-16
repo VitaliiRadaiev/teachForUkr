@@ -8,9 +8,7 @@ if (check($attributes['text'])):
         ($attributes['className'] ?? '')
     );
 ?>
-    <?php if (check($attributes['text'])): ?>
-        <p class="<?= $classes ?>">
-            <?= $attributes['text'] ?>
-        </p>
-    <?php endif; ?>
+    <p class="<?= $classes ?>">
+        <?= $attributes['text'] ?>
+    </p>
 <?php endif; ?>

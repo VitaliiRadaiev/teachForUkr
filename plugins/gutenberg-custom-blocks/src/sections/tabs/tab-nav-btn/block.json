@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/tab-nav-item",
+	"version": "0.1.0",
+	"title": "Навігація таби кнопка",
+	"icon": "button",
+	"category": "blocks",
+	"description": "",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"classes": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"parent": [
+		"t4u/tab-nav"
+	],
+	"textdomain": "tab-nav-item",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

@@ -36,7 +36,7 @@ export default function Edit({ attributes, setAttributes }) {
 	});
 	const { children } = useInnerBlocksProps({}, {
 		template: [['t4u/paragraph', {}]],
-		allowedBlocks: canAddItem ? ['t4u/paragraph'] : []
+		allowedBlocks: canAddItem ? ['t4u/paragraph' , 't4u/ul-list-square'] : []
 	});
 
 	return (

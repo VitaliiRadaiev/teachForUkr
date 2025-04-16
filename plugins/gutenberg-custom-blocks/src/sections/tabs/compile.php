@@ -1,5 +1,5 @@
 <?php
-$tailwind = '!h-[30px] lg:col-span-12';
+$tailwind = '!h-[30px] lg:col-span-12 !mx-auto';
 ?>
 
 <section class="tabs-section rounded-[20px] md:rounded-[30px] <?= $classes ?>">
@@ -33,9 +33,9 @@ $tailwind = '!h-[30px] lg:col-span-12';
                 </div>
             </div>
 
-            <div data-tab-content class="mt-[20px] md:mt-[30px] 4xl:mt-[40px]">
+            <div data-tab-content class="mt-[20px] md:mt-[30px] 4xl:mt-[40px] [&:not(.active)]:hidden">
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px]">
+                <div class="mt-[20px] md:mt-[30px] 4xl:mt-[40px] first-child-no-margin grid md:grid-cols-2 lg:grid-cols-12 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px]">
                     <div class="card-with-image card-rotate md-and-lg-max:[&:last-child:nth-child(odd)]:col-span-2 lg:col-span-3">
                         <div class="card-rotate-front nested-bg-item h-full rounded-[12px] flex flex-col md-max:flex-row-reverse gap-y-[15px] 4xl:gap-y-[20px]">
                             <div class="grow-0 shrink-0 md-max:pr-[16px] md:p-0">

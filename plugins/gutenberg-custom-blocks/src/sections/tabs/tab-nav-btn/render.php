@@ -1,0 +1,3 @@
+<button data-tab-trigger class="<?= $attributes['classes'] ?> btn btn-secondary btn-secondary-sm grow-0 shrink-0 font-medium [&.btn]:min-h-[44px] lg:min-h-[50px] [&.btn]:px-[20px] [&.btn]:bg-transparent [&.btn]:text-dark-primary [&.btn.active]:bg-[var(--accent)] [&.btn.active]:text-white [&.btn.active]:pointer-events-none [&.btn]:hover:bg-transparent">
+   <span data-text="<?= $attributes['text'] ?>"></span>
+</button>

@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/li",
+	"version": "0.1.0",
+	"title": "Елемет списку",
+	"icon": "dashicons-menu",
+	"category": "blocks",
+	"description": "",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"classes": {
+			"type": "string",
+			"default": ""
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "li",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

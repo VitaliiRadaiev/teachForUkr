@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/tab-nav",
+  "version": "0.1.0",
+  "title": "Навігація таби",
+  "icon": "forms",
+  "category": "blocks",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "accent": {
+      "type": "string",
+      "enum": [
+        "accent-first",
+        "accent-second"
+      ],
+      "default": "accent-second"
+    }
+  },
+  "parent": [
+    "t4u/tabs"
+  ],
+  "textdomain": "tab-nav",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

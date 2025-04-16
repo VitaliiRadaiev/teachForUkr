@@ -90,7 +90,7 @@ function Edit({
     children
   } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)({}, {
     template: [['t4u/paragraph', {}]],
-    allowedBlocks: canAddItem ? ['t4u/paragraph'] : []
+    allowedBlocks: canAddItem ? ['t4u/paragraph', 't4u/ul-list-square'] : []
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.BlockControls, {

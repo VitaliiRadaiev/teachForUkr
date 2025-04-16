@@ -3,7 +3,7 @@
 	"apiVersion": 3,
 	"name": "t4u/paragraph",
 	"version": "0.1.0",
-	"title": "Простий параграф",
+	"title": "Параграф",
 	"icon": "editor-paragraph",
 	"category": "blocks",
 	"description": "",

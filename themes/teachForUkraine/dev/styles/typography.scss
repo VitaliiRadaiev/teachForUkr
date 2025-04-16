@@ -415,11 +415,25 @@ span {
     }
 }
 
-.ul-square {
+.ul-list-square {
     list-style: square;
     margin-left: 1em;
     display: flex;
     flex-direction: column;
+
+    &.ul-ml-sm {
+        margin-left: 1em !important;
+    }
+    &.ul-ml-md {
+        margin-left: 1.5em !important;
+    }
+    &.ul-ml-lg {
+        margin-left: 2em !important;
+    }
+    &.ul-ml-xl {
+        margin-left: 3em !important;
+    }
+
 
     & li {
         &::marker {

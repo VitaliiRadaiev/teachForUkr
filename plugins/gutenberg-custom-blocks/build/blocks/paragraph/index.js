@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/paragraph","version":"0.1.0","title":"Простий параграф","icon":"editor-paragraph","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"margin":{"type":"object","default":{"top":"sm","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"text":{"type":"string","default":""},"fontSize":{"type":"string","enum":["sm","md","lg","xl"],"default":""},"aligment":{"type":"string","enum":["left","center","right"],"default":""}},"textdomain":"paragraph","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/paragraph","version":"0.1.0","title":"Параграф","icon":"editor-paragraph","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"margin":{"type":"object","default":{"top":"sm","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"text":{"type":"string","default":""},"fontSize":{"type":"string","enum":["sm","md","lg","xl"],"default":""},"aligment":{"type":"string","enum":["left","center","right"],"default":""}},"textdomain":"paragraph","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 

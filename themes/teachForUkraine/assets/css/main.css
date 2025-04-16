@@ -751,6 +751,10 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
+.\!mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
 .mb-\[10px\] {
   margin-bottom: 10px;
 }
@@ -1289,6 +1293,9 @@ video {
 }
 .gap-y-\[24px\] {
   row-gap: 24px;
+}
+.gap-y-\[25px\] {
+  row-gap: 25px;
 }
 .gap-y-\[30px\] {
   row-gap: 30px;
@@ -5764,7 +5771,7 @@ span.h1, span.h2, span.h3, span.h4, span.h5 {
   margin-bottom: 0 !important;
 }
 
-.ul-square {
+.ul-list-square {
   list-style: square;
   margin-left: 1em;
   display: -webkit-box;
@@ -5775,7 +5782,19 @@ span.h1, span.h2, span.h3, span.h4, span.h5 {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.ul-square li::marker {
+.ul-list-square.ul-ml-sm {
+  margin-left: 1em !important;
+}
+.ul-list-square.ul-ml-md {
+  margin-left: 1.5em !important;
+}
+.ul-list-square.ul-ml-lg {
+  margin-left: 2em !important;
+}
+.ul-list-square.ul-ml-xl {
+  margin-left: 3em !important;
+}
+.ul-list-square li::marker {
   color: var(--accent);
 }
 
@@ -9677,6 +9696,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   opacity: 0;
 }
 .\[\&\:has\(\.swiper-pagination-lock\)\]\:hidden:has(.swiper-pagination-lock) {
+  display: none;
+}
+.\[\&\:not\(\.active\)\]\:hidden:not(.active) {
   display: none;
 }
 .\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(50\%-5px\)\]:not(.swiper-initialized) .swiper-slide {
