@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/numbers-card","version":"0.1.0","title":"numbers-card","icon":"smiley","description":"","example":{},"supports":{"html":false},"attributes":{"decor":{"type":"number","default":1}},"parent":["t4u/numbers-text"],"textdomain":"numbers-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/numbers-card","version":"0.1.0","title":"numbers-card","icon":"smiley","description":"","example":{},"supports":{"html":false},"attributes":{"decor":{"type":"number","default":1}},"textdomain":"numbers-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 

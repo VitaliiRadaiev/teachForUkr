@@ -75,11 +75,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		const navTabs = innerBlocks[1]?.innerBlocks[0];
 		const contentTabs = innerBlocks[1]?.innerBlocks[1];
 
-		console.log('activeTab', activeTab);
-		console.log('navTabs', navTabs.innerBlocks);
-		console.log('contentTabs', contentTabs.innerBlocks);
-		
-
 		if (navTabs) {
 			const items = navTabs?.innerBlocks;
 			items.forEach((itme, index) => {
@@ -98,7 +93,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			});
 		}
 
-	}, [activeTab, prevTabs.length]);
+	}, [activeTab, prevTabs?.length]);
 
 	function findRemovedIndex(prevState, currentState) {
 		for (let i = 0; i < prevState.length; i++) {
@@ -112,7 +107,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	}
 
 	useEffect(() => {
-		if (navTabs.length > prevTabs.length) {
+		if (navTabs?.length > prevTabs?.length) {
 
 			const contentTabs = innerBlocks[1]?.innerBlocks[1];
 			if (contentTabs) {
@@ -122,12 +117,12 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 			setActiveTab(navTabs.length - 1);
 
-		} else if (navTabs.length < prevTabs.length) {
+		} else if (navTabs?.length < prevTabs?.length) {
 			const removedTabIndex = findRemovedIndex(prevTabs, navTabs);
 
 			const contentTabs = innerBlocks[1]?.innerBlocks[1];
 			if(contentTabs) {
-				const removedTabContent = contentTabs.innerBlocks[removedTabIndex];
+				const removedTabContent = contentTabs?.innerBlocks[removedTabIndex];
 				removedTabContent && removeBlock(removedTabContent.clientId);
 			}
 
@@ -135,7 +130,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		}
 
 		setPrevTabs(navTabs);
-	}, [navTabs.length])
+	}, [navTabs?.length])
 
 	if (preview) {
 		return <img src={getUrlToStaticImages(preview)} />

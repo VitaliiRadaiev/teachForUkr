@@ -593,9 +593,6 @@ function Edit({
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     const navTabs = innerBlocks[1]?.innerBlocks[0];
     const contentTabs = innerBlocks[1]?.innerBlocks[1];
-    console.log('activeTab', activeTab);
-    console.log('navTabs', navTabs.innerBlocks);
-    console.log('contentTabs', contentTabs.innerBlocks);
     if (navTabs) {
       const items = navTabs?.innerBlocks;
       items.forEach((itme, index) => {
@@ -612,7 +609,7 @@ function Edit({
         });
       });
     }
-  }, [activeTab, prevTabs.length]);
+  }, [activeTab, prevTabs?.length]);
   function findRemovedIndex(prevState, currentState) {
     for (let i = 0; i < prevState.length; i++) {
       const idToFind = prevState[i].clientId;
@@ -624,24 +621,24 @@ function Edit({
     return -1;
   }
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
-    if (navTabs.length > prevTabs.length) {
+    if (navTabs?.length > prevTabs?.length) {
       const contentTabs = innerBlocks[1]?.innerBlocks[1];
       if (contentTabs) {
         const newBlock = wp.blocks.createBlock('t4u/tab-content', {});
         insertBlock(newBlock, contentTabs.innerBlocks.length, contentTabs.clientId, false);
       }
       setActiveTab(navTabs.length - 1);
-    } else if (navTabs.length < prevTabs.length) {
+    } else if (navTabs?.length < prevTabs?.length) {
       const removedTabIndex = findRemovedIndex(prevTabs, navTabs);
       const contentTabs = innerBlocks[1]?.innerBlocks[1];
       if (contentTabs) {
-        const removedTabContent = contentTabs.innerBlocks[removedTabIndex];
+        const removedTabContent = contentTabs?.innerBlocks[removedTabIndex];
         removedTabContent && removeBlock(removedTabContent.clientId);
       }
       setActiveTab(0);
     }
     setPrevTabs(navTabs);
-  }, [navTabs.length]);
+  }, [navTabs?.length]);
   if (preview) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
       src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.getUrlToStaticImages)(preview)

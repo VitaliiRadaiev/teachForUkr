@@ -16,9 +16,6 @@
       "default": 1
     }
   },
-  "parent": [
-    "t4u/numbers-text"
-  ],
   "textdomain": "numbers-card",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",

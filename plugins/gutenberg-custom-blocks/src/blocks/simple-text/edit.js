@@ -13,6 +13,7 @@ import { combineString, getMarginClasses, getContainerClasses } from "../../util
 import { ButtonsGroup } from "../../components/buttons-group/ButtonsGroup";
 import clsx from "clsx";
 import { CONTAINER_SIZES, TEXT_SIZES } from "../../global/global";
+import "./editor.scss";
 
 
 export default function Edit({ attributes, setAttributes }) {
