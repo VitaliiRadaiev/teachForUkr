@@ -707,6 +707,9 @@ video {
 .top-full {
   top: 100%;
 }
+.bottom-\[70px\] {
+  bottom: 70px;
+}
 .z-1 {
   z-index: 1;
 }
@@ -743,6 +746,10 @@ video {
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
+.\!mx-0 {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
 .\!mx-auto {
   margin-left: auto !important;
   margin-right: auto !important;
@@ -754,6 +761,10 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+.my-\[30px\] {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .mb-\[10px\] {
   margin-bottom: 10px;
@@ -876,6 +887,9 @@ video {
 .\!h-\[40px\] {
   height: 40px !important;
 }
+.h-1\/2 {
+  height: 50%;
+}
 .h-\[1\.45em\] {
   height: 1.45em;
 }
@@ -896,6 +910,9 @@ video {
 }
 .h-\[20px\] {
   height: 20px;
+}
+.h-\[212px\] {
+  height: 212px;
 }
 .h-\[22px\] {
   height: 22px;
@@ -1235,6 +1252,9 @@ video {
 .gap-\[2px\] {
   gap: 2px;
 }
+.gap-\[40px\] {
+  gap: 40px;
+}
 .gap-\[5px\] {
   gap: 5px;
 }
@@ -1462,6 +1482,10 @@ video {
 .py-\[16px\] {
   padding-top: 16px;
   padding-bottom: 16px;
+}
+.py-\[1px\] {
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 .py-\[70px\] {
   padding-top: 70px;
@@ -6165,8 +6189,10 @@ main {
   --accent: #0536FC;
   --accent-filter: invert(10%) sepia(100%) saturate(7473%) hue-rotate(238deg) brightness(99%) contrast(100%);
   --accent-100: #032ccd;
+  --accent-100-filter: invert(22%) sepia(98%) saturate(2328%) hue-rotate(224deg) brightness(74%) contrast(129%);
   --accent-80: #2853ff;
   --accent-50: #829BFE;
+  --accent-50-filter: invert(73%) sepia(64%) saturate(5389%) hue-rotate(205deg) brightness(110%) contrast(99%);
   --accent-10: #E6EBFF;
   --accent-5: #F2F5FF;
   --accent-5-filter: invert(90%) sepia(3%) saturate(1336%) hue-rotate(198deg) brightness(104%) contrast(107%);
@@ -6175,6 +6201,16 @@ main {
 .accent-first-filter {
   -webkit-filter: invert(10%) sepia(100%) saturate(7473%) hue-rotate(238deg) brightness(99%) contrast(100%);
           filter: invert(10%) sepia(100%) saturate(7473%) hue-rotate(238deg) brightness(99%) contrast(100%);
+}
+
+.accent-first-100-filter {
+  -webkit-filter: invert(22%) sepia(98%) saturate(2328%) hue-rotate(224deg) brightness(74%) contrast(129%);
+          filter: invert(22%) sepia(98%) saturate(2328%) hue-rotate(224deg) brightness(74%) contrast(129%);
+}
+
+.accent-first-50-filter {
+  -webkit-filter: invert(73%) sepia(64%) saturate(5389%) hue-rotate(205deg) brightness(110%) contrast(99%);
+          filter: invert(73%) sepia(64%) saturate(5389%) hue-rotate(205deg) brightness(110%) contrast(99%);
 }
 
 .accent-first-5-filter {
@@ -6190,8 +6226,10 @@ main {
   --accent: #FF8200;
   --accent-filter: invert(74%) sepia(55%) saturate(6802%) hue-rotate(1deg) brightness(104%) contrast(103%);
   --accent-100: #ff6200;
+  --accent-100-filter: invert(46%) sepia(96%) saturate(3057%) hue-rotate(360deg) brightness(101%) contrast(108%);
   --accent-80: #fa7e31;
   --accent-50: #FFC07F;
+  --accent-50-filter: invert(87%) sepia(96%) saturate(3927%) hue-rotate(303deg) brightness(103%) contrast(101%);
   --accent-10: #FFF3E6;
   --accent-5: #FFF8F2;
   --accent-5-filter: invert(80%) sepia(0%) saturate(6600%) hue-rotate(323deg) brightness(123%) contrast(100%);
@@ -6200,6 +6238,16 @@ main {
 .accent-second-filter {
   -webkit-filter: invert(74%) sepia(55%) saturate(6802%) hue-rotate(1deg) brightness(104%) contrast(103%);
           filter: invert(74%) sepia(55%) saturate(6802%) hue-rotate(1deg) brightness(104%) contrast(103%);
+}
+
+.accent-second-100-filter {
+  -webkit-filter: invert(46%) sepia(96%) saturate(3057%) hue-rotate(360deg) brightness(101%) contrast(108%);
+          filter: invert(46%) sepia(96%) saturate(3057%) hue-rotate(360deg) brightness(101%) contrast(108%);
+}
+
+.accent-second-50-filter {
+  -webkit-filter: invert(87%) sepia(96%) saturate(3927%) hue-rotate(303deg) brightness(103%) contrast(101%);
+          filter: invert(87%) sepia(96%) saturate(3927%) hue-rotate(303deg) brightness(103%) contrast(101%);
 }
 
 .accent-second-5-filter {
@@ -10087,6 +10135,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .md\:top-\[92px\] {
     top: 92px;
   }
+  .md\:bottom-\[80px\] {
+    bottom: 80px;
+  }
   .md\:-order-1 {
     -webkit-box-ordinal-group: 0;
         -ms-flex-order: -1;
@@ -10107,6 +10158,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
         -ms-flex-order: 3;
             order: 3;
   }
+  .md\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
   .md\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
@@ -10118,6 +10172,10 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .md\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+  .md\:my-\[40px\] {
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
   .md\:mr-\[-40px\] {
     margin-right: -40px;
@@ -10142,6 +10200,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .md\:mt-\[60px\] {
     margin-top: 60px;
+  }
+  .md\:mb-\[30px\] {
+    margin-bottom: 30px;
   }
   .md\:block {
     display: block;
@@ -10186,6 +10247,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .md\:h-\[32px\] {
     height: 32px;
+  }
+  .md\:h-\[406px\] {
+    height: 406px;
   }
   .md\:h-\[440px\] {
     height: 440px;
@@ -10501,6 +10565,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .lg\:top-auto {
     top: auto;
   }
+  .lg\:bottom-\[100px\] {
+    bottom: 100px;
+  }
   .lg\:z-3 {
     z-index: 3;
   }
@@ -10529,8 +10596,15 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .lg\:col-span-6 {
     grid-column: span 6 / span 6;
   }
+  .lg\:col-span-8 {
+    grid-column: span 8 / span 8;
+  }
   .lg\:row-span-2 {
     grid-row: span 2 / span 2;
+  }
+  .lg\:my-\[50px\] {
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
   .lg\:mt-0 {
     margin-top: 0px;
@@ -10546,6 +10620,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .lg\:mt-\[60px\] {
     margin-top: 60px;
+  }
+  .lg\:mb-0 {
+    margin-bottom: 0px;
   }
   .lg\:block {
     display: block;
@@ -11813,6 +11890,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .lg-max\:overflow-auto {
     overflow: auto;
+  }
+  .lg-max\:overflow-hidden {
+    overflow: hidden;
   }
   .lg-max\:overflow-x-auto {
     overflow-x: auto;

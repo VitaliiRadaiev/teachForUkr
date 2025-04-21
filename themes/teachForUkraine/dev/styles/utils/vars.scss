@@ -27,17 +27,21 @@ $backgound: #f6f6f6; // --backgraund
 $color-accent-first: #0536FC; // --blue
 $color-accent-first-filter: invert(10%) sepia(100%) saturate(7473%) hue-rotate(238deg) brightness(99%) contrast(100%);
 $color-accent-first-100: #032ccd;
+$color-accent-first-100-filter: invert(22%) sepia(98%) saturate(2328%) hue-rotate(224deg) brightness(74%) contrast(129%);
 $color-accent-first-80: #2853ff;
 $color-accent-first-50: #829BFE; // --blue-500
+$color-accent-first-50-filter: invert(73%) sepia(64%) saturate(5389%) hue-rotate(205deg) brightness(110%) contrast(99%); // --blue-500
 $color-accent-first-10: #E6EBFF; // --blue-100
 $color-accent-first-5: #F2F5FF; // --blue-50
 $color-accent-first-5-filter: invert(90%) sepia(3%) saturate(1336%) hue-rotate(198deg) brightness(104%) contrast(107%);
 
 $color-accent-second: #FF8200; // --orange
 $color-accent-second-filter: invert(74%) sepia(55%) saturate(6802%) hue-rotate(1deg) brightness(104%) contrast(103%);
-$color-accent-second-100: #ff6200; // --orange-light
+$color-accent-second-100: #ff6200; // 
+$color-accent-second-100-filter: invert(46%) sepia(96%) saturate(3057%) hue-rotate(360deg) brightness(101%) contrast(108%);
 $color-accent-second-80: #fa7e31; // 
-$color-accent-second-50: #FFC07F; // 
+$color-accent-second-50: #FFC07F; // --orange-light
+$color-accent-second-50-filter: invert(87%) sepia(96%) saturate(3927%) hue-rotate(303deg) brightness(103%) contrast(101%); // 
 $color-accent-second-20: #ffe6cc; // --orange-200
 $color-accent-second-10: #FFF3E6;
 $color-accent-second-5: #FFF8F2; // --orange-50
@@ -113,16 +117,20 @@ $colors: (
     first: (base: $color-accent-first,
         filter: $color-accent-first-filter,
         100: $color-accent-first-100,
+        100-filter: $color-accent-first-100-filter,
         80: $color-accent-first-80,
         50: $color-accent-first-50,
+        50-filter: $color-accent-first-50-filter,
         10: $color-accent-first-10,
         5: $color-accent-first-5,
         5-filter: $color-accent-first-5-filter),
     second: (base: $color-accent-second,
         filter: $color-accent-second-filter,
         100: $color-accent-second-100,
+        100-filter: $color-accent-second-100-filter,
         80: $color-accent-second-80,
         50: $color-accent-second-50,
+        50-filter: $color-accent-second-50-filter,
         10: $color-accent-second-10,
         5: $color-accent-second-5,
         5-filter: $color-accent-second-5-filter )

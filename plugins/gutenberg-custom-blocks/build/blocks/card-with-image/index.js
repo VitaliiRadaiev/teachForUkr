@@ -425,7 +425,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const icons = ['icons/decor-icon-1.svg', 'icons/decor-icon-2.svg', 'icons/decor-icon-3.svg', 'icons/decor-icon-4.svg'];
+const icons = ['icons/decor-icon-1.svg', 'icons/decor-icon-2.svg', 'icons/decor-icon-3.svg', 'icons/decor-icon-4.svg', 'icons/decor-icon-5.svg', 'icons/decor-icon-6.svg', 'icons/decor-icon-7.svg', 'icons/decor-icon-8.svg', 'icons/decor-icon-9.svg', 'icons/decor-icon-10.svg', 'icons/decor-icon-11.svg'];
 const IconPicker = ({
   iconUrl,
   setIconUrl

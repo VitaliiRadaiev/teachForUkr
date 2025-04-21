@@ -14,3 +14,9 @@ export const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 export const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 
 export const CONTAINER_SIZES = ["sm", "md", "lg", "xl", "2xl", "full"]
+
+export const TEXT_CONTENT_ALLOWD_BLOCKS = [
+    't4u/heading',
+    't4u/paragraph',
+    't4u/ul-list-square'
+]

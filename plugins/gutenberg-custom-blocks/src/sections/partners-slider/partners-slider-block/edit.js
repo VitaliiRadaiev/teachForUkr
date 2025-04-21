@@ -5,19 +5,20 @@ import {
 } from "@wordpress/block-editor";
 import "./editor.scss";
 import clsx from "clsx";
-import { getSectionsMarginClasses } from "../../utils/utils";
-import useFetchOnVisible from "../../hooks/hooks";
+import { getSectionsMarginClasses } from "../../../utils/utils";
+import useFetchOnVisible from "../../../hooks/hooks";
 import apiFetch from "@wordpress/api-fetch";
 import { IsHide } from "../../../components/is-hide/IsHide";
 import { MarginYControl } from "../../../components/space-control/MarginYControl";
+import { SECTIONS_MARGIN_MAP } from "../../../global/global";
 
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, margin } = attributes;
+	const { isHide, margin, className } = attributes;
 
 	const blockProps = useBlockProps({
 		className: clsx(
-			'flex flex-col',
+			'flex flex-col my-[30px] md:my-[40px] lg:my-[50px] first-child-no-margin last-child-no-margin',
 			className,
 			getSectionsMarginClasses(margin),
 			{ ['hide-block']: isHide }
@@ -61,7 +62,7 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 			<div {...blockProps}>
 				{children}
-				<div ref={ref} className="mt-[30px] md:mt-[40px] lg:mt-[50px] first-child-no-margin relative order-2">
+				<div ref={ref} className="relative order-2">
 					{!!data
 						? data?.posts?.length
 							? <div className="swiper lg-max:[&.swiper]:overflow-visible [&:not(.swiper-initialized)_.swiper-wrapper]:gap-[10px] md:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[24px] 4xl:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[32px] [&:not(.swiper-initialized)_.swiper-slide]:w-[calc(50%-5px)] md:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(33.3333%-(24px*2/3))] lg:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(16.666%-(24px*5/6))] 4xl:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(16.666%-(32px*5/6))]">

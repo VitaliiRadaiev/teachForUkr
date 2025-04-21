@@ -43,7 +43,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			insertBlock(newBlock, (index + 1), parentClientId, true);
 		}
 
-		if (e.key === 'Backspace' && !text && (parentBlock.name === 't4u/simple-text') ) {
+		if (e.key === 'Backspace' && !text && ((parentBlock.name === 't4u/simple-text') || (parentBlock.name === 't4u/inner-block')) ) {
 			selectPreviousBlock(clientId);
 			removeBlock(clientId);
 		}

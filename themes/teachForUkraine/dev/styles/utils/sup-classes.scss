@@ -130,8 +130,10 @@
         --accent: #{map.get($shades, base)};
         --accent-filter: #{map.get($shades, filter)};
         --accent-100: #{map.get($shades, 100)};
+        --accent-100-filter: #{map.get($shades, 100-filter)};
         --accent-80: #{map.get($shades, 80)};
         --accent-50: #{map.get($shades, 50)};
+        --accent-50-filter: #{map.get($shades, 50-filter)};
         --accent-10: #{map.get($shades, 10)};
         --accent-5: #{map.get($shades, 5)};
         --accent-5-filter: #{map.get($shades, 5-filter)};
@@ -141,6 +143,12 @@
         filter: #{map.get($shades, filter)};
     }
 
+    .accent-#{$type}-100-filter {
+        filter: #{map.get($shades, 100-filter)};
+    }
+    .accent-#{$type}-50-filter {
+        filter: #{map.get($shades, 50-filter)};
+    }
     .accent-#{$type}-5-filter {
         filter: #{map.get($shades, 5-filter)};
     }

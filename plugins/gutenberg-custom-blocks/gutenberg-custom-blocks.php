@@ -55,6 +55,10 @@ function create_block_gutenberg_custom_blocks_block_init()
 			'slug' => 'tabs',
 			'title' => 'Картки з табами'
 		]);
+		array_unshift($categories, [
+			'slug' => 'title_cards_visual-attributes',
+			'title' => 'заголовок + картки + візуальні атрибути'
+		]);
 		return $categories;
 	});
 

@@ -4,6 +4,7 @@ import {
 } from "@wordpress/block-editor";
 import "./editor.scss";
 import clsx from "clsx";
+import { TEXT_CONTENT_ALLOWD_BLOCKS } from "../../../global/global";
 
 
 export default function Edit({ attributes }) {
@@ -39,7 +40,7 @@ export default function Edit({ attributes }) {
 				canAddItem: true,
 				options: {
 					template: [],
-					allowedBlocks: ['t4u/paragraph']
+					allowedBlocks: [...TEXT_CONTENT_ALLOWD_BLOCKS, 't4u/partners-slider-block']
 				}
 
 			}],

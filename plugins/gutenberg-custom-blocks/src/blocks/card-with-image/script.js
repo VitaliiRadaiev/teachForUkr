@@ -1,6 +1,4 @@
 window.addEventListener("DOMContentLoaded", () => {
-    console.log('tes');
-    
     handleDocumentClick((e) => {
         if (e.target.closest('[data-action="show-details"]')) {
             const card = e.target.closest('.card-rotate');

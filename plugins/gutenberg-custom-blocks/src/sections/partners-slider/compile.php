@@ -1,3 +1,6 @@
+<?php 
+$tailwind = 'my-[30px] md:my-[40px] lg:my-[50px]';
+?>
 <section class="partners-slider-section rounded-[20px] md:rounded-[30px] overflow-hidden <?= $classes ?>">
          <div class="container flex flex-col">
             <? //echo $content;

@@ -17,6 +17,30 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
 
 /***/ }),
 
+/***/ "./src/global/global.js":
+/*!******************************!*\
+  !*** ./src/global/global.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CONTAINER_SIZES: () => (/* binding */ CONTAINER_SIZES),
+/* harmony export */   RICH_TEXT_FORMATS: () => (/* binding */ RICH_TEXT_FORMATS),
+/* harmony export */   SECTIONS_MARGIN_MAP: () => (/* binding */ SECTIONS_MARGIN_MAP),
+/* harmony export */   SECTIONS_PADDING_MAP: () => (/* binding */ SECTIONS_PADDING_MAP),
+/* harmony export */   TEXT_CONTENT_ALLOWD_BLOCKS: () => (/* binding */ TEXT_CONTENT_ALLOWD_BLOCKS),
+/* harmony export */   TEXT_SIZES: () => (/* binding */ TEXT_SIZES)
+/* harmony export */ });
+const RICH_TEXT_FORMATS = ['core/bold', 'core/italic', 'core/link', 'core/strikethrough', 'custom-format/color-highlight', 'custom-format/uppercase', 'custom-format/lowercase'];
+const TEXT_SIZES = ["sm", "md", "lg", "xl"];
+const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
+const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
+const CONTAINER_SIZES = ["sm", "md", "lg", "xl", "2xl", "full"];
+const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list-square'];
+
+/***/ }),
+
 /***/ "./src/sections/tabs/tab-content/block.json":
 /*!**************************************************!*\
   !*** ./src/sections/tabs/tab-content/block.json ***!
@@ -41,8 +65,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editor.scss */ "./src/sections/tabs/tab-content/editor.scss");
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _global_global__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../global/global */ "./src/global/global.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -77,12 +103,12 @@ function Edit({
       canAddItem: true,
       options: {
         template: [],
-        allowedBlocks: ['t4u/paragraph']
+        allowedBlocks: [..._global_global__WEBPACK_IMPORTED_MODULE_3__.TEXT_CONTENT_ALLOWD_BLOCKS, 't4u/partners-slider-block']
       }
     }]],
     allowedBlocks: []
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     ...blockProps,
     "data-tab-content": true,
     children: children
