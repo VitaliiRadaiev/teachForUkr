@@ -146,9 +146,11 @@
     .accent-#{$type}-100-filter {
         filter: #{map.get($shades, 100-filter)};
     }
+
     .accent-#{$type}-50-filter {
         filter: #{map.get($shades, 50-filter)};
     }
+
     .accent-#{$type}-5-filter {
         filter: #{map.get($shades, 5-filter)};
     }
@@ -551,12 +553,15 @@ flag {
     &-1 {
         mask-image: url('../images/general/image-mask-1.svg');
     }
+
     &-2 {
         mask-image: url('../images/general/image-mask-2.svg');
     }
+
     &-3 {
         mask-image: url('../images/general/image-mask-3.svg');
     }
+
     &-4 {
         mask-image: url('../images/general/image-mask-4.svg');
     }
@@ -565,11 +570,13 @@ flag {
 .card-image-mask {
     mask-size: 100%;
     mask-repeat: no-repeat;
+
     &-1 {
-        mask-image: url('../images/general/card-image-mask-1.svg'); 
+        mask-image: url('../images/general/card-image-mask-1.svg');
     }
+
     &-2 {
-        mask-image: url('../images/general/card-image-mask-2.svg'); 
+        mask-image: url('../images/general/card-image-mask-2.svg');
     }
 }
 
@@ -598,6 +605,7 @@ flag {
         & .card-rotate-front {
             transform: rotateY(180deg);
         }
+
         & .card-rotate-back {
             transform: rotateY(360deg);
         }
@@ -616,4 +624,15 @@ flag {
     transition: transform .6s ease;
     transform: rotateY(180deg);
     z-index: 1;
+}
+
+.truncate-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line);
+    -webkit-box-orient: vertical;
+
+    max-height: calc(var(--line-height) * var(--line));
 }

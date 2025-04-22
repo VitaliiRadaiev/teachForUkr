@@ -443,12 +443,38 @@
     padding: rem(3px) rem(10px);
     @extend .text-sm;
     background-color: $color-light-primary;
+    color: $color-dark-primary;
+    transition: background-color $tran;
 
-    & img {
+    & img, & svg {
         flex: 0 0 auto;
         width: rem(12px);
         height: rem(12px);
         object-fit: contain;
+    }
+
+    & svg {
+        & path, & rect {
+            transition: fill $tran;
+        }
+    }
+}
+
+a.category-tag {
+    @media #{$mouse-device} {
+        &:hover {
+            background-color: var(--category-color-light);
+            
+            & svg {
+                & path, & rect {
+                    fill: currentColor;
+                }
+            }
+
+            &.category-colors-2 {
+                color: $color-light-primary;
+            }
+        }
     }
 }
 

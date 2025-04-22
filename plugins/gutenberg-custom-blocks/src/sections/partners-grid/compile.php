@@ -1,4 +1,4 @@
-<section data-partners-grid class="partners-grid-section relative <?= $classes ?>">
+<section data-partners-grid class="partners-grid-section relative <?= $classes ?> [&_.show-more-parnters]:!hidden">
     <div class="container flex flex-col">
         <div class="text-center order-1">
             <h2 class="h2 text-dark-primary">

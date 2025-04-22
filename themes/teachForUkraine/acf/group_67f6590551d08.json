@@ -38,7 +38,14 @@
             {
                 "param": "taxonomy",
                 "operator": "==",
-                "value": "post-category"
+                "value": "partners-category"
+            }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "news-category"
             }
         ]
     ],
@@ -51,5 +58,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1744207616
+    "modified": 1745306640
 }

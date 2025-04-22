@@ -4,6 +4,7 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [isFetched, setIsFetched] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const ref = useRef(null);
     const observerRef = useRef(null);
 
@@ -13,13 +14,18 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
         observerRef.current = new IntersectionObserver(
             ([entry], observer) => {
                 if (entry.isIntersecting && !isFetched && typeof fetchCallback === 'function') {
+                    setIsLoading(true);
                     fetchCallback()
-                        ?.then((result) => {
+                        .then((result) => {
                             setData(result);
                             setIsFetched(true);
+                            setIsLoading(false);
                             observer.disconnect();
                         })
-                        ?.catch(setError);
+                        .catch((err) => {
+                            setError(err);
+                            setIsLoading(false);
+                        });
                 }
             },
             { threshold: 0.1 }
@@ -32,7 +38,7 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
         return () => observerRef.current?.disconnect();
     }, [isFetched, shouldFetch, ...deps]);
 
-    return { ref, data, error };
+    return { ref, data, error, isFetched, isLoading };
 };
 
 export default useFetchOnVisible;

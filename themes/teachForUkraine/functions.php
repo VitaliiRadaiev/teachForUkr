@@ -246,10 +246,27 @@ function get_nav_menu_items_by_location($location, $args = [])
 
 add_action('rest_api_init', 'register_acf_options_endpoint');
 
-function clean_post_slug_before_save($data) {
+function clean_post_slug_before_save($data)
+{
     if (isset($data['post_name']) && !empty($data['post_name'])) {
         $data['post_name'] = preg_replace('/[^a-zA-Z0-9_-]/', '', $data['post_name']);
     }
     return $data;
 }
 add_filter('wp_insert_post_data', 'clean_post_slug_before_save', 10, 1);
+
+function wpa_show_permalinks($post_link, $post)
+{
+    if (is_object($post) && $post->post_type == 'news') {
+        $terms = wp_get_object_terms($post->ID, 'news-category');
+
+        if (!empty($terms) && !is_wp_error($terms)) {
+            return str_replace('%news-category%', $terms[0]->slug, $post_link);
+        } else {
+            return str_replace('news/%news-category%/', 'news/', $post_link);
+        }
+    }
+
+    return $post_link;
+}
+add_filter('post_type_link', 'wpa_show_permalinks', 1, 2);

@@ -509,17 +509,23 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
   const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
   const [error, setError] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
   const [isFetched, setIsFetched] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [isLoading, setIsLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   const observerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     if (!shouldFetch) return;
     observerRef.current = new IntersectionObserver(([entry], observer) => {
       if (entry.isIntersecting && !isFetched && typeof fetchCallback === 'function') {
-        fetchCallback()?.then(result => {
+        setIsLoading(true);
+        fetchCallback().then(result => {
           setData(result);
           setIsFetched(true);
+          setIsLoading(false);
           observer.disconnect();
-        })?.catch(setError);
+        }).catch(err => {
+          setError(err);
+          setIsLoading(false);
+        });
       }
     }, {
       threshold: 0.1
@@ -532,7 +538,9 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
   return {
     ref,
     data,
-    error
+    error,
+    isFetched,
+    isLoading
   };
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useFetchOnVisible);
@@ -745,7 +753,7 @@ __webpack_require__.r(__webpack_exports__);
 const SliderNav = () => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-      className: "mt-[20px] md:mt-[30px] flex justify-center [&:has(.swiper-pagination-lock)]:hidden",
+      className: "mt-[20px] md:mt-[30px] flex justify-center [&:has(.swiper-pagination-lock)]:hidden pointer-events-none",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
         className: "slider-bullets",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -763,7 +771,7 @@ const SliderNav = () => {
         })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-      className: "hidden lg:block absolute right-0 bottom-[calc(100%+50px)]",
+      className: "hidden lg:block absolute right-0 bottom-[calc(100%+50px)] pointer-events-none",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: "inline-flex gap-[24px]",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
@@ -795,6 +803,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getSectionsMarginClasses: () => (/* binding */ getSectionsMarginClasses),
 /* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
 /* harmony export */   getUrlToStaticImages: () => (/* binding */ getUrlToStaticImages),
+/* harmony export */   mergeRefs: () => (/* binding */ mergeRefs),
 /* harmony export */   removeDomain: () => (/* binding */ removeDomain)
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
@@ -866,6 +875,18 @@ const getFlexAligmentClasses = key => {
     ['space-between']: 'justify-between'
   };
   return classesMap[key] || '';
+};
+const mergeRefs = (...refs) => {
+  return el => {
+    refs.forEach(ref => {
+      if (!ref) return;
+      if (typeof ref === "function") {
+        ref(el);
+      } else {
+        ref.current = el;
+      }
+    });
+  };
 };
 
 /***/ }),

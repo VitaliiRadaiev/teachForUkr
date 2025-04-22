@@ -14,7 +14,7 @@ if (!($attributes['isHide'])):
 
    if ($query->have_posts()):
 ?>
-      <section data-partners-grid class="partners-grid-section relative <?= $classes ?>">
+      <section data-partners-grid class="partners-grid-section relative <?= $classes ?> <?= $query->max_num_pages != 1 ?: '[&_.show-more-parnters]:!hidden' ?>">
          <div class="container flex flex-col">
             <?= $content; ?>
             <div class="mt-[30px] md:mt-[50px] 4xl:mt-[60px] first-child-no-margin order-2 flex flex-col">
@@ -52,7 +52,7 @@ if (!($attributes['isHide'])):
                         <div class="card-rotate-front nested-bg-item p-[5px] rounded-[12px] h-full flex flex-col">
                            <div class="absolute top-[15px] left-0 right-0 pl-[15px] pr-[70px] flex flex-wrap gap-[5px]">
                               <?php
-                              $categories = get_the_terms(get_the_ID(), 'post-category');
+                              $categories = get_the_terms(get_the_ID(), 'partners-category');
                               if (check($categories)):
                               ?>
                                  <?php

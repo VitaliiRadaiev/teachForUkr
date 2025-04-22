@@ -466,6 +466,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getSectionsMarginClasses: () => (/* binding */ getSectionsMarginClasses),
 /* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
 /* harmony export */   getUrlToStaticImages: () => (/* binding */ getUrlToStaticImages),
+/* harmony export */   mergeRefs: () => (/* binding */ mergeRefs),
 /* harmony export */   removeDomain: () => (/* binding */ removeDomain)
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
@@ -537,6 +538,18 @@ const getFlexAligmentClasses = key => {
     ['space-between']: 'justify-between'
   };
   return classesMap[key] || '';
+};
+const mergeRefs = (...refs) => {
+  return el => {
+    refs.forEach(ref => {
+      if (!ref) return;
+      if (typeof ref === "function") {
+        ref(el);
+      } else {
+        ref.current = el;
+      }
+    });
+  };
 };
 
 /***/ }),

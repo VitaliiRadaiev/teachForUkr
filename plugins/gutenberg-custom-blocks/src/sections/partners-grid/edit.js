@@ -31,7 +31,7 @@ export default function Edit({ attributes, setAttributes }) {
 				classes: "order-1"
 			}],
 			["t4u/buttons-group", {
-				classes: 'mt-[40px] md:mt-[50px] order-3',
+				classes: 'mt-[40px] md:mt-[50px] order-3 show-more-parnters',
 				alignment: 'center',
 				options: {
 					template: [

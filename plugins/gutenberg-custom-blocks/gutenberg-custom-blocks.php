@@ -59,6 +59,10 @@ function create_block_gutenberg_custom_blocks_block_init()
 			'slug' => 'title_cards_visual-attributes',
 			'title' => 'заголовок + картки + візуальні атрибути'
 		]);
+		array_unshift($categories, [
+			'slug' => 'news_stories_cases_other',
+			'title' => 'Новини/історії/кейси/інше'
+		]);
 		return $categories;
 	});
 

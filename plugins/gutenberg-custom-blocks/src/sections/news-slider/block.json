@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/news-slider",
+  "version": "0.1.0",
+  "title": "Новини слайдер",
+  "category": "news_stories_cases_other",
+  "icon": "layout",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "isHide": {
+      "type": "boolean",
+      "default": false
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": "lg",
+        "right": "",
+        "bottom": "lg",
+        "left": ""
+      }
+    },
+    "margin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "background": {
+      "type": "string",
+      "enum": [
+        "bg-light-primary",
+        "bg-light-primary-80"
+      ],
+      "default": "bg-light-primary-80"
+    },
+    "preview": {
+      "type": "string"
+    },
+    "categorySlug": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "textdomain": "news-slider",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "viewScript": "file:./script.js",
+  "render": "file:./render.php"
+}

@@ -77,3 +77,16 @@ export const getFlexAligmentClasses = (key) => {
 
     return classesMap[key] || '';
 }
+
+export const mergeRefs = (...refs) => {
+    return (el) => {
+        refs.forEach((ref) => {
+            if (!ref) return;
+            if (typeof ref === "function") {
+                ref(el);
+            } else {
+                ref.current = el;
+            }
+        });
+    };
+}

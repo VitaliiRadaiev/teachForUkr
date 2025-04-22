@@ -3,47 +3,26 @@ function get_partners_categories()
 {
     $text_all = get_field('text_all', 'options');
     $terms = get_terms(array(
-        'taxonomy' => 'post-category',
+        'taxonomy' => 'partners-category',
         'hide_empty' => false,
     ));
-
-    $categories = array();
-
-    foreach ($terms as $term) {
-        $related_posts = get_posts(array(
-            'post_type'      => 'partner',
-            'posts_per_page' => 1,
-            'tax_query'      => array(
-                array(
-                    'taxonomy' => 'post-category',
-                    'field'    => 'term_id',
-                    'terms'    => $term->term_id,
-                )
-            )
-        ));
-
-        if (!empty($related_posts)) {
-            $categories[] = $term;
-        }
-    }
 
     $all_term = (object) array(
         'name' => $text_all,
         'slug' => 'all'
     );
 
-    array_unshift($categories, $all_term);
+    array_unshift($terms, $all_term);
 
-    return $categories;
+    return $terms;
 }
 
 function get_partners(
     $queries = [
         'category' => 'all',
         'page' => 1
-        ]
-    )
-{
+    ]
+) {
     $args = array(
         'post_type' => 'partner',
         'posts_per_page' => 9,
@@ -57,7 +36,7 @@ function get_partners(
         $args = array_merge($args, [
             'tax_query' => [
                 [
-                    'taxonomy' => 'post-category',
+                    'taxonomy' => 'partners-category',
                     'field' => 'slug',
                     'terms' => $queries['category'],
                 ],
@@ -125,4 +104,38 @@ function get_partners_for_block_slider()
     }
 
     return array_merge($featured_posts, $other_posts);
+}
+
+function get_news(
+    $queries = [
+        'category' => 'all',
+        'page' => 1,
+        'posts_per_page' => 16
+    ]
+) {
+    $args = array(
+        'post_type' => 'news',
+        'posts_per_page' => $queries['posts_per_page'],
+        'post_status' => 'publish',
+        'paged' => $queries['page'],
+        'orderby' => 'date',
+        'order' => 'DESC'
+    );
+
+    if ($queries['category'] !== 'all') {
+        $args = array_merge($args, [
+            'tax_query' => [
+                [
+                    'taxonomy' => 'news-category',
+                    'field' => 'slug',
+                    'terms' => $queries['category'],
+                ],
+            ],
+        ]);
+    }
+
+    $query = new WP_Query($args);
+    wp_reset_postdata();
+
+    return $query;
 }

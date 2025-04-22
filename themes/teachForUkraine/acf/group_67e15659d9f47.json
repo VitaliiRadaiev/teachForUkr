@@ -470,6 +470,23 @@
             "allow_in_bindings": 0
         },
         {
+            "key": "field_68073fd525f73",
+            "label": "Більше новин",
+            "name": "link_more_news",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_67e159c72a139",
             "label": "Загальні текста",
             "name": "",
@@ -803,6 +820,27 @@
             "append": ""
         },
         {
+            "key": "field_6807a5291631e",
+            "label": "Текст \"Останні новини\"",
+            "name": "text_last_news",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Останні новини",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67e26a044512e",
             "label": "Соціальні мережі",
             "name": "",
@@ -882,5 +920,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1744359165
+    "modified": 1745331560
 }
