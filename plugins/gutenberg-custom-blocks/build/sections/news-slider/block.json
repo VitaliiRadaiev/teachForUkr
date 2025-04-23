@@ -48,6 +48,14 @@
     "categorySlug": {
       "type": "array",
       "default": []
+    },
+    "decor": {
+      "type": "number",
+      "default": 1
+    },
+    "selectedNews": {
+      "type": "array",
+      "default": []
     }
   },
   "textdomain": "news-slider",

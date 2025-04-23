@@ -1,71 +1,3203 @@
-[22-Apr-2025 13:43:15 UTC] == functionqueries Array
+[23-Apr-2025 08:07:37 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:09:45 UTC] Array
 (
     [category] => all
     [page] => 1
     [posts_per_page] => 16
 )
 
-[22-Apr-2025 13:43:15 UTC] == functionqueries Array
+[23-Apr-2025 08:09:50 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => advertisement
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:09:52 UTC] Array
 (
     [category] => all
     [page] => 1
     [posts_per_page] => 16
 )
 
-[22-Apr-2025 13:43:15 UTC] == functionqueries Array
+[23-Apr-2025 08:09:54 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => research
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:09:57 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => research
+            [1] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:10:00 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => research
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:10:01 UTC] Array
 (
     [category] => all
     [page] => 1
     [posts_per_page] => 16
 )
 
-[22-Apr-2025 13:43:20 UTC] == functionqueries Array
-(
-    [category] => 
-    [page] => 1
-    [posts_per_page] => 16
-)
-
-[22-Apr-2025 13:43:20 UTC] == ajaxArray
-(
-)
-
-[22-Apr-2025 13:44:18 UTC] == functionqueries Array
+[23-Apr-2025 08:10:06 UTC] Array
 (
     [category] => all
     [page] => 1
     [posts_per_page] => 16
 )
 
-[22-Apr-2025 13:45:22 UTC] == functionqueries Array
+[23-Apr-2025 08:10:06 UTC] Array
 (
     [category] => all
     [page] => 1
     [posts_per_page] => 16
 )
 
-[22-Apr-2025 13:45:22 UTC] == functionqueries Array
+[23-Apr-2025 08:10:06 UTC] Array
 (
     [category] => all
     [page] => 1
     [posts_per_page] => 16
 )
 
-[22-Apr-2025 13:45:22 UTC] == functionqueries Array
+[23-Apr-2025 08:10:07 UTC] Array
 (
     [category] => all
     [page] => 1
     [posts_per_page] => 16
 )
 
-[22-Apr-2025 13:45:26 UTC] == functionqueries Array
+[23-Apr-2025 08:10:09 UTC] Array
 (
     [category] => all
     [page] => 1
     [posts_per_page] => 16
 )
 
-[22-Apr-2025 15:09:25 UTC] Automatic updates starting...
-[22-Apr-2025 15:09:26 UTC]   Automatic plugin updates starting...
-[22-Apr-2025 15:09:26 UTC]   Automatic plugin updates complete.
-[22-Apr-2025 15:09:26 UTC] Automatic updates complete.
+[23-Apr-2025 08:10:09 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:10:09 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:10:12 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:10:19 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:10:24 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:10:25 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:10:25 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:10:26 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:10:27 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:10:27 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:10:29 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:11:41 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:11:41 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:11:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:11:58 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:12:44 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:13:42 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:13:42 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:13:42 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:13:47 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:13:53 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:13:56 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:14:02 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+            [1] => media-stories
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:14:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => media-stories
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:14:13 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:14:45 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:14:56 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:14:56 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:14:56 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:00 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:05 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:09 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:11 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+            [1] => research
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:12 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => research
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:14 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:32 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:36 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:51 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:57 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:58 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:58 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:15:58 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:05 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:05 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:05 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:05 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:05 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:05 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:05 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:05 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:05 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:07 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:07 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:07 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:08 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:08 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:08 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:11 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:12 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:16:12 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:21:46 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:21:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:21:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:21:46 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:21:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:21:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:22:33 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:22:33 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:22:33 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:22:33 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:22:33 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:22:33 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:22:37 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:23:08 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:23:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:23:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:23:08 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:23:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:23:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:23:12 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:23:14 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:23:16 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:10 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:10 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:10 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:35 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:35 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:35 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:35 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:35 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:35 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:35 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:35 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:35 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:39 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:24:40 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:25:17 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:25:17 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:25:17 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:25:17 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:25:17 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:25:17 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:25:17 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:25:17 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:25:17 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:25:21 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:25:22 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:25:26 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:20 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:20 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:20 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:37 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:37 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:37 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:37 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:37 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:37 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:37 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:37 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:37 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:26:42 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:27:19 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:27:19 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:27:19 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:27:19 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:27:19 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:27:19 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:27:19 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:27:19 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:27:19 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:27:23 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:27:24 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:10 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:10 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:10 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:10 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:10 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:10 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:10 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:10 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:10 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:14 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:56 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:56 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:56 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:56 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:56 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:56 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:56 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:56 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:28:56 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:29:00 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:29:01 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:29:59 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:29:59 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:29:59 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:12 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:12 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:12 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:12 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:12 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:12 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:12 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:12 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:12 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:17 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:17 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:37 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:44 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:44 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:44 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:44 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:44 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:44 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:44 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:44 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:44 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:45 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:45 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:45 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:46 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:47 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:47 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:47 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:47 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:47 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:47 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:47 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:47 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:50 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:50 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:31:50 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:32:57 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:32:57 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:32:57 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:08 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:08 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:46 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:47 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:47 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:47 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:47 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:47 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:47 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:48 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:48 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:48 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:49 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:49 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:49 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:49 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:49 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:49 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:53 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:53 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:33:53 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:14 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:14 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:14 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:14 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:14 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:14 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:17 UTC] Array
+(
+    [category] => all
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:17 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:36 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:41 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:41 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:41 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:41 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:41 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:41 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:41 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:41 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:41 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:42 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:42 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:42 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:43 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:43 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:43 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:43 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:43 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:43 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:35:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:01 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:01 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:01 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:01 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:01 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:01 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:01 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:01 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:01 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:02 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:02 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:02 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:03 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:03 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:03 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:03 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:03 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:03 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:05 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:05 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:05 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:15 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:15 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:15 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:18 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:18 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:18 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:18 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:18 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:18 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:18 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:18 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:18 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:19 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:19 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:19 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:20 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:20 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:20 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:20 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:20 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:20 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:20 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:20 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:20 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:23 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:23 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:23 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:36:29 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:37:17 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:37:17 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:37:17 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+)
+
+[23-Apr-2025 08:55:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+    [search] => Вчителі
+)
+
+[23-Apr-2025 08:55:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => announcements
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+    [search] => Вчителі
+)
+
+[23-Apr-2025 08:55:46 UTC] Array
+(
+    [category] => Array
+        (
+            [0] => ceo-blog
+        )
+
+    [page] => 1
+    [posts_per_page] => 16
+    [search] => Вчителі
+)
+

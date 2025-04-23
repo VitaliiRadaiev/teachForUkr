@@ -989,6 +989,9 @@ video {
 .max-h-full {
   max-height: 100%;
 }
+.max-h-\[400px\] {
+  max-height: 400px;
+}
 .min-h-\[26px\] {
   min-height: 26px;
 }
@@ -1169,6 +1172,12 @@ video {
 }
 .translate-y-\[10px\] {
   --tw-translate-y: 10px;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+      -ms-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.translate-x-1\/2 {
+  --tw-translate-x: 50%;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
       -ms-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1444,6 +1453,9 @@ video {
 .bg-white\/75 {
   background-color: rgb(255 255 255 / 0.75);
 }
+.bg-light-primary-40 {
+  background-color: var(--color-light-primary-40);
+}
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
@@ -1639,6 +1651,9 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-\[10px\] {
+  font-size: 10px;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -1696,6 +1711,9 @@ video {
 }
 .opacity-80 {
   opacity: 0.8;
+}
+.opacity-50 {
+  opacity: 0.5;
 }
 .outline-none {
   outline: 2px solid transparent;
@@ -10382,6 +10400,11 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
         -ms-flex-align: center;
             align-items: center;
   }
+  .md\:justify-center {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
   .md\:justify-between {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -12191,6 +12214,12 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .hover\:bg-dark-primary-80:hover {
     background-color: var(--color-dark-primary-80);
   }
+  .hover\:bg-light-primary-60:hover {
+    background-color: var(--color-light-primary-60);
+  }
+  .hover\:bg-light-primary-80:hover {
+    background-color: var(--color-light-primary-80);
+  }
   .hover\:text-accent-first:hover {
     color: var(--color-accent-first);
   }
@@ -12200,6 +12229,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .hover\:text-white:hover {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  }
+  .hover\:\[\&\.bg-light-primary-60\]\:bg-light-primary-40.bg-light-primary-60:hover {
+    background-color: var(--color-light-primary-40);
   }
   .\[\&\.btn\]\:hover\:bg-transparent:hover.btn {
     background-color: transparent;

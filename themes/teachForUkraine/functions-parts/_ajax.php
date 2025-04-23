@@ -113,15 +113,30 @@ function ajax_get_partners_categories()
 function ajax_get_news($request)
 {
     $category = $request->get_param('category');
+    $search = $request->get_param('search');
     $page = $request->get_param('page');
     $posts_per_page = $request->get_param('posts_per_page');
     $text_more_details = get_field('text_more_details', 'options');
-    
-    $query = get_news([
-        'category' => explode(',', $category),
+
+    $args = [
         'page' => $page,
-        'posts_per_page' => $posts_per_page
-    ]);
+        'posts_per_page' => $posts_per_page,
+        'search' => $search
+    ];
+
+    if ($category === 'all') {
+        $args = array_merge($args, [
+            'category' => $category
+        ]);
+    } else {
+        $args = array_merge($args, [
+            'category' => array_filter(explode(',', $category), function ($item) {
+                return $item !== 'all';
+            })
+        ]);
+    }
+
+    $query = get_news($args);
 
     $posts = [];
 
@@ -129,6 +144,7 @@ function ajax_get_news($request)
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
+            $id = get_the_ID();
             $image = get_image(get_post_thumbnail_id(), 'ibg transition-transform duration-1000', false);
             $title = get_the_title();
             $url = get_post_permalink();
@@ -150,6 +166,7 @@ function ajax_get_news($request)
             }
 
             $posts[] = [
+                'id' =>  $id,
                 'image' => $image,
                 'title' => $title,
                 'url' => $url,
@@ -165,6 +182,57 @@ function ajax_get_news($request)
     return rest_ensure_response([
         'posts' => $posts,
         'max_num_pages' => $query->max_num_pages
+    ]);
+}
+
+function ajax_get_news_by_ids($request)
+{
+    $ids = $request->get_param('ids');
+    $text_more_details = get_field('text_more_details', 'options');
+    $query = get_news_by_ids(explode(',', $ids));
+
+    $posts = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $id = get_the_ID();
+            $image = get_image(get_post_thumbnail_id(), 'ibg transition-transform duration-1000', false);
+            $title = get_the_title();
+            $url = get_post_permalink();
+            $excerpt = get_the_excerpt();
+            $date = get_the_date('j F, Y');
+
+            $categories_data = [];
+            $categories = get_the_terms(get_the_ID(), 'news-category');
+            if (check($categories)) {
+                foreach ($categories as $category) {
+                    $category_type = get_field('category_icons', 'category_' . $category->term_id);
+                    $categories_data[] = [
+                        'type' => $category_type,
+                        'img' => get_template_directory_uri() . '/assets/images/icons/category-icon-' . $category_type . '.svg',
+                        'name' => $category->name,
+                        'slug' => $category->slug
+                    ];
+                }
+            }
+
+            $posts[] = [
+                'id' =>  $id,
+                'image' => $image,
+                'title' => $title,
+                'url' => $url,
+                'date' => $date,
+                'text_more_details' => $text_more_details,
+                'excerpt' => $excerpt,
+                'categories' => $categories_data,
+            ];
+        }
+    }
+
+    wp_reset_postdata();
+    return rest_ensure_response([
+        'posts' => $posts
     ]);
 }
 function ajax_get_news_categories()
@@ -244,6 +312,13 @@ function register_acf_options_endpoint()
                     return is_string($param);
                 }
             ),
+            'search' => array(
+                'required' => false,
+                'default'  => '',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
+                }
+            ),
             'page' => array(
                 'required' => false,
                 'default'  => 1,
@@ -256,6 +331,20 @@ function register_acf_options_endpoint()
                 'default'  => 16,
                 'validate_callback' => function ($param) {
                     return is_numeric($param) && intval($param) > 0;
+                }
+            )
+        )
+    ));
+    register_rest_route('site-core/v1', 'news-by-ids', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_news_by_ids',
+        'permission_callback' => '__return_true',
+        'args'     => array(
+            'ids' => array(
+                'required' => false,
+                'default'  => '',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
                 }
             )
         )

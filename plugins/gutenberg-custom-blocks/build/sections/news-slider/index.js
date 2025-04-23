@@ -256,6 +256,89 @@ const IsHide = ({
 
 /***/ }),
 
+/***/ "./src/components/section-decor-picker/SectionsDecorPicker.js":
+/*!********************************************************************!*\
+  !*** ./src/components/section-decor-picker/SectionsDecorPicker.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SectionsDecorPicker: () => (/* binding */ SectionsDecorPicker)
+/* harmony export */ });
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const SectionsDecorPicker = ({
+  decor,
+  setDecor
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelBody, {
+    title: "\u0414\u0435\u043A\u043E\u0440 \u0441\u0435\u043A\u0446\u0456\u0457",
+    initialOpen: false,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.RadioControl, {
+      selected: +decor,
+      options: [{
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "text-lg",
+          children: "\u041D\u0435\u043C\u0430\u0454"
+        }),
+        value: 0
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "!h-[100px] w-auto bg-light-primary-80",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-1.jpg`),
+          alt: "icon"
+        }),
+        value: 1
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "!h-[100px] w-auto bg-light-primary-80 -scale-x-100",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-1.jpg`),
+          alt: "icon"
+        }),
+        value: 2
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "!h-[100px] w-auto bg-light-primary-80",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-2.jpg`),
+          alt: "icon"
+        }),
+        value: 3
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "!h-[100px] w-auto bg-light-primary-80 -scale-x-100",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-2.jpg`),
+          alt: "icon"
+        }),
+        value: 4
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "!h-[100px] w-auto bg-light-primary-80",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-3.jpg`),
+          alt: "icon"
+        }),
+        value: 5
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "!h-[100px] w-auto bg-light-primary-80 -scale-x-100",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-3.jpg`),
+          alt: "icon"
+        }),
+        value: 6
+      }],
+      onChange: value => setDecor(+value)
+    })
+  });
+};
+
+/***/ }),
+
 /***/ "./src/components/sections-bg-color-pallet/SectionsBgColorPallet.js":
 /*!**************************************************************************!*\
   !*** ./src/components/sections-bg-color-pallet/SectionsBgColorPallet.js ***!
@@ -535,12 +618,25 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
     }
     return () => observerRef.current?.disconnect();
   }, [isFetched, shouldFetch, ...deps]);
+  const refetch = fetchCallback => {
+    setIsLoading(true);
+    fetchCallback().then(result => {
+      setData(result);
+      setIsFetched(true);
+      setIsLoading(false);
+      observer.disconnect();
+    }).catch(err => {
+      setError(err);
+      setIsLoading(false);
+    });
+  };
   return {
     ref,
     data,
     error,
     isFetched,
-    isLoading
+    isLoading,
+    refetch
   };
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useFetchOnVisible);
@@ -553,7 +649,7 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
   \*********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/news-slider","version":"0.1.0","title":"Новини слайдер","category":"news_stories_cases_other","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"},"preview":{"type":"string"},"categorySlug":{"type":"array","default":[]}},"textdomain":"news-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","viewScript":"file:./script.js","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/news-slider","version":"0.1.0","title":"Новини слайдер","category":"news_stories_cases_other","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"},"preview":{"type":"string"},"categorySlug":{"type":"array","default":[]},"decor":{"type":"number","default":1},"selectedNews":{"type":"array","default":[]}},"textdomain":"news-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","viewScript":"file:./script.js","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -583,8 +679,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _ui_slider_nav_SliderNav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../ui/slider-nav/SliderNav */ "./src/ui/slider-nav/SliderNav.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _components_section_decor_picker_SectionsDecorPicker__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../components/section-decor-picker/SectionsDecorPicker */ "./src/components/section-decor-picker/SectionsDecorPicker.js");
+/* harmony import */ var _ui_section_decor_SectionDecor__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../ui/section-decor/SectionDecor */ "./src/ui/section-decor/SectionDecor.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__);
 
 
 
@@ -597,6 +695,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+const posts_per_page = 50;
 function Edit({
   attributes,
   setAttributes,
@@ -609,14 +710,22 @@ function Edit({
     margin,
     background,
     className,
-    categorySlug
+    categorySlug,
+    decor,
+    selectedNews
   } = attributes;
+  const [posts, setPosts] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
+  const [isPostsFetching, setIsPostFetching] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
+  const [page, setPage] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(1);
+  const [search, setSearch] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
+  const [max_num_pages, setMax_num_pages] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(1);
+  const [renderPosts, setRenderPosts] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
   const {
     updateBlockAttributes
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useDispatch)('core/block-editor');
   const innerBlocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => select('core/block-editor').getBlocks(clientId), [clientId]);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])('news-slider-section rounded-[20px] md:rounded-[30px]', className, background, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getSectionsMarginClasses)(margin), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getSectionsPaddingClasses)(padding), {
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])('news-slider-section rounded-[20px] md:rounded-[30px] overflow-hidden relative', className, background, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getSectionsMarginClasses)(margin), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getSectionsPaddingClasses)(padding), {
       ['hide-block']: isHide
     })
   });
@@ -646,13 +755,14 @@ function Edit({
     data: titleData
   } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_8__["default"])(fetchTitleData);
   const fetchData = () => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
-    path: `site-core/v1/news?category=${categorySlug.length ? categorySlug.join(',') : 'all'}`
+    path: `site-core/v1/news${categorySlug.length ? `?category=${categorySlug.join(',')}` : ''}`
   });
   const {
     ref,
     data,
-    isLoading
-  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_8__["default"])(fetchData, [categorySlug]);
+    isLoading,
+    refetch
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_8__["default"])(fetchData);
   const fetchCategoriesData = () => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
     path: 'site-core/v1/news-categories'
   });
@@ -661,123 +771,338 @@ function Edit({
     data: dataCategories,
     isLoading: isLoadingCategories
   } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_8__["default"])(fetchCategoriesData);
+  const fetchNewsForFilter = () => {
+    const path = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.buildApiPath)('site-core/v1/news', {
+      category: categorySlug.length ? categorySlug.join(',') : undefined,
+      page: page,
+      search: search,
+      posts_per_page: posts_per_page
+    });
+    return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+      path
+    });
+  };
+  const {
+    ref: newsForFilterRef,
+    data: newsForFilter,
+    isLoading: isNewsForFilterLoading,
+    refetch: refetchNewsForFilter
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_8__["default"])(fetchNewsForFilter);
+  const fetchNewsByIds = () => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+    path: `site-core/v1/news-by-ids?ids=${selectedNews.join(',')}`
+  });
+  const {
+    ref: newsByIdsRef,
+    data: newsByIdsData,
+    isLoading: isLoadingNewsByIds,
+    refetch: refetchNewsByIds
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_8__["default"])(fetchNewsByIds);
+  const loadMoreNews = async ({
+    categorySlug,
+    page,
+    search,
+    posts_per_page
+  }) => {
+    setIsPostFetching(true);
+    const path = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.buildApiPath)('site-core/v1/news', {
+      category: categorySlug.length ? categorySlug.join(',') : undefined,
+      page: page,
+      search: search,
+      posts_per_page: posts_per_page
+    });
+    const res = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+      path
+    });
+    setPosts(posts => [...posts, ...res.posts]);
+    setMax_num_pages(res.max_num_pages);
+    setIsPostFetching(false);
+  };
+  const fetchNews = async ({
+    categorySlug,
+    page,
+    search,
+    posts_per_page
+  }) => {
+    setIsPostFetching(true);
+    const path = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.buildApiPath)('site-core/v1/news', {
+      category: categorySlug.length ? categorySlug.join(',') : undefined,
+      page: page,
+      search: search,
+      posts_per_page: posts_per_page
+    });
+    const res = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+      path
+    });
+    setPosts(res.posts);
+    setMax_num_pages(res.max_num_pages);
+    setIsPostFetching(false);
+  };
+  const debouncedFetchNews = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useCallback)((0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.debounce)(fetchNews, 500), []);
   const handleCategoryChange = (checkedSlug, categorySlug, isChecked) => {
+    let slugs = [];
     if (isChecked) {
+      slugs = [...categorySlug, checkedSlug];
       setAttributes({
-        categorySlug: [...categorySlug, checkedSlug]
+        categorySlug: slugs
       });
     } else {
+      slugs = categorySlug.filter(slug => slug !== checkedSlug);
       setAttributes({
-        categorySlug: categorySlug.filter(slug => slug !== checkedSlug)
+        categorySlug: slugs
       });
     }
+    refetch(() => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+      path: `site-core/v1/news${slugs.length ? `?category=${slugs.join(',')}` : ''}`
+    }));
+    fetchNews({
+      categorySlug: slugs,
+      page: 1,
+      search: '',
+      posts_per_page
+    });
+    setPage(1);
+    setSearch('');
+  };
+  const clearSelectedCategories = () => {
+    let slugs = [];
+    setAttributes({
+      categorySlug: slugs
+    });
+    refetch(() => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+      path: `site-core/v1/news${slugs.length ? `?category=${slugs.join(',')}` : ''}`
+    }));
+    fetchNews({
+      categorySlug: slugs,
+      page: 1,
+      search: '',
+      posts_per_page
+    });
+    setPage(1);
+    setSearch('');
   };
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
-    if (data && data?.posts?.length < 3) {
+    if (renderPosts.length < 4) {
       const headBlock = innerBlocks[0];
       headBlock && updateBlockAttributes(headBlock.clientId, {
         aligment: 'center'
       });
+    } else {
+      const headBlock = innerBlocks[0];
+      headBlock && updateBlockAttributes(headBlock.clientId, {
+        aligment: 'left'
+      });
     }
-  }, [data]);
+  }, [renderPosts]);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     if (titleData) {
       const title = innerBlocks[0]?.innerBlocks[1];
       if (title && !title.attributes.text) {
-        console.log(title);
         updateBlockAttributes(title.clientId, {
           text: titleData.value
         });
       }
     }
   }, [titleData]);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    if (newsForFilter) {
+      setPosts(newsForFilter.posts);
+      setMax_num_pages(newsForFilter.max_num_pages);
+    }
+  }, [newsForFilter]);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    return () => {
+      debouncedFetchNews.cancel();
+    };
+  }, [debouncedFetchNews]);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    refetchNewsByIds(() => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+      path: `site-core/v1/news-by-ids?ids=${selectedNews.join(',')}`
+    }));
+  }, [selectedNews]);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    if (selectedNews.length && data && newsByIdsData) {
+      setRenderPosts(newsByIdsData.posts);
+    } else if (data) {
+      setRenderPosts(data.posts);
+    }
+  }, [selectedNews, data, newsByIdsData]);
   if (preview) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
       src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getUrlToStaticImages)(preview)
     });
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_7__.DefaultSectionsControls, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_7__.DefaultSectionsControls, {
         attributes: attributes,
         setAttributes: setAttributes
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-        title: "\u0424\u0456\u043B\u044C\u0442\u0440 \u043F\u043E \u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u044F\u0445",
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+        title: "\u0412\u0456\u0434\u043E\u0431\u0440\u0430\u0437\u0438\u0442\u0438 \u0442\u0456\u043B\u044C\u043A\u0438 \u043F\u043E \u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u044F\u0445",
         initialOpen: true,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-          className: "",
-          children: [isLoadingCategories && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+          className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])({
+            'disabled': isPostsFetching || isLoadingNewsByIds
+          }),
+          children: [isLoadingCategories && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "text-center text-lg",
             children: "\u0417\u0430\u0432\u0430\u0442\u043D\u0430\u0436\u0443\u0454\u0442\u044C\u0441\u044F ..."
-          }), !!dataCategories && dataCategories.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-            children: dataCategories.map(category => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.CheckboxControl, {
+          }), !!dataCategories && dataCategories.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.Fragment, {
+            children: dataCategories.map(category => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.CheckboxControl, {
               label: category.name,
               checked: categorySlug.includes(category.slug),
               onChange: isChecked => handleCategoryChange(category.slug, categorySlug, isChecked)
             }, category.slug))
-          }) : !isLoadingCategories && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          }) : !isLoadingCategories && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "text-center text-lg",
             children: "\u041D\u0435 \u0441\u0442\u0432\u043E\u0440\u0435\u043D\u043E"
+          }), !!categorySlug.length && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+            onClick: () => clearSelectedCategories(),
+            variant: "primary",
+            size: "compact",
+            children: "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u0438 \u043E\u0431\u0440\u0430\u043D\u0456 \u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u0457"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+            className: "mt-[20px] text-[14px] font-bold",
+            children: "\u0412\u0456\u0434\u043E\u0431\u0440\u0430\u0437\u0438\u0442\u0438 \u0442\u0456\u043B\u044C\u043A\u0438 \u043E\u0431\u0440\u0430\u043D\u0456 \u043D\u043E\u0432\u0438\u043D\u0438"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
+            className: "w-full mt-[5px]",
+            type: "search",
+            placeholder: "\u041F\u043E\u0448\u0443\u043A",
+            value: search,
+            onChange: e => {
+              debouncedFetchNews({
+                categorySlug,
+                page: 1,
+                search: e.target.value,
+                posts_per_page
+              });
+              setSearch(e.target.value);
+              setPage(1);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+            className: "mt-[5px] max-h-[400px] overflow-auto",
+            children: [posts.length ? posts.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+              title: post.title,
+              className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])('btn cursor-pointer p-[5px] transition-opacity hover:bg-light-primary-80 hover:[&.bg-light-primary-60]:bg-light-primary-40', {
+                'bg-light-primary-60': selectedNews.includes(post.id)
+              }),
+              onClick: e => {
+                if (e.target.closest('.btn').classList.contains('bg-light-primary-60')) {
+                  setAttributes({
+                    selectedNews: selectedNews.filter(id => id != post.id)
+                  });
+                } else {
+                  setAttributes({
+                    selectedNews: [...selectedNews, post.id]
+                  });
+                }
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+                style: {
+                  '--line': 1,
+                  '--line-height': '1.4em'
+                },
+                className: "text-sm truncate-text",
+                children: post.title
+              })
+            }, post.id)) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+              className: "text-center text-sm",
+              children: "\u041D\u0435 \u0437\u043D\u0430\u0439\u0434\u0435\u043D\u043E"
+            }), isNewsForFilterLoading || isPostsFetching ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+              className: "text-sm",
+              children: "\u0417\u0430\u0432\u0430\u0442\u043D\u0430\u0436\u0443\u0454\u0442\u044C\u0441\u044F ..."
+            }) : page < max_num_pages && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+              variant: "secondary",
+              size: "small",
+              onClick: () => {
+                loadMoreNews({
+                  categorySlug: categorySlug,
+                  page: page + 1,
+                  search,
+                  posts_per_page
+                });
+                setPage(page + 1);
+              },
+              children: "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u0438 \u0449\u0435"
+            })]
+          }), !!selectedNews.length && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+            variant: "primary",
+            className: "mt-[10px]",
+            onClick: () => setAttributes({
+              selectedNews: []
+            }),
+            children: "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u0438 \u043E\u0431\u0440\u0430\u043D\u0456 \u043D\u043E\u0432\u0438\u043D\u0438"
           })]
         })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_section_decor_picker_SectionsDecorPicker__WEBPACK_IMPORTED_MODULE_11__.SectionsDecorPicker, {
+        decor: decor,
+        setDecor: value => setAttributes({
+          decor: value
+        })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("section", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("section", {
       ...blockProps,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-        ref: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref, titleRef, refCategories),
-        className: "container flex flex-col",
-        children: [children, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_ui_section_decor_SectionDecor__WEBPACK_IMPORTED_MODULE_12__.SectionDecor, {
+        decor: decor
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+        ref: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref, titleRef, refCategories, newsForFilterRef, newsByIdsRef),
+        className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])("container flex flex-col relative z-2", {
+          'disabled': isPostsFetching || isLoadingNewsByIds
+        }),
+        children: [children, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: "mt-[30px] md:mt-[40px] lg:mt-[50px] relative order-2 first-child-no-margin",
-          children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "text-center text-lg",
             children: "\u0417\u0430\u0432\u0430\u0442\u043D\u0430\u0436\u0443\u0454\u0442\u044C\u0441\u044F ..."
-          }), !!data && data?.posts?.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          }), renderPosts.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "swiper md-max:[&.swiper]:overflow-visible [&:not(.swiper-initialized)_.swiper-wrapper]:gap-[10px] md:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[20px] lg:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[24px] 4xl:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[30px] md-max:[&_.swiper-slide]:w-[323px] md:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(50%-10px)] lg:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(33.333333%-(24px*2/3))] 4xl:[calc(33.333333%-(30px*2/3))]",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-              className: "swiper-wrapper",
-              children: data.posts.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+              className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])('swiper-wrapper', {
+                'md:justify-center': renderPosts.length < 2,
+                'lg:justify-center': renderPosts.length < 3
+              }),
+              children: renderPosts.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
                 className: "swiper-slide !h-auto pointer-events-none",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                   className: "card-news-v1 relative nested-bg-item rounded-[12px] p-[5px] h-full",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
                     className: "absolute z-2 pointer-events-none top-0 left-0 w-full p-[5px]",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
                       className: "aspect-[1/0.597] overflow-auto",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
                         className: "flex flex-wrap gap-[5px] p-[10px]",
-                        children: post.categories.map(category => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                        children: post.categories.map(category => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                           class: `category-tag category-colors-${category.type}`,
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
                             src: category.img,
                             alt: "category-icon"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
                             children: category.name
                           })]
                         }))
                       })
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                     className: "flex flex-col h-full relative z-1 [&_.ibg]:hover:scale-110 [&_.title]:hover:text-accent-first",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
                       className: "aspect-[1/0.597] grow-0 shrink-0 rounded-[8px] bg-dark-primary-80 overflow-hidden relative",
                       dangerouslySetInnerHTML: {
                         __html: post.image
                       }
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                       className: "grow shrink mt-[16px] md:mt-[20px] xl:mt-[30px] pb-[11px] px-[11px] md:pb-[15px] md:px-[15px] flex flex-col",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
                         className: "text-sm text-dark-primary-60 lowercase",
                         children: post.data
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
                         style: {
                           '--line': '3',
                           '--line-height': '1.2em'
                         },
                         className: "title mt-[5px] h3 text-dark-primary mb-auto transition-colors truncate-text",
                         children: post.title
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
                         className: "mt-[16px] xl:mt-[20px] btn-with-arrow accent-first self-start",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
                           "data-text": post.text_more_details
                         })
                       })]
@@ -786,12 +1111,72 @@ function Edit({
                 })
               }))
             })
-          }) : !isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          }) : !isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "text-center text-lg",
-            children: "\u041D\u0435 \u0441\u0442\u0432\u043E\u0440\u0435\u043D\u043E"
-          }), !!data && data?.posts?.length >= 3 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ui_slider_nav_SliderNav__WEBPACK_IMPORTED_MODULE_10__.SliderNav, {})]
+            children: "\u041D\u0435 \u0437\u043D\u0430\u0439\u0434\u0435\u043D\u043E"
+          }), renderPosts.length > 3 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_ui_slider_nav_SliderNav__WEBPACK_IMPORTED_MODULE_10__.SliderNav, {})]
+        }), !!selectedNews.length && !!renderPosts.length && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+          className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])("mt-[30px] md:mt-[40px] lg:mt-[50px] relative order-3 first-child-no-margin"),
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+            className: "text-lg",
+            children: ["\u041E\u0431\u0440\u0430\u043D\u0456 \u043D\u043E\u0432\u0438\u043D\u0438, ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("strong", {
+              className: "text-sm",
+              children: "\u0432\u0456\u0434\u043E\u0431\u0440\u0430\u0436\u0430\u044E\u0442\u044C\u0441\u044F \u0442\u0456\u043B\u044C\u043A\u0438 \u0442\u0443\u0442, \u0432 \u0440\u0435\u0436\u0438\u043C\u0456 \u043D\u0430\u043F\u043E\u0432\u0435\u043D\u043D\u044F \u0441\u0430\u0439\u0442\u0443"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+            className: "mt-[20px] selectedNews flex flex-wrap gap-[10px]",
+            children: renderPosts.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+              className: "card-news-v1 relative nested-bg-item rounded-[12px] p-[5px]",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
+                onClick: () => {
+                  setAttributes({
+                    selectedNews: selectedNews.filter(id => id != post.id)
+                  });
+                },
+                className: "absolute z-3 top-0 right-0 icon-x-mark flex items-center justify-center h-[44px] w-[44px] rounded-[8px] bg-dark-primary text-light-primary text-sm transition-colors hover:bg-dark-primary-80"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+                className: "absolute z-2 pointer-events-none top-0 left-0 w-full p-[5px]",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+                  className: "aspect-[1/0.597] overflow-auto",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+                    className: "flex flex-wrap gap-[5px] p-[10px]",
+                    children: post.categories.map(category => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+                      class: `category-tag category-colors-${category.type}`,
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
+                        src: category.img,
+                        alt: "category-icon"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
+                        children: category.name
+                      })]
+                    }))
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+                className: "flex flex-col h-full relative z-1",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+                  className: "aspect-[1/0.597] grow-0 shrink-0 rounded-[8px] bg-dark-primary-80 overflow-hidden relative",
+                  dangerouslySetInnerHTML: {
+                    __html: post.image
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+                  className: "grow shrink mt-[16px] md:mt-[20px] xl:mt-[30px] pb-[11px] px-[11px] md:pb-[15px] md:px-[15px] flex flex-col",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+                    className: "text-sm text-dark-primary-60 lowercase",
+                    children: post.data
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+                    style: {
+                      '--line': '3',
+                      '--line-height': '1.4em'
+                    },
+                    className: "title mt-[5px] h5 text-dark-primary mb-auto transition-colors truncate-text uppercase",
+                    children: post.title
+                  })]
+                })]
+              })]
+            }))
+          })]
         })]
-      })
+      })]
     })]
   });
 }
@@ -830,6 +1215,85 @@ function Save() {
   } = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps.save(blockProps);
   return children;
 }
+
+/***/ }),
+
+/***/ "./src/ui/section-decor/SectionDecor.js":
+/*!**********************************************!*\
+  !*** ./src/ui/section-decor/SectionDecor.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SectionDecor: () => (/* binding */ SectionDecor)
+/* harmony export */ });
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const SectionDecor = ({
+  decor
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "absolute z-1 top-0 left-0 w-full h-full pointer-events-none",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "container h-full relative",
+      children: [decor === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "absolute right-0 bottom-[70px] md:bottom-[80px] lg:bottom-[100px] h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "accent-second-50-filter h-1/2 w-auto mt-auto aos-rotate-right",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semicircle-bottom.svg'),
+          alt: ""
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "accent-second-50-filter h-full w-auto aos-rotate-left",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semi-tours-left.svg'),
+          alt: ""
+        })]
+      }), decor === 2 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "absolute left-0 bottom-[70px] md:bottom-[80px] lg:bottom-[100px] h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex -scale-x-100",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "accent-second-50-filter h-1/2 w-auto mt-auto aos-rotate-right",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semicircle-bottom.svg'),
+          alt: ""
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "accent-second-50-filter h-full w-auto aos-rotate-left",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semi-tours-left.svg'),
+          alt: ""
+        })]
+      }), decor === 3 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "absolute left-0 bottom-0 h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex -translate-x-1/2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "accent-second-50-filter h-1/2 w-auto mt-auto aos-rotate-right",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semi-torus-top.svg'),
+          alt: ""
+        })
+      }), decor === 4 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "absolute right-0 bottom-0 h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex translate-x-1/2 -scale-x-100",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "accent-second-50-filter h-1/2 w-auto mt-auto aos-rotate-right",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semi-torus-top.svg'),
+          alt: ""
+        })
+      }), decor === 5 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "absolute left-0 bottom-0 h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex -translate-x-1/2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "accent-second-50-filter h-1/2 w-auto mt-auto aos-rotate-right",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semicircle-bottom.svg'),
+          alt: ""
+        })
+      }), decor === 6 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "absolute right-0 bottom-0 h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex translate-x-1/2 -scale-x-100",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "accent-second-50-filter h-1/2 w-auto mt-auto aos-rotate-right",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semicircle-bottom.svg'),
+          alt: ""
+        })
+      })]
+    })
+  });
+};
 
 /***/ }),
 
@@ -890,7 +1354,9 @@ const SliderNav = () => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   buildApiPath: () => (/* binding */ buildApiPath),
 /* harmony export */   combineString: () => (/* binding */ combineString),
+/* harmony export */   debounce: () => (/* binding */ debounce),
 /* harmony export */   getContainerClasses: () => (/* binding */ getContainerClasses),
 /* harmony export */   getFlexAligmentClasses: () => (/* binding */ getFlexAligmentClasses),
 /* harmony export */   getGapClasses: () => (/* binding */ getGapClasses),
@@ -900,7 +1366,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
 /* harmony export */   getUrlToStaticImages: () => (/* binding */ getUrlToStaticImages),
 /* harmony export */   mergeRefs: () => (/* binding */ mergeRefs),
-/* harmony export */   removeDomain: () => (/* binding */ removeDomain)
+/* harmony export */   removeDomain: () => (/* binding */ removeDomain),
+/* harmony export */   throttle: () => (/* binding */ throttle)
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__);
@@ -983,6 +1450,38 @@ const mergeRefs = (...refs) => {
       }
     });
   };
+};
+const debounce = (func, wait) => {
+  let timeout;
+  function debounced(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  }
+  debounced.cancel = function () {
+    clearTimeout(timeout);
+  };
+  return debounced;
+};
+const throttle = (func, limit) => {
+  let inThrottle;
+  return function (...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+};
+const buildApiPath = (basePath, query = {}) => {
+  const url = new URL(basePath, window.location.origin);
+  const params = new URLSearchParams();
+  Object.entries(query).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && value !== '') {
+      params.set(key, value);
+    }
+  });
+  url.search = params.toString();
+  return url.pathname + url.search;
 };
 
 /***/ }),

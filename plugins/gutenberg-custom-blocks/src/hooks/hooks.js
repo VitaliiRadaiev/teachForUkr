@@ -38,7 +38,22 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
         return () => observerRef.current?.disconnect();
     }, [isFetched, shouldFetch, ...deps]);
 
-    return { ref, data, error, isFetched, isLoading };
+    const refetch = (fetchCallback) => {
+        setIsLoading(true);
+        fetchCallback()
+            .then((result) => {
+                setData(result);
+                setIsFetched(true);
+                setIsLoading(false);
+                observer.disconnect();
+            })
+            .catch((err) => {
+                setError(err);
+                setIsLoading(false);
+            });
+    }
+
+    return { ref, data, error, isFetched, isLoading, refetch };
 };
 
 export default useFetchOnVisible;

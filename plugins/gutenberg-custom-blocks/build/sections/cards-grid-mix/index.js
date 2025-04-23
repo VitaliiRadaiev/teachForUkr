@@ -280,7 +280,7 @@ const SectionsDecorPicker = ({
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelBody, {
     title: "\u0414\u0435\u043A\u043E\u0440 \u0441\u0435\u043A\u0446\u0456\u0457",
-    initialOpen: true,
+    initialOpen: false,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.RadioControl, {
       selected: +decor,
       options: [{
@@ -298,18 +298,39 @@ const SectionsDecorPicker = ({
         value: 1
       }, {
         label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-          className: "!h-[100px] w-auto bg-light-primary-80",
-          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-2.jpg`),
+          className: "!h-[100px] w-auto bg-light-primary-80 -scale-x-100",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-1.jpg`),
           alt: "icon"
         }),
         value: 2
       }, {
         label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
           className: "!h-[100px] w-auto bg-light-primary-80",
-          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-3.jpg`),
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-2.jpg`),
           alt: "icon"
         }),
         value: 3
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "!h-[100px] w-auto bg-light-primary-80 -scale-x-100",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-2.jpg`),
+          alt: "icon"
+        }),
+        value: 4
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "!h-[100px] w-auto bg-light-primary-80",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-3.jpg`),
+          alt: "icon"
+        }),
+        value: 5
+      }, {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "!h-[100px] w-auto bg-light-primary-80 -scale-x-100",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(`general/section-decor-3.jpg`),
+          alt: "icon"
+        }),
+        value: 6
       }],
       onChange: value => setDecor(+value)
     })
@@ -734,15 +755,40 @@ const SectionDecor = ({
           src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semi-tours-left.svg'),
           alt: ""
         })]
-      }), decor === 2 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      }), decor === 2 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "absolute left-0 bottom-[70px] md:bottom-[80px] lg:bottom-[100px] h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex -scale-x-100",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "accent-second-50-filter h-1/2 w-auto mt-auto aos-rotate-right",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semicircle-bottom.svg'),
+          alt: ""
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "accent-second-50-filter h-full w-auto aos-rotate-left",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semi-tours-left.svg'),
+          alt: ""
+        })]
+      }), decor === 3 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "absolute left-0 bottom-0 h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex -translate-x-1/2",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
           className: "accent-second-50-filter h-1/2 w-auto mt-auto aos-rotate-right",
           src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semi-torus-top.svg'),
           alt: ""
         })
-      }), decor === 3 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      }), decor === 4 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "absolute right-0 bottom-0 h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex translate-x-1/2 -scale-x-100",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "accent-second-50-filter h-1/2 w-auto mt-auto aos-rotate-right",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semi-torus-top.svg'),
+          alt: ""
+        })
+      }), decor === 5 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "absolute left-0 bottom-0 h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex -translate-x-1/2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "accent-second-50-filter h-1/2 w-auto mt-auto aos-rotate-right",
+          src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semicircle-bottom.svg'),
+          alt: ""
+        })
+      }), decor === 6 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "absolute right-0 bottom-0 h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex translate-x-1/2 -scale-x-100",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
           className: "accent-second-50-filter h-1/2 w-auto mt-auto aos-rotate-right",
           src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getUrlToStaticImages)('icons/semicircle-bottom.svg'),
@@ -763,7 +809,9 @@ const SectionDecor = ({
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   buildApiPath: () => (/* binding */ buildApiPath),
 /* harmony export */   combineString: () => (/* binding */ combineString),
+/* harmony export */   debounce: () => (/* binding */ debounce),
 /* harmony export */   getContainerClasses: () => (/* binding */ getContainerClasses),
 /* harmony export */   getFlexAligmentClasses: () => (/* binding */ getFlexAligmentClasses),
 /* harmony export */   getGapClasses: () => (/* binding */ getGapClasses),
@@ -773,7 +821,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
 /* harmony export */   getUrlToStaticImages: () => (/* binding */ getUrlToStaticImages),
 /* harmony export */   mergeRefs: () => (/* binding */ mergeRefs),
-/* harmony export */   removeDomain: () => (/* binding */ removeDomain)
+/* harmony export */   removeDomain: () => (/* binding */ removeDomain),
+/* harmony export */   throttle: () => (/* binding */ throttle)
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__);
@@ -856,6 +905,38 @@ const mergeRefs = (...refs) => {
       }
     });
   };
+};
+const debounce = (func, wait) => {
+  let timeout;
+  function debounced(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  }
+  debounced.cancel = function () {
+    clearTimeout(timeout);
+  };
+  return debounced;
+};
+const throttle = (func, limit) => {
+  let inThrottle;
+  return function (...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+};
+const buildApiPath = (basePath, query = {}) => {
+  const url = new URL(basePath, window.location.origin);
+  const params = new URLSearchParams();
+  Object.entries(query).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && value !== '') {
+      params.set(key, value);
+    }
+  });
+  url.search = params.toString();
+  return url.pathname + url.search;
 };
 
 /***/ }),

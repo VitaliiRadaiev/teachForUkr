@@ -1,29 +1,37 @@
 import {
 	useBlockProps,
 	useInnerBlocksProps,
-	InspectorControls
+	InspectorControls,
 } from "@wordpress/block-editor";
-import { PanelBody, CheckboxControl } from "@wordpress/components";
-import { useEffect } from "@wordpress/element";
+import { PanelBody, CheckboxControl, Button } from "@wordpress/components";
+import { useEffect, useState, useCallback } from "@wordpress/element";
 import { useSelect, useDispatch } from '@wordpress/data';
 import "./editor.scss";
 import clsx from "clsx";
-import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages, getOptionsField, mergeRefs } from "../../utils/utils";
+import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages, getOptionsField, mergeRefs, debounce, buildApiPath } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
 import useFetchOnVisible from "../../hooks/hooks";
 import apiFetch from "@wordpress/api-fetch";
 import { SliderNav } from "../../ui/slider-nav/SliderNav";
+import { SectionsDecorPicker } from "../../components/section-decor-picker/SectionsDecorPicker";
+import { SectionDecor } from "../../ui/section-decor/SectionDecor";
 
+const posts_per_page = 50;
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-	const { preview, isHide, padding, margin, background, className, categorySlug } = attributes;
-
+	const { preview, isHide, padding, margin, background, className, categorySlug, decor, selectedNews } = attributes;
+	const [posts, setPosts] = useState([]);
+	const [isPostsFetching, setIsPostFetching] = useState(false);
+	const [page, setPage] = useState(1);
+	const [search, setSearch] = useState('');
+	const [max_num_pages, setMax_num_pages] = useState(1);
+	const [renderPosts, setRenderPosts] = useState([]);
 	const { updateBlockAttributes } = useDispatch('core/block-editor');
 	const innerBlocks = useSelect((select) => select('core/block-editor').getBlocks(clientId), [clientId]);
 
 	const blockProps = useBlockProps({
 		className: clsx(
-			'news-slider-section rounded-[20px] md:rounded-[30px]',
+			'news-slider-section rounded-[20px] md:rounded-[30px] overflow-hidden relative',
 			className,
 			background,
 			getSectionsMarginClasses(margin),
@@ -59,41 +67,150 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	const fetchTitleData = () => getOptionsField('text_last_news');
 	const { ref: titleRef, data: titleData } = useFetchOnVisible(fetchTitleData);
 
-	const fetchData = () => apiFetch({ path: `site-core/v1/news?category=${categorySlug.length ? categorySlug.join(',') : 'all'}` });
-	const { ref, data, isLoading } = useFetchOnVisible(fetchData, [categorySlug]);
+	const fetchData = () => apiFetch({ path: `site-core/v1/news${categorySlug.length ? `?category=${categorySlug.join(',')}` : ''}` });
+	const { ref, data, isLoading, refetch } = useFetchOnVisible(fetchData);
 
 	const fetchCategoriesData = () => apiFetch({ path: 'site-core/v1/news-categories' });
 	const { ref: refCategories, data: dataCategories, isLoading: isLoadingCategories } = useFetchOnVisible(fetchCategoriesData);
 
-	const handleCategoryChange = (checkedSlug, categorySlug, isChecked) => {
-		if(isChecked) {
-			setAttributes({ categorySlug: [...categorySlug, checkedSlug] });
-		} else {
-			setAttributes({ categorySlug: categorySlug.filter((slug) => slug !== checkedSlug) });
-		}
+	const fetchNewsForFilter = () => {
+		const path = buildApiPath('site-core/v1/news', {
+			category: categorySlug.length ? categorySlug.join(',') : undefined,
+			page: page,
+			search: search,
+			posts_per_page: posts_per_page
+		});
+		return apiFetch({ path });
+	};
+	const { ref: newsForFilterRef, data: newsForFilter, isLoading: isNewsForFilterLoading, refetch: refetchNewsForFilter } = useFetchOnVisible(fetchNewsForFilter);
+
+	const fetchNewsByIds = () => apiFetch({ path: `site-core/v1/news-by-ids?ids=${selectedNews.join(',')}` });
+	const { ref: newsByIdsRef, data: newsByIdsData, isLoading: isLoadingNewsByIds, refetch: refetchNewsByIds } = useFetchOnVisible(fetchNewsByIds);
+
+	const loadMoreNews = async ({ categorySlug, page, search, posts_per_page }) => {
+		setIsPostFetching(true);
+		const path = buildApiPath('site-core/v1/news', {
+			category: categorySlug.length ? categorySlug.join(',') : undefined,
+			page: page,
+			search: search,
+			posts_per_page: posts_per_page
+		});
+		const res = await apiFetch({ path });
+		setPosts((posts) => [...posts, ...res.posts]);
+		setMax_num_pages(res.max_num_pages);
+		setIsPostFetching(false);
 	}
 
+	const fetchNews = async ({ categorySlug, page, search, posts_per_page }) => {
+		setIsPostFetching(true);
+		const path = buildApiPath('site-core/v1/news', {
+			category: categorySlug.length ? categorySlug.join(',') : undefined,
+			page: page,
+			search: search,
+			posts_per_page: posts_per_page
+		});
+		const res = await apiFetch({ path });
+		setPosts(res.posts);
+		setMax_num_pages(res.max_num_pages);
+		setIsPostFetching(false);
+	}
+
+	const debouncedFetchNews = useCallback(debounce(fetchNews, 500), []);
+
+	const handleCategoryChange = (checkedSlug, categorySlug, isChecked) => {
+		let slugs = [];
+		if (isChecked) {
+			slugs = [...categorySlug, checkedSlug];
+			setAttributes({ categorySlug: slugs });
+		} else {
+			slugs = categorySlug.filter((slug) => slug !== checkedSlug);
+			setAttributes({ categorySlug: slugs });
+		}
+
+		refetch(() => apiFetch({ path: `site-core/v1/news${slugs.length ? `?category=${slugs.join(',')}` : ''}` }));
+
+		fetchNews({
+			categorySlug: slugs,
+			page: 1,
+			search: '',
+			posts_per_page,
+		});
+
+		setPage(1);
+		setSearch('');
+	}
+
+	const clearSelectedCategories = () => {
+		let slugs = [];
+
+		setAttributes({ categorySlug: slugs });
+
+		refetch(() => apiFetch({ path: `site-core/v1/news${slugs.length ? `?category=${slugs.join(',')}` : ''}` }));
+
+		fetchNews({
+			categorySlug: slugs,
+			page: 1,
+			search: '',
+			posts_per_page,
+		});
+
+		setPage(1);
+		setSearch('');
+	}
+
+
 	useEffect(() => {
-		if (data && data?.posts?.length < 3) {
+		if (renderPosts.length < 4) {
 			const headBlock = innerBlocks[0];
 			headBlock && updateBlockAttributes(
 				headBlock.clientId, {
 				aligment: 'center'
 			});
+		} else {
+			const headBlock = innerBlocks[0];
+			headBlock && updateBlockAttributes(
+				headBlock.clientId, {
+				aligment: 'left'
+			});
 		}
-	}, [data]);
+	}, [renderPosts]);
 
 	useEffect(() => {
 		if (titleData) {
 			const title = innerBlocks[0]?.innerBlocks[1];
 			if (title && !title.attributes.text) {
-				console.log(title);
 				updateBlockAttributes(title.clientId, {
 					text: titleData.value
 				})
 			}
 		}
 	}, [titleData]);
+
+	useEffect(() => {
+		if (newsForFilter) {
+			setPosts(newsForFilter.posts);
+			setMax_num_pages(newsForFilter.max_num_pages);
+		}
+	}, [newsForFilter]);
+
+	useEffect(() => {
+		return () => {
+			debouncedFetchNews.cancel();
+		};
+	}, [debouncedFetchNews]);
+
+	useEffect(() => {
+		refetchNewsByIds(() => apiFetch({ path: `site-core/v1/news-by-ids?ids=${selectedNews.join(',')}` }));
+	}, [selectedNews]);
+
+	useEffect(() => {
+		if (selectedNews.length && data && newsByIdsData) {
+			setRenderPosts(newsByIdsData.posts);
+		} else if (data) {
+			setRenderPosts(data.posts);
+		}
+	}, [selectedNews, data, newsByIdsData]);
+
 
 	if (preview) {
 		return <img src={getUrlToStaticImages(preview)} />
@@ -103,8 +220,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		<>
 			<InspectorControls>
 				<DefaultSectionsControls attributes={attributes} setAttributes={setAttributes} />
-				<PanelBody title="Фільтр по категоріях" initialOpen={true}>
-					<div className="">
+				<PanelBody title="Відобразити тільки по категоріях" initialOpen={true}>
+					<div className={clsx({
+						'disabled': isPostsFetching || isLoadingNewsByIds
+					})}>
 						{isLoadingCategories && <div className="text-center text-lg">Заватнажується ...</div>}
 						{(!!dataCategories && dataCategories.length)
 							? <>
@@ -119,19 +238,108 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 							</>
 							: !isLoadingCategories && <div className="text-center text-lg">Не створено</div>
 						}
+						{!!categorySlug.length && <Button onClick={() => clearSelectedCategories()} variant="primary" size="compact">Очистити обрані категорії</Button>}
+						{/* ============================== */}
+						<div className="mt-[20px] text-[14px] font-bold">
+							Відобразити тільки обрані новини
+						</div>
+						<input
+							className="w-full mt-[5px]"
+							type="search"
+							placeholder="Пошук"
+							value={search}
+							onChange={(e) => {
+								debouncedFetchNews({
+									categorySlug,
+									page: 1,
+									search: e.target.value,
+									posts_per_page
+								})
+								setSearch(e.target.value);
+								setPage(1);
+							}}
+						/>
+						<div className="mt-[5px] max-h-[400px] overflow-auto">
+
+							{(posts.length)
+								? posts.map(post => (
+									<div
+										title={post.title}
+										className={clsx(
+											'btn cursor-pointer p-[5px] transition-opacity hover:bg-light-primary-80 hover:[&.bg-light-primary-60]:bg-light-primary-40',
+											{ 'bg-light-primary-60': selectedNews.includes(post.id) }
+										)}
+										key={post.id}
+										onClick={(e) => {
+											if (e.target.closest('.btn').classList.contains('bg-light-primary-60')) {
+												setAttributes({ selectedNews: selectedNews.filter(id => id != post.id) })
+											} else {
+												setAttributes({ selectedNews: [...selectedNews, post.id] })
+											}
+										}}
+									>
+										<div style={{ '--line': 1, '--line-height': '1.4em' }} className="text-sm truncate-text">
+											{post.title}
+										</div>
+									</div>
+								))
+								: <div className="text-center text-sm">Не знайдено</div>
+							}
+
+							{(isNewsForFilterLoading || isPostsFetching)
+								? <div className="text-sm">Заватнажується ...</div>
+								: (page < max_num_pages)
+								&& <Button
+									variant="secondary"
+									size="small"
+									onClick={() => {
+										loadMoreNews({
+											categorySlug: categorySlug,
+											page: page + 1,
+											search,
+											posts_per_page
+										})
+										setPage(page + 1);
+									}}
+								>Показати ще</Button>
+							}
+						</div>
+						{!!selectedNews.length &&
+							<Button
+								variant="primary" className="mt-[10px]"
+								onClick={() => setAttributes({ selectedNews: [] })}
+							>
+								Очистити обрані новини
+							</Button>
+						}
 					</div>
 				</PanelBody>
+				<SectionsDecorPicker decor={decor} setDecor={(value) => setAttributes({ decor: value })} />
 			</InspectorControls>
 			<section {...blockProps}>
-				<div ref={mergeRefs(ref, titleRef, refCategories)} className="container flex flex-col">
+				<SectionDecor decor={decor} />
+				<div ref={mergeRefs(ref, titleRef, refCategories, newsForFilterRef, newsByIdsRef)}
+					className={clsx(
+						"container flex flex-col relative z-2",
+						{
+							'disabled': isPostsFetching || isLoadingNewsByIds
+						}
+					)}
+				>
 					{children}
 					<div className="mt-[30px] md:mt-[40px] lg:mt-[50px] relative order-2 first-child-no-margin">
 						{isLoading && <div className="text-center text-lg">Заватнажується ...</div>}
 
-						{(!!data && data?.posts?.length)
+						{(renderPosts.length)
 							? <div className="swiper md-max:[&.swiper]:overflow-visible [&:not(.swiper-initialized)_.swiper-wrapper]:gap-[10px] md:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[20px] lg:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[24px] 4xl:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[30px] md-max:[&_.swiper-slide]:w-[323px] md:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(50%-10px)] lg:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(33.333333%-(24px*2/3))] 4xl:[calc(33.333333%-(30px*2/3))]">
-								<div className="swiper-wrapper">
-									{data.posts.map(post => (
+								<div className={clsx(
+									'swiper-wrapper',
+									{
+										'md:justify-center': (renderPosts.length < 2),
+										'lg:justify-center': (renderPosts.length < 3),
+									}
+								)}>
+									{renderPosts.map(post => (
 										<div className="swiper-slide !h-auto pointer-events-none">
 											<div className="card-news-v1 relative nested-bg-item rounded-[12px] p-[5px] h-full">
 												<div className="absolute z-2 pointer-events-none top-0 left-0 w-full p-[5px]">
@@ -169,11 +377,59 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									))}
 								</div>
 							</div>
-							: !isLoading && <div className="text-center text-lg">Не створено</div>
+							: !isLoading && <div className="text-center text-lg">Не знайдено</div>
 						}
 
-						{!!data && (data?.posts?.length >= 3) && <SliderNav />}
+						{(renderPosts.length > 3) && <SliderNav />}
 					</div>
+
+					{!!selectedNews.length && !!renderPosts.length &&
+						<div className={clsx(
+							"mt-[30px] md:mt-[40px] lg:mt-[50px] relative order-3 first-child-no-margin"
+						)}>
+							<div className="text-lg">
+								Обрані новини, <strong className="text-sm">відображаються тільки тут, в режимі наповення сайту</strong>
+							</div>
+							<div className="mt-[20px] selectedNews flex flex-wrap gap-[10px]">
+								{renderPosts.map(post => (
+									<div className="card-news-v1 relative nested-bg-item rounded-[12px] p-[5px]">
+										<button
+											onClick={() => {
+												setAttributes({ selectedNews: selectedNews.filter(id => id != post.id) })
+											}}
+											className="absolute z-3 top-0 right-0 icon-x-mark flex items-center justify-center h-[44px] w-[44px] rounded-[8px] bg-dark-primary text-light-primary text-sm transition-colors hover:bg-dark-primary-80">
+										</button>
+										<div className="absolute z-2 pointer-events-none top-0 left-0 w-full p-[5px]">
+											<div className="aspect-[1/0.597] overflow-auto">
+												<div className="flex flex-wrap gap-[5px] p-[10px]">
+													{post.categories.map(category => (
+														<div class={`category-tag category-colors-${category.type}`}>
+															<img src={category.img} alt="category-icon" />
+															<span>{category.name}</span>
+														</div>
+													))}
+												</div>
+											</div>
+										</div>
+										<div className="flex flex-col h-full relative z-1">
+											<div
+												className="aspect-[1/0.597] grow-0 shrink-0 rounded-[8px] bg-dark-primary-80 overflow-hidden relative"
+												dangerouslySetInnerHTML={{ __html: post.image }}
+											></div>
+											<div className="grow shrink mt-[16px] md:mt-[20px] xl:mt-[30px] pb-[11px] px-[11px] md:pb-[15px] md:px-[15px] flex flex-col">
+												<div className="text-sm text-dark-primary-60 lowercase">
+													{post.data}
+												</div>
+												<div style={{ '--line': '3', '--line-height': '1.4em' }} className="title mt-[5px] h5 text-dark-primary mb-auto transition-colors truncate-text uppercase">
+													{post.title}
+												</div>
+											</div>
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+					}
 				</div>
 			</section>
 		</>

@@ -106,13 +106,16 @@ function get_partners_for_block_slider()
     return array_merge($featured_posts, $other_posts);
 }
 
-function get_news(
-    $queries = [
-        'category' => 'all',
-        'page' => 1,
-        'posts_per_page' => 16
-    ]
-) {
+function get_news($queries = []) {
+    $defaults = [
+        'category'       => 'all',
+        'page'           => 1,
+        'posts_per_page' => 16,
+        'search'         => '',
+    ];
+
+    $queries = wp_parse_args($queries, $defaults);
+
     $args = array(
         'post_type' => 'news',
         'posts_per_page' => $queries['posts_per_page'],
@@ -121,6 +124,11 @@ function get_news(
         'orderby' => 'date',
         'order' => 'DESC'
     );
+
+    $search = trim($queries['search']);
+    if (check($search)) {
+        $args['s'] = $search;
+    }
 
     if ($queries['category'] !== 'all') {
         $args = array_merge($args, [
@@ -133,6 +141,25 @@ function get_news(
             ],
         ]);
     }
+
+    $query = new WP_Query($args);
+    wp_reset_postdata();
+
+    return $query;
+}
+
+function get_news_by_ids($ids = []) {
+    if (empty($ids) || !is_array($ids)) {
+        return new WP_Query();
+    }
+
+    $args = [
+        'post_type'      => 'news',
+        'post__in'       => $ids,
+        'orderby'        => 'post__in',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+    ];
 
     $query = new WP_Query($args);
     wp_reset_postdata();

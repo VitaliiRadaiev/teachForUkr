@@ -45,12 +45,25 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
     }
     return () => observerRef.current?.disconnect();
   }, [isFetched, shouldFetch, ...deps]);
+  const refetch = fetchCallback => {
+    setIsLoading(true);
+    fetchCallback().then(result => {
+      setData(result);
+      setIsFetched(true);
+      setIsLoading(false);
+      observer.disconnect();
+    }).catch(err => {
+      setError(err);
+      setIsLoading(false);
+    });
+  };
   return {
     ref,
     data,
     error,
     isFetched,
-    isLoading
+    isLoading,
+    refetch
   };
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useFetchOnVisible);

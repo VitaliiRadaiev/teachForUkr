@@ -457,7 +457,9 @@ const IconPicker = ({
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   buildApiPath: () => (/* binding */ buildApiPath),
 /* harmony export */   combineString: () => (/* binding */ combineString),
+/* harmony export */   debounce: () => (/* binding */ debounce),
 /* harmony export */   getContainerClasses: () => (/* binding */ getContainerClasses),
 /* harmony export */   getFlexAligmentClasses: () => (/* binding */ getFlexAligmentClasses),
 /* harmony export */   getGapClasses: () => (/* binding */ getGapClasses),
@@ -467,7 +469,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
 /* harmony export */   getUrlToStaticImages: () => (/* binding */ getUrlToStaticImages),
 /* harmony export */   mergeRefs: () => (/* binding */ mergeRefs),
-/* harmony export */   removeDomain: () => (/* binding */ removeDomain)
+/* harmony export */   removeDomain: () => (/* binding */ removeDomain),
+/* harmony export */   throttle: () => (/* binding */ throttle)
 /* harmony export */ });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__);
@@ -550,6 +553,38 @@ const mergeRefs = (...refs) => {
       }
     });
   };
+};
+const debounce = (func, wait) => {
+  let timeout;
+  function debounced(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  }
+  debounced.cancel = function () {
+    clearTimeout(timeout);
+  };
+  return debounced;
+};
+const throttle = (func, limit) => {
+  let inThrottle;
+  return function (...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+};
+const buildApiPath = (basePath, query = {}) => {
+  const url = new URL(basePath, window.location.origin);
+  const params = new URLSearchParams();
+  Object.entries(query).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && value !== '') {
+      params.set(key, value);
+    }
+  });
+  url.search = params.toString();
+  return url.pathname + url.search;
 };
 
 /***/ }),
