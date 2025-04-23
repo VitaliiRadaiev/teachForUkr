@@ -267,6 +267,16 @@ function wpa_show_permalinks($post_link, $post)
         }
     }
 
+    if (is_object($post) && $post->post_type == 'story') {
+        $terms = wp_get_object_terms($post->ID, 'story-category');
+
+        if (!empty($terms) && !is_wp_error($terms)) {
+            return str_replace('%story-category%', $terms[0]->slug, $post_link);
+        } else {
+            return str_replace('story/%story-category%/', 'story/', $post_link);
+        }
+    }
+
     return $post_link;
 }
 add_filter('post_type_link', 'wpa_show_permalinks', 1, 2);

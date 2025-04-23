@@ -166,3 +166,64 @@ function get_news_by_ids($ids = []) {
 
     return $query;
 }
+
+
+function get_stories($queries = []) {
+    $defaults = [
+        'category'       => 'all',
+        'page'           => 1,
+        'posts_per_page' => 16,
+        'search'         => '',
+    ];
+
+    $queries = wp_parse_args($queries, $defaults);
+
+    $args = array(
+        'post_type' => 'story',
+        'posts_per_page' => $queries['posts_per_page'],
+        'post_status' => 'publish',
+        'paged' => $queries['page'],
+        'orderby' => 'date',
+        'order' => 'DESC'
+    );
+
+    $search = trim($queries['search']);
+    if (check($search)) {
+        $args['s'] = $search;
+    }
+
+    if ($queries['category'] !== 'all') {
+        $args = array_merge($args, [
+            'tax_query' => [
+                [
+                    'taxonomy' => 'story-category',
+                    'field' => 'slug',
+                    'terms' => $queries['category'],
+                ],
+            ],
+        ]);
+    }
+
+    $query = new WP_Query($args);
+    wp_reset_postdata();
+
+    return $query;
+}
+function get_stories_by_ids($ids = []) {
+    if (empty($ids) || !is_array($ids)) {
+        return new WP_Query();
+    }
+
+    $args = [
+        'post_type'      => 'story',
+        'post__in'       => $ids,
+        'orderby'        => 'post__in',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+    ];
+
+    $query = new WP_Query($args);
+    wp_reset_postdata();
+
+    return $query;
+}
