@@ -636,3 +636,16 @@ flag {
 
     max-height: calc(var(--line-height) * var(--line));
 }
+
+.md-max\:truncate-text {
+    @media (max-width: $mq-md-max) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        display: -webkit-box;
+        -webkit-line-clamp: var(--line);
+        -webkit-box-orient: vertical;
+    
+        max-height: calc(var(--line-height) * var(--line));
+    }
+}

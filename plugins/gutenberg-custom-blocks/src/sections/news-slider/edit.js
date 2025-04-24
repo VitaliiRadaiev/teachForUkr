@@ -388,7 +388,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 							"mt-[30px] md:mt-[40px] lg:mt-[50px] relative order-3 first-child-no-margin"
 						)}>
 							<div className="text-lg">
-								Обрані новини, <strong className="text-sm">відображаються тільки тут, в режимі наповення сайту</strong>
+								Обрані новини, <strong className="text-sm">карточки нижче відображаються тільки тут, в режимі наповення сайту</strong>
 							</div>
 							<div className="mt-[20px] selectedNews flex flex-wrap gap-[10px]">
 								{renderPosts.map(post => (

@@ -487,6 +487,23 @@
             "allow_in_bindings": 0
         },
         {
+            "key": "field_6809efd05930a",
+            "label": "Більше історій",
+            "name": "link_more_stories",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_67e159c72a139",
             "label": "Загальні текста",
             "name": "",
@@ -841,6 +858,27 @@
             "append": ""
         },
         {
+            "key": "field_6809efeb5930b",
+            "label": "Текст \"Історії\"",
+            "name": "text_stories",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Історії",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67e26a044512e",
             "label": "Соціальні мережі",
             "name": "",
@@ -920,5 +958,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1745331560
+    "modified": 1745481735
 }

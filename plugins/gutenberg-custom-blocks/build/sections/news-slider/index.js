@@ -1121,7 +1121,7 @@ function Edit({
             className: "text-lg",
             children: ["\u041E\u0431\u0440\u0430\u043D\u0456 \u043D\u043E\u0432\u0438\u043D\u0438, ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("strong", {
               className: "text-sm",
-              children: "\u0432\u0456\u0434\u043E\u0431\u0440\u0430\u0436\u0430\u044E\u0442\u044C\u0441\u044F \u0442\u0456\u043B\u044C\u043A\u0438 \u0442\u0443\u0442, \u0432 \u0440\u0435\u0436\u0438\u043C\u0456 \u043D\u0430\u043F\u043E\u0432\u0435\u043D\u043D\u044F \u0441\u0430\u0439\u0442\u0443"
+              children: "\u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0438 \u043D\u0438\u0436\u0447\u0435 \u0432\u0456\u0434\u043E\u0431\u0440\u0430\u0436\u0430\u044E\u0442\u044C\u0441\u044F \u0442\u0456\u043B\u044C\u043A\u0438 \u0442\u0443\u0442, \u0432 \u0440\u0435\u0436\u0438\u043C\u0456 \u043D\u0430\u043F\u043E\u0432\u0435\u043D\u043D\u044F \u0441\u0430\u0439\u0442\u0443"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "mt-[20px] selectedNews flex flex-wrap gap-[10px]",

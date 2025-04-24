@@ -193,7 +193,7 @@ function ajax_get_stories($request)
         ]);
     }
 
-    $query = get_news($args);
+    $query = get_stories($args);
 
     $posts = create_stories_response_data($query);
 

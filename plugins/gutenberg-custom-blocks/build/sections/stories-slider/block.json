@@ -42,12 +42,20 @@
       ],
       "default": "bg-light-primary-80"
     },
+    "preview": {
+      "type": "string"
+    },
     "decor": {
       "type": "number",
       "default": 0
     },
-    "preview": {
-      "type": "string"
+    "selectedCategories": {
+      "type": "array",
+      "default": []
+    },
+    "selectedPosts": {
+      "type": "array",
+      "default": []
     }
   },
   "textdomain": "stories-slider",
