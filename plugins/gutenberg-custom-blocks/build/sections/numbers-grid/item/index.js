@@ -252,6 +252,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getOptionsField: () => (/* binding */ getOptionsField),
 /* harmony export */   getSectionsMarginClasses: () => (/* binding */ getSectionsMarginClasses),
 /* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
+/* harmony export */   getSocialIconByUrl: () => (/* binding */ getSocialIconByUrl),
 /* harmony export */   getUrlToStaticImages: () => (/* binding */ getUrlToStaticImages),
 /* harmony export */   mergeRefs: () => (/* binding */ mergeRefs),
 /* harmony export */   removeDomain: () => (/* binding */ removeDomain),
@@ -370,6 +371,27 @@ const buildApiPath = (basePath, query = {}) => {
   });
   url.search = params.toString();
   return url.pathname + url.search;
+};
+const getSocialIconByUrl = url => {
+  const icons = {
+    facebook: 'icons/facebook.svg',
+    instagram: 'icons/instagram.svg',
+    linkedin: 'icons/linkedin.svg',
+    tiktok: 'icons/tiktok.svg',
+    twitter: 'icons/twitter.svg'
+  };
+  if (url.includes('facebook.com')) {
+    return icons.facebook;
+  } else if (url.includes('instagram.com')) {
+    return icons.instagram;
+  } else if (url.includes('linkedin.com')) {
+    return icons.linkedin;
+  } else if (url.includes('tiktok.com')) {
+    return icons.tiktok;
+  } else if (url.includes('twitter.com') || url.includes('x.com')) {
+    return icons.twitter;
+  }
+  return null;
 };
 
 /***/ }),

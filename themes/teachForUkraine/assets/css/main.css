@@ -893,6 +893,9 @@ video {
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
+.aspect-\[1\/0\.833\] {
+  aspect-ratio: 1/0.833;
+}
 .\!h-\[100px\] {
   height: 100px !important;
 }
@@ -1294,6 +1297,9 @@ video {
 .gap-\[8px\] {
   gap: 8px;
 }
+.gap-\[12px\] {
+  gap: 12px;
+}
 .gap-x-\[10px\] {
   -webkit-column-gap: 10px;
      -moz-column-gap: 10px;
@@ -1534,6 +1540,10 @@ video {
   padding-top: 70px;
   padding-bottom: 70px;
 }
+.px-\[15px\] {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .pb-\[11px\] {
   padding-bottom: 11px;
 }
@@ -1611,6 +1621,9 @@ video {
 }
 .pt-\[96px\] {
   padding-top: 96px;
+}
+.pb-\[15px\] {
+  padding-bottom: 15px;
 }
 .text-center {
   text-align: center;
@@ -10755,6 +10768,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .lg\:aspect-auto {
     aspect-ratio: auto;
   }
+  .lg\:aspect-\[1\/0\.864\] {
+    aspect-ratio: 1/0.864;
+  }
   .lg\:h-\[239px\] {
     height: 239px;
   }
@@ -10988,6 +11004,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .lg\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(33\.333333\%-\(24px\*2\/3\)\)\]:not(.swiper-initialized) .swiper-slide {
     width: calc(33.333333% - (24px * 2 / 3));
+  }
+  .lg\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(25\%-\(24px\*3\/4\)\)\]:not(.swiper-initialized) .swiper-slide {
+    width: calc(25% - (24px * 3 / 4));
   }
   .lg\:\[\&\:not\(\.swiper-initialized\)_\.swiper-wrapper\]\:gap-\[24px\]:not(.swiper-initialized) .swiper-wrapper {
     gap: 24px;
@@ -11498,6 +11517,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .xl\:align-middle {
     vertical-align: middle;
+  }
+  .xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(25\%-\(24px\*3\/4\)\)\]:not(.swiper-initialized) .swiper-slide {
+    width: calc(25% - (24px * 3 / 4));
   }
   .xl\:\[\&_\.swiper-slide\]\:w-\[1096px\] .swiper-slide {
     width: 1096px;
@@ -12014,6 +12036,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .\34xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(33\.333333\%-\(30px\*2\/3\)\)\]:not(.swiper-initialized) .swiper-slide {
     width: calc(33.333333% - (30px * 2 / 3));
   }
+  .\34xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(25\%-\(30px\*3\/4\)\)\]:not(.swiper-initialized) .swiper-slide {
+    width: calc(25% - (30px * 3 / 4));
+  }
   .\34xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-wrapper\]\:gap-\[30px\]:not(.swiper-initialized) .swiper-wrapper {
     gap: 30px;
   }
@@ -12083,6 +12108,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .lg-max\:\[\&\.swiper\]\:overflow-visible.swiper {
     overflow: visible;
+  }
+  .lg-max\:\[\&_\.swiper-slide\]\:w-\[323px\] .swiper-slide {
+    width: 323px;
   }
 }
 @media (max-width: 743.98px) {
@@ -12310,6 +12338,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .hover\:bg-light-primary-80:hover {
     background-color: var(--color-light-primary-80);
+  }
+  .hover\:bg-accent-first-50:hover {
+    background-color: var(--color-accent-first-50);
   }
   .hover\:text-accent-first:hover {
     color: var(--color-accent-first);

@@ -56,7 +56,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						['t4u/button', {
 							classes: 'btn mt-auto',
 							wrapperClasses: 'btn mt-auto',
-							variant: 'btn-with-arrow'
+							variant: 'btn-with-arrow',
+							acfField: 'text_more_details',
+							acfFieldType: 'text'
 						}]
 					],
 					allowedBlocks: []

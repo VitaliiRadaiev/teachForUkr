@@ -106,7 +106,8 @@ function get_partners_for_block_slider()
     return array_merge($featured_posts, $other_posts);
 }
 
-function get_news($queries = []) {
+function get_news($queries = [])
+{
     $defaults = [
         'category'       => 'all',
         'page'           => 1,
@@ -148,7 +149,8 @@ function get_news($queries = []) {
     return $query;
 }
 
-function get_news_by_ids($ids = []) {
+function get_news_by_ids($ids = [])
+{
     if (empty($ids) || !is_array($ids)) {
         return new WP_Query();
     }
@@ -168,7 +170,8 @@ function get_news_by_ids($ids = []) {
 }
 
 
-function get_stories($queries = []) {
+function get_stories($queries = [])
+{
     $defaults = [
         'category'       => 'all',
         'page'           => 1,
@@ -209,7 +212,9 @@ function get_stories($queries = []) {
 
     return $query;
 }
-function get_stories_by_ids($ids = []) {
+
+function get_stories_by_ids($ids = [])
+{
     if (empty($ids) || !is_array($ids)) {
         return new WP_Query();
     }
@@ -226,4 +231,101 @@ function get_stories_by_ids($ids = []) {
     wp_reset_postdata();
 
     return $query;
+}
+
+
+function get_people($queries = [])
+{
+    $defaults = [
+        'category'       => 'all',
+        'page'           => 1,
+        'posts_per_page' => 16,
+        'search'         => '',
+    ];
+
+    $queries = wp_parse_args($queries, $defaults);
+
+    $args = array(
+        'post_type' => 'people',
+        'posts_per_page' => $queries['posts_per_page'],
+        'post_status' => 'publish',
+        'paged' => $queries['page'],
+        'orderby' => 'date',
+        'order' => 'DESC'
+    );
+
+    $search = trim($queries['search']);
+    if (check($search)) {
+        $args['s'] = $search;
+    }
+
+    if ($queries['category'] !== 'all') {
+        $terms = $queries['category'];
+        $field = 'slug';
+    
+        if (is_array($terms) && count(array_filter($terms, 'is_numeric')) === count($terms)) {
+            $field = 'term_id';
+        }
+    
+        if (is_numeric($terms) && !is_array($terms)) {
+            $field = 'term_id';
+        }
+
+        $args = array_merge($args, [
+            'tax_query' => [
+                [
+                    'taxonomy' => 'people-category',
+                    'field' => $field,
+                    'terms' => $terms,
+                ],
+            ],
+        ]);
+    }
+
+    $query = new WP_Query($args);
+    wp_reset_postdata();
+
+    return $query;
+}
+
+function get_people_by_ids($ids = [])
+{
+    if (empty($ids) || !is_array($ids)) {
+        return new WP_Query();
+    }
+
+    $args = [
+        'post_type'      => 'people',
+        'post__in'       => $ids,
+        'orderby'        => 'post__in',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+    ];
+
+    $query = new WP_Query($args);
+    wp_reset_postdata();
+
+    return $query;
+}
+
+function get_people_categories()
+{
+    $top_level_terms = get_terms([
+        'taxonomy'   => 'people-category',
+        'hide_empty' => true,
+        'parent'     => 0,
+    ]);
+
+    return $top_level_terms;
+}
+
+function get_people_sub_categories($category_id)
+{
+    $child_terms = get_terms([
+        'taxonomy'   => 'people-category',
+        'hide_empty' => true,
+        'child_of'   => $category_id,
+    ]);
+
+    return $child_terms;
 }

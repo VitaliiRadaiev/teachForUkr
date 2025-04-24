@@ -606,6 +606,27 @@
             "append": ""
         },
         {
+            "key": "field_680a4927ac9e5",
+            "label": "Текст \"Більше\"",
+            "name": "text_more",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Більше",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67f3d33bee81c",
             "label": "Текст \"Учасники\"",
             "name": "text_participants",
@@ -958,5 +979,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1745481735
+    "modified": 1745504597
 }

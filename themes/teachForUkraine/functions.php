@@ -244,7 +244,8 @@ function get_nav_menu_items_by_location($location, $args = [])
     return $relese;
 }
 
-add_action('rest_api_init', 'register_acf_options_endpoint');
+
+add_action('rest_api_init', 'register_endpoints');
 
 function clean_post_slug_before_save($data)
 {

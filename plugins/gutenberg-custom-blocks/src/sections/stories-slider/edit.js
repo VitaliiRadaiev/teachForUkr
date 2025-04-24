@@ -361,11 +361,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 										</div>
 									))}
 								</div>
-
-								{(renderPosts.length > 1) && <SliderNav />}
 							</div>
 							: !isLoading && <div className="text-center text-lg">Не знайдено</div>
 						}
+						{(renderPosts.length > 1) && <SliderNav />}
 					</div>
 
 					{!!selectedPosts.length && !!renderPosts.length &&

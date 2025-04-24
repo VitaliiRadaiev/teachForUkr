@@ -1,14 +1,5 @@
 <?php
 
-// function load_more_news()
-// {
-
-//     die();
-// }
-// add_action('wp_ajax_load_more_news', 'load_more_news');
-// add_action('wp_ajax_nopriv_load_more_news', 'load_more_news');
-
-
 function ajax_get_acf_option_field($request)
 {
     $field_name = $request->get_param('field');
@@ -224,7 +215,68 @@ function ajax_get_stories_categories()
     return rest_ensure_response($terms);
 }
 
-function register_acf_options_endpoint()
+
+function ajax_get_people($request)
+{
+    $category = $request->get_param('category');
+    $search = $request->get_param('search');
+    $page = $request->get_param('page');
+    $posts_per_page = $request->get_param('posts_per_page');
+
+    $args = [
+        'page' => $page,
+        'posts_per_page' => $posts_per_page,
+        'search' => $search
+    ];
+
+    if ($category === 'all') {
+        $args = array_merge($args, [
+            'category' => $category
+        ]);
+    } else {
+        $args = array_merge($args, [
+            'category' => array_filter(explode(',', $category), function ($item) {
+                return $item !== 'all';
+            })
+        ]);
+    }
+
+    $query = get_people($args);
+
+    $posts = create_people_response_data($query);
+
+    wp_reset_postdata();
+    return rest_ensure_response([
+        'posts' => $posts,
+        'max_num_pages' => $query->max_num_pages
+    ]);
+}
+function ajax_get_people_by_ids($request)
+{
+    $ids = $request->get_param('ids');
+    $query = get_people_by_ids(explode(',', $ids));
+
+    $posts = create_people_response_data($query);
+
+    wp_reset_postdata();
+    return rest_ensure_response([
+        'posts' => $posts
+    ]);
+}
+function ajax_get_people_categories()
+{
+    $terms = get_people_categories();
+    return rest_ensure_response($terms);
+}
+function ajax_get_people_sub_categories($request)
+{
+    $id = $request->get_param('id');
+    $terms = get_people_sub_categories($id);
+    return rest_ensure_response($terms);
+}
+
+// register endpoints
+function register_endpoints()
 {
     register_rest_route('site-core/v1', '/options/', array(
         'methods'  => 'GET',
@@ -389,6 +441,74 @@ function register_acf_options_endpoint()
         'callback' => 'ajax_get_stories_categories',
         'permission_callback' => '__return_true'
     ));
+
+    register_rest_route('site-core/v1', 'people', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_people',
+        'permission_callback' => '__return_true',
+        'args'     => array(
+            'category' => array(
+                'required' => false,
+                'default'  => 'all',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
+                }
+            ),
+            'search' => array(
+                'required' => false,
+                'default'  => '',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
+                }
+            ),
+            'page' => array(
+                'required' => false,
+                'default'  => 1,
+                'validate_callback' => function ($param) {
+                    return is_numeric($param) && intval($param) > 0;
+                }
+            ),
+            'posts_per_page' => array(
+                'required' => false,
+                'default'  => 16,
+                'validate_callback' => function ($param) {
+                    return is_numeric($param) && intval($param) > 0;
+                }
+            )
+        )
+    ));
+    register_rest_route('site-core/v1', 'people-by-ids', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_people_by_ids',
+        'permission_callback' => '__return_true',
+        'args'     => array(
+            'ids' => array(
+                'required' => false,
+                'default'  => '',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
+                }
+            )
+        )
+    ));
+    register_rest_route('site-core/v1', 'people-categories', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_people_categories',
+        'permission_callback' => '__return_true'
+    ));
+    register_rest_route('site-core/v1', 'people-sub-categories', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_people_sub_categories',
+        'permission_callback' => '__return_true',
+        'args'     => array(
+            'parentid' => array(
+                'required' => true,
+                'validate_callback' => function ($param) {
+                    return is_numeric($param) && intval($param) > 0;
+                }
+            )
+        )
+    ));
 }
 
 
@@ -461,6 +581,32 @@ function create_stories_response_data($query)
                 'date' => $date,
                 'text_more_details' => $text_more_details,
                 'excerpt' => $excerpt,
+            ];
+        }
+    }
+
+    return $posts;
+}
+
+function create_people_response_data($query)
+{
+    $posts = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $id = get_the_ID();
+            $image = get_image(get_post_thumbnail_id(), 'ibg', false);
+            $title = get_the_title();
+            $excerpt = get_the_excerpt();
+            $social = get_field('people_social', $id);
+
+            $posts[] = [
+                'id' =>  $id,
+                'image' => $image,
+                'title' => $title,
+                'excerpt' => $excerpt,
+                'social' => $social
             ];
         }
     }

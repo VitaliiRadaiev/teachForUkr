@@ -129,3 +129,28 @@ export const buildApiPath = (basePath, query = {}) => {
 	url.search = params.toString();
 	return url.pathname + url.search;
 };
+
+export const getSocialIconByUrl = (url) => {
+    const icons = {
+      facebook: 'icons/facebook.svg',
+      instagram: 'icons/instagram.svg',
+      linkedin: 'icons/linkedin.svg',
+      tiktok: 'icons/tiktok.svg',
+      twitter: 'icons/twitter.svg',
+    };
+  
+    if (url.includes('facebook.com')) {
+      return icons.facebook;
+    } else if (url.includes('instagram.com')) {
+      return icons.instagram;
+    } else if (url.includes('linkedin.com')) {
+      return icons.linkedin;
+    } else if (url.includes('tiktok.com')) {
+      return icons.tiktok;
+    } else if (url.includes('twitter.com') || url.includes('x.com')) {
+      return icons.twitter;
+    }
+  
+    return null;
+  }
+  

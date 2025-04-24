@@ -1053,9 +1053,9 @@ function Edit({
           children: [(isLoading || isLoadingPostsByIds) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "text-center text-lg",
             children: "\u0417\u0430\u0432\u0430\u0442\u043D\u0430\u0436\u0443\u0454\u0442\u044C\u0441\u044F ..."
-          }), !!renderPosts.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+          }), !!renderPosts.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "swiper md-max:[&.swiper]:overflow-visible lg:[&.swiper]:overflow-visible [&:not(.swiper-initialized)_.swiper-wrapper]:gap-[10px] md:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[20px] lg:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[24px] 4xl:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[30px] md-max:[&_.swiper-slide]:w-[323px] md:[&:not(.swiper-initialized)_.swiper-slide]:w-full lg:[&_.swiper-slide]:w-[778px] xl:[&_.swiper-slide]:w-[1096px] 4xl:[&_.swiper-slide]:w-[1462px]",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
               className: "swiper-wrapper",
               children: renderPosts.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
                 className: "swiper-slide !h-auto pointer-events-none",
@@ -1094,11 +1094,11 @@ function Edit({
                   })]
                 }, post.id)
               }))
-            }), renderPosts.length > 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_ui_slider_nav_SliderNav__WEBPACK_IMPORTED_MODULE_10__.SliderNav, {})]
+            })
           }) : !isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "text-center text-lg",
             children: "\u041D\u0435 \u0437\u043D\u0430\u0439\u0434\u0435\u043D\u043E"
-          })]
+          }), renderPosts.length > 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_ui_slider_nav_SliderNav__WEBPACK_IMPORTED_MODULE_10__.SliderNav, {})]
         }), !!selectedPosts.length && !!renderPosts.length && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])("mt-[30px] md:mt-[40px] lg:mt-[50px] relative order-3 first-child-no-margin"),
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
@@ -1331,6 +1331,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getOptionsField: () => (/* binding */ getOptionsField),
 /* harmony export */   getSectionsMarginClasses: () => (/* binding */ getSectionsMarginClasses),
 /* harmony export */   getSectionsPaddingClasses: () => (/* binding */ getSectionsPaddingClasses),
+/* harmony export */   getSocialIconByUrl: () => (/* binding */ getSocialIconByUrl),
 /* harmony export */   getUrlToStaticImages: () => (/* binding */ getUrlToStaticImages),
 /* harmony export */   mergeRefs: () => (/* binding */ mergeRefs),
 /* harmony export */   removeDomain: () => (/* binding */ removeDomain),
@@ -1449,6 +1450,27 @@ const buildApiPath = (basePath, query = {}) => {
   });
   url.search = params.toString();
   return url.pathname + url.search;
+};
+const getSocialIconByUrl = url => {
+  const icons = {
+    facebook: 'icons/facebook.svg',
+    instagram: 'icons/instagram.svg',
+    linkedin: 'icons/linkedin.svg',
+    tiktok: 'icons/tiktok.svg',
+    twitter: 'icons/twitter.svg'
+  };
+  if (url.includes('facebook.com')) {
+    return icons.facebook;
+  } else if (url.includes('instagram.com')) {
+    return icons.instagram;
+  } else if (url.includes('linkedin.com')) {
+    return icons.linkedin;
+  } else if (url.includes('tiktok.com')) {
+    return icons.tiktok;
+  } else if (url.includes('twitter.com') || url.includes('x.com')) {
+    return icons.twitter;
+  }
+  return null;
 };
 
 /***/ }),
