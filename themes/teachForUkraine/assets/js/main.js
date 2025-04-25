@@ -530,6 +530,73 @@ function createCustomSliderPagination($container) {
         }
     }
 }
+
+const getSocialIconByUrl = (url) => {
+    const icons = {
+        facebook: '/wp-content/themes/teachForUkraine/assets/images/icons/facebook.svg',
+        instagram: '/wp-content/themes/teachForUkraine/assets/images/icons/instagram.svg',
+        linkedin: '/wp-content/themes/teachForUkraine/assets/images/icons/linkedin.svg',
+        tiktok: '/wp-content/themes/teachForUkraine/assets/images/icons/tiktok.svg',
+        twitter: '/wp-content/themes/teachForUkraine/assets/images/icons/twitter.svg',
+    };
+
+    if (url.includes('facebook.com')) {
+        return icons.facebook;
+    } else if (url.includes('instagram.com')) {
+        return icons.instagram;
+    } else if (url.includes('linkedin.com')) {
+        return icons.linkedin;
+    } else if (url.includes('tiktok.com')) {
+        return icons.tiktok;
+    } else if (url.includes('twitter.com') || url.includes('x.com')) {
+        return icons.twitter;
+    }
+
+    return null;
+}
+
+const renderPopleCardAsString = (post) => {
+    return `
+        <div class="card-people nested-bg-item rounded-[12px] p-[5px] h-full flex flex-col">
+            <div class="aspect-[1/0.833] lg:aspect-[1/0.864] grow-0 shrink-0 rounded-[8px] relative overflow-hidden">
+                ${post.image}
+            </div>
+            <div class="mt-[20px] lg:mt-[30px] px-[15px] pb-[15px] grow shrink flex flex-col">
+                <div class="h3 text-dark-primary">
+                    ${post.title}
+                </div>
+                ${post.excerpt
+                    ? `<div class="mt-[5px] mb-[20px] text-md text-dark-primary-60 last-child-no-margin">
+                        ${post.excerpt}
+                    </div>`
+                    : ''
+                }
+
+                ${(post.social && Array.isArray(post.social))
+                    ? `
+                        <div class="mt-auto flex flex-wrap gap-[12px]">
+                            ${post.social.map(social => `
+                                <a
+                                    class="flex items-center justify-center h-[44px] xl:h-[36px] 4xl:h-[40px] w-[44px] xl:w-[36px] 4xl:w-[40px] rounded-full bg-accent-first transition-colors hover:bg-accent-first-50"
+                                    href="${social.link}"
+                                    target="_blank"
+                                    rel="nofollow"
+                                    aria-label="Show in social">
+
+                                    <img
+                                        class="h-[20px] w-auto color-light-primary-filter"
+                                        src="${getSocialIconByUrl(social.link)}"
+                                        alt="social">
+                                </a>
+                            `).join('')}
+                        </div>
+                    `
+                    : ''
+                }
+            </div>
+        </div>
+        `
+}
 function replaceImageToInlineSvg() {
     const images = document.querySelectorAll('.img-svg');
 

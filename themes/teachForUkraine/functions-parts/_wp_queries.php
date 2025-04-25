@@ -316,6 +316,10 @@ function get_people_categories()
         'parent'     => 0,
     ]);
 
+    foreach ($top_level_terms as &$term) {
+        $term->sub_categories = get_term_children_recursive($term->term_id, 'people-category');
+    }
+
     return $top_level_terms;
 }
 
@@ -328,4 +332,24 @@ function get_people_sub_categories($category_id)
     ]);
 
     return $child_terms;
+}
+
+// helpers
+function get_term_children_recursive($parent_id, $taxonomy)
+{
+    $children = get_terms([
+        'taxonomy'   => $taxonomy,
+        'hide_empty' => true,
+        'parent'     => $parent_id,
+    ]);
+
+    if (empty($children)) {
+        return null;
+    }
+
+    foreach ($children as &$child) {
+        $child->sub_categories = get_term_children_recursive($child->term_id, $taxonomy);
+    }
+
+    return $children;
 }

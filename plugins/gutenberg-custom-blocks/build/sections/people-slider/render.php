@@ -4,11 +4,16 @@ if (!($attributes['isHide'])):
    $query = new WP_Query();
    wp_reset_postdata();
 
-   $query = get_people();
+   if (check($attributes['selectedPosts'])) {
+      $query = get_people_by_ids($attributes['selectedPosts']);
+   } else {
+      $query = get_people([
+         'category' => empty($attributes['selectedCategories']) ? 'all' : $attributes['selectedCategories'],
+      ]);
+   }
 
    if ($query->have_posts()):
 ?>
-   <div class="mt-[200px]"></div>
       <section class="people-slider-section rounded-[20px] md:rounded-[30px] overflow-hidden relative <?= $classes ?>">
          <?= render_section_decor($attributes['decor']); ?>
          <div class="container flex flex-col relative z-2">
@@ -27,7 +32,6 @@ if (!($attributes['isHide'])):
             </div>
          </div>
       </section>
-      <div class="mt-[200px]"></div>
 <?php
    endif;
 endif;

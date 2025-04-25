@@ -699,7 +699,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const posts_per_page = 3;
+const posts_per_page = 50;
 function Edit({
   attributes,
   setAttributes,
@@ -761,6 +761,123 @@ function Edit({
     isLoading,
     refetch
   } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_8__["default"])(fetchPosts);
+  const fetchPostsByIds = () => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+    path: `site-core/v1/people-by-ids?ids=${selectedPosts.join(',')}`
+  });
+  const {
+    ref: postsByIdsRef,
+    data: postsByIdsData,
+    isLoading: isLoadingPostsByIds,
+    refetch: refetchPostsByIds
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_8__["default"])(fetchPostsByIds);
+  const fetchCategoriesData = () => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+    path: 'site-core/v1/people-categories'
+  });
+  const {
+    ref: refCategories,
+    data: dataCategories,
+    isLoading: isLoadingCategories
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_8__["default"])(fetchCategoriesData);
+  const fetchPostsForFilter = () => {
+    const path = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.buildApiPath)('site-core/v1/people', {
+      category: selectedCategories.length ? selectedCategories.join(',') : undefined,
+      page: page,
+      search: search,
+      posts_per_page: posts_per_page
+    });
+    return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+      path
+    });
+  };
+  const {
+    ref: postsForFilterRef,
+    data: postsForFilter,
+    isLoading: isPostsForFilterLoading,
+    refetch: refetchPostsForFilter
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_8__["default"])(fetchPostsForFilter);
+  const loadMorePostsForFilter = async ({
+    selectedCategories,
+    page,
+    search,
+    posts_per_page
+  }) => {
+    setIsFilterPostFetching(true);
+    const path = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.buildApiPath)('site-core/v1/people', {
+      category: selectedCategories.length ? selectedCategories.join(',') : undefined,
+      page: page,
+      search: search,
+      posts_per_page: posts_per_page
+    });
+    const res = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+      path
+    });
+    setFilterPosts(posts => [...posts, ...res.posts]);
+    setMax_num_pages(res.max_num_pages);
+    setIsFilterPostFetching(false);
+  };
+  const loadPostsForFilter = async ({
+    selectedCategories,
+    page,
+    search,
+    posts_per_page
+  }) => {
+    setIsFilterPostFetching(true);
+    const path = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.buildApiPath)('site-core/v1/people', {
+      category: selectedCategories.length ? selectedCategories.join(',') : undefined,
+      page: page,
+      search: search,
+      posts_per_page: posts_per_page
+    });
+    const res = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+      path
+    });
+    setFilterPosts(res.posts);
+    setMax_num_pages(res.max_num_pages);
+    setIsFilterPostFetching(false);
+  };
+  const debouncedloadPostsForFilter = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useCallback)((0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.debounce)(loadPostsForFilter, 500), []);
+  const handleCategoryChange = (checkedCategory, selectedCategories, isChecked) => {
+    let ids = [];
+    if (isChecked) {
+      ids = [...selectedCategories, checkedCategory];
+      setAttributes({
+        selectedCategories: ids
+      });
+    } else {
+      ids = selectedCategories.filter(id => id !== checkedCategory);
+      setAttributes({
+        selectedCategories: ids
+      });
+    }
+    refetch(() => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+      path: `site-core/v1/people${ids.length ? `?category=${ids.join(',')}` : ''}`
+    }));
+    loadPostsForFilter({
+      selectedCategories: ids,
+      page: 1,
+      search: '',
+      posts_per_page
+    });
+    setPage(1);
+    setSearch('');
+  };
+  const clearSelectedCategories = () => {
+    let ids = [];
+    setAttributes({
+      selectedCategories: ids
+    });
+    refetch(() => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+      path: `site-core/v1/people${ids.length ? `?category=${ids.join(',')}` : ''}`
+    }));
+    loadPostsForFilter({
+      selectedCategories: ids,
+      page: 1,
+      search: '',
+      posts_per_page
+    });
+    setPage(1);
+    setSearch('');
+  };
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     if (renderPosts.length < 5) {
       const headBlock = innerBlocks[0];
@@ -775,17 +892,28 @@ function Edit({
     }
   }, [renderPosts]);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
-    // if (selectedPosts.length && data && postsByIdsData) {
-    // 	setRenderPosts(postsByIdsData.posts);
-    // } else if (data) {
-    // 	setRenderPosts(data.posts);
-    // }
-
-    if (data) {
+    if (postsForFilter) {
+      setFilterPosts(postsForFilter.posts);
+      setMax_num_pages(postsForFilter.max_num_pages);
+    }
+  }, [postsForFilter]);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    return () => {
+      debouncedloadPostsForFilter.cancel();
+    };
+  }, [debouncedloadPostsForFilter]);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    refetchPostsByIds(() => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
+      path: `site-core/v1/people-by-ids?ids=${selectedPosts.join(',')}`
+    }));
+  }, [selectedPosts]);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    if (selectedPosts.length && data && postsByIdsData) {
+      setRenderPosts(postsByIdsData.posts);
+    } else if (data) {
       setRenderPosts(data.posts);
     }
-  }, [data]);
-  console.log(renderPosts);
+  }, [selectedPosts, data, postsByIdsData]);
   if (preview) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("img", {
       src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getUrlToStaticImages)(preview)
@@ -796,6 +924,110 @@ function Edit({
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_7__.DefaultSectionsControls, {
         attributes: attributes,
         setAttributes: setAttributes
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+        title: "\u0412\u0456\u0434\u043E\u0431\u0440\u0430\u0437\u0438\u0442\u0438 \u0442\u0456\u043B\u044C\u043A\u0438 \u043F\u043E \u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u044F\u0445",
+        initialOpen: true,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
+          className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])({
+            'disabled': isFilterPostsFetching || isPostsForFilterLoading || isLoadingPostsByIds
+          }),
+          children: [isLoadingCategories && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+            className: "text-center text-lg",
+            children: "\u0417\u0430\u0432\u0430\u0442\u043D\u0430\u0436\u0443\u0454\u0442\u044C\u0441\u044F ..."
+          }), !!dataCategories && dataCategories.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
+            children: dataCategories.map(category => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.CheckboxControl, {
+                label: category.name,
+                checked: selectedCategories.includes(category.term_id),
+                onChange: isChecked => handleCategoryChange(category.term_id, selectedCategories, isChecked)
+              }, category.term_id), category.sub_categories && category.sub_categories.map(category => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.CheckboxControl, {
+                className: "pl-[15px]",
+                label: category.name,
+                checked: selectedCategories.includes(category.term_id),
+                onChange: isChecked => handleCategoryChange(category.term_id, selectedCategories, isChecked)
+              }, category.term_id))]
+            }))
+          }) : !isLoadingCategories && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+            className: "text-center text-lg",
+            children: "\u041D\u0435 \u0441\u0442\u0432\u043E\u0440\u0435\u043D\u043E"
+          }), !!selectedCategories.length && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+            onClick: () => clearSelectedCategories(),
+            variant: "primary",
+            size: "compact",
+            children: "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u0438 \u043E\u0431\u0440\u0430\u043D\u0456 \u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u0457"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+            className: "mt-[20px] text-[14px] font-bold",
+            children: "\u0412\u0456\u0434\u043E\u0431\u0440\u0430\u0437\u0438\u0442\u0438 \u0442\u0456\u043B\u044C\u043A\u0438 \u043E\u0431\u0440\u0430\u043D\u0438\u0445 \u043B\u044E\u0434\u0435\u0439"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("input", {
+            className: "w-full mt-[5px]",
+            type: "search",
+            placeholder: "\u041F\u043E\u0448\u0443\u043A",
+            value: search,
+            onChange: e => {
+              debouncedloadPostsForFilter({
+                selectedCategories,
+                page: 1,
+                search: e.target.value,
+                posts_per_page
+              });
+              setSearch(e.target.value);
+              setPage(1);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
+            className: "mt-[5px] max-h-[400px] overflow-auto",
+            children: [filterPosts.length ? filterPosts.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+              title: post.title,
+              className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])('btn cursor-pointer p-[5px] transition-opacity hover:bg-light-primary-80 hover:[&.bg-light-primary-60]:bg-light-primary-40', {
+                'bg-light-primary-60': selectedPosts.includes(post.id)
+              }),
+              onClick: e => {
+                if (e.target.closest('.btn').classList.contains('bg-light-primary-60')) {
+                  setAttributes({
+                    selectedPosts: selectedPosts.filter(id => id != post.id)
+                  });
+                } else {
+                  setAttributes({
+                    selectedPosts: [...selectedPosts, post.id]
+                  });
+                }
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+                style: {
+                  '--line': 1,
+                  '--line-height': '1.4em'
+                },
+                className: "text-sm truncate-text",
+                children: post.title
+              })
+            }, post.id)) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+              className: "text-center text-sm",
+              children: "\u041D\u0435 \u0437\u043D\u0430\u0439\u0434\u0435\u043D\u043E"
+            }), isPostsForFilterLoading || isFilterPostsFetching ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+              className: "text-sm",
+              children: "\u0417\u0430\u0432\u0430\u0442\u043D\u0430\u0436\u0443\u0454\u0442\u044C\u0441\u044F ..."
+            }) : page < max_num_pages && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+              variant: "secondary",
+              size: "small",
+              onClick: () => {
+                loadMorePostsForFilter({
+                  selectedCategories,
+                  page: page + 1,
+                  search,
+                  posts_per_page
+                });
+                setPage(page + 1);
+              },
+              children: "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u0438 \u0449\u0435"
+            })]
+          }), !!selectedPosts.length && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+            variant: "primary",
+            className: "mt-[10px]",
+            onClick: () => setAttributes({
+              selectedPosts: []
+            }),
+            children: "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u0438 \u043E\u0431\u0440\u0430\u043D\u0456 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0438"
+          })]
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_section_decor_picker_SectionsDecorPicker__WEBPACK_IMPORTED_MODULE_11__.SectionsDecorPicker, {
         decor: decor,
         setDecor: value => setAttributes({
@@ -807,8 +1039,10 @@ function Edit({
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_ui_section_decor_SectionDecor__WEBPACK_IMPORTED_MODULE_12__.SectionDecor, {
         decor: decor
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
-        ref: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref),
-        className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])('container flex flex-col relative z-2'),
+        ref: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref, refCategories, postsByIdsRef, postsForFilterRef),
+        className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])('container flex flex-col relative z-2', {
+          'disabled': isLoadingPostsByIds
+        }),
         children: [children, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
           className: "mt-[30px] md:mt-[40px] lg:mt-[50px] relative order-2 first-child-no-margin",
           children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
@@ -817,7 +1051,10 @@ function Edit({
           }), !!renderPosts.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
             className: "swiper lg-max:[&.swiper]:overflow-visible [&:not(.swiper-initialized)_.swiper-wrapper]:gap-[10px] md:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[20px] lg:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[24px] 4xl:[&:not(.swiper-initialized)_.swiper-wrapper]:gap-[30px] lg-max:[&_.swiper-slide]:w-[323px] lg:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(33.333333%-(24px*2/3))] xl:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(25%-(24px*3/4))] 4xl:[&:not(.swiper-initialized)_.swiper-slide]:w-[calc(25%-(30px*3/4))]",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-              className: "swiper-wrapper",
+              className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])("swiper-wrapper", {
+                'md:justify-center': renderPosts.length < 3,
+                'lg:justify-center': renderPosts.length < 5
+              }),
               children: renderPosts.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
                 className: "swiper-slide !h-auto pointer-events-none",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_ui_card_people_CardPeople__WEBPACK_IMPORTED_MODULE_13__.CardPeople, {
@@ -829,6 +1066,49 @@ function Edit({
             className: "text-center text-lg",
             children: "\u041D\u0435 \u0437\u043D\u0430\u0439\u0434\u0435\u043D\u043E"
           }), renderPosts.length > 4 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_ui_slider_nav_SliderNav__WEBPACK_IMPORTED_MODULE_10__.SliderNav, {})]
+        }), !!selectedPosts.length && !!renderPosts.length && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
+          className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])("mt-[30px] md:mt-[40px] lg:mt-[50px] relative order-3 first-child-no-margin"),
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
+            className: "text-lg",
+            children: ["\u041E\u0431\u0440\u0430\u043D\u0456 \u043B\u044E\u0434\u0438, ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("strong", {
+              className: "text-sm",
+              children: "\u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0438 \u043D\u0438\u0436\u0447\u0435 \u0432\u0456\u0434\u043E\u0431\u0440\u0430\u0436\u0430\u044E\u0442\u044C\u0441\u044F \u0442\u0456\u043B\u044C\u043A\u0438 \u0442\u0443\u0442, \u0432 \u0440\u0435\u0436\u0438\u043C\u0456 \u043D\u0430\u043F\u043E\u0432\u0435\u043D\u043D\u044F \u0441\u0430\u0439\u0442\u0443"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+            className: "mt-[20px] selectedNews flex flex-wrap gap-[10px]",
+            children: renderPosts.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
+              className: "card-news-v1 relative nested-bg-item rounded-[12px] p-[5px]",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("button", {
+                onClick: () => {
+                  setAttributes({
+                    selectedPosts: selectedPosts.filter(id => id != post.id)
+                  });
+                },
+                className: "absolute z-3 top-0 right-0 icon-x-mark flex items-center justify-center h-[44px] w-[44px] rounded-[8px] bg-dark-primary text-light-primary text-sm transition-colors hover:bg-dark-primary-80"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
+                className: "flex flex-col h-full relative z-1",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+                  className: "aspect-[1/0.597] grow-0 shrink-0 rounded-[8px] bg-dark-primary-80 overflow-hidden relative",
+                  dangerouslySetInnerHTML: {
+                    __html: post.image
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
+                  className: "grow shrink mt-[16px] md:mt-[20px] xl:mt-[30px] pb-[11px] px-[11px] md:pb-[15px] md:px-[15px] flex flex-col",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+                    className: "text-sm text-dark-primary-60 lowercase",
+                    children: post.data
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+                    style: {
+                      '--line': '3',
+                      '--line-height': '1.4em'
+                    },
+                    className: "title mt-[5px] h5 text-dark-primary mb-auto transition-colors truncate-text uppercase",
+                    children: post.title
+                  })]
+                })]
+              })]
+            }))
+          })]
         })]
       })]
     })]

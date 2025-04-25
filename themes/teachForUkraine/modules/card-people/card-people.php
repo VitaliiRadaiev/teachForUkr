@@ -4,9 +4,6 @@ function render_card_people()
     $excerpt = get_the_excerpt();
     $socila = get_field('people_social', get_the_ID());
 ?>
-    <script>
-        console.log(<?= json_encode($socila); ?>);
-    </script>
     <div class="card-people nested-bg-item rounded-[12px] p-[5px] h-full flex flex-col">
         <div class="aspect-[1/0.833] lg:aspect-[1/0.864] grow-0 shrink-0 rounded-[8px] relative overflow-hidden">
             <?= get_image(get_post_thumbnail_id(), 'ibg', false); ?>
