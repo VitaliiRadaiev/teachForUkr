@@ -1,0 +1,9 @@
+1. update default block template ++++
+2. check background animations on last created blocks +++
+3. create reviews post without link +++
+4. add acf fields +++
+5. create query functions +++
+6. creat api point +++
+
+7. creat gutenberg block
+8. check behavior when few cards

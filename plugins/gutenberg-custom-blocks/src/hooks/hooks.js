@@ -16,13 +16,13 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
                 if (entry.isIntersecting && !isFetched && typeof fetchCallback === 'function') {
                     setIsLoading(true);
                     fetchCallback()
-                        .then((result) => {
+                        ?.then((result) => {
                             setData(result);
                             setIsFetched(true);
                             setIsLoading(false);
                             observer.disconnect();
                         })
-                        .catch((err) => {
+                        ?.catch((err) => {
                             setError(err);
                             setIsLoading(false);
                         });
@@ -41,13 +41,13 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
     const refetch = (fetchCallback) => {
         setIsLoading(true);
         fetchCallback()
-            .then((result) => {
+            ?.then((result) => {
                 setData(result);
                 setIsFetched(true);
                 setIsLoading(false);
                 observer.disconnect();
             })
-            .catch((err) => {
+            ?.catch((err) => {
                 setError(err);
                 setIsLoading(false);
             });

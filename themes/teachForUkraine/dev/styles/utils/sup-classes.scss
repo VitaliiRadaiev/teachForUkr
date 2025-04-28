@@ -163,6 +163,9 @@
 .color-light-primary-filter {
     filter: $color-light-primary-filter;
 }
+.color-light-primary-60-filter {
+    filter: $color-light-primary-60-filter;
+}
 
 @each $type, $color in $category-colors {
     .category-colors-#{$type} {

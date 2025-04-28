@@ -7,12 +7,14 @@ import "./editor.scss";
 import clsx from "clsx";
 import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
+import { SectionsDecorPicker } from "../../components/section-decor-picker/SectionsDecorPicker";
+import { SectionDecor } from "../../ui/section-decor/SectionDecor";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { preview, isHide, padding, margin, background, className } = attributes;
+	const { preview, isHide, padding, margin, background, className, decor } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
-			'numbers-section rounded-[20px] md:rounded-[30px]',
+			'numbers-section rounded-[20px] md:rounded-[30px] overflow-hidden relative',
 			className,
 			background,
 			getSectionsMarginClasses(margin),
@@ -60,9 +62,11 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<DefaultSectionsControls attributes={attributes} setAttributes={setAttributes} />
+				<SectionsDecorPicker decor={decor} setDecor={(value) => setAttributes({ decor: value })} />
 			</InspectorControls>
 			<section {...blockProps}>
-				<div className="container">
+				<SectionDecor decor={decor} />
+				<div className="container relative z-2">
 					{children}
 				</div>
 			</section>

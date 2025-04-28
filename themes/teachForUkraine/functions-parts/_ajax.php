@@ -275,7 +275,6 @@ function ajax_get_people_sub_categories($request)
     return rest_ensure_response($terms);
 }
 
-
 function ajax_get_cases_for_block_slider()
 {
     $text_more_details = get_field('text_more_details', 'options');
@@ -297,6 +296,36 @@ function ajax_get_cases_for_block_slider()
                 'title' => $title,
                 'excerpt' => $excerpt,
                 'text_more_details' => $text_more_details
+            ];
+        }
+    }
+
+    return rest_ensure_response([
+        'posts' => $posts
+    ]);
+}
+
+function ajax_get_reviews()
+{
+    $query = get_reviews();
+
+    $posts = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $id = get_the_ID();
+            $image = get_image(get_post_thumbnail_id(), 'ibg', false, 'medium');
+            $title = get_the_title();
+            $excerpt = get_the_excerpt();
+            $position = get_field('review_position', $id);
+
+            $posts[] = [
+                'id' =>  $id,
+                'image' => $image,
+                'title' => $title,
+                'position' => $position,
+                'excerpt' => $excerpt,
             ];
         }
     }
@@ -544,6 +573,12 @@ function register_endpoints()
     register_rest_route('site-core/v1', 'case-for-slider', array(
         'methods'  => 'GET',
         'callback' => 'ajax_get_cases_for_block_slider',
+        'permission_callback' => '__return_true',
+    ));
+
+    register_rest_route('site-core/v1', 'review', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_reviews',
         'permission_callback' => '__return_true',
     ));
 }

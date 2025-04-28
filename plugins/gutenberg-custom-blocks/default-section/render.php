@@ -2,8 +2,9 @@
 if (!($attributes['isHide'])):
    $classes = combine_classes(get_default_section_classes($attributes));
 ?>
-   <section class="numbers-section rounded-[20px] md:rounded-[30px] <?= $classes ?>">
-      <div class="container">
+   <section data-aos="rotate-child" class="numbers-section rounded-[20px] md:rounded-[30px] overflow-hidden relative <?= $classes ?>">
+      <?= render_section_decor($attributes['decor']); ?>
+      <div class="container relative z-2">
          <?= $content; ?>
       </div>
    </section>

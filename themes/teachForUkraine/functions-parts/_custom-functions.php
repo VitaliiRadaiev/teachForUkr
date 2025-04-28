@@ -43,6 +43,7 @@ function shareTwitter($linkToShare)
 }
 
 function get_image($image_id, $classes = '', $echo = true, $size = 'full')
+// thumbnail, medium, large, full
 {
   if ($image_id) {
     $image_html = wp_get_attachment_image($image_id, $size, false, array('class' => $classes));

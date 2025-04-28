@@ -600,12 +600,12 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
     observerRef.current = new IntersectionObserver(([entry], observer) => {
       if (entry.isIntersecting && !isFetched && typeof fetchCallback === 'function') {
         setIsLoading(true);
-        fetchCallback().then(result => {
+        fetchCallback()?.then(result => {
           setData(result);
           setIsFetched(true);
           setIsLoading(false);
           observer.disconnect();
-        }).catch(err => {
+        })?.catch(err => {
           setError(err);
           setIsLoading(false);
         });
@@ -620,12 +620,12 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
   }, [isFetched, shouldFetch, ...deps]);
   const refetch = fetchCallback => {
     setIsLoading(true);
-    fetchCallback().then(result => {
+    fetchCallback()?.then(result => {
       setData(result);
       setIsFetched(true);
       setIsLoading(false);
       observer.disconnect();
-    }).catch(err => {
+    })?.catch(err => {
       setError(err);
       setIsLoading(false);
     });
@@ -649,7 +649,7 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
   \**********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/cases-slider","version":"0.1.0","title":"Кейси слайдер","category":"news_stories_cases_other","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"},"preview":{"type":"string"},"decor":{"type":"number","default":0},"selectedCategories":{"type":"array","default":[]},"selectedPosts":{"type":"array","default":[]}},"textdomain":"cases-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","viewScript":"file:./script.js","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/cases-slider","version":"0.1.0","title":"Кейси слайдер","category":"news_stories_cases_other","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"},"preview":{"type":"string"},"decor":{"type":"number","default":0}},"textdomain":"cases-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","viewScript":"file:./script.js","render":"file:./render.php"}');
 
 /***/ }),
 

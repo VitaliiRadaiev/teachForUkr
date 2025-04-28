@@ -391,6 +391,24 @@ function get_cases_for_block_slider()
     return array_merge($featured_posts, $other_posts);
 }
 
+function get_reviews()
+{
+    $limit = 16;
+
+    $args = array(
+        'post_type' => 'review',
+        'posts_per_page' => $limit,
+        'post_status' => 'publish',
+        'orderby'        => 'date',
+        'order'          => 'DESC'
+    );
+
+    $query  = new WP_Query($args);
+    wp_reset_postdata();
+
+    return $query;
+}
+
 // helpers
 function get_term_children_recursive($parent_id, $taxonomy)
 {

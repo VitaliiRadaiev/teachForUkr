@@ -41,6 +41,10 @@
         "bg-light-primary-80"
       ],
       "default": "bg-light-primary-80"
+    },
+    "decor": {
+      "type": "number",
+      "default": 0
     }
   },
   "textdomain": "numbers-text",

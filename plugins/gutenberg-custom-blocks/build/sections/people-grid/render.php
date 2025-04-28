@@ -15,7 +15,7 @@ if (!($attributes['isHide'])):
 
    if ($query->have_posts()):
 ?>
-      <section data-people-grid data-selected-categories="<?= empty($attributes['selectedCategories']) ? 'all' : implode(',', $attributes['selectedCategories']) ?>" class="people-grid-section rounded-[20px] md:rounded-[30px] overflow-hidden relative <?= $classes ?> <?= $query->max_num_pages != 1 ?: '[&_.show-more-btn]:!hidden' ?>">
+      <section data-aos="rotate-child" data-people-grid data-selected-categories="<?= empty($attributes['selectedCategories']) ? 'all' : implode(',', $attributes['selectedCategories']) ?>" class="people-grid-section rounded-[20px] md:rounded-[30px] overflow-hidden relative <?= $classes ?> <?= $query->max_num_pages != 1 ?: '[&_.show-more-btn]:!hidden' ?>">
          <?= render_section_decor($attributes['decor']); ?>
          <div class="container flex flex-col relative z-2">
             <?= $content; ?>

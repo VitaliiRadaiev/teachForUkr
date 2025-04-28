@@ -339,12 +339,12 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
     observerRef.current = new IntersectionObserver(([entry], observer) => {
       if (entry.isIntersecting && !isFetched && typeof fetchCallback === 'function') {
         setIsLoading(true);
-        fetchCallback().then(result => {
+        fetchCallback()?.then(result => {
           setData(result);
           setIsFetched(true);
           setIsLoading(false);
           observer.disconnect();
-        }).catch(err => {
+        })?.catch(err => {
           setError(err);
           setIsLoading(false);
         });
@@ -359,12 +359,12 @@ const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
   }, [isFetched, shouldFetch, ...deps]);
   const refetch = fetchCallback => {
     setIsLoading(true);
-    fetchCallback().then(result => {
+    fetchCallback()?.then(result => {
       setData(result);
       setIsFetched(true);
       setIsLoading(false);
       observer.disconnect();
-    }).catch(err => {
+    })?.catch(err => {
       setError(err);
       setIsLoading(false);
     });

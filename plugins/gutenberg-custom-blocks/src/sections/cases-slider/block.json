@@ -48,14 +48,6 @@
     "decor": {
       "type": "number",
       "default": 0
-    },
-    "selectedCategories": {
-      "type": "array",
-      "default": []
-    },
-    "selectedPosts": {
-      "type": "array",
-      "default": []
     }
   },
   "textdomain": "cases-slider",

@@ -3299,3 +3299,10 @@
 [28-Apr-2025 07:07:28 UTC]   Automatic plugin updates starting...
 [28-Apr-2025 07:07:28 UTC]   Automatic plugin updates complete.
 [28-Apr-2025 07:07:29 UTC] Automatic updates complete.
+[28-Apr-2025 09:54:51 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/numbers-text" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121
+[28-Apr-2025 11:06:27 UTC] PHP Warning:  Undefined variable $text_more_details in D:\xampp\htdocs\teachForUkr\wp-content\plugins\gutenberg-custom-blocks\build\sections\reviews-slider\render.php on line 34
+[28-Apr-2025 11:06:27 UTC] PHP Warning:  Undefined variable $text_more_details in D:\xampp\htdocs\teachForUkr\wp-content\plugins\gutenberg-custom-blocks\build\sections\reviews-slider\render.php on line 34
+[28-Apr-2025 11:06:27 UTC] PHP Warning:  Undefined variable $text_more_details in D:\xampp\htdocs\teachForUkr\wp-content\plugins\gutenberg-custom-blocks\build\sections\reviews-slider\render.php on line 34
+[28-Apr-2025 11:09:48 UTC] PHP Warning:  Undefined variable $text_more_details in D:\xampp\htdocs\teachForUkr\wp-content\plugins\gutenberg-custom-blocks\build\sections\reviews-slider\render.php on line 34
+[28-Apr-2025 11:09:48 UTC] PHP Warning:  Undefined variable $text_more_details in D:\xampp\htdocs\teachForUkr\wp-content\plugins\gutenberg-custom-blocks\build\sections\reviews-slider\render.php on line 34
+[28-Apr-2025 11:09:48 UTC] PHP Warning:  Undefined variable $text_more_details in D:\xampp\htdocs\teachForUkr\wp-content\plugins\gutenberg-custom-blocks\build\sections\reviews-slider\render.php on line 34

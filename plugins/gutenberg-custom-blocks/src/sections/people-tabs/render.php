@@ -17,7 +17,7 @@ if (!($attributes['isHide']) && ($attributes['selectedCategory'] !== 0)):
 
    if ($query->have_posts()):
 ?>
-      <section data-people-tabs data-initial-category="<?= $initialCategory ?>" class="people-tabs-section rounded-[20px] md:rounded-[30px] overflow-hidden relative <?= $classes ?> <?= $query->max_num_pages != 1 ?: '[&_.show-more-btn]:!hidden' ?>">
+      <section data-aos="rotate-child" data-people-tabs data-initial-category="<?= $initialCategory ?>" class="people-tabs-section rounded-[20px] md:rounded-[30px] overflow-hidden relative <?= $classes ?> <?= $query->max_num_pages != 1 ?: '[&_.show-more-btn]:!hidden' ?>">
          <?= render_section_decor($attributes['decor']); ?>
          <div class="container flex flex-col relative z-2">
             <?= $content; ?>

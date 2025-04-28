@@ -278,6 +278,16 @@ function wpa_show_permalinks($post_link, $post)
         }
     }
 
+    if (is_object($post) && $post->post_type == 'vacancy') {
+        $terms = wp_get_object_terms($post->ID, 'vacancy-category');
+
+        if (!empty($terms) && !is_wp_error($terms)) {
+            return str_replace('%vacancy-category%', $terms[0]->slug, $post_link);
+        } else {
+            return str_replace('vacancy/%vacancy-category%/', 'vacancy/', $post_link);
+        }
+    }
+
     return $post_link;
 }
 add_filter('post_type_link', 'wpa_show_permalinks', 1, 2);
