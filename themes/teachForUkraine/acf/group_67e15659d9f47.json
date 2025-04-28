@@ -504,6 +504,23 @@
             "allow_in_bindings": 0
         },
         {
+            "key": "field_680f73862bda1",
+            "label": "Повний перелік \"Вакансій\"",
+            "name": "link_vacancies",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_67e159c72a139",
             "label": "Загальні текста",
             "name": "",
@@ -942,6 +959,27 @@
             "append": ""
         },
         {
+            "key": "field_680f74301fcab",
+            "label": "Текст \"Схожі вакансії\"",
+            "name": "text_similar_vacancies",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Схожі вакансії",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67e26a044512e",
             "label": "Соціальні мережі",
             "name": "",
@@ -1021,5 +1059,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1745839974
+    "modified": 1745843336
 }

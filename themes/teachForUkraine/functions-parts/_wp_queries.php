@@ -409,6 +409,69 @@ function get_reviews()
     return $query;
 }
 
+function get_vacancies($queries = [])
+{
+    $defaults = [
+        'category'       => 'all',
+        'page'           => 1,
+        'posts_per_page' => 16,
+        'search'         => '',
+    ];
+
+    $queries = wp_parse_args($queries, $defaults);
+
+    $args = array(
+        'post_type' => 'vacancy',
+        'posts_per_page' => $queries['posts_per_page'],
+        'post_status' => 'publish',
+        'paged' => $queries['page'],
+        'orderby' => 'date',
+        'order' => 'DESC'
+    );
+
+    $search = trim($queries['search']);
+    if (check($search)) {
+        $args['s'] = $search;
+    }
+
+    if ($queries['category'] !== 'all') {
+        $terms = $queries['category'];
+        $field = 'slug';
+
+        if (is_array($terms) && count(array_filter($terms, 'is_numeric')) === count($terms)) {
+            $field = 'term_id';
+        }
+
+        if (is_numeric($terms) && !is_array($terms)) {
+            $field = 'term_id';
+        }
+
+        $args = array_merge($args, [
+            'tax_query' => [
+                [
+                    'taxonomy' => 'vacancy-city',
+                    'field' => $field,
+                    'terms' => $terms,
+                ],
+            ],
+        ]);
+    }
+
+    $query = new WP_Query($args);
+    wp_reset_postdata();
+
+    return $query;
+}
+
+function get_vacancies_cities() {
+    $terms = get_terms([
+        'taxonomy'   => 'vacancy-city',
+        'hide_empty' => true,
+    ]);
+
+    return $terms;
+}
+
 // helpers
 function get_term_children_recursive($parent_id, $taxonomy)
 {

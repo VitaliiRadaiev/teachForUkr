@@ -956,6 +956,9 @@ video {
 .h-\[25px\] {
   height: 25px;
 }
+.h-\[26px\] {
+  height: 26px;
+}
 .h-\[280px\] {
   height: 280px;
 }
@@ -1006,9 +1009,6 @@ video {
 }
 .h-svh {
   height: 100svh;
-}
-.h-\[26px\] {
-  height: 26px;
 }
 .max-h-\[400px\] {
   max-height: 400px;
@@ -1446,6 +1446,9 @@ video {
 .border-transparent {
   border-color: transparent;
 }
+.bg-\[--bg\] {
+  background-color: var(--bg);
+}
 .bg-\[var\(--bg\)\] {
   background-color: var(--bg);
 }
@@ -1491,9 +1494,6 @@ video {
 }
 .bg-white\/75 {
   background-color: rgb(255 255 255 / 0.75);
-}
-.bg-\[--bg\] {
-  background-color: var(--bg);
 }
 .object-contain {
   -o-object-fit: contain;
@@ -1564,6 +1564,14 @@ video {
 .py-\[70px\] {
   padding-top: 70px;
   padding-bottom: 70px;
+}
+.px-\[14px\] {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.py-\[3px\] {
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 .pb-\[11px\] {
   padding-bottom: 11px;
@@ -10338,6 +10346,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .md\:mt-\[60px\] {
     margin-top: 60px;
+  }
+  .md\:mb-\[24px\] {
+    margin-bottom: 24px;
   }
   .md\:block {
     display: block;

@@ -335,6 +335,47 @@ function ajax_get_reviews()
     ]);
 }
 
+function ajax_get_vacancies($request)
+{
+    $category = $request->get_param('category');
+    $search = $request->get_param('search');
+    $page = $request->get_param('page');
+    $posts_per_page = $request->get_param('posts_per_page');
+
+    $args = [
+        'page' => $page,
+        'posts_per_page' => $posts_per_page,
+        'search' => $search
+    ];
+
+    if ($category === 'all') {
+        $args = array_merge($args, [
+            'category' => $category
+        ]);
+    } else {
+        $args = array_merge($args, [
+            'category' => array_filter(explode(',', $category), function ($item) {
+                return $item !== 'all';
+            })
+        ]);
+    }
+
+    $query = get_vacancies($args);
+
+    $posts = create_vacancies_response_data($query);
+
+    wp_reset_postdata();
+    return rest_ensure_response([
+        'posts' => $posts,
+        'max_num_pages' => $query->max_num_pages
+    ]);
+}
+
+function ajax_get_vacancy_city() {
+    $terms = get_vacancies_cities();
+    return rest_ensure_response($terms);
+}
+
 // register endpoints
 function register_endpoints()
 {
@@ -581,6 +622,47 @@ function register_endpoints()
         'callback' => 'ajax_get_reviews',
         'permission_callback' => '__return_true',
     ));
+
+    register_rest_route('site-core/v1', 'vacancy', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_vacancies',
+        'permission_callback' => '__return_true',
+        'args'     => array(
+            'category' => array(
+                'required' => false,
+                'default'  => 'all',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
+                }
+            ),
+            'search' => array(
+                'required' => false,
+                'default'  => '',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
+                }
+            ),
+            'page' => array(
+                'required' => false,
+                'default'  => 1,
+                'validate_callback' => function ($param) {
+                    return is_numeric($param) && intval($param) > 0;
+                }
+            ),
+            'posts_per_page' => array(
+                'required' => false,
+                'default'  => 16,
+                'validate_callback' => function ($param) {
+                    return is_numeric($param) && intval($param) > 0;
+                }
+            )
+        )
+    ));
+    register_rest_route('site-core/v1', 'vacancy-city', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_vacancy_city',
+        'permission_callback' => '__return_true'
+    ));
 }
 
 
@@ -679,6 +761,32 @@ function create_people_response_data($query)
                 'title' => $title,
                 'excerpt' => $excerpt,
                 'social' => $social
+            ];
+        }
+    }
+
+    return $posts;
+}
+function create_vacancies_response_data($query)
+{
+    $text_more_details = get_field('text_more_details', 'options');
+    $posts = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $id = get_the_ID();
+            $title = get_the_title();
+            $excerpt = get_the_excerpt();
+
+            $terms = get_the_terms(get_the_ID(), 'vacancy-city');
+
+            $posts[] = [
+                'id' =>  $id,
+                'title' => $title,
+                'excerpt' => $excerpt,
+                'cities' => $terms,
+                'text_more_details' => $text_more_details
             ];
         }
     }

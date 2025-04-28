@@ -279,12 +279,12 @@ function wpa_show_permalinks($post_link, $post)
     }
 
     if (is_object($post) && $post->post_type == 'vacancy') {
-        $terms = wp_get_object_terms($post->ID, 'vacancy-category');
+        $terms = wp_get_object_terms($post->ID, 'vacancy-city');
 
         if (!empty($terms) && !is_wp_error($terms)) {
-            return str_replace('%vacancy-category%', $terms[0]->slug, $post_link);
+            return str_replace('%vacancy-city%', $terms[0]->slug, $post_link);
         } else {
-            return str_replace('vacancy/%vacancy-category%/', 'vacancy/', $post_link);
+            return str_replace('vacancy/%vacancy-city%/', 'vacancy/', $post_link);
         }
     }
 

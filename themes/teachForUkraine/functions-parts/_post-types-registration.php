@@ -246,10 +246,10 @@ function init_post_types()
         'rest_base' => null,
         'menu_position' => 4,
         'hierarchical' => false,
-        'supports' => array('title', 'thumbnail', 'excerpt'),
+        'supports' => array('title', 'excerpt'),
         'taxonomies' => array(),
         'has_archive' => false,
-        'rewrite' => array('slug' => 'vacancy/%vacancy-category%', 'with_front' => false ),
+        'rewrite' => array('slug' => 'vacancy/%vacancy-city%', 'with_front' => false ),
         'query_var' => false,
         'menu_icon' => 'dashicons-id-alt',
     ));
