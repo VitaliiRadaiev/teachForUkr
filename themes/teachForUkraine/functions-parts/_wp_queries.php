@@ -262,11 +262,11 @@ function get_people($queries = [])
     if ($queries['category'] !== 'all') {
         $terms = $queries['category'];
         $field = 'slug';
-    
+
         if (is_array($terms) && count(array_filter($terms, 'is_numeric')) === count($terms)) {
             $field = 'term_id';
         }
-    
+
         if (is_numeric($terms) && !is_array($terms)) {
             $field = 'term_id';
         }
@@ -332,6 +332,63 @@ function get_people_sub_categories($category_id)
     ]);
 
     return $child_terms;
+}
+
+
+function get_cases_for_block_slider()
+{
+    $limit = 16;
+
+    $args = array(
+        'post_type' => 'case',
+        'posts_per_page' => $limit,
+        'post_status' => 'publish',
+        'meta_query' => [
+            'relation' => 'OR',
+            [
+                'key' => 'show_in_cases_slider_block',
+                'value' => '1',
+                'compare' => '='
+            ]
+        ],
+        'orderby'        => 'date',
+        'order'          => 'DESC'
+    );
+
+    $featured_query  = new WP_Query($args);
+    wp_reset_postdata();
+    $featured_posts = $featured_query->posts;
+    $featured_ids   = wp_list_pluck($featured_posts, 'ID');
+
+    $remaining_posts_count = $limit - count($featured_posts);
+
+    $other_posts = [];
+
+    if ($remaining_posts_count > 0) {
+        $other_query = new WP_Query(array(
+            'post_type'      => 'case',
+            'posts_per_page' => $remaining_posts_count,
+            'post_status'    => 'publish',
+            'orderby'        => 'rand',
+            'post__not_in'   => $featured_ids,
+            'meta_query'     => array(
+                'relation' => 'OR',
+                [
+                    'key'     => 'show_in_cases_slider_block',
+                    'value' => '0',
+                    'compare' => '='
+                ],
+                [
+                    'key'     => 'show_in_cases_slider_block',
+                    'compare' => 'NOT EXISTS'
+                ]
+            )
+        ));
+        wp_reset_postdata();
+        $other_posts = $other_query->posts;
+    }
+
+    return array_merge($featured_posts, $other_posts);
 }
 
 // helpers

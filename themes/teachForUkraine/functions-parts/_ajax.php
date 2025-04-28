@@ -275,6 +275,37 @@ function ajax_get_people_sub_categories($request)
     return rest_ensure_response($terms);
 }
 
+
+function ajax_get_cases_for_block_slider()
+{
+    $text_more_details = get_field('text_more_details', 'options');
+    $cases = get_cases_for_block_slider();
+
+    $posts = [];
+
+    if (check($cases)) {
+        foreach ($cases as $case) {
+            $url = get_the_permalink($case->ID);
+            $image = get_image(get_post_thumbnail_id($case->ID), 'transition-transform duration-1000', false);
+            $title = get_the_title($case->ID);
+            $excerpt = get_the_excerpt($case->ID);
+
+            $posts[] = [
+                'id' =>  $case->ID,
+                'url' => $url,
+                'image' => $image,
+                'title' => $title,
+                'excerpt' => $excerpt,
+                'text_more_details' => $text_more_details
+            ];
+        }
+    }
+
+    return rest_ensure_response([
+        'posts' => $posts
+    ]);
+}
+
 // register endpoints
 function register_endpoints()
 {
@@ -508,6 +539,12 @@ function register_endpoints()
                 }
             )
         )
+    ));
+
+    register_rest_route('site-core/v1', 'case-for-slider', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_cases_for_block_slider',
+        'permission_callback' => '__return_true',
     ));
 }
 
