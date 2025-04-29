@@ -10,9 +10,10 @@ import { useState } from "@wordpress/element";
 import { CONTAINER_SIZES, RICH_TEXT_FORMATS } from "../../global/global";
 import { IsHide } from "../../components/is-hide/IsHide";
 import { MarginYControl } from "../../components/space-control/MarginYControl";
-import { getMarginClasses, combineString, getContainerClasses } from "../../utils/utils";
+import { getMarginClasses, combineString, getContainerClasses, getOptionsField } from "../../utils/utils";
 import { ButtonsGroup } from "../../components/buttons-group/ButtonsGroup";
 import clsx from "clsx";
+import useFetchOnVisible from "../../hooks/hooks";
 
 const getHeadingSizeClass = (size) => {
 	const sizesMap = {
@@ -27,8 +28,12 @@ const getHeadingSizeClass = (size) => {
 }
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, margin, classes, text, htmlTeg, fontSize, aligment, container } = attributes;
+	const { isHide, margin, classes, text, htmlTeg, fontSize, aligment, container, acfField } = attributes;
 	const [isContainerChange, setIsContainerChange] = useState(false);
+	const [isTyping, setIsTyping] = useState(false);
+	const fetchData = () => getOptionsField(acfField);
+	const { ref, data } = useFetchOnVisible(fetchData, [acfField], (!text && !isTyping));
+	const globalText = data?.value || '';
 
 	const blockProps = useBlockProps({
 		className: clsx(
@@ -88,10 +93,12 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 			<div {...blockProps}>
 				<RichText
+					ref={ref}
 					placeholder="Введіть текст..."
-					value={text}
+					value={text || (!isTyping && globalText)}
 					allowedFormats={RICH_TEXT_FORMATS}
 					onChange={(value) => {
+						setIsTyping(true);
 						setAttributes({
 							text: value
 						})

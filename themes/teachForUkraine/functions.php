@@ -291,3 +291,21 @@ function wpa_show_permalinks($post_link, $post)
     return $post_link;
 }
 add_filter('post_type_link', 'wpa_show_permalinks', 1, 2);
+
+
+add_filter('upload_mimes', function ($mimes) {
+    $mimes['pdf'] = 'application/pdf';
+    return $mimes;
+});
+add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+    if ($ext === 'pdf') {
+        return [
+            'ext'  => 'pdf',
+            'type' => 'application/pdf',
+            'proper_filename' => $filename
+        ];
+    }
+    return $data;
+}, 10, 4);
+

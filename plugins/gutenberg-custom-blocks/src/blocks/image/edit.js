@@ -22,6 +22,7 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<img
+				draggable
 				src={url && `${document.location.origin}${removeDomain(url)}`}
 				className={clsx({
 					'initial': (!classes && !imageId),

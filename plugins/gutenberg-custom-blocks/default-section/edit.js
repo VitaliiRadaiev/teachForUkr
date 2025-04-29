@@ -14,7 +14,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const { preview, isHide, padding, margin, background, className, decor } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
-			'numbers-section rounded-[20px] md:rounded-[30px] overflow-hidden relative',
+			'numbers-section rounded-[20px] md:rounded-[30px] relative',
 			className,
 			background,
 			getSectionsMarginClasses(margin),

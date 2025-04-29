@@ -78,6 +78,9 @@
         false
       ],
       "default": false
+    },
+    "acfField": {
+      "type": "string"
     }
   },
   "textdomain": "heading",

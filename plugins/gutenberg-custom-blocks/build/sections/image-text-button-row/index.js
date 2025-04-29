@@ -672,12 +672,12 @@ function Edit({
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
             className: "container h-full relative",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-              className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('absolute h-[106px] md:h-[168px] lg:h-[239px] w-auto right-[-97px] md:right-[-169px] lg:right-[-235px] lg:bottom-[122px]', {
+              className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('absolute h-[106px] md:h-[168px] lg:h-[239px] w-auto right-[-97px] md:right-[-169px] lg:right-[-235px] lg:bottom-[122px] accent-second-50-filter', {
                 'bottom-[68px] md:bottom-[98px]': directions === 'left',
                 'top-[31.5%] md:top-[22.5%] lg:top-auto': directions === 'right',
                 'lg:!bottom-0': decor === 2
               }),
-              src: decor === 1 ? (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)('general/semi-torus-down.svg') : (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)('general/semi-torus-top.svg'),
+              src: decor === 1 ? (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)('icons/semi-torus-down.svg') : (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)('general/semi-torus-top.svg'),
               alt: "decor"
             })
           })

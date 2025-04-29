@@ -7,7 +7,7 @@ import { useEffect } from "@wordpress/element";
 import { useSelect, useDispatch } from '@wordpress/data';
 import "./editor.scss";
 import clsx from "clsx";
-import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages, getOptionsField, mergeRefs } from "../../utils/utils";
+import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
 import { SectionsDecorPicker } from "../../components/section-decor-picker/SectionsDecorPicker";
 import { SectionDecor } from "../../ui/section-decor/SectionDecor";
@@ -37,7 +37,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			['t4u/head-block', {
 				classes: "order-1",
 				aligment: "left",
-				container: "lg"
+				container: "lg",
+				titleAcfField: 'text_reviews'
 			}],
 			["t4u/buttons-group", {
 				classes: 'mt-[40px] xl:mt-[50px] order-3',
@@ -53,9 +54,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		allowedBlocks: []
 	})
 
-	const fetchTitleData = () => getOptionsField('text_reviews');
-	const { ref: titleRef, data: titleData } = useFetchOnVisible(fetchTitleData);
-
 	const fetchData = () => apiFetch({ path: 'site-core/v1/review' });
 	const { ref, data, isLoading } = useFetchOnVisible(fetchData);
 
@@ -68,17 +66,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			});
 		}
 	}, [data])
-
-	useEffect(() => {
-		if (titleData) {
-			const title = innerBlocks[0]?.innerBlocks[1];
-			if (title && !title.attributes.text) {
-				updateBlockAttributes(title.clientId, {
-					text: titleData.value
-				})
-			}
-		}
-	}, [titleData]);
 
 
 	if (preview) {
@@ -93,7 +80,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			</InspectorControls>
 			<section {...blockProps}>
 				<SectionDecor decor={decor} />
-				<div ref={mergeRefs(ref, titleRef)} className="container relative z-2 flex flex-col">
+				<div ref={ref} className="container relative z-2 flex flex-col">
 					{children}
 					<div className="mt-[30px] md:mt-[40px] lg:mt-[50px] relative order-2 first-child-no-margin">
 						{(isLoading) && <div className="text-center text-lg">Заватнажується ...</div>}

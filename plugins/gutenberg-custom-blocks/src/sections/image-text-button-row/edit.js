@@ -142,14 +142,14 @@ export default function Edit({ attributes, setAttributes }) {
 							<div className="container h-full relative">
 								<img
 									className={clsx(
-										'absolute h-[106px] md:h-[168px] lg:h-[239px] w-auto right-[-97px] md:right-[-169px] lg:right-[-235px] lg:bottom-[122px]',
+										'absolute h-[106px] md:h-[168px] lg:h-[239px] w-auto right-[-97px] md:right-[-169px] lg:right-[-235px] lg:bottom-[122px] accent-second-50-filter',
 										{
 											'bottom-[68px] md:bottom-[98px]': directions === 'left',
 											'top-[31.5%] md:top-[22.5%] lg:top-auto': directions === 'right',
 											'lg:!bottom-0': decor === 2
 										}
 									)}
-									src={decor === 1 ? getUrlToStaticImages('general/semi-torus-down.svg') : getUrlToStaticImages('general/semi-torus-top.svg')}
+									src={decor === 1 ? getUrlToStaticImages('icons/semi-torus-down.svg') : getUrlToStaticImages('general/semi-torus-top.svg')}
 									alt="decor" />
 							</div>
 						</div>

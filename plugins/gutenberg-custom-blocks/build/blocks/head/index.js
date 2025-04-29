@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/head-block","version":"0.1.0","title":"Значок + Заголовок + Підзаголовок","icon":"smiley","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"container":{"type":"string","enum":["sm","md","lg","xl","2xl","full"],"default":"xl"},"aligment":{"type":"string","enum":["left","center","right"],"default":"center"},"classes":{"type":"string","default":""}},"textdomain":"head-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/head-block","version":"0.1.0","title":"Значок + Заголовок + Підзаголовок","icon":"smiley","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"container":{"type":"string","enum":["sm","md","lg","xl","2xl","full"],"default":"xl"},"aligment":{"type":"string","enum":["left","center","right"],"default":"center"},"classes":{"type":"string","default":""},"titleAcfField":{"type":"string"}},"textdomain":"head-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -73,7 +73,8 @@ function Edit({
     classes,
     className,
     container,
-    aligment
+    aligment,
+    titleAcfField
   } = attributes;
   const [isContainerChange, setIsContainerChange] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
@@ -86,7 +87,8 @@ function Edit({
   } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)({}, {
     template: [['t4u/sup-title', {}], ['t4u/heading', {
       classes: "mt-[16px] md:mt-[20px] text-dark-primary w-full",
-      container: "xl"
+      container: "xl",
+      acfField: titleAcfField
     }], ['t4u/simple-text', {
       classes: "mt-[20px] lg:mt-[30px] w-full",
       container: "md"

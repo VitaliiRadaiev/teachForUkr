@@ -728,7 +728,8 @@ function Edit({
     template: [['t4u/head-block', {
       classes: "order-1",
       aligment: "left",
-      container: "lg"
+      container: "lg",
+      titleAcfField: 'text_similar_vacancies'
     }], ["t4u/buttons-group", {
       classes: 'mt-[40px] xl:mt-[50px] order-3',
       alignment: 'center',
@@ -742,11 +743,6 @@ function Edit({
     }]],
     allowedBlocks: []
   });
-  const fetchTitleData = () => (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getOptionsField)('text_similar_vacancies');
-  const {
-    ref: titleRef,
-    data: titleData
-  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_8__["default"])(fetchTitleData);
   const fetchPosts = () => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_9___default()({
     path: `site-core/v1/vacancy${selectedCategories.length ? `?category=${selectedCategories.join(',')}` : ''}`
   });
@@ -790,16 +786,6 @@ function Edit({
       path: `site-core/v1/vacancy${ids.length ? `?category=${ids.join(',')}` : ''}`
     }));
   };
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
-    if (titleData) {
-      const title = innerBlocks[0]?.innerBlocks[1];
-      if (title && !title.attributes.text) {
-        updateBlockAttributes(title.clientId, {
-          text: titleData.value
-        });
-      }
-    }
-  }, [titleData]);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     if (renderPosts.length < 5) {
       const headBlock = innerBlocks[0];
@@ -867,7 +853,7 @@ function Edit({
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_ui_section_decor_SectionDecor__WEBPACK_IMPORTED_MODULE_12__.SectionDecor, {
         decor: decor
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
-        ref: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref, refCategories, titleRef),
+        ref: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref, refCategories),
         className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])('container flex flex-col relative z-2', {
           'disabled': isLoading
         }),
@@ -978,7 +964,7 @@ const SectionDecor = ({
   decor
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "absolute z-1 top-0 left-0 w-full h-full pointer-events-none",
+    className: "absolute z-1 top-0 left-0 w-full h-full pointer-events-none overflow-hidden",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "container h-full relative",
       children: [decor === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {

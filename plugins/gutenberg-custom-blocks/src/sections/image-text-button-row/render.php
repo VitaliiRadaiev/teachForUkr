@@ -7,7 +7,7 @@ if (!($attributes['isHide'])):
       ($attributes['directions'] === 'right' ? 'bottom-[calc(var(--image-height)-68px)] md:bottom-[calc(var(--image-height)-145px)] lg:bottom-auto' : ''),
    );
    $decor_2_classes = combine_classes(
-      'absolute h-[106px] md:h-[168px] lg:h-[239px] w-auto right-[-97px] md:right-[-169px] lg:right-[-235px] lg:bottom-[122px] aos-rotate-right',
+      'absolute h-[106px] md:h-[168px] lg:h-[239px] w-auto right-[-97px] md:right-[-169px] lg:right-[-235px] lg:bottom-[122px] aos-rotate-right accent-second-50-filter',
       ($attributes['directions'] === 'left' ? 'bottom-[68px] md:bottom-[98px]' : ''),
       ($attributes['directions'] === 'right' ? 'top-[31.5%] md:top-[22.5%] lg:top-auto' : ''),
       ($attributes['decor'] === 2 ? 'lg:!bottom-0' : ''),
@@ -32,7 +32,7 @@ if (!($attributes['isHide'])):
             <div class="container h-full relative">
                <img
                   class="<?= $decor_2_classes ?>"
-                  src="<?= get_template_directory_uri() . '/assets/images/general/semi-torus-'. ($attributes['decor'] === 1 ? 'down' : 'top') .'.svg' ?>"
+                  src="<?= get_template_directory_uri() . '/assets/images/icons/semi-torus-'. ($attributes['decor'] === 1 ? 'down' : 'top') .'.svg' ?>"
                   alt="decor">
             </div>
          </div>

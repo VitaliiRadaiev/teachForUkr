@@ -52,6 +52,9 @@
 			"type": "string",
 			"enum": ["sm", "md", "lg", "xl", "2xl", "full", false],
 			"default": false
+		},
+		"acfField": {
+			"type": "string"
 		}
 	},
 	"textdomain": "heading",

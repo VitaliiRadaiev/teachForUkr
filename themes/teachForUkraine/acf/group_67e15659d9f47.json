@@ -980,6 +980,48 @@
             "append": ""
         },
         {
+            "key": "field_681083513773c",
+            "label": "Текст \"Подивитись звіт\"",
+            "name": "text_see_the_report",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Подивитись звіт",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_681083763773d",
+            "label": "Текст \"Річні квартальні звіти\"",
+            "name": "text_annual_quarterly_reports",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Річні квартальні звіти",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67e26a044512e",
             "label": "Соціальні мережі",
             "name": "",
@@ -1059,5 +1101,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1745843336
+    "modified": 1745912747
 }

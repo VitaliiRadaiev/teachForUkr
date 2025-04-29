@@ -15,7 +15,7 @@ import { MarginYControl } from "../../components/space-control/MarginYControl";
 
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, margin, classes, className, container, aligment } = attributes;
+	const { isHide, margin, classes, className, container, aligment, titleAcfField } = attributes;
 	const [isContainerChange, setIsContainerChange] = useState(false);
 	const blockProps = useBlockProps({
 		className: clsx(
@@ -32,7 +32,8 @@ export default function Edit({ attributes, setAttributes }) {
 			['t4u/sup-title', {}],
 			['t4u/heading', {
 				classes: "mt-[16px] md:mt-[20px] text-dark-primary w-full",
-				container: "xl"
+				container: "xl",
+				acfField: titleAcfField
 			}],
 			['t4u/simple-text', {
 				classes: "mt-[20px] lg:mt-[30px] w-full",

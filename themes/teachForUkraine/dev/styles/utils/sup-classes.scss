@@ -163,6 +163,7 @@
 .color-light-primary-filter {
     filter: $color-light-primary-filter;
 }
+
 .color-light-primary-60-filter {
     filter: $color-light-primary-60-filter;
 }
@@ -648,7 +649,7 @@ flag {
         display: -webkit-box;
         -webkit-line-clamp: var(--line);
         -webkit-box-orient: vertical;
-    
+
         max-height: calc(var(--line-height) * var(--line));
     }
 }

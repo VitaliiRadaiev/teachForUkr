@@ -37,6 +37,9 @@
     "classes": {
 			"type": "string",
 			"default": ""
+		},
+    "titleAcfField": {
+			"type": "string"
 		}
   },
   "textdomain": "head-block",

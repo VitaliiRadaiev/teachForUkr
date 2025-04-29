@@ -472,6 +472,22 @@ function get_vacancies_cities() {
     return $terms;
 }
 
+function get_reports()
+{
+    $args = array(
+        'post_type' => 'report',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'orderby'        => 'date',
+        'order'          => 'DESC'
+    );
+
+    $query  = new WP_Query($args);
+    wp_reset_postdata();
+
+    return $query;
+}
+
 // helpers
 function get_term_children_recursive($parent_id, $taxonomy)
 {

@@ -376,6 +376,36 @@ function ajax_get_vacancy_city() {
     return rest_ensure_response($terms);
 }
 
+function ajax_get_reports()
+{
+    $text_see_the_report = get_field('text_see_the_report', 'options');
+    $query = get_reports();
+
+    $posts = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $id = get_the_ID();
+            $title = get_the_title();
+            $excerpt = get_the_excerpt();
+            $file_url = get_field('report_file', $id);
+
+            $posts[] = [
+                'id' =>  $id,
+                'title' => $title,
+                'excerpt' => $excerpt,
+                'file_url' => $file_url,
+                'text_see_the_report' => $text_see_the_report
+            ];
+        }
+    }
+
+    return rest_ensure_response([
+        'posts' => $posts
+    ]);
+}
+
 // register endpoints
 function register_endpoints()
 {
@@ -661,6 +691,12 @@ function register_endpoints()
     register_rest_route('site-core/v1', 'vacancy-city', array(
         'methods'  => 'GET',
         'callback' => 'ajax_get_vacancy_city',
+        'permission_callback' => '__return_true'
+    ));
+
+    register_rest_route('site-core/v1', 'report', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_reports',
         'permission_callback' => '__return_true'
     ));
 }

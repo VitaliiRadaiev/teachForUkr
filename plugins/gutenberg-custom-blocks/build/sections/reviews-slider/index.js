@@ -723,7 +723,8 @@ function Edit({
     template: [['t4u/head-block', {
       classes: "order-1",
       aligment: "left",
-      container: "lg"
+      container: "lg",
+      titleAcfField: 'text_reviews'
     }], ["t4u/buttons-group", {
       classes: 'mt-[40px] xl:mt-[50px] order-3',
       alignment: 'center',
@@ -734,11 +735,6 @@ function Edit({
     }]],
     allowedBlocks: []
   });
-  const fetchTitleData = () => (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.getOptionsField)('text_reviews');
-  const {
-    ref: titleRef,
-    data: titleData
-  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_9__["default"])(fetchTitleData);
   const fetchData = () => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_10___default()({
     path: 'site-core/v1/review'
   });
@@ -755,16 +751,6 @@ function Edit({
       });
     }
   }, [data]);
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    if (titleData) {
-      const title = innerBlocks[0]?.innerBlocks[1];
-      if (title && !title.attributes.text) {
-        updateBlockAttributes(title.clientId, {
-          text: titleData.value
-        });
-      }
-    }
-  }, [titleData]);
   if (preview) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
       src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.getUrlToStaticImages)(preview)
@@ -786,7 +772,7 @@ function Edit({
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_ui_section_decor_SectionDecor__WEBPACK_IMPORTED_MODULE_8__.SectionDecor, {
         decor: decor
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-        ref: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.mergeRefs)(ref, titleRef),
+        ref: ref,
         className: "container relative z-2 flex flex-col",
         children: [children, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "mt-[30px] md:mt-[40px] lg:mt-[50px] relative order-2 first-child-no-margin",
@@ -908,7 +894,7 @@ const SectionDecor = ({
   decor
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "absolute z-1 top-0 left-0 w-full h-full pointer-events-none",
+    className: "absolute z-1 top-0 left-0 w-full h-full pointer-events-none overflow-hidden",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "container h-full relative",
       children: [decor === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {

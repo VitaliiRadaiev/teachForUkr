@@ -737,7 +737,7 @@ const SectionDecor = ({
   decor
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "absolute z-1 top-0 left-0 w-full h-full pointer-events-none",
+    className: "absolute z-1 top-0 left-0 w-full h-full pointer-events-none overflow-hidden",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "container h-full relative",
       children: [decor === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {

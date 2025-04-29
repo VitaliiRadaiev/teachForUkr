@@ -8,7 +8,7 @@ import { useEffect, useState, useCallback } from "@wordpress/element";
 import { useSelect, useDispatch } from '@wordpress/data';
 import "./editor.scss";
 import clsx from "clsx";
-import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages, getOptionsField, mergeRefs, debounce, buildApiPath } from "../../utils/utils";
+import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages, mergeRefs, debounce, buildApiPath } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
 import useFetchOnVisible from "../../hooks/hooks";
 import apiFetch from "@wordpress/api-fetch";
@@ -45,7 +45,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			['t4u/head-block', {
 				classes: "order-1",
 				aligment: "left",
-				container: "lg"
+				container: "lg",
+				titleAcfField: 'text_last_news'
 			}],
 			["t4u/buttons-group", {
 				classes: 'mt-[40px] xl:mt-[50px] order-3',
@@ -63,9 +64,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		],
 		allowedBlocks: []
 	})
-
-	const fetchTitleData = () => getOptionsField('text_last_news');
-	const { ref: titleRef, data: titleData } = useFetchOnVisible(fetchTitleData);
 
 	const fetchData = () => apiFetch({ path: `site-core/v1/news${categorySlug.length ? `?category=${categorySlug.join(',')}` : ''}` });
 	const { ref, data, isLoading, refetch } = useFetchOnVisible(fetchData);
@@ -174,17 +172,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			});
 		}
 	}, [renderPosts]);
-
-	useEffect(() => {
-		if (titleData) {
-			const title = innerBlocks[0]?.innerBlocks[1];
-			if (title && !title.attributes.text) {
-				updateBlockAttributes(title.clientId, {
-					text: titleData.value
-				})
-			}
-		}
-	}, [titleData]);
 
 	useEffect(() => {
 		if (newsForFilter) {
@@ -318,7 +305,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			</InspectorControls>
 			<section {...blockProps}>
 				<SectionDecor decor={decor} />
-				<div ref={mergeRefs(ref, titleRef, refCategories, newsForFilterRef, newsByIdsRef)}
+				<div ref={mergeRefs(ref, refCategories, newsForFilterRef, newsByIdsRef)}
 					className={clsx(
 						"container flex flex-col relative z-2",
 						{

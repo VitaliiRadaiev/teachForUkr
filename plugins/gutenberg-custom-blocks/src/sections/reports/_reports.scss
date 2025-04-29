@@ -1,0 +1,15 @@
+@use "./utils/abstracts" as *;
+
+.report-btn {
+    @media (max-width: $mq-md-max) {
+        &>span {
+            display: none;
+        }
+
+        &::after {
+            height: 44px;
+            width: 44px;
+            font-size: 0.8em;
+        }
+    }
+}

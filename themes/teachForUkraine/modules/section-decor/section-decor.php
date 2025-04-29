@@ -2,7 +2,7 @@
 function render_section_decor($decor)
 {
 ?>
-    <div class="absolute z-1 top-0 left-0 w-full h-full pointer-events-none">
+    <div class="absolute z-1 top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
         <div class="container h-full relative">
             <?php if ($decor === 1): ?>
                 <div class="absolute right-0 bottom-[70px] md:bottom-[80px] lg:bottom-[100px] h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex">

@@ -2,7 +2,7 @@ import { getUrlToStaticImages } from "../../utils/utils";
 
 export const SectionDecor = ({ decor }) => {
     return (
-        <div className="absolute z-1 top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute z-1 top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
             <div className="container h-full relative">
                 {decor === 1 &&
                     <div className="absolute right-0 bottom-[70px] md:bottom-[80px] lg:bottom-[100px] h-[212px] md:h-[406px] w-auto z-1 pointer-events-none flex">

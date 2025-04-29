@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \***************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/heading","version":"0.1.0","title":"Заголовок","icon":"heading","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"text":{"type":"string","default":""},"htmlTeg":{"type":"string","enum":["h1","h2","h3","h4","h5","h6","span"],"default":"h2"},"fontSize":{"type":"string","enum":["sm","md","lg","xl","2xl"],"default":"xl"},"aligment":{"type":"string","enum":["left","center","right"],"default":""},"container":{"type":"string","enum":["sm","md","lg","xl","2xl","full",false],"default":false}},"textdomain":"heading","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/heading","version":"0.1.0","title":"Заголовок","icon":"heading","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"text":{"type":"string","default":""},"htmlTeg":{"type":"string","enum":["h1","h2","h3","h4","h5","h6","span"],"default":"h2"},"fontSize":{"type":"string","enum":["sm","md","lg","xl","2xl"],"default":"xl"},"aligment":{"type":"string","enum":["left","center","right"],"default":""},"container":{"type":"string","enum":["sm","md","lg","xl","2xl","full",false],"default":false},"acfField":{"type":"string"}},"textdomain":"heading","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -49,8 +49,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
 /* harmony import */ var _components_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/buttons-group/ButtonsGroup */ "./src/components/buttons-group/ButtonsGroup.js");
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _hooks_hooks__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../hooks/hooks */ "./src/hooks/hooks.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -83,9 +85,17 @@ function Edit({
     htmlTeg,
     fontSize,
     aligment,
-    container
+    container,
+    acfField
   } = attributes;
   const [isContainerChange, setIsContainerChange] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
+  const [isTyping, setIsTyping] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
+  const fetchData = () => (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getOptionsField)(acfField);
+  const {
+    ref,
+    data
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_9__["default"])(fetchData, [acfField], !text && !isTyping);
+  const globalText = data?.value || '';
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
     className: (0,clsx__WEBPACK_IMPORTED_MODULE_8__["default"])(classes, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getMarginClasses)(margin), getHeadingSizeClass(fontSize), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.combineString)({
       prefix: 'text-'
@@ -94,9 +104,9 @@ function Edit({
       'canChangeContainerSize': isContainerChange
     }, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getContainerClasses)(container))
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.BlockControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.AlignmentToolbar, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.BlockControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.AlignmentToolbar, {
         value: aligment,
         onChange: nextAlign => {
           setAttributes({
@@ -104,44 +114,44 @@ function Edit({
           });
         }
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_is_hide_IsHide__WEBPACK_IMPORTED_MODULE_4__.IsHide, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_is_hide_IsHide__WEBPACK_IMPORTED_MODULE_4__.IsHide, {
         isHide: isHide,
         setIsHide: val => setAttributes({
           isHide: val
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: "\u0420\u043E\u0437\u043C\u0456\u0440 \u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u0430",
         initialOpen: false,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_7__.ButtonsGroup, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_7__.ButtonsGroup, {
           value: fontSize,
           setValue: val => setAttributes({
             fontSize: val
           }),
           valuesMap: ["sm", "md", "lg", "xl", "2xl"]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: "Html \u0442\u0435\u0433",
         initialOpen: false,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_7__.ButtonsGroup, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_7__.ButtonsGroup, {
           value: htmlTeg,
           setValue: val => setAttributes({
             htmlTeg: val
           }),
           valuesMap: ["h1", "h2", "h3", "h4", "h5", "h6", "span"]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_space_control_MarginYControl__WEBPACK_IMPORTED_MODULE_5__.MarginYControl, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_space_control_MarginYControl__WEBPACK_IMPORTED_MODULE_5__.MarginYControl, {
         size: margin,
         setSize: s => setAttributes({
           margin: s
         })
-      }), container && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+      }), container && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: "\u0420\u043E\u0437\u043C\u0456\u0440 \u043E\u0431\u043C\u0435\u0436\u0443\u044E\u0447\u043E\u0433\u043E \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u0430",
         initialOpen: false,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           onMouseEnter: () => setIsContainerChange(true),
           onMouseLeave: () => setIsContainerChange(false),
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_7__.ButtonsGroup, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_7__.ButtonsGroup, {
             value: container,
             setValue: val => setAttributes({
               container: val
@@ -150,13 +160,15 @@ function Edit({
           })
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       ...blockProps,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+        ref: ref,
         placeholder: "\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0442\u0435\u043A\u0441\u0442...",
-        value: text,
+        value: text || !isTyping && globalText,
         allowedFormats: _global_global__WEBPACK_IMPORTED_MODULE_3__.RICH_TEXT_FORMATS,
         onChange: value => {
+          setIsTyping(true);
           setAttributes({
             text: value
           });
@@ -481,6 +493,74 @@ const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list
 
 /***/ }),
 
+/***/ "./src/hooks/hooks.js":
+/*!****************************!*\
+  !*** ./src/hooks/hooks.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
+  const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [error, setError] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [isFetched, setIsFetched] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [isLoading, setIsLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const observerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!shouldFetch) return;
+    observerRef.current = new IntersectionObserver(([entry], observer) => {
+      if (entry.isIntersecting && !isFetched && typeof fetchCallback === 'function') {
+        setIsLoading(true);
+        fetchCallback()?.then(result => {
+          setData(result);
+          setIsFetched(true);
+          setIsLoading(false);
+          observer.disconnect();
+        })?.catch(err => {
+          setError(err);
+          setIsLoading(false);
+        });
+      }
+    }, {
+      threshold: 0.1
+    });
+    if (ref.current) {
+      observerRef.current.observe(ref.current);
+    }
+    return () => observerRef.current?.disconnect();
+  }, [isFetched, shouldFetch, ...deps]);
+  const refetch = fetchCallback => {
+    setIsLoading(true);
+    fetchCallback()?.then(result => {
+      setData(result);
+      setIsFetched(true);
+      setIsLoading(false);
+      observer.disconnect();
+    })?.catch(err => {
+      setError(err);
+      setIsLoading(false);
+    });
+  };
+  return {
+    ref,
+    data,
+    error,
+    isFetched,
+    isLoading,
+    refetch
+  };
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useFetchOnVisible);
+
+/***/ }),
+
 /***/ "./src/utils/utils.js":
 /*!****************************!*\
   !*** ./src/utils/utils.js ***!
@@ -690,6 +770,16 @@ module.exports = window["wp"]["components"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["element"];
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = window["React"];
 
 /***/ }),
 

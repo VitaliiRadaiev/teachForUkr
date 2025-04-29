@@ -8,7 +8,7 @@ import { useEffect, useState } from "@wordpress/element";
 import { useSelect, useDispatch } from '@wordpress/data';
 import "./editor.scss";
 import clsx from "clsx";
-import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages, mergeRefs, getOptionsField } from "../../utils/utils";
+import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages, mergeRefs } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
 import useFetchOnVisible from "../../hooks/hooks";
 import apiFetch from "@wordpress/api-fetch";
@@ -38,7 +38,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			['t4u/head-block', {
 				classes: "order-1",
 				aligment: "left",
-				container: "lg"
+				container: "lg",
+				titleAcfField: 'text_similar_vacancies'
 			}],
 			["t4u/buttons-group", {
 				classes: 'mt-[40px] xl:mt-[50px] order-3',
@@ -57,8 +58,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		allowedBlocks: []
 	})
 
-	const fetchTitleData = () => getOptionsField('text_similar_vacancies');
-	const { ref: titleRef, data: titleData } = useFetchOnVisible(fetchTitleData);
 
 	const fetchPosts = () => apiFetch({ path: `site-core/v1/vacancy${selectedCategories.length ? `?category=${selectedCategories.join(',')}` : ''}` });
 	const { ref, data, isLoading, refetch } = useFetchOnVisible(fetchPosts);
@@ -86,17 +85,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 		refetch(() => apiFetch({ path: `site-core/v1/vacancy${ids.length ? `?category=${ids.join(',')}` : ''}` }));
 	}
-
-	useEffect(() => {
-		if (titleData) {
-			const title = innerBlocks[0]?.innerBlocks[1];
-			if (title && !title.attributes.text) {
-				updateBlockAttributes(title.clientId, {
-					text: titleData.value
-				})
-			}
-		}
-	}, [titleData]);
 
 	useEffect(() => {
 		if (renderPosts.length < 5) {
@@ -155,7 +143,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			</InspectorControls>
 			<section {...blockProps}>
 				<SectionDecor decor={decor} />
-				<div ref={mergeRefs(ref, refCategories, titleRef)} className={clsx(
+				<div ref={mergeRefs(ref, refCategories)} className={clsx(
 					'container flex flex-col relative z-2',
 					{
 						'disabled': isLoading
