@@ -575,20 +575,20 @@ const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list
 
 /***/ }),
 
-/***/ "./src/sections/reports/block.json":
-/*!*****************************************!*\
-  !*** ./src/sections/reports/block.json ***!
-  \*****************************************/
+/***/ "./src/sections/cards-with-mask-image-grid/block.json":
+/*!************************************************************!*\
+  !*** ./src/sections/cards-with-mask-image-grid/block.json ***!
+  \************************************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/reports","version":"0.1.0","title":"Звіти","category":"news_stories_cases_other","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"},"decor":{"type":"number","default":0},"preview":{"type":"string"}},"textdomain":"reports","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/cards-grid","version":"0.1.0","title":"Картки з картинкою + маска + іконка","category":"title_cards_visual-attributes","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"},"preview":{"type":"string"},"decor":{"type":"number","default":1}},"textdomain":"cards-grid","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
-/***/ "./src/sections/reports/edit.js":
-/*!**************************************!*\
-  !*** ./src/sections/reports/edit.js ***!
-  \**************************************/
+/***/ "./src/sections/cards-with-mask-image-grid/edit.js":
+/*!*********************************************************!*\
+  !*** ./src/sections/cards-with-mask-image-grid/edit.js ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -597,12 +597,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editor.scss */ "./src/sections/reports/editor.scss");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editor.scss */ "./src/sections/cards-with-mask-image-grid/editor.scss");
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
 /* harmony import */ var _components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/default-sections-controls/DefaultSectionsControls */ "./src/components/default-sections-controls/DefaultSectionsControls.js");
-/* harmony import */ var _components_section_decor_picker_SectionsDecorPicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/section-decor-picker/SectionsDecorPicker */ "./src/components/section-decor-picker/SectionsDecorPicker.js");
-/* harmony import */ var _ui_section_decor_SectionDecor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../ui/section-decor/SectionDecor */ "./src/ui/section-decor/SectionDecor.js");
+/* harmony import */ var _ui_section_decor_SectionDecor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../ui/section-decor/SectionDecor */ "./src/ui/section-decor/SectionDecor.js");
+/* harmony import */ var _components_section_decor_picker_SectionsDecorPicker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/section-decor-picker/SectionsDecorPicker */ "./src/components/section-decor-picker/SectionsDecorPicker.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
 
@@ -627,7 +627,7 @@ function Edit({
     decor
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('reports-section rounded-[20px] md:rounded-[30px] relative', className, background, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_3__.getSectionsMarginClasses)(margin), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_3__.getSectionsPaddingClasses)(padding), {
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('cards-grid-section rounded-[20px] md:rounded-[30px] overflow-hidden relative', className, background, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_3__.getSectionsMarginClasses)(margin), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_3__.getSectionsPaddingClasses)(padding), {
       ['hide-block']: isHide
     })
   });
@@ -635,14 +635,13 @@ function Edit({
     children
   } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)({}, {
     template: [['t4u/head-block', {
-      classes: "",
-      titleAcfField: 'text_annual_quarterly_reports'
+      classes: ""
     }], ['t4u/inner-block', {
-      classes: 'mt-[30px] md:mt-[40px] xl:mt-[50px] lg:grid lg:grid-cols-2 lg:gap-[24px] 4xl:gap-[30px] min-w-0 first-child-no-margin',
-      simpleWrapper: true,
+      classes: 'min-h-100 mt-[20px] md:mt-[30px] 4xl:mt-[40px] grid md:grid-cols-2 lg:grid-cols-12 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px]',
+      canAddItem: true,
       options: {
-        template: [['t4u/last-report', {}], ['t4u/list-reports', {}]],
-        allowedBlocks: []
+        template: [],
+        allowedBlocks: ['t4u/card-with-mask-image']
       }
     }], ["t4u/buttons-group", {
       classes: 'mt-[40px] xl:mt-[50px]',
@@ -664,7 +663,7 @@ function Edit({
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_4__.DefaultSectionsControls, {
         attributes: attributes,
         setAttributes: setAttributes
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_section_decor_picker_SectionsDecorPicker__WEBPACK_IMPORTED_MODULE_5__.SectionsDecorPicker, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_section_decor_picker_SectionsDecorPicker__WEBPACK_IMPORTED_MODULE_6__.SectionsDecorPicker, {
         decor: decor,
         setDecor: value => setAttributes({
           decor: value
@@ -672,7 +671,7 @@ function Edit({
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("section", {
       ...blockProps,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ui_section_decor_SectionDecor__WEBPACK_IMPORTED_MODULE_6__.SectionDecor, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ui_section_decor_SectionDecor__WEBPACK_IMPORTED_MODULE_5__.SectionDecor, {
         decor: decor
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "container relative z-2",
@@ -684,10 +683,10 @@ function Edit({
 
 /***/ }),
 
-/***/ "./src/sections/reports/editor.scss":
-/*!******************************************!*\
-  !*** ./src/sections/reports/editor.scss ***!
-  \******************************************/
+/***/ "./src/sections/cards-with-mask-image-grid/editor.scss":
+/*!*************************************************************!*\
+  !*** ./src/sections/cards-with-mask-image-grid/editor.scss ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -696,10 +695,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/sections/reports/save.js":
-/*!**************************************!*\
-  !*** ./src/sections/reports/save.js ***!
-  \**************************************/
+/***/ "./src/sections/cards-with-mask-image-grid/save.js":
+/*!*********************************************************!*\
+  !*** ./src/sections/cards-with-mask-image-grid/save.js ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -1091,15 +1090,15 @@ module.exports = window["ReactJSXRuntime"];
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
-/*!***************************************!*\
-  !*** ./src/sections/reports/index.js ***!
-  \***************************************/
+/*!**********************************************************!*\
+  !*** ./src/sections/cards-with-mask-image-grid/index.js ***!
+  \**********************************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/sections/reports/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/sections/reports/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/sections/reports/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/sections/cards-with-mask-image-grid/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/sections/cards-with-mask-image-grid/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/sections/cards-with-mask-image-grid/block.json");
 
 
 
@@ -1109,7 +1108,7 @@ __webpack_require__.r(__webpack_exports__);
   save: _save__WEBPACK_IMPORTED_MODULE_2__["default"],
   example: {
     attributes: {
-      preview: 'general/preview-section-reports.jpg'
+      preview: 'general/preview-section-cards-grid.jpg'
     }
   }
 });

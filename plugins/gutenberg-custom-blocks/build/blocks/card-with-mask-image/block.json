@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/card-with-mask-image",
+  "version": "0.1.0",
+  "title": "Карточка з картинкою + маска + іконка",
+  "icon": "smiley",
+  "category": "blocks",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "isHide": {
+      "type": "boolean",
+      "default": false
+    },
+    "classes": {
+      "type": "string",
+      "default": ""
+    },
+    "columns": {
+      "type": "string",
+      "enum": [
+        "lg:col-span-3",
+        "lg:col-span-4",
+        "lg:col-span-6"
+      ],
+      "default": "lg:col-span-3"
+    },
+    "mask": {
+      "type": "number",
+      "default": 1
+    },
+    "info": {
+      "type": "boolean",
+      "default": false
+    },
+    "icon": {
+      "type": "string",
+      "default": "icons/decor-icon-1.svg"
+    }
+  },
+  "textdomain": "card-with-mask-image",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "viewScript": "file:./script.js",
+  "render": "file:./render.php"
+}

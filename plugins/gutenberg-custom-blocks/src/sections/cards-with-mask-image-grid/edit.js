@@ -7,16 +7,14 @@ import "./editor.scss";
 import clsx from "clsx";
 import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
+import { SectionDecor } from '../../ui/section-decor/SectionDecor';
 import { SectionsDecorPicker } from "../../components/section-decor-picker/SectionsDecorPicker";
-import { SectionDecor } from "../../ui/section-decor/SectionDecor";
-
 
 export default function Edit({ attributes, setAttributes }) {
 	const { preview, isHide, padding, margin, background, className, decor } = attributes;
-
 	const blockProps = useBlockProps({
 		className: clsx(
-			'reports-section rounded-[20px] md:rounded-[30px] relative',
+			'cards-grid-section rounded-[20px] md:rounded-[30px] overflow-hidden relative',
 			className,
 			background,
 			getSectionsMarginClasses(margin),
@@ -28,18 +26,14 @@ export default function Edit({ attributes, setAttributes }) {
 	const { children } = useInnerBlocksProps({}, {
 		template: [
 			['t4u/head-block', {
-				classes: "",
-				titleAcfField: 'text_annual_quarterly_reports'
+				classes: ""
 			}],
 			['t4u/inner-block', {
-				classes: 'mt-[30px] md:mt-[40px] xl:mt-[50px] lg:grid lg:grid-cols-2 lg:gap-[24px] 4xl:gap-[30px] min-w-0 first-child-no-margin',
-				simpleWrapper: true,
+				classes: 'min-h-100 mt-[20px] md:mt-[30px] 4xl:mt-[40px] grid md:grid-cols-2 lg:grid-cols-12 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px]',
+				canAddItem: true,
 				options: {
-					template: [
-						['t4u/last-report', {}],
-						['t4u/list-reports', {}]
-					],
-					allowedBlocks: []
+					template: [],
+					allowedBlocks: ['t4u/card-with-mask-image']
 				}
 
 			}],
@@ -52,7 +46,7 @@ export default function Edit({ attributes, setAttributes }) {
 					],
 					allowedBlocks: ['t4u/button']
 				}
-			}]
+			}],
 		],
 		allowedBlocks: []
 	})

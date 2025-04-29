@@ -96,7 +96,7 @@ function Edit({
       canAddItem: true,
       options: {
         template: [],
-        allowedBlocks: ['t4u/card-with-image', 't4u/card-with-icon']
+        allowedBlocks: ['t4u/card-with-mask-image', 't4u/card-with-icon']
       }
     }], ['t4u/inner-block', {
       classes: 'min-h-100 mt-[40px] xl:mt-[50px]',
