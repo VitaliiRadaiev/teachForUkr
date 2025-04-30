@@ -15,6 +15,49 @@ function ajax_get_acf_option_field($request)
     ]);
 }
 
+function ajax_get_acf_global_links() {
+    $fields = get_fields('options');
+
+    if (!$fields) {
+        return new WP_Error('no_fields', 'Поля не найдены', array('status' => 404));
+    }
+
+    $result = [
+        'link_join' => $fields['link_join'] ?? null,
+        'link_support'     => $fields['link_support'] ?? null,
+        'link_become_partner'  => $fields['link_become_partner'] ?? null,
+        'link_registration'     => $fields['link_registration'] ?? null,
+        'link_PayPal'     => $fields['link_PayPal'] ?? null,
+        'link_Wayforpay'     => $fields['link_Wayforpay'] ?? null,
+        'link_BankTransfer'     => $fields['link_BankTransfer'] ?? null,
+        'link_more_partners'     => $fields['link_more_partners'] ?? null,
+        'link_more_news'     => $fields['link_more_news'] ?? null,
+        'link_more_stories'     => $fields['link_more_stories'] ?? null,
+        'link_vacancies'     => $fields['link_vacancies'] ?? null,
+    ];
+
+    return rest_ensure_response($result);
+}
+
+function ajax_get_acf_global_buttons_text() {
+    $fields = get_fields('options');
+
+    if (!$fields) {
+        return new WP_Error('no_fields', 'Поля не найдены', array('status' => 404));
+    }
+
+    $result = [
+        'text_subscribe' => $fields['text_subscribe'] ?? null,
+        'text_more_details' => $fields['text_more_details'] ?? null,
+        'text_more' => $fields['text_more'] ?? null,
+        'text_all' => $fields['text_all'] ?? null,
+        'text_show_more' => $fields['text_show_more'] ?? null,
+        'text_go_to' => $fields['text_go_to'] ?? null,
+    ];
+
+    return rest_ensure_response($result);
+}
+
 function ajax_get_hero_main_decor_buttons_text()
 {
     return rest_ensure_response([
@@ -409,7 +452,7 @@ function ajax_get_reports()
 // register endpoints
 function register_endpoints()
 {
-    register_rest_route('site-core/v1', '/options/', array(
+    register_rest_route('site-core/v1', 'options', array(
         'methods'  => 'GET',
         'callback' => 'ajax_get_acf_option_field',
         'permission_callback' => '__return_true',
@@ -421,6 +464,16 @@ function register_endpoints()
                 }
             )
         )
+    ));
+    register_rest_route('site-core/v1', 'options-links', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_acf_global_links',
+        'permission_callback' => '__return_true',
+    ));
+    register_rest_route('site-core/v1', 'options-buttons-text', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_acf_global_buttons_text',
+        'permission_callback' => '__return_true',
     ));
 
     register_rest_route('site-core/v1', 'hero-main-decor-buttons', array(

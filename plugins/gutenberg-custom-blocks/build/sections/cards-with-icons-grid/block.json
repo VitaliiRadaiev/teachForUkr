@@ -1,9 +1,9 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "t4u/cards-with-mask-image-grid",
+  "name": "t4u/cards-with-icon-grid",
   "version": "0.1.0",
-  "title": "Картки з картинкою + маска + іконка",
+  "title": "Картки з іконкою",
   "category": "cards",
   "icon": "layout",
   "description": "",
@@ -47,10 +47,10 @@
     },
     "decor": {
       "type": "number",
-      "default": 1
+      "default": 3
     }
   },
-  "textdomain": "cards-with-mask-image-grid",
+  "textdomain": "cards-with-icon-grid",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "render": "file:./render.php"

@@ -56,8 +56,8 @@ function create_block_gutenberg_custom_blocks_block_init()
 			'title' => 'Картки з табами'
 		]);
 		array_unshift($categories, [
-			'slug' => 'title_cards_visual-attributes',
-			'title' => 'заголовок + картки + візуальні атрибути'
+			'slug' => 'cards',
+			'title' => 'Картки'
 		]);
 		array_unshift($categories, [
 			'slug' => 'news_stories_cases_other',

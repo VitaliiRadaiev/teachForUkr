@@ -214,16 +214,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
-/* harmony import */ var _hooks_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../hooks/hooks */ "./src/hooks/hooks.js");
-/* harmony import */ var _components_colorPallets_AccentColorPallet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/colorPallets/AccentColorPallet */ "./src/components/colorPallets/AccentColorPallet.js");
-/* harmony import */ var _components_space_control_MarginYControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/space-control/MarginYControl */ "./src/components/space-control/MarginYControl.js");
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
-/* harmony import */ var _components_is_hide_IsHide__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/is-hide/IsHide */ "./src/components/is-hide/IsHide.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/button/editor.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var _hooks_hooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../hooks/hooks */ "./src/hooks/hooks.js");
+/* harmony import */ var _components_colorPallets_AccentColorPallet__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/colorPallets/AccentColorPallet */ "./src/components/colorPallets/AccentColorPallet.js");
+/* harmony import */ var _components_space_control_MarginYControl__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/space-control/MarginYControl */ "./src/components/space-control/MarginYControl.js");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
+/* harmony import */ var _components_is_hide_IsHide__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/is-hide/IsHide */ "./src/components/is-hide/IsHide.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/button/editor.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__);
+
 
 
 
@@ -259,18 +262,60 @@ function Edit({
     simpleWrapper
   } = attributes;
   const [isTyping, setIsTyping] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
-  const fetchData = () => (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getOptionsField)(acfField);
+  const [globalText, setGlobalText] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
+  const [globalPostType, setGlobalPostType] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)();
+  const fetchData = () => (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.getOptionsField)(acfField);
   const {
     ref,
     data
-  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_5__["default"])(fetchData, [acfField], !text && !isTyping);
-  const uniqueId = blockId ? blockId : (0,uuid__WEBPACK_IMPORTED_MODULE_11__["default"])();
-  const globalText = acfFieldType === 'link' ? data?.value?.title || '' : data?.value || '';
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_6__["default"])(fetchData, [acfField], !text && !isTyping);
+  const uniqueId = blockId ? blockId : (0,uuid__WEBPACK_IMPORTED_MODULE_12__["default"])();
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(wrapperClasses, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getMarginClasses)(margin), {
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(wrapperClasses, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.getMarginClasses)(margin), {
       ['hide-block']: isHide
     })
   });
+  const fetchGlobalLinks = () => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+    path: 'site-core/v1/options-links'
+  });
+  const {
+    ref: refLinks,
+    data: globalLinks,
+    isLoading: isLoadingGlobalLInks
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_6__["default"])(fetchGlobalLinks);
+  const fetchGlobalButtonTexts = () => _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+    path: 'site-core/v1/options-buttons-text'
+  });
+  const {
+    ref: refTexts,
+    data: globalTexts,
+    isLoading: isLoadingGlobalTexts
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_6__["default"])(fetchGlobalButtonTexts);
+  const globalLinksArray = globalLinks && Object.entries(globalLinks);
+  const globalTextsArray = globalTexts && Object.entries(globalTexts);
+  const changeGlobalLinkHandler = (acfField, globalLinks) => {
+    const linkData = globalLinks[acfField];
+    setGlobalText(linkData.title);
+    setGlobalPostType({
+      id: linkData.url,
+      title: linkData.url,
+      type: 'link',
+      url: linkData.url
+    });
+    setAttributes({
+      acfField,
+      acfFieldType: 'link'
+    });
+  };
+  const changeGlobalTextsHandler = (acfField, globalTexts) => {
+    const text = globalTexts[acfField];
+    setGlobalText(text);
+    setGlobalPostType({});
+    setAttributes({
+      acfField,
+      acfFieldType: 'text'
+    });
+  };
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     if (!blockId) {
       setAttributes({
@@ -278,70 +323,100 @@ function Edit({
       });
     }
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_is_hide_IsHide__WEBPACK_IMPORTED_MODULE_8__.IsHide, {
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    if (data) {
+      setGlobalText(acfFieldType === 'link' ? data?.value?.title || '' : data?.value || '');
+      setGlobalPostType(acfFieldType === 'link' && !!data ? {
+        id: data.value.url,
+        title: data.value.url,
+        type: 'link',
+        url: data.value.url
+      } : null);
+    }
+  }, [data]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_is_hide_IsHide__WEBPACK_IMPORTED_MODULE_9__.IsHide, {
         isHide: isHide,
         setIsHide: val => setAttributes({
           isHide: val
         })
-      }), renderAs === 'link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-        title: "\u041F\u043E\u0441\u0438\u043B\u0430\u043D\u043D\u044F",
-        isHide: false,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.__experimentalLinkControl, {
-          searchInputPlaceholder: "\u041F\u043E\u0448\u0443\u043A...",
-          value: postType || data && {
-            id: data.value.url,
-            title: data.value.url,
-            type: 'link',
-            url: data.value.url
-          },
-          settings: [{
-            id: 'opensInNewTab',
-            title: 'Відкрити в новій вкладці?'
-          }],
-          onChange: newPost => {
-            setAttributes({
-              postType: newPost
-            });
-          },
-          withCreateSuggestion: true,
-          createSuggestion: inputValue => setAttributes({
-            postType: {
-              ...postType,
-              title: inputValue,
-              type: "custom-url",
-              id: Date.now(),
-              url: inputValue
-            }
+      }), renderAs === 'link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+          title: "\u041F\u043E\u0441\u0438\u043B\u0430\u043D\u043D\u044F",
+          isHide: false,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.__experimentalLinkControl, {
+            searchInputPlaceholder: "\u041F\u043E\u0448\u0443\u043A...",
+            value: postType || globalPostType,
+            settings: [{
+              id: 'opensInNewTab',
+              title: 'Відкрити в новій вкладці?'
+            }],
+            onChange: newPost => {
+              setAttributes({
+                postType: newPost
+              });
+            },
+            withCreateSuggestion: true,
+            createSuggestion: inputValue => setAttributes({
+              postType: {
+                ...postType,
+                title: inputValue,
+                type: "custom-url",
+                id: Date.now(),
+                url: inputValue
+              }
+            })
+          }, blockId || uniqueId)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+          title: "\u0413\u043B\u043E\u0431\u0430\u043B\u044C\u043D\u0456 \u043F\u043E\u0441\u0438\u043B\u0430\u043D\u043D\u044F",
+          initialOpen: false,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RadioControl, {
+            selected: acfField,
+            options: !!globalLinksArray && Array.isArray(globalLinksArray) ? globalLinksArray.map(([key, value]) => ({
+              label: value.title,
+              value: key
+            })) : [],
+            onChange: value => changeGlobalLinkHandler(value, globalLinks)
           })
-        }, blockId || uniqueId)
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+        title: "\u0413\u043B\u043E\u0431\u0430\u043B\u044C\u043D\u0456 \u043D\u0430\u0437\u0432\u0438",
+        initialOpen: false,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RadioControl, {
+          selected: acfField,
+          options: !!globalTextsArray && Array.isArray(globalTextsArray) ? globalTextsArray.map(([key, value]) => ({
+            label: value,
+            value: key
+          })) : [],
+          onChange: value => changeGlobalTextsHandler(value, globalTexts)
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: "\u0412\u0430\u0440\u0456\u0430\u043D\u0442\u0438 \u043A\u043D\u043E\u043F\u043E\u043A",
         initialOpen: false,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RadioControl, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RadioControl, {
           selected: variant,
           options: [{
-            label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('btn-primary', accent),
+            label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+              className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__["default"])('btn-primary', accent),
               children: "button"
             }),
             value: 'btn-primary'
           }, {
-            label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('btn-secondary', accent),
+            label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+              className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__["default"])('btn-secondary', accent),
               children: "button"
             }),
             value: 'btn-secondary'
           }, {
-            label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('btn-with-enter-arrow', accent),
+            label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+              className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__["default"])('btn-with-enter-arrow', accent),
               children: "button"
             }),
             value: 'btn-with-enter-arrow'
           }, {
-            label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('btn-with-arrow', accent),
+            label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+              className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__["default"])('btn-with-arrow', accent),
               children: "button"
             }),
             value: 'btn-with-arrow'
@@ -350,27 +425,27 @@ function Edit({
             variant: value
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: "\u041A\u043E\u043B\u0456\u0440",
         initialOpen: false,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_colorPallets_AccentColorPallet__WEBPACK_IMPORTED_MODULE_6__.AccentColorPallet, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_colorPallets_AccentColorPallet__WEBPACK_IMPORTED_MODULE_7__.AccentColorPallet, {
           colorName: accent,
           setColorName: val => setAttributes({
             accent: val
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_space_control_MarginYControl__WEBPACK_IMPORTED_MODULE_7__.MarginYControl, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_space_control_MarginYControl__WEBPACK_IMPORTED_MODULE_8__.MarginYControl, {
         size: margin,
         setSize: s => setAttributes({
           margin: s
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       ...(simpleWrapper ? {} : blockProps),
       ...dataAttributes,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
-        ref: ref,
-        className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(accent, variant, classes, className, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+        ref: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.mergeRefs)(ref, refLinks, refTexts),
+        className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(accent, variant, classes, className, {
           ['hide-block']: isHide
         }),
         placeholder: "\u041A\u043D\u043E\u043F\u043A\u0430",

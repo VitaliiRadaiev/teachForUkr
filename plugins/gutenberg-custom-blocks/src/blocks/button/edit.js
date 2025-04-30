@@ -6,8 +6,9 @@ import {
 } from "@wordpress/block-editor";
 import { PanelBody, RadioControl } from "@wordpress/components";
 import { useState, useEffect } from "@wordpress/element";
+import apiFetch from "@wordpress/api-fetch";
 import clsx from "clsx";
-import { getOptionsField } from "../../utils/utils";
+import { getOptionsField, mergeRefs } from "../../utils/utils";
 import useFetchOnVisible from "../../hooks/hooks";
 import { AccentColorPallet } from "../../components/colorPallets/AccentColorPallet";
 import { MarginYControl } from "../../components/space-control/MarginYControl";
@@ -36,10 +37,11 @@ export default function Edit({ attributes, setAttributes }) {
 		simpleWrapper,
 	} = attributes;
 	const [isTyping, setIsTyping] = useState(false);
+	const [globalText, setGlobalText] = useState('');
+	const [globalPostType, setGlobalPostType] = useState();
 	const fetchData = () => getOptionsField(acfField);
 	const { ref, data } = useFetchOnVisible(fetchData, [acfField], (!text && !isTyping));
 	const uniqueId = blockId ? blockId : uuidv4();
-	const globalText = acfFieldType === 'link' ? (data?.value?.title || '') : (data?.value || '');
 
 	const blockProps = useBlockProps({
 		className: clsx(
@@ -50,53 +52,130 @@ export default function Edit({ attributes, setAttributes }) {
 			})
 	});
 
+	const fetchGlobalLinks = () => apiFetch({ path: 'site-core/v1/options-links' });
+	const { ref: refLinks, data: globalLinks, isLoading: isLoadingGlobalLInks } = useFetchOnVisible(fetchGlobalLinks);
+
+	const fetchGlobalButtonTexts = () => apiFetch({ path: 'site-core/v1/options-buttons-text' });
+	const { ref: refTexts, data: globalTexts, isLoading: isLoadingGlobalTexts } = useFetchOnVisible(fetchGlobalButtonTexts);
+
+	const globalLinksArray = globalLinks && Object.entries(globalLinks);
+	const globalTextsArray = globalTexts && Object.entries(globalTexts);
+
+	const changeGlobalLinkHandler = (acfField, globalLinks) => {
+		const linkData = globalLinks[acfField];
+		setGlobalText(linkData.title);
+		setGlobalPostType({
+			id: linkData.url,
+			title: linkData.url,
+			type: 'link',
+			url: linkData.url
+		});
+		setAttributes({
+			acfField,
+			acfFieldType: 'link'
+		});
+	}
+	const changeGlobalTextsHandler = (acfField, globalTexts) => {
+		const text = globalTexts[acfField];
+		setGlobalText(text);
+		setGlobalPostType({});
+		setAttributes({
+			acfField,
+			acfFieldType: 'text'
+		});
+	}
+
+
 	useEffect(() => {
 		if (!blockId) {
 			setAttributes({ blockId: uniqueId })
 		}
 	}, []);
 
+	useEffect(() => {
+		if (data) {
+			setGlobalText(acfFieldType === 'link' ? (data?.value?.title || '') : (data?.value || ''));
+			setGlobalPostType((acfFieldType === 'link' && !!data)
+				? {
+					id: data.value.url,
+					title: data.value.url,
+					type: 'link',
+					url: data.value.url
+				}
+				: null)
+		}
+	}, [data]);
+
 	return (
 		<>
 			<InspectorControls>
 				<IsHide isHide={isHide} setIsHide={(val) => setAttributes({ isHide: val })} />
 				{renderAs === 'link' &&
-					<PanelBody
-						title="Посилання"
-						isHide={false}
-					>
-						<LinkControl
-							key={blockId || uniqueId}
-							searchInputPlaceholder="Пошук..."
-							value={postType || (data && {
-								id: data.value.url,
-								title: data.value.url,
-								type: 'link',
-								url: data.value.url
-							})}
-							settings={[
-								{
-									id: 'opensInNewTab',
-									title: 'Відкрити в новій вкладці?',
-								}
-							]}
-							onChange={(newPost) => {
-								setAttributes({ postType: newPost })
-							}}
-							withCreateSuggestion={true}
-							createSuggestion={(inputValue) => setAttributes({
-								postType: {
-									...postType,
-									title: inputValue,
-									type: "custom-url",
-									id: Date.now(),
-									url: inputValue
-								}
-							})}
+					<>
+						<PanelBody
+							title="Посилання"
+							isHide={false}
 						>
-						</LinkControl>
-					</PanelBody>
+							<LinkControl
+								key={blockId || uniqueId}
+								searchInputPlaceholder="Пошук..."
+								value={postType || globalPostType}
+								settings={[
+									{
+										id: 'opensInNewTab',
+										title: 'Відкрити в новій вкладці?',
+									}
+								]}
+								onChange={(newPost) => {
+									setAttributes({ postType: newPost })
+								}}
+								withCreateSuggestion={true}
+								createSuggestion={(inputValue) => setAttributes({
+									postType: {
+										...postType,
+										title: inputValue,
+										type: "custom-url",
+										id: Date.now(),
+										url: inputValue
+									}
+								})}
+							>
+							</LinkControl>
+						</PanelBody>
+						<PanelBody
+							title="Глобальні посилання"
+							initialOpen={false}
+						>
+							<RadioControl
+								selected={acfField}
+								options={(!!globalLinksArray && Array.isArray(globalLinksArray))
+									? globalLinksArray.map(([key, value]) => ({
+										label: value.title,
+										value: key
+									}))
+									: []
+								}
+								onChange={(value) => changeGlobalLinkHandler(value, globalLinks)}
+							/>
+						</PanelBody>
+					</>
 				}
+				<PanelBody
+					title="Глобальні назви"
+					initialOpen={false}
+				>
+					<RadioControl
+						selected={acfField}
+						options={(!!globalTextsArray && Array.isArray(globalTextsArray))
+							? globalTextsArray.map(([key, value]) => ({
+								label: value,
+								value: key
+							}))
+							: []
+						}
+						onChange={(value) => changeGlobalTextsHandler(value, globalTexts)}
+					/>
+				</PanelBody>
 				<PanelBody title="Варіанти кнопок" initialOpen={false}>
 					<RadioControl
 						selected={variant}
@@ -121,7 +200,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 			<div {...(simpleWrapper ? {} : blockProps)} {...dataAttributes}>
 				<RichText
-					ref={ref}
+					ref={mergeRefs(ref, refLinks, refTexts)}
 					className={clsx(accent, variant, classes, className, { ['hide-block']: isHide })}
 					placeholder="Кнопка"
 					tagName="span"
