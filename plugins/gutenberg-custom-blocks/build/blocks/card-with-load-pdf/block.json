@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/card-with-load-pdf",
+  "version": "0.1.0",
+  "title": "Картка з завантаженням pdf файла",
+  "icon": "smiley",
+  "category": "blocks",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "mediaId": {
+      "type": "number"
+    },
+    "mediaURL": {
+      "type": "string",
+      "default": ""
+    },
+    "mediaName": {
+      "type": "string",
+      "default": ""
+    },
+    "letter": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "card-with-load-pdf",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

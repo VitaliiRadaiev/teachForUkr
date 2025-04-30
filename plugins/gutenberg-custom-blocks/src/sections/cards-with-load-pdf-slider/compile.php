@@ -1,0 +1,1 @@
+<div class="!flex justify-center flex-wrap gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px]"></div>

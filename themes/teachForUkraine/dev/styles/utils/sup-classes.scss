@@ -653,3 +653,7 @@ flag {
         max-height: calc(var(--line-height) * var(--line));
     }
 }
+
+.transition-bounced {
+    transition: transform .4s $tf-bouncing;
+}

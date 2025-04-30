@@ -1,1 +1,2 @@
 [30-Apr-2025 08:19:47 UTC] test ajax_get_acf_global_links
+[30-Apr-2025 09:11:25 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/cards-with-icon-grid" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121

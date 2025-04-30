@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/cards-with-load-pdf-content",
+  "version": "0.1.0",
+  "title": "Картки",
+  "icon": "smiley",
+  "category": "blocks",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {},
+  "parent": [
+    "t4u/cards-with-load-pdf-slider"
+  ],
+  "textdomain": "cards-with-load-pdf-content",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

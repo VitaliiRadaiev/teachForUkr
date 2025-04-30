@@ -1022,6 +1022,27 @@
             "append": ""
         },
         {
+            "key": "field_681205e8b8111",
+            "label": "Текст \"Скачати\"",
+            "name": "text_download",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Скачати",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67e26a044512e",
             "label": "Соціальні мережі",
             "name": "",
@@ -1101,5 +1122,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1745912747
+    "modified": 1746011640
 }
