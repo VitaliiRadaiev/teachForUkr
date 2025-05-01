@@ -7,10 +7,11 @@ import { useEffect } from "@wordpress/element";
 import { useSelect, useDispatch } from '@wordpress/data';
 import "./editor.scss";
 import clsx from "clsx";
-import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages } from "../../utils/utils";
+import { getSectionsPaddingClasses, getSectionsMarginClasses, getUrlToStaticImages, getOptionsField } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
 import { SectionDecor } from '../../ui/section-decor/SectionDecor';
 import { SectionsDecorPicker } from "../../components/section-decor-picker/SectionsDecorPicker";
+import useFetchOnVisible from "../../hooks/hooks";
 
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const { preview, isHide, padding, margin, background, className, decor } = attributes;
@@ -60,6 +61,22 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		allowedBlocks: []
 	})
 
+	const fetchData = () => getOptionsField('text_download');
+	const { ref, data } = useFetchOnVisible(fetchData);
+
+	useEffect(() => {
+		if(data) {
+			const cardsList = innerBlocks[1]?.innerBlocks[0]?.innerBlocks;
+			if(cardsList && Array.isArray(cardsList)) {
+				cardsList.forEach(card => {
+					updateBlockAttributes(card.clientId, {
+						textDownload: data.value
+					})
+				})
+			}
+		}
+	}, [data]);
+
 	useEffect(() => {
 		const cards = innerBlocks[1]?.innerBlocks[0]?.innerBlocks
 		if (Array.isArray(cards) && cards.length < 5) {
@@ -90,7 +107,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			</InspectorControls>
 			<section {...blockProps}>
 				<SectionDecor decor={decor} />
-				<div className="container relative z-2">
+				<div ref={ref} className="container relative z-2">
 					{children}
 				</div>
 			</section>

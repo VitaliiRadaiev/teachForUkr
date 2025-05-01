@@ -575,6 +575,74 @@ const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list
 
 /***/ }),
 
+/***/ "./src/hooks/hooks.js":
+/*!****************************!*\
+  !*** ./src/hooks/hooks.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
+  const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [error, setError] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [isFetched, setIsFetched] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [isLoading, setIsLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const observerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!shouldFetch) return;
+    observerRef.current = new IntersectionObserver(([entry], observer) => {
+      if (entry.isIntersecting && !isFetched && typeof fetchCallback === 'function') {
+        setIsLoading(true);
+        fetchCallback()?.then(result => {
+          setData(result);
+          setIsFetched(true);
+          setIsLoading(false);
+          observer.disconnect();
+        })?.catch(err => {
+          setError(err);
+          setIsLoading(false);
+        });
+      }
+    }, {
+      threshold: 0.1
+    });
+    if (ref.current) {
+      observerRef.current.observe(ref.current);
+    }
+    return () => observerRef.current?.disconnect();
+  }, [isFetched, shouldFetch, ...deps]);
+  const refetch = fetchCallback => {
+    setIsLoading(true);
+    fetchCallback()?.then(result => {
+      setData(result);
+      setIsFetched(true);
+      setIsLoading(false);
+      observer.disconnect();
+    })?.catch(err => {
+      setError(err);
+      setIsLoading(false);
+    });
+  };
+  return {
+    ref,
+    data,
+    error,
+    isFetched,
+    isLoading,
+    refetch
+  };
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useFetchOnVisible);
+
+/***/ }),
+
 /***/ "./src/sections/cards-with-load-pdf-slider/block.json":
 /*!************************************************************!*\
   !*** ./src/sections/cards-with-load-pdf-slider/block.json ***!
@@ -607,8 +675,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/default-sections-controls/DefaultSectionsControls */ "./src/components/default-sections-controls/DefaultSectionsControls.js");
 /* harmony import */ var _ui_section_decor_SectionDecor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../ui/section-decor/SectionDecor */ "./src/ui/section-decor/SectionDecor.js");
 /* harmony import */ var _components_section_decor_picker_SectionsDecorPicker__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/section-decor-picker/SectionsDecorPicker */ "./src/components/section-decor-picker/SectionsDecorPicker.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _hooks_hooks__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../hooks/hooks */ "./src/hooks/hooks.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -667,6 +737,23 @@ function Edit({
     }]],
     allowedBlocks: []
   });
+  const fetchData = () => (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.getOptionsField)('text_download');
+  const {
+    ref,
+    data
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_9__["default"])(fetchData);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    if (data) {
+      const cardsList = innerBlocks[1]?.innerBlocks[0]?.innerBlocks;
+      if (cardsList && Array.isArray(cardsList)) {
+        cardsList.forEach(card => {
+          updateBlockAttributes(card.clientId, {
+            textDownload: data.value
+          });
+        });
+      }
+    }
+  }, [data]);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     const cards = innerBlocks[1]?.innerBlocks[0]?.innerBlocks;
     if (Array.isArray(cards) && cards.length < 5) {
@@ -682,26 +769,27 @@ function Edit({
     }
   }, [innerBlocks]);
   if (preview) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
       src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.getUrlToStaticImages)(preview)
     });
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_6__.DefaultSectionsControls, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_6__.DefaultSectionsControls, {
         attributes: attributes,
         setAttributes: setAttributes
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_section_decor_picker_SectionsDecorPicker__WEBPACK_IMPORTED_MODULE_8__.SectionsDecorPicker, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_section_decor_picker_SectionsDecorPicker__WEBPACK_IMPORTED_MODULE_8__.SectionsDecorPicker, {
         decor: decor,
         setDecor: value => setAttributes({
           decor: value
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("section", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("section", {
       ...blockProps,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_ui_section_decor_SectionDecor__WEBPACK_IMPORTED_MODULE_7__.SectionDecor, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_ui_section_decor_SectionDecor__WEBPACK_IMPORTED_MODULE_7__.SectionDecor, {
         decor: decor
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+        ref: ref,
         className: "container relative z-2",
         children: children
       })]
@@ -1044,6 +1132,16 @@ module.exports = window["wp"]["data"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["element"];
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = window["React"];
 
 /***/ }),
 

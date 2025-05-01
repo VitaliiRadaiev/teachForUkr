@@ -1,2 +1,17 @@
 [30-Apr-2025 08:19:47 UTC] test ajax_get_acf_global_links
 [30-Apr-2025 09:11:25 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/cards-with-icon-grid" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121
+[30-Apr-2025 14:38:26 UTC] ZipArchive close failure. DETAIL:The ZipArchive engine is having issues zipping up the files on this server. For more details visit the FAQ
+I'm getting a ZipArchive close failure when building. How can I resolve this?
+[https://duplicator.com/knowledge-base/how-to-resolve-zip-format-related-build-issues/]
+[30-Apr-2025 15:09:24 UTC] Automatic updates starting...
+[30-Apr-2025 15:09:25 UTC]   Automatic plugin updates starting...
+[30-Apr-2025 15:09:25 UTC]   Automatic plugin updates complete.
+[30-Apr-2025 15:09:25 UTC] Automatic updates complete.
+[01-May-2025 06:55:44 UTC] Automatic updates starting...
+[01-May-2025 06:55:46 UTC]   Automatic plugin updates starting...
+[01-May-2025 06:55:46 UTC]   Automatic plugin updates complete.
+[01-May-2025 06:55:47 UTC] Automatic updates complete.
+[01-May-2025 07:23:17 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/numbers-text" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121
+[01-May-2025 08:53:48 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/card-with-icon" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121
+[01-May-2025 08:55:48 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/card-with-icon" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121
+[01-May-2025 08:55:49 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/card-with-icon" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121

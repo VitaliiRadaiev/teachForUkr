@@ -90,11 +90,11 @@ function Edit({
         allowedBlocks: []
       }
     }], ['t4u/inner-block', {
-      classes: 'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start',
+      classes: 'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start [&:not(:has(.btn)):not(:has(.title))]:self-center',
       simpleWrapper: true,
       options: {
         template: [['t4u/heading', {
-          classes: 'text-dark-primary mb-[10px]',
+          classes: 'text-dark-primary mb-[10px] title',
           htmlTeg: 'span',
           fontSize: 'lg'
         }], ['t4u/simple-text', {
@@ -244,7 +244,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const icons = ['icons/decor-icon-1.svg', 'icons/decor-icon-2.svg', 'icons/decor-icon-3.svg', 'icons/decor-icon-4.svg', 'icons/decor-icon-5.svg', 'icons/decor-icon-6.svg', 'icons/decor-icon-7.svg', 'icons/decor-icon-8.svg', 'icons/decor-icon-9.svg', 'icons/decor-icon-10.svg', 'icons/decor-icon-11.svg'];
+const icons = ['icons/decor-icon-1.svg', 'icons/decor-icon-2.svg', 'icons/decor-icon-3.svg', 'icons/decor-icon-4.svg', 'icons/decor-icon-5.svg', 'icons/decor-icon-6.svg', 'icons/decor-icon-7.svg', 'icons/decor-icon-8.svg', 'icons/decor-icon-9.svg', 'icons/decor-icon-10.svg', 'icons/decor-icon-11.svg', 'icons/decor-icon-12.svg', 'icons/decor-icon-13.svg', 'icons/decor-icon-14.svg', 'icons/decor-icon-15.svg', 'icons/decor-icon-16.svg', 'icons/decor-icon-17.svg', 'icons/decor-icon-18.svg', 'icons/decor-icon-19.svg', 'icons/decor-icon-20.svg', 'icons/decor-icon-21.svg', 'icons/decor-icon-22.svg', 'icons/decor-icon-23.svg', 'icons/decor-icon-24.svg', 'icons/decor-icon-25.svg', 'icons/decor-icon-26.svg', 'icons/decor-icon-27.svg', 'icons/decor-icon-28.svg', 'icons/decor-icon-29.svg', 'icons/decor-icon-30.svg', 'icons/decor-icon-31.svg', 'icons/decor-icon-32.svg', 'icons/decor-icon-33.svg', 'icons/decor-icon-34.svg', 'icons/decor-icon-35.svg', 'icons/decor-icon-36.svg'];
 const IconPicker = ({
   iconUrl,
   setIconUrl
@@ -254,13 +254,19 @@ const IconPicker = ({
     initialOpen: false,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.RadioControl, {
       selected: iconUrl,
-      options: icons.map(iconUrl => ({
+      options: [{
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "text-md",
+          children: "\u041D\u0435\u043C\u0430\u0454"
+        }),
+        value: ''
+      }, ...icons.map(iconUrl => ({
         label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
           className: "!h-[30px] w-auto",
           src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlToStaticImages)(iconUrl)
         }),
         value: iconUrl
-      })),
+      }))],
       onChange: value => setIconUrl(value)
     })
   });

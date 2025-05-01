@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/simple-html","version":"0.1.0","title":"Простий html","icon":"smiley","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"html":{"type":"string","default":""}},"textdomain":"simple-html","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/simple-html","version":"0.1.0","title":"Простий html","icon":"smiley","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"html":{"type":"string","default":""},"text":{"type":"string","default":""}},"textdomain":"simple-html","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -51,7 +51,8 @@ function Edit({
   attributes
 }) {
   const {
-    html
+    html,
+    text
   } = attributes;
   const ref = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
@@ -60,8 +61,10 @@ function Edit({
       ref.current.remove();
     }
   }, [ref]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    ref: ref
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      ref: ref
+    }), text]
   });
 }
 

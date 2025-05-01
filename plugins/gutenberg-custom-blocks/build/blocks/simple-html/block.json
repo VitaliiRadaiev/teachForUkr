@@ -15,6 +15,10 @@
     "html": {
       "type": "string",
       "default": ""
+    },
+    "text": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "simple-html",

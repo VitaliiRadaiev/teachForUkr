@@ -1,1 +1,2 @@
 <?= $attributes['html'] ?>
+<?= $attributes['text'] ?>

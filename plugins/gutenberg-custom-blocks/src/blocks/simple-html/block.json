@@ -9,16 +9,20 @@
 	"description": "",
 	"example": {},
 	"supports": {
-	  "html": false
+		"html": false
 	},
 	"attributes": {
-	  "html": {
-		"type": "string",
-		"default": ""
-	  }
+		"html": {
+			"type": "string",
+			"default": ""
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		}
 	},
 	"textdomain": "simple-html",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"render": "file:./render.php"
-  }
+}

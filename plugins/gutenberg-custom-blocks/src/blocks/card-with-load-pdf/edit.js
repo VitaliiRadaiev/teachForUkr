@@ -8,15 +8,16 @@ import {
 import { PanelBody, Button } from "@wordpress/components";
 import "./editor.scss";
 import clsx from "clsx";
-import { getOptionsField, getUrlToStaticImages, removeDomain } from "../../utils/utils";
-import useFetchOnVisible from "../../hooks/hooks";
-import { useSelect } from '@wordpress/data';
+import { getUrlToStaticImages, removeDomain } from "../../utils/utils";
+import { useSelect, useDispatch } from '@wordpress/data';
 import { useEffect } from "@wordpress/element";
+import { IconPicker } from "../../components/icon-picker/IconPicker";
 
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-	const { letter, mediaId, mediaURL, mediaName, className } = attributes;
+	const { letter, icon, mediaId, mediaURL, mediaName, className, textDownload } = attributes;
 
+	const { updateBlockAttributes } = useDispatch('core/block-editor');
 	const innerBlocks = useSelect((select) => select('core/block-editor').getBlocks(clientId), [clientId]);
 
 	const blockProps = useBlockProps({
@@ -28,6 +29,21 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 	const { children } = useInnerBlocksProps({}, {
 		template: [
+			['t4u/inner-block', {
+				classes: 'mb-[20px] md:mb-[40px] h-[44px] w-[44px] md:h-[60px] md:w-[60px] rounded-full bg-accent-first text-light-primary flex items-center justify-center h3',
+				simpleWrapper: true,
+				options: {
+					template: [
+						['t4u/static-image', {
+							classes: 'hidden h-[22px] w-[22px] md:h-[32px] md:w-[32px] object-cover color-light-primary-filter',
+						}],
+						['t4u/simple-html', {
+							html: ''
+						}]
+					],
+					allowedBlocks: []
+				}
+			}],
 			['t4u/heading', {
 				classes: 'mb-[16px] md:mb-[20px] h3 text-dark-primary hyphens-auto flex flex-col',
 				htmlTeg: 'span'
@@ -36,15 +52,38 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		allowedBlocks: []
 	});
 
-	const fetchData = () => getOptionsField('text_download');
-	const { ref, data } = useFetchOnVisible(fetchData);
+	const setIcon = (iconUrl) => {
+		const staticImage = innerBlocks[0]?.innerBlocks[0];
+		const simpleHtml = innerBlocks[0]?.innerBlocks[1];
+		staticImage && updateBlockAttributes(staticImage.clientId, {
+			url: iconUrl,
+			classes: clsx(
+				'h-[22px] w-[22px] md:h-[32px] md:w-[32px] object-cover color-light-primary-filter',
+				{
+					'hidden': !iconUrl.length
+				}
+			)
+		});
+		simpleHtml && updateBlockAttributes(simpleHtml.clientId, {
+			text: !!iconUrl.length ? '' : letter
+		});
+	}
 
 	useEffect(() => {
-		const heading = innerBlocks[0];
+		const heading = innerBlocks[1];
 		if (heading) {
-			setAttributes({ letter: heading.attributes.text.replace(/<[^>]+>/g, '').at(0) })
+			const letter = heading.attributes.text.replace(/<[^>]+>/g, '').at(0);
+			setAttributes({ letter });
+
+			if (!icon.length) {
+				const simpleHtml = innerBlocks[0]?.innerBlocks[1];
+				
+				simpleHtml && updateBlockAttributes(simpleHtml.clientId, {
+					text: letter
+				});
+			}
 		}
-	}, [innerBlocks])
+	}, [innerBlocks, icon]);
 
 	return (
 		<>
@@ -73,18 +112,19 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						/>
 					</MediaUploadCheck>
 				</PanelBody>
+				<IconPicker iconUrl={icon} setIconUrl={(iconUrl) => {
+					setAttributes({ icon: iconUrl });
+					setIcon(iconUrl);
+				}} />
 			</InspectorControls>
 			<div {...blockProps}>
-				<div ref={ref} className="mb-[20px] md:mb-[40px] h-[44px] w-[44px] md:h-[60px] md:w-[60px] rounded-full bg-accent-first text-light-primary flex items-center justify-center h3">
-					{letter}
-				</div>
 				{children}
 				<div className="mt-auto flex gap-[12px] items-center">
 					<div className="bg-[--bg] h-[44px] w-[44px] grow-0 shrink-0 rounded-[6px] flex items-center justify-center">
 						<img className="h-[30px] w-auto" src={getUrlToStaticImages('icons/pdf.svg')} alt="" />
 					</div>
 					<span className="text-accent-second text-[1.125rem] font-medium">
-						{!!data && data.value}
+						{textDownload}
 					</span>
 				</div>
 			</div>

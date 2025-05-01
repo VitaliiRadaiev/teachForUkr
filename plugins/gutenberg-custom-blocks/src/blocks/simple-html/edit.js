@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 
 export default function Edit({ attributes }) {
-	const { html } = attributes;
+	const { html, text } = attributes;
 	const ref = useRef(null);
 
 	useEffect(() => {
@@ -15,6 +15,9 @@ export default function Edit({ attributes }) {
 	}, [ref])
 
 	return (
-		<div ref={ref} ></div>
+		<>
+			<div ref={ref} ></div>
+			{text}
+		</>
 	);
 }

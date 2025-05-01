@@ -26,6 +26,14 @@
     "letter": {
       "type": "string",
       "default": ""
+    },
+    "textDownload": {
+      "type": "string",
+      "default": ""
+    },
+    "icon": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "card-with-load-pdf",
