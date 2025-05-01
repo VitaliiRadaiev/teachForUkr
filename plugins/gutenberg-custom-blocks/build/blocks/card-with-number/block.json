@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/card-with-number",
+  "version": "0.1.0",
+  "title": "Карточка нумерована",
+  "icon": "smiley",
+  "category": "blocks",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "classes": {
+      "type": "string",
+      "default": ""
+    },
+    "columns": {
+      "type": "string",
+      "enum": [
+        "lg:col-span-3",
+        "lg:col-span-4",
+        "lg:col-span-6",
+        "lg:col-span-12"
+      ],
+      "default": "lg:col-span-3"
+    },
+    "direction": {
+      "type": "string",
+      "enum": [
+        "flex-col",
+        "flex-row"
+      ],
+      "default": "flex-col"
+    }
+  },
+  "textdomain": "card-with-number",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

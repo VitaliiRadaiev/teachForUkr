@@ -582,20 +582,20 @@ const LIST_GAP_Y_MAP = {
 
 /***/ }),
 
-/***/ "./src/sections/cards-with-icons-grid/block.json":
-/*!*******************************************************!*\
-  !*** ./src/sections/cards-with-icons-grid/block.json ***!
-  \*******************************************************/
+/***/ "./src/sections/cards-with-number-grid/block.json":
+/*!********************************************************!*\
+  !*** ./src/sections/cards-with-number-grid/block.json ***!
+  \********************************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/cards-with-icon-grid","version":"0.1.0","title":"Картки з іконкою","category":"cards","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"},"preview":{"type":"string"},"decor":{"type":"number","default":3}},"textdomain":"cards-with-icon-grid","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/cards-with-number-grid","version":"0.1.0","title":"Картки нумеровані","category":"cards","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"lg","right":"","bottom":"lg","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"},"preview":{"type":"string"},"decor":{"type":"number","default":5}},"textdomain":"cards-with-number-grid","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
-/***/ "./src/sections/cards-with-icons-grid/edit.js":
-/*!****************************************************!*\
-  !*** ./src/sections/cards-with-icons-grid/edit.js ***!
-  \****************************************************/
+/***/ "./src/sections/cards-with-number-grid/edit.js":
+/*!*****************************************************!*\
+  !*** ./src/sections/cards-with-number-grid/edit.js ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -604,7 +604,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editor.scss */ "./src/sections/cards-with-icons-grid/editor.scss");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editor.scss */ "./src/sections/cards-with-number-grid/editor.scss");
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
 /* harmony import */ var _components_default_sections_controls_DefaultSectionsControls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/default-sections-controls/DefaultSectionsControls */ "./src/components/default-sections-controls/DefaultSectionsControls.js");
@@ -634,7 +634,7 @@ function Edit({
     decor
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('cards-grid-section rounded-[20px] md:rounded-[30px] overflow-hidden relative', className, background, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_3__.getSectionsMarginClasses)(margin), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_3__.getSectionsPaddingClasses)(padding), {
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('cards-with-number-grid-section rounded-[20px] md:rounded-[30px] overflow-hidden relative', className, background, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_3__.getSectionsMarginClasses)(margin), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_3__.getSectionsPaddingClasses)(padding), {
       ['hide-block']: isHide
     })
   });
@@ -647,8 +647,8 @@ function Edit({
       classes: 'min-h-100 mt-[20px] md:mt-[30px] 4xl:mt-[40px] grid md:grid-cols-2 lg:grid-cols-12 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px]',
       canAddItem: true,
       options: {
-        template: [['t4u/card-with-icon', {}]],
-        allowedBlocks: ['t4u/card-with-icon']
+        template: [['t4u/card-with-number', {}]],
+        allowedBlocks: ['t4u/card-with-number']
       }
     }], ["t4u/buttons-group", {
       classes: 'mt-[40px] xl:mt-[50px]',
@@ -690,10 +690,10 @@ function Edit({
 
 /***/ }),
 
-/***/ "./src/sections/cards-with-icons-grid/editor.scss":
-/*!********************************************************!*\
-  !*** ./src/sections/cards-with-icons-grid/editor.scss ***!
-  \********************************************************/
+/***/ "./src/sections/cards-with-number-grid/editor.scss":
+/*!*********************************************************!*\
+  !*** ./src/sections/cards-with-number-grid/editor.scss ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -702,10 +702,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/sections/cards-with-icons-grid/save.js":
-/*!****************************************************!*\
-  !*** ./src/sections/cards-with-icons-grid/save.js ***!
-  \****************************************************/
+/***/ "./src/sections/cards-with-number-grid/save.js":
+/*!*****************************************************!*\
+  !*** ./src/sections/cards-with-number-grid/save.js ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -1097,15 +1097,15 @@ module.exports = window["ReactJSXRuntime"];
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
-/*!*****************************************************!*\
-  !*** ./src/sections/cards-with-icons-grid/index.js ***!
-  \*****************************************************/
+/*!******************************************************!*\
+  !*** ./src/sections/cards-with-number-grid/index.js ***!
+  \******************************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/sections/cards-with-icons-grid/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/sections/cards-with-icons-grid/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/sections/cards-with-icons-grid/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/sections/cards-with-number-grid/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/sections/cards-with-number-grid/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/sections/cards-with-number-grid/block.json");
 
 
 
@@ -1115,7 +1115,7 @@ __webpack_require__.r(__webpack_exports__);
   save: _save__WEBPACK_IMPORTED_MODULE_2__["default"],
   example: {
     attributes: {
-      preview: 'general/preview-section-cards-with-icon.jpg'
+      preview: 'general/preview-section-cards-with-number-grid.jpg'
     }
   }
 });

@@ -1484,6 +1484,9 @@ video {
 .border-transparent {
   border-color: transparent;
 }
+.border-accent-first {
+  border-color: var(--color-accent-first);
+}
 .bg-\[--bg\] {
   background-color: var(--bg);
 }
@@ -1697,6 +1700,9 @@ video {
 }
 .pt-\[96px\] {
   padding-top: 96px;
+}
+.pt-\[2px\] {
+  padding-top: 2px;
 }
 .text-center {
   text-align: center;

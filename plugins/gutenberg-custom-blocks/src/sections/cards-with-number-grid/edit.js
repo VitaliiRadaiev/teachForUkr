@@ -14,7 +14,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const { preview, isHide, padding, margin, background, className, decor } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
-			'cards-grid-section rounded-[20px] md:rounded-[30px] overflow-hidden relative',
+			'cards-with-number-grid-section rounded-[20px] md:rounded-[30px] overflow-hidden relative',
 			className,
 			background,
 			getSectionsMarginClasses(margin),
@@ -33,9 +33,9 @@ export default function Edit({ attributes, setAttributes }) {
 				canAddItem: true,
 				options: {
 					template: [
-						['t4u/card-with-icon', {}]
+						['t4u/card-with-number', {}]
 					],
-					allowedBlocks: ['t4u/card-with-icon']
+					allowedBlocks: ['t4u/card-with-number']
 				}
 
 			}],
