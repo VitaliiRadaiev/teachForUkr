@@ -5,7 +5,7 @@ import {
 	BlockControls,
 	AlignmentToolbar
 } from "@wordpress/block-editor";
-import { PanelBody, RadioControl } from "@wordpress/components";
+import { PanelBody } from "@wordpress/components";
 import "./editor.scss";
 import clsx from "clsx";
 import { combineString, getMarginClasses } from "../../utils/utils";
@@ -13,25 +13,18 @@ import { DirectionIcon } from "../../components/direction-icon/DirectionIcon";
 import { ButtonsGroup } from "../../components/buttons-group/ButtonsGroup";
 import { AccentColorPallet } from "../../components/colorPallets/AccentColorPallet";
 import { MarginYControl } from "../../components/space-control/MarginYControl";
-import { TEXT_SIZES } from "../../global/global";
+import { LIST_GAP_Y_MAP, TEXT_SIZES } from "../../global/global";
 
-const gapYMap = {
-	sm: 'gap-y-[5px]',
-	md: 'gap-y-[10px]',
-	lg: 'gap-y-[25px]',
-	xl: 'gap-y-[40px]',
-}
 
 export default function Edit({ attributes, setAttributes }) {
-	const { margin, classes, className, accent, fontSize, aligment, gap, spaceLeft } = attributes;
+	const { margin, classes, className, accent, fontSize, aligment, gap, gapClass, spaceLeft } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
 			'ul-list-square',
-			//'canAddItem',
 			classes,
 			className,
 			accent,
-			gapYMap[gap],
+			gapClass,
 			getMarginClasses(margin),
 			combineString({ prefix: 'text-' }, fontSize),
 			combineString({ prefix: 'text-' }, aligment),
@@ -75,7 +68,10 @@ export default function Edit({ attributes, setAttributes }) {
 						<DirectionIcon direction="top bottom" />
 						<ButtonsGroup
 							value={gap}
-							setValue={(val) => setAttributes({ gap: val })}
+							setValue={(val) => setAttributes({
+								gap: val,
+								gapClass: LIST_GAP_Y_MAP[val],
+							})}
 							valuesMap={["sm", "md", "lg", "xl"]}
 						/>
 					</div>

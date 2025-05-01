@@ -62,6 +62,10 @@
       ],
       "default": "sm"
     },
+    "gapClass": {
+      "type": "string",
+      "default": "gap-y-[5px]"
+    },
     "spaceLeft": {
       "type": "string",
       "enum": [

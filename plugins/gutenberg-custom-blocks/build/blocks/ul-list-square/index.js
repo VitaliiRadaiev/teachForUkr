@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \**********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/ul-list-square","version":"0.1.0","title":"Список","icon":"editor-ul","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"margin":{"type":"object","default":{"top":"sm","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"accent":{"type":"string","enum":["accent-first","accent-second"],"default":"accent-first"},"fontSize":{"type":"string","enum":["sm","md","lg","xl"],"default":""},"aligment":{"type":"string","enum":["left","center","right"],"default":""},"gap":{"type":"string","enum":["sm","md","lg","xl"],"default":"sm"},"spaceLeft":{"type":"string","enum":["sm","md","lg","xl"],"default":"sm"}},"textdomain":"ul-list-square","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/ul-list-square","version":"0.1.0","title":"Список","icon":"editor-ul","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"margin":{"type":"object","default":{"top":"sm","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"accent":{"type":"string","enum":["accent-first","accent-second"],"default":"accent-first"},"fontSize":{"type":"string","enum":["sm","md","lg","xl"],"default":""},"aligment":{"type":"string","enum":["left","center","right"],"default":""},"gap":{"type":"string","enum":["sm","md","lg","xl"],"default":"sm"},"gapClass":{"type":"string","default":"gap-y-[5px]"},"spaceLeft":{"type":"string","enum":["sm","md","lg","xl"],"default":"sm"}},"textdomain":"ul-list-square","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -62,12 +62,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const gapYMap = {
-  sm: 'gap-y-[5px]',
-  md: 'gap-y-[10px]',
-  lg: 'gap-y-[25px]',
-  xl: 'gap-y-[40px]'
-};
 function Edit({
   attributes,
   setAttributes
@@ -80,12 +74,11 @@ function Edit({
     fontSize,
     aligment,
     gap,
+    gapClass,
     spaceLeft
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('ul-list-square',
-    //'canAddItem',
-    classes, className, accent, gapYMap[gap], (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getMarginClasses)(margin), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.combineString)({
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('ul-list-square', classes, className, accent, gapClass, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getMarginClasses)(margin), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.combineString)({
       prefix: 'text-'
     }, fontSize), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.combineString)({
       prefix: 'text-'
@@ -139,7 +132,8 @@ function Edit({
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_buttons_group_ButtonsGroup__WEBPACK_IMPORTED_MODULE_6__.ButtonsGroup, {
             value: gap,
             setValue: val => setAttributes({
-              gap: val
+              gap: val,
+              gapClass: _global_global__WEBPACK_IMPORTED_MODULE_9__.LIST_GAP_Y_MAP[val]
             }),
             valuesMap: ["sm", "md", "lg", "xl"]
           })]
@@ -499,6 +493,7 @@ const MarginYControl = ({
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CONTAINER_SIZES: () => (/* binding */ CONTAINER_SIZES),
+/* harmony export */   LIST_GAP_Y_MAP: () => (/* binding */ LIST_GAP_Y_MAP),
 /* harmony export */   RICH_TEXT_FORMATS: () => (/* binding */ RICH_TEXT_FORMATS),
 /* harmony export */   SECTIONS_MARGIN_MAP: () => (/* binding */ SECTIONS_MARGIN_MAP),
 /* harmony export */   SECTIONS_PADDING_MAP: () => (/* binding */ SECTIONS_PADDING_MAP),
@@ -511,6 +506,12 @@ const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const CONTAINER_SIZES = ["sm", "md", "lg", "xl", "2xl", "full"];
 const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list-square'];
+const LIST_GAP_Y_MAP = {
+  sm: 'gap-y-[5px]',
+  md: 'gap-y-[10px]',
+  lg: 'gap-y-[25px]',
+  xl: 'gap-y-[40px]'
+};
 
 /***/ }),
 

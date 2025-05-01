@@ -45,6 +45,10 @@
 			"enum": ["sm", "md", "lg", "xl"],
 			"default": "sm"
 		},
+		"gapClass": {
+			"type": "string",
+			"default": "gap-y-[5px]"
+		},
 		"spaceLeft": {
 			"type": "string",
 			"enum": ["sm", "md", "lg", "xl"],

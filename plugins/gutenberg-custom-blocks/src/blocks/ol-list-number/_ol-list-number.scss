@@ -1,0 +1,56 @@
+@use "./utils/abstracts" as *;
+
+.ol-list-number {
+    margin-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    counter-reset: num;
+
+    &.ol-ml-sm {
+        margin-left: 0em !important;
+    }
+    &.ol-ml-md {
+        margin-left: 1.5em !important;
+    }
+    &.ol-ml-lg {
+        margin-left: 2em !important;
+    }
+    &.ol-ml-xl {
+        margin-left: 3em !important;
+    }
+
+
+    & li {
+        position: relative;
+        padding-left: max(34px, 2.125em);
+        counter-increment: num;
+        min-height: max(24px, 1.5em);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &::before {
+            content: counter(num);
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: max(24px, 1.714em);
+            min-width: max(24px, 1.714em);
+            border-radius: 100%;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            background-color: var(--accent-10);
+            padding: 0.1em 4px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875em;
+            line-height: 140%;
+            letter-spacing: -0.01em;
+        }
+        // &::marker {
+        //     color: var(--accent);
+        // }
+    }
+}

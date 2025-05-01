@@ -1,0 +1,62 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/ol-list-number",
+	"version": "0.1.0",
+	"title": "Список нумерований",
+	"icon": "editor-ol",
+	"category": "blocks",
+	"description": "",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"margin": {
+			"type": "object",
+			"default": {
+				"top": "sm",
+				"right": "",
+				"bottom": "",
+				"left": ""
+			}
+		},
+		"classes": {
+			"type": "string",
+			"default": ""
+		},
+		"accent": {
+			"type": "string",
+			"enum": ["accent-first", "accent-second"],
+			"default": "accent-first"
+		},
+		"fontSize": {
+			"type": "string",
+			"enum": ["sm", "md", "lg", "xl"],
+			"default": ""
+		},
+		"aligment": {
+			"type": "string",
+			"enum": ["left", "center", "right"],
+			"default": ""
+		},
+		"gap": {
+			"type": "string",
+			"enum": ["sm", "md", "lg", "xl"],
+			"default": "md"
+		},
+		"gapClass": {
+			"type": "string",
+			"default": "gap-y-[10px]"
+		},
+		"spaceLeft": {
+			"type": "string",
+			"enum": ["sm", "md", "lg", "xl"],
+			"default": "sm"
+		}
+	},
+	"textdomain": "ol-list-number",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

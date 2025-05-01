@@ -34,8 +34,10 @@
 // gutenberg-blocks
 @use "../../../../plugins/gutenberg-custom-blocks/src/blocks/breadcrumbs/breadcrumbs.scss";
 @use "../../../../plugins/gutenberg-custom-blocks/src/blocks/card-with-mask-image/card-with-mask-image.scss";
+@use "../../../../plugins/gutenberg-custom-blocks/src/blocks/ul-list-square/ul-list-square.scss";
+@use "../../../../plugins/gutenberg-custom-blocks/src/blocks/ol-list-number/ol-list-number.scss";
 
 @use "../../../../plugins/gutenberg-custom-blocks/src/sections/hero-main/hero-main.scss";
 @use "../../../../plugins/gutenberg-custom-blocks/src/sections/tabs/tabs.scss";
-@use "../../../../plugins/gutenberg-custom-blocks/src/sections/reports/reports.scss";
+@use "../../../../plugins/gutenberg-custom-blocks/src/sections/reports/reports.scss"; 
 // /= gutenberg-blocks

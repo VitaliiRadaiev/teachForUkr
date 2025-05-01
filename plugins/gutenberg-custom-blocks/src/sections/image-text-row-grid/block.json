@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/image-text-row-grid",
+  "version": "0.1.0",
+  "title": "Картинка + текст горизонтально, списком",
+  "category": "image-text-button-row",
+  "icon": "layout",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "isHide": {
+      "type": "boolean",
+      "default": false
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": "lg",
+        "right": "",
+        "bottom": "lg",
+        "left": ""
+      }
+    },
+    "margin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "background": {
+      "type": "string",
+      "enum": [
+        "bg-light-primary",
+        "bg-light-primary-80"
+      ],
+      "default": "bg-light-primary-80"
+    },
+    "decor": {
+      "type": "number",
+      "default": 0
+    },
+    "variants": {
+      "type": "string",
+      "enum": [
+        "odd",
+        "even"
+      ],
+      "default": "even"
+    },
+    "preview": {
+      "type": "string"
+    }
+  },
+  "textdomain": "image-text-row-grid",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/image-text-row-grid-item",
+	"version": "0.1.0",
+	"title": "Картка",
+	"icon": "smiley",
+	"description": "",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"isHide": {
+			"type": "boolean",
+			"default": false
+		},
+		"icon": {
+			"type": "string",
+			"default": "icons/decor-icon-1.svg"
+		}
+	},
+	"parent": [
+		"t4u/image-text-row-grid"
+	],
+	"textdomain": "image-text-row-grid-item",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

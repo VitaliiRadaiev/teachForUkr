@@ -20,3 +20,10 @@ export const TEXT_CONTENT_ALLOWD_BLOCKS = [
     't4u/paragraph',
     't4u/ul-list-square'
 ]
+
+export const LIST_GAP_Y_MAP = {
+	sm: 'gap-y-[5px]',
+	md: 'gap-y-[10px]',
+	lg: 'gap-y-[25px]',
+	xl: 'gap-y-[40px]',
+}
