@@ -10,11 +10,12 @@ import { DefaultSectionsControls } from "../../components/default-sections-contr
 import { SectionsDecorPicker } from "../../components/section-decor-picker/SectionsDecorPicker";
 import { SectionDecor } from "../../ui/section-decor/SectionDecor";
 
+
 export default function Edit({ attributes, setAttributes }) {
 	const { isHide, padding, margin, background, className, decor } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
-			'numbers-grid-section rounded-[20px] md:rounded-[30px] relative',
+			'cards-with-animate-icons-section rounded-[20px] md:rounded-[30px] relative',
 			className,
 			background,
 			getSectionsMarginClasses(margin),
@@ -29,13 +30,13 @@ export default function Edit({ attributes, setAttributes }) {
 				container: "lg",
 			}],
 			['t4u/inner-block', {
-				classes: 'mt-[30px] md:mt-[40px] lg:mt-[50px] grid md:grid-cols-2 lg:grid-flow-dense gap-[10px] lg:gap-[24px] first-child-no-margin',
+				classes: 'mt-[30px] md:mt-[40px] xl:mt-[50px] grid md:grid-cols-2 lg:grid-cols-12 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px] first-child-no-margin',
 				canAddItem: true,
 				options: {
 					template: [
-						['t4u/numbers-grid-item', {}],
+						['t4u/cards-with-animate-icons-item', {}],
 					],
-					allowedBlocks: ['t4u/numbers-grid-item']
+					allowedBlocks: ['t4u/cards-with-animate-icons-item']
 				},
 				allowedBlocks: []
 			}],
@@ -44,9 +45,7 @@ export default function Edit({ attributes, setAttributes }) {
 				alignment: 'center',
 				options: {
 					template: [
-						["t4u/button", {
-							acfField: 'link_registration'
-						}],
+						["t4u/button", {}],
 					],
 					allowedBlocks: ['t4u/button']
 				}

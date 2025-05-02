@@ -7,13 +7,15 @@ import "./editor.scss";
 import clsx from "clsx";
 import { getSectionsPaddingClasses, getSectionsMarginClasses } from "../../utils/utils";
 import { DefaultSectionsControls } from "../../components/default-sections-controls/DefaultSectionsControls";
+import { SectionsDecorPicker } from "../../components/section-decor-picker/SectionsDecorPicker";
+import { SectionDecor } from "../../ui/section-decor/SectionDecor";
 
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, padding, margin, background, className } = attributes;
+	const { isHide, padding, margin, background, className, decor } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
-			'numbers-section rounded-[20px] md:rounded-[30px]',
+			'numbers-section rounded-[20px] md:rounded-[30px] relative',
 			className,
 			background,
 			getSectionsMarginClasses(margin),
@@ -24,20 +26,8 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const { children } = useInnerBlocksProps({}, {
 		template: [
-			['t4u/inner-block', { 
-				classes: 'text-center max-w-[30.5rem] xl:max-w-[45.5rem] 4xl:max-w-[59.125rem] mx-auto',
-				simpleWrapper: true,
-				options: {
-					template: [
-						['t4u/sup-title', {}],
-						['t4u/heading', { classes: "mt-[16px] md:mt-[20px] text-dark-primary" }],
-						['t4u/simple-text', {
-							classes: "mt-[30px] md:mt-[20px] lg:mt-[30px]",
-						}],
-					],
-					allowedBlocks: []
-				}
-
+			['t4u/head-block', {
+				container: "lg",
 			}],
 			['t4u/inner-block', {
 				classes: 'mt-[30px] md:mt-[40px] xl:mt-[50px] grid lg:grid-cols-2 xl:grid-cols-12 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px]',
@@ -69,10 +59,12 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<DefaultSectionsControls attributes={attributes} setAttributes={setAttributes}/>
+				<DefaultSectionsControls attributes={attributes} setAttributes={setAttributes} />
+				<SectionsDecorPicker decor={decor} setDecor={(value) => setAttributes({ decor: value })} />
 			</InspectorControls>
 			<section {...blockProps}>
-				<div className="container">
+				<SectionDecor decor={decor} />
+				<div className="container relative z-2">
 					{children}
 				</div>
 			</section>

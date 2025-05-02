@@ -44,6 +44,10 @@
     },
     "preview": {
       "type": "string"
+    },
+    "decor": {
+      "type": "number",
+      "default": 0
     }
   },
   "textdomain": "numbers",

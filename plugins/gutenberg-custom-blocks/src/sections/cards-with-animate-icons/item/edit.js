@@ -4,63 +4,48 @@ import {
 	InspectorControls
 } from "@wordpress/block-editor";
 import { PanelBody, RadioControl } from "@wordpress/components";
-import { useSelect, useDispatch } from '@wordpress/data';
-import { useEffect } from '@wordpress/element';
 import "./editor.scss";
 import clsx from "clsx";
 import { getUrlToStaticImages } from "../../../utils/utils";
 
-const getPaddingRightClasses = (value) => {
-	if (value === 1 || value === 2 || value === 3) {
-		return 'pr-[80px] xl:pr-[125px]';
-	}
 
-	if (value === 4 || value === 5 || value === 6 || value === 7) {
-		return 'pr-[55px] xl:pr-[85px]';
-	}
-
-	if (value === 8 || value === 9 || value === 10) {
-		return 'pr-[30px] xl:pr-[45px]';
-	}
-}
-
-export default function Edit({ attributes, setAttributes, clientId }) {
+export default function Edit({ attributes, setAttributes }) {
 	const { decor, columns } = attributes;
-	const { updateBlockAttributes } = useDispatch('core/block-editor');
-
-	const innerBlocks = useSelect((select) => select('core/block-editor').getBlocks(clientId), [clientId]);
 
 	const blockProps = useBlockProps({
 		className: clsx(
-			"nested-bg-item p-[16px] md:p-[20px] xl:p-[30px] rounded-[12px] flex flex-col gap-[20px] xl:gap-[30px] relative text-dark-primary lg-and-xl-max:[&:last-child:nth-child(odd)]:col-span-2",
+			"nested-bg-item min-h-[75px] md:min-h-[130px] xl:min-h-[165px] 4xl:min-h-[190px] p-[16px] md:p-[20px] xl:p-[30px] rounded-[12px] relative text-dark-primary md-and-lg-max:[&:last-child:nth-child(odd)]:col-span-2",
 			columns
 		)
 	});
 
-	useEffect(() => {
-		innerBlocks.forEach(item => {
-			item.innerBlocks.forEach(block => {
-				if(block.name === "t4u/heading") {
-					updateBlockAttributes(block.clientId, { classes: getPaddingRightClasses(decor) });
-				}
-			})
-		});
-	}, [decor])
-
 	const { children } = useInnerBlocksProps({}, {
 		template: [
 			['t4u/inner-block', {
-				wrapper: false,
+				classes: 'h-full flex flex-col first-no-margin last-no-margin pr-[20px] md:pr-[35px] xl:pr-[40px] 4xl:pr-[45px]',
+				simpleWrapper: true,
 				options: {
 					template: [
 						['t4u/heading', {
-							classes: getPaddingRightClasses(decor),
-							htmlTeg: "span",
-							fontSize: "xl",
+							classes: 'text-dark-primary ',
+							fontSize: 'lg'
 						}],
 						['t4u/simple-text', {
-							classes: "pr-[40px] xl:pr-[60px]",
-							canAddItem: false
+							classes: 'mt-[10px] mb-[20px]',
+							canAddItem: true
+						}],
+						["t4u/buttons-group", {
+							classes: 'mt-auto',
+							options: {
+								template: [
+									["t4u/button", {
+										variant: 'btn-with-enter-arrow',
+										acfField: 'text_review',
+										acfFieldType: 'text'
+									}],
+								],
+								allowedBlocks: ['t4u/button']
+							}
 						}]
 					],
 					allowedBlocks: []
@@ -90,19 +75,19 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						options={[
 							{
 								label: <span>1/4</span>,
-								value: 'xl:col-span-3'
+								value: 'lg:col-span-3'
 							},
 							{
 								label: <span>1/3</span>,
-								value: 'xl:col-span-4'
+								value: 'lg:col-span-4'
 							},
 							{
 								label: <span>1/2</span>,
-								value: 'xl:col-span-6'
+								value: 'md:col-span-2 lg:col-span-6'
 							},
 							{
 								label: <span>1/1</span>,
-								value: 'xl:col-span-12'
+								value: 'md:col-span-2 lg:col-span-12'
 							}
 						]}
 						onChange={(value) => setAttributes({ columns: value })}
@@ -110,7 +95,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>
-				<div className="absolute top-[16px] md:top-[20px] xl:top-[30px] right-[16px] md:right-[20px] xl:right-[30px] [&_svg]:h-full [&_svg]:w-auto h-[25px] md:h-[30px] xl:h-[35px] 4xl:h-[40px]">
+				<div className="absolute top-[2px] md:top-[-10px] xl:top-[-5px] 4xl:[-10px] right-[16px] md:right-[20px] xl:right-[30px] [&_svg]:h-full [&_svg]:w-auto h-[14px] md:h-[30px] xl:h-[35px] 4xl:h-[40px] -rotate-90 origin-bottom-right">
 					<img className="h-full w-auto" src={getUrlToStaticImages(`icons/figurines-decor-${decor}.svg`)} alt="icon" />
 				</div>
 				{children}

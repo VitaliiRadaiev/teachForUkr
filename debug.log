@@ -23,3 +23,4 @@ I'm getting a ZipArchive close failure when building. How can I resolve this?
 [02-May-2025 06:55:12 UTC]   Automatic plugin updates complete.
 [02-May-2025 06:55:13 UTC] Automatic updates complete.
 [02-May-2025 09:18:32 UTC] PHP Warning:  Undefined variable $text_more_details in D:\xampp\htdocs\teachForUkr\wp-content\plugins\gutenberg-custom-blocks\build\sections\cards-with-image-slider-grid\render.php on line 34
+[02-May-2025 12:27:09 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/numbers-item" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/cards-with-animate-icons-item",
+  "version": "0.1.0",
+  "title": "Кртка з анімованою іконкою",
+  "icon": "smiley",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "decor": {
+      "type": "number",
+      "default": 1
+    },
+    "columns": {
+      "type": "string",
+      "enum": [
+        "lg:col-span-3",
+        "lg:col-span-4",
+        "md:col-span-2 lg:col-span-6",
+        "md:col-span-2 lg:col-span-12"
+      ],
+      "default": "lg:col-span-4"
+    }
+  },
+  "parent": [
+    "t4u/cards-with-animate-icons"
+  ],
+  "textdomain": "cards-with-animate-icons-item",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}
