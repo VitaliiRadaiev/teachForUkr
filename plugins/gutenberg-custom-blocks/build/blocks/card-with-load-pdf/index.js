@@ -96,8 +96,9 @@ function Edit({
         allowedBlocks: []
       }
     }], ['t4u/heading', {
-      classes: 'mb-[16px] md:mb-[20px] h3 text-dark-primary hyphens-auto flex flex-col',
-      htmlTeg: 'span'
+      classes: 'mb-[16px] md:mb-[20px] text-dark-primary hyphens-auto flex flex-col',
+      htmlTeg: 'span',
+      fontSize: 'lg'
     }]],
     allowedBlocks: []
   });

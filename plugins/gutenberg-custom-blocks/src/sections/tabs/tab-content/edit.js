@@ -31,7 +31,7 @@ export default function Edit({ attributes }) {
 				canAddItem: true,
 				options: {
 					template: [],
-					allowedBlocks: ['t4u/card-with-mask-image', 't4u/card-with-icon']
+					allowedBlocks: ['t4u/card-with-mask-image', 't4u/card-with-icon', 't4u/card-with-number']
 				}
 
 			}],

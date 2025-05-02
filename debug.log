@@ -22,3 +22,4 @@ I'm getting a ZipArchive close failure when building. How can I resolve this?
 [02-May-2025 06:55:12 UTC]   Automatic plugin updates starting...
 [02-May-2025 06:55:12 UTC]   Automatic plugin updates complete.
 [02-May-2025 06:55:13 UTC] Automatic updates complete.
+[02-May-2025 09:18:32 UTC] PHP Warning:  Undefined variable $text_more_details in D:\xampp\htdocs\teachForUkr\wp-content\plugins\gutenberg-custom-blocks\build\sections\cards-with-image-slider-grid\render.php on line 34
