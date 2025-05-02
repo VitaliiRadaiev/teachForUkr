@@ -47,7 +47,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				}
 			}],
 			['t4u/inner-block', {
-				classes: 'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start [&:not(:has(.btn)):not(:has(.title))]:self-center',
+				classes: 'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start',
 				simpleWrapper: true,
 				options: {
 					template: [
@@ -57,7 +57,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 							fontSize: 'lg'
 						}],
 						['t4u/simple-text', {
-							classes: 'mb-[20px] text-dark-primary shrink grow',
+							classes: 'mb-[20px] shrink grow',
 						}],
 						['t4u/button', {
 							classes: 'btn mt-auto',
@@ -76,11 +76,21 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 	useEffect(() => {
 		const simpleHtml = innerBlocks[0]?.innerBlocks[0];
+		const textWrapper = innerBlocks[1];
 
 		simpleHtml && updateBlockAttributes(simpleHtml.clientId, {
 			text: formattedIndex
 		})
-	}, [formattedIndex, innerBlocks]);
+		textWrapper && updateBlockAttributes(textWrapper.clientId, {
+			classes: clsx(
+				'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start',
+				{
+					'[&:not(:has(.btn)):not(:has(.title))]:self-center': direction === 'flex-row'
+				}
+			)
+		})
+
+	}, [formattedIndex, innerBlocks, direction]);
 
 	return (
 		<>

@@ -102,7 +102,7 @@ function Edit({
         allowedBlocks: []
       }
     }], ['t4u/inner-block', {
-      classes: 'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start [&:not(:has(.btn)):not(:has(.title))]:self-center',
+      classes: 'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start',
       simpleWrapper: true,
       options: {
         template: [['t4u/heading', {
@@ -110,7 +110,7 @@ function Edit({
           htmlTeg: 'span',
           fontSize: 'lg'
         }], ['t4u/simple-text', {
-          classes: 'mb-[20px] text-dark-primary shrink grow'
+          classes: 'mb-[20px] shrink grow'
         }], ['t4u/button', {
           classes: 'btn mt-auto',
           wrapperClasses: 'btn mt-auto',
@@ -125,10 +125,16 @@ function Edit({
   });
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     const simpleHtml = innerBlocks[0]?.innerBlocks[0];
+    const textWrapper = innerBlocks[1];
     simpleHtml && updateBlockAttributes(simpleHtml.clientId, {
       text: formattedIndex
     });
-  }, [formattedIndex, innerBlocks]);
+    textWrapper && updateBlockAttributes(textWrapper.clientId, {
+      classes: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])('shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start', {
+        '[&:not(:has(.btn)):not(:has(.title))]:self-center': direction === 'flex-row'
+      })
+    });
+  }, [formattedIndex, innerBlocks, direction]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {

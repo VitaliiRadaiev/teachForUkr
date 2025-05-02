@@ -1,0 +1,1 @@
+<div class="grow-0 shrink-0 h-[44px] w-[44px] pt-[2px] rounded-full border border-accent-first bg-accent-first-10 flex items-center justify-center font-bold text-md text-accent-first"></div>
