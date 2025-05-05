@@ -1,15 +1,22 @@
 import {
 	useBlockProps,
 	useInnerBlocksProps,
-	InspectorControls
+	InspectorControls,
 } from "@wordpress/block-editor";
-import { PanelBody, RadioControl } from "@wordpress/components";
+import { createBlock, serialize, parse } from '@wordpress/blocks';
+import { PanelBody, RadioControl, Button } from "@wordpress/components";
 import "./editor.scss";
 import clsx from "clsx";
+import { useSelect, useDispatch } from '@wordpress/data';
 
 
-export default function Edit({ attributes, setAttributes }) {
+
+export default function Edit({ attributes, setAttributes, clientId }) {
 	const { classes, className, columns } = attributes;
+	const { insertBlocks  } = useDispatch('core/block-editor');
+	const { getBlock, getBlockRootClientId, ...rest } = useSelect((select) => select('core/block-editor'), [clientId]);
+
+	
 	const blockProps = useBlockProps({
 		className: clsx(
 			'card-with-image-logo shrink-0 grow-0 relative nested-bg-item rounded-[12px] p-[5px] flex flex-col',
@@ -72,6 +79,25 @@ export default function Edit({ attributes, setAttributes }) {
 		allowedBlocks: []
 	});
 
+	const saveBlock = () => {
+		const block = getBlock(clientId);
+		const parent = getBlock(getBlockRootClientId(clientId));
+		
+		console.log(block);
+
+		 const html = serialize([block]);
+
+		 console.log(html);
+
+		 const parsedBlock = parse(html);
+
+		 console.log(parsedBlock);
+
+		 insertBlocks(parsedBlock, 1, parent.clientId, true);
+		 
+	}
+
+
 	return (
 		<>
 			<InspectorControls>
@@ -98,6 +124,11 @@ export default function Edit({ attributes, setAttributes }) {
 						]}
 						onChange={(value) => setAttributes({ columns: value })}
 					/>
+				</PanelBody>
+				<PanelBody title="Розмір карточки" initialOpen={true}>
+					<Button
+						onClick={saveBlock}
+					>Зберегти</Button>
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>

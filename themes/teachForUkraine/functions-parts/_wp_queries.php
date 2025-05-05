@@ -488,6 +488,106 @@ function get_reports()
     return $query;
 }
 
+
+function get_questions($queries = [])
+{
+    $defaults = [
+        'category'       => 'all',
+        'page'           => 1,
+        'posts_per_page' => 5,
+        'search'         => '',
+        'popular'        => false
+    ];
+
+    $queries = wp_parse_args($queries, $defaults);
+
+    $args = array(
+        'post_type' => 'question',
+        'posts_per_page' => $queries['posts_per_page'],
+        'post_status' => 'publish',
+        'paged' => $queries['page'],
+        'orderby' => 'date',
+        'order' => 'DESC'
+    );
+
+    if($queries['popular']) {
+        $args = array_merge($args, [
+            'meta_query' => [
+                'relation' => 'OR',
+                [
+                    'key' => 'faq_popular_question',
+                    'value' => '1',
+                    'compare' => '='
+                ]
+            ],
+        ]);
+    } else {
+        $search = trim($queries['search']);
+        if (check($search)) {
+            $args['s'] = $search;
+        }
+    
+        if ($queries['category'] !== 'all') {
+            $terms = $queries['category'];
+            $field = 'slug';
+    
+            if (is_array($terms) && count(array_filter($terms, 'is_numeric')) === count($terms)) {
+                $field = 'term_id';
+            }
+    
+            if (is_numeric($terms) && !is_array($terms)) {
+                $field = 'term_id';
+            }
+    
+            $args = array_merge($args, [
+                'tax_query' => [
+                    [
+                        'taxonomy' => 'question-category',
+                        'field' => $field,
+                        'terms' => $terms,
+                    ],
+                ],
+            ]);
+        }
+    }
+
+
+    $query = new WP_Query($args);
+    wp_reset_postdata();
+
+    return $query;
+}
+
+function get_questions_by_ids($ids = [])
+{
+    if (empty($ids) || !is_array($ids)) {
+        return new WP_Query();
+    }
+
+    $args = [
+        'post_type'      => 'question',
+        'post__in'       => $ids,
+        'orderby'        => 'post__in',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+    ];
+
+    $query = new WP_Query($args);
+    wp_reset_postdata();
+
+    return $query;
+}
+
+function get_questions_categories()
+{
+    $top_level_terms = get_terms([
+        'taxonomy'   => 'question-category',
+        'hide_empty' => true,
+    ]);
+
+    return $top_level_terms;
+}
+
 // helpers
 function get_term_children_recursive($parent_id, $taxonomy)
 {

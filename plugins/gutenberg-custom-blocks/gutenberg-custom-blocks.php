@@ -63,6 +63,10 @@ function create_block_gutenberg_custom_blocks_block_init()
 			'slug' => 'news_stories_cases_other',
 			'title' => 'Новини/історії/кейси/інше'
 		]);
+		array_unshift($categories, [
+			'slug' => 'faq',
+			'title' => 'Питання та відповіді'
+		]);
 		return $categories;
 	});
 

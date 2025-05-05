@@ -96,3 +96,14 @@ html :where(.wp-block) {
 .min-h-100 {
     min-height: 100px;
 }
+
+
+.post-type-question .wp-block-post-content > * {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 744px;
+}
+
+.post-type-question .wp-block-post-content .wp-block-paragraph {
+    display: none;
+}

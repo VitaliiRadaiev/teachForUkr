@@ -309,3 +309,12 @@ add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mime
     return $data;
 }, 10, 4);
 
+
+add_filter('use_block_editor_for_post_type', 'prefix_disable_gutenberg', 10, 2);
+function prefix_disable_gutenberg($current_status, $post_type)
+{
+    if ($post_type === 'page' || $post_type === 'question') {
+        return true;
+    }
+    return false;
+}

@@ -71,7 +71,7 @@ function init_post_types()
         'supports' => array('title', 'thumbnail', 'excerpt'),
         'taxonomies' => array(),
         'has_archive' => false,
-        'rewrite' => array('slug' => 'news/%news-category%', 'with_front' => false ),
+        'rewrite' => array('slug' => 'news/%news-category%', 'with_front' => false),
         'query_var' => false,
         'menu_icon' => 'dashicons-admin-page',
     ));
@@ -107,7 +107,7 @@ function init_post_types()
         'supports' => array('title', 'thumbnail', 'excerpt'),
         'taxonomies' => array(),
         'has_archive' => false,
-        'rewrite' => array('slug' => 'story/%story-category%', 'with_front' => false ),
+        'rewrite' => array('slug' => 'story/%story-category%', 'with_front' => false),
         'query_var' => false,
         'menu_icon' => 'dashicons-format-status',
     ));
@@ -143,7 +143,7 @@ function init_post_types()
         'supports' => array('title', 'thumbnail', 'excerpt'),
         'taxonomies' => array(),
         'has_archive' => false,
-        'rewrite' => array('slug' => 'people/%people-category%', 'with_front' => false ),
+        'rewrite' => array('slug' => 'people/%people-category%', 'with_front' => false),
         'query_var' => false,
         'menu_icon' => 'dashicons-groups',
     ));
@@ -249,7 +249,7 @@ function init_post_types()
         'supports' => array('title', 'excerpt'),
         'taxonomies' => array(),
         'has_archive' => false,
-        'rewrite' => array('slug' => 'vacancy/%vacancy-city%', 'with_front' => false ),
+        'rewrite' => array('slug' => 'vacancy/%vacancy-city%', 'with_front' => false),
         'query_var' => false,
         'menu_icon' => 'dashicons-id-alt',
     ));
@@ -287,5 +287,44 @@ function init_post_types()
         'has_archive' => false,
         'query_var' => false,
         'menu_icon' => 'dashicons-chart-bar',
+    ));
+
+    register_post_type('question', array(
+        'label' => null,
+        'labels' => array(
+            'name' => 'Поширені питання',
+            'singular_name' => 'Питання',
+            'add_new' => 'Додати питання',
+            'add_new_item' => 'Додати нове питання',
+            'edit_item' => 'Редагувати питання',
+            'new_item' => 'Нове питання',
+            'view_item' => 'Переглянути питання',
+            'search_items' => 'Пошук питань',
+            'not_found' => 'Не знайдено питань',
+            'not_found_in_trash' => 'В кошику не знайдено питань',
+            'parent_item_colon' => '',
+            'menu_name' => 'Поширені питання',
+        ),
+        'description' => '',
+        'public' => true,
+        'publicly_queryable' => false,
+        'exclude_from_search' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_admin_bar' => true,
+        'show_in_nav_menus' => true,
+        'show_in_rest' => true,
+        'rest_base' => null,
+        'menu_position' => 4,
+        'hierarchical' => false,
+        'supports' => array('title', 'editor'),
+        'taxonomies' => array('question-category'),
+        'has_archive' => false,
+        'query_var' => false,
+        'menu_icon' => 'dashicons-info',
+        'template' => [
+            ['t4u/simple-text', []]
+        ],
+        'template_lock' => false,
     ));
 }

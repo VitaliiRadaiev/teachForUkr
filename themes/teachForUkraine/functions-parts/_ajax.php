@@ -34,6 +34,7 @@ function ajax_get_acf_global_links() {
         'link_more_news'     => $fields['link_more_news'] ?? null,
         'link_more_stories'     => $fields['link_more_stories'] ?? null,
         'link_vacancies'     => $fields['link_vacancies'] ?? null,
+        'link_faq'     => $fields['link_faq'] ?? null,
     ];
 
     return rest_ensure_response($result);
@@ -54,6 +55,7 @@ function ajax_get_acf_global_buttons_text() {
         'text_show_more' => $fields['text_show_more'] ?? null,
         'text_go_to' => $fields['text_go_to'] ?? null,
         'text_review' => $fields['text_review'] ?? null,
+        'text_download_more' => $fields['text_download_more'] ?? null,
     ];
 
     return rest_ensure_response($result);
@@ -450,6 +452,58 @@ function ajax_get_reports()
     ]);
 }
 
+function ajax_get_questions($request) {
+    $category = $request->get_param('category');
+    $search = $request->get_param('search');
+    $page = $request->get_param('page');
+    $posts_per_page = $request->get_param('posts_per_page');
+    $popular = $request->get_param('popular');
+
+    $args = [
+        'page' => $page,
+        'posts_per_page' => $posts_per_page,
+        'search' => $search,
+        'popular' => $popular
+    ];
+
+    if ($category === 'all') {
+        $args = array_merge($args, [
+            'category' => $category
+        ]);
+    } else {
+        $args = array_merge($args, [
+            'category' => array_filter(explode(',', $category), function ($item) {
+                return $item !== 'all';
+            })
+        ]);
+    }
+
+    $query = get_questions($args);
+
+    $posts = create_questions_response_data($query);
+
+    wp_reset_postdata();
+    return rest_ensure_response([
+        'posts' => $posts,
+        'max_num_pages' => $query->max_num_pages
+    ]);
+}
+function ajax_get_questions_by_ids($request) {
+    $ids = $request->get_param('ids');
+    $query = get_questions_by_ids(explode(',', $ids));
+
+    $posts = create_questions_response_data($query);
+
+    wp_reset_postdata();
+    return rest_ensure_response([
+        'posts' => $posts
+    ]);
+}
+function ajax_get_questions_categories() {
+    $terms = get_questions_categories();
+    return rest_ensure_response($terms);
+}
+
 // register endpoints
 function register_endpoints()
 {
@@ -753,6 +807,68 @@ function register_endpoints()
         'callback' => 'ajax_get_reports',
         'permission_callback' => '__return_true'
     ));
+
+    register_rest_route('site-core/v1', 'question', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_questions',
+        'permission_callback' => '__return_true',
+        'args'     => array(
+            'category' => array(
+                'required' => false,
+                'default'  => 'all',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
+                }
+            ),
+            'search' => array(
+                'required' => false,
+                'default'  => '',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
+                }
+            ),
+            'page' => array(
+                'required' => false,
+                'default'  => 1,
+                'validate_callback' => function ($param) {
+                    return is_numeric($param) && intval($param) > 0;
+                }
+            ),
+            'posts_per_page' => array(
+                'required' => false,
+                'default'  => 5,
+                'validate_callback' => function ($param) {
+                    return is_numeric($param) && intval($param) > 0;
+                }
+            ),
+            'popular' => array(
+                'required' => false,
+                'default'  => false,
+                'validate_callback' => function ($param) {
+                    return is_bool($param);
+                }
+            )
+        )
+    ));
+    register_rest_route('site-core/v1', 'question-by-ids', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_questions_by_ids',
+        'permission_callback' => '__return_true',
+        'args'     => array(
+            'ids' => array(
+                'required' => false,
+                'default'  => '',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
+                }
+            )
+        )
+    ));
+    register_rest_route('site-core/v1', 'question-categories', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_questions_categories',
+        'permission_callback' => '__return_true'
+    ));
 }
 
 
@@ -877,6 +993,27 @@ function create_vacancies_response_data($query)
                 'excerpt' => $excerpt,
                 'cities' => $terms,
                 'text_more_details' => $text_more_details
+            ];
+        }
+    }
+
+    return $posts;
+}
+
+function create_questions_response_data($query) {
+    $posts = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $id = get_the_ID();
+            $title = get_the_title();
+            $content = get_the_content();
+
+            $posts[] = [
+                'id' =>  $id,
+                'title' => $title,
+                'content' => $content
             ];
         }
     }
