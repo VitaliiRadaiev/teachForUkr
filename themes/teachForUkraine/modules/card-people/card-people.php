@@ -10,7 +10,7 @@ function render_card_people()
         </div>
         <div class="mt-[20px] lg:mt-[30px] px-[15px] pb-[15px] grow shrink flex flex-col">
             <div class="h3 text-dark-primary">
-                <?= get_the_title() ?>
+                <?= the_title() ?>
             </div>
             <?php if (check($excerpt)): ?>
                 <div class="mt-[5px] mb-[20px] text-md text-dark-primary-60 last-child-no-margin">

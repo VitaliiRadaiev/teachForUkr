@@ -3,8 +3,7 @@ import {
 	useInnerBlocksProps,
 	InspectorControls,
 } from "@wordpress/block-editor";
-import { createBlock, serialize, parse } from '@wordpress/blocks';
-import { PanelBody, RadioControl, Button } from "@wordpress/components";
+import { PanelBody, RadioControl } from "@wordpress/components";
 import "./editor.scss";
 import clsx from "clsx";
 import { useSelect, useDispatch } from '@wordpress/data';
@@ -79,25 +78,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		allowedBlocks: []
 	});
 
-	const saveBlock = () => {
-		const block = getBlock(clientId);
-		const parent = getBlock(getBlockRootClientId(clientId));
-		
-		console.log(block);
-
-		 const html = serialize([block]);
-
-		 console.log(html);
-
-		 const parsedBlock = parse(html);
-
-		 console.log(parsedBlock);
-
-		 insertBlocks(parsedBlock, 1, parent.clientId, true);
-		 
-	}
-
-
 	return (
 		<>
 			<InspectorControls>
@@ -124,11 +104,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						]}
 						onChange={(value) => setAttributes({ columns: value })}
 					/>
-				</PanelBody>
-				<PanelBody title="Розмір карточки" initialOpen={true}>
-					<Button
-						onClick={saveBlock}
-					>Зберегти</Button>
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>

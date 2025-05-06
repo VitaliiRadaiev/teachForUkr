@@ -25,8 +25,8 @@ if (!($attributes['isHide'])):
                                  <?= get_image(get_post_thumbnail_id($cases_post->ID), 'ibg transition-transform duration-1000', false); ?>
                               </div>
                               <div class="mt-[20px] lg:mt-[30px] px-[15px] pb-[15px] grow shrink flex flex-col">
-                                 <div title="<?= get_the_title() ?>" style="--line: 3; --line-height: 1.2em;" class="title h3 text-dark-primary transition-colors truncate-text">
-                                    <?= get_the_title($cases_post->ID) ?>
+                                 <div title="<?= the_title($cases_post->ID) ?>" style="--line: 3; --line-height: 1.2em;" class="title h3 text-dark-primary transition-colors truncate-text">
+                                    <?= the_title($cases_post->ID) ?>
                                  </div>
                                  <?php if (check($excerpt)): ?>
                                     <div style="--line: 4; --line-height: 1.4em;" class="mt-[5px] mb-[20px] text-md text-dark-primary-60 last-child-no-margin truncate-text">

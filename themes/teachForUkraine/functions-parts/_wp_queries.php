@@ -521,34 +521,34 @@ function get_questions($queries = [])
                 ]
             ],
         ]);
-    } else {
-        $search = trim($queries['search']);
-        if (check($search)) {
-            $args['s'] = $search;
+    } 
+    
+    $search = trim($queries['search']);
+    if (check($search)) {
+        $args['s'] = $search;
+    }
+
+    if ($queries['category'] !== 'all') {
+        $terms = $queries['category'];
+        $field = 'slug';
+
+        if (is_array($terms) && count(array_filter($terms, 'is_numeric')) === count($terms)) {
+            $field = 'term_id';
         }
-    
-        if ($queries['category'] !== 'all') {
-            $terms = $queries['category'];
-            $field = 'slug';
-    
-            if (is_array($terms) && count(array_filter($terms, 'is_numeric')) === count($terms)) {
-                $field = 'term_id';
-            }
-    
-            if (is_numeric($terms) && !is_array($terms)) {
-                $field = 'term_id';
-            }
-    
-            $args = array_merge($args, [
-                'tax_query' => [
-                    [
-                        'taxonomy' => 'question-category',
-                        'field' => $field,
-                        'terms' => $terms,
-                    ],
+
+        if (is_numeric($terms) && !is_array($terms)) {
+            $field = 'term_id';
+        }
+
+        $args = array_merge($args, [
+            'tax_query' => [
+                [
+                    'taxonomy' => 'question-category',
+                    'field' => $field,
+                    'terms' => $terms,
                 ],
-            ]);
-        }
+            ],
+        ]);
     }
 
 

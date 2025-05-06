@@ -44,7 +44,7 @@ function render_card_news_v1()
                     <?= get_the_date('j F, Y'); ?>
                 </div>
                 <div style="--line: 3; --line-height: 1.2em;" class="title mt-[5px] h3 text-dark-primary mb-auto transition-colors truncate-text">
-                    <?= get_the_title(); ?>
+                    <?= the_title(); ?>
                 </div>
 
                 <span class="mt-[16px] xl:mt-[20px] btn-with-arrow accent-first self-start">

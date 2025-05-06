@@ -51,6 +51,9 @@
     },
     "titleAcfField": {
       "type": "string"
+    },
+    "subTitleAcfField": {
+      "type": "string"
     }
   },
   "textdomain": "head-block",

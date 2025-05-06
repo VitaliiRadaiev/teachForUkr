@@ -33,6 +33,9 @@
 		"text": {
 			"type": "string",
 			"default": ""
+		},
+		"acfField": {
+			"type": "string"
 		}
 	},
 	"textdomain": "sup-title",

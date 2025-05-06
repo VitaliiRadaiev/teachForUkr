@@ -845,7 +845,10 @@ function register_endpoints()
                 'required' => false,
                 'default'  => false,
                 'validate_callback' => function ($param) {
-                    return is_bool($param);
+                    return $param === 'true' || $param === 'false' || is_bool($param);
+                },
+                'sanitize_callback' => function ($param) {
+                    return filter_var($param, FILTER_VALIDATE_BOOLEAN);
                 }
             )
         )
@@ -905,11 +908,11 @@ function create_news_response_data($query)
             $posts[] = [
                 'id' =>  $id,
                 'image' => $image,
-                'title' => $title,
+                'title' => html_entity_decode($title, ENT_QUOTES | ENT_HTML5),
                 'url' => $url,
                 'date' => $date,
                 'text_more_details' => $text_more_details,
-                'excerpt' => $excerpt,
+                'excerpt' => html_entity_decode($excerpt, ENT_QUOTES | ENT_HTML5),
                 'categories' => $categories_data,
             ];
         }
@@ -936,11 +939,11 @@ function create_stories_response_data($query)
             $posts[] = [
                 'id' =>  $id,
                 'image' => $image,
-                'title' => $title,
+                'title' => html_entity_decode($title, ENT_QUOTES | ENT_HTML5),
                 'url' => $url,
                 'date' => $date,
                 'text_more_details' => $text_more_details,
-                'excerpt' => $excerpt,
+                'excerpt' => html_entity_decode($excerpt, ENT_QUOTES | ENT_HTML5),
             ];
         }
     }
@@ -964,8 +967,8 @@ function create_people_response_data($query)
             $posts[] = [
                 'id' =>  $id,
                 'image' => $image,
-                'title' => $title,
-                'excerpt' => $excerpt,
+                'title' => html_entity_decode($title, ENT_QUOTES | ENT_HTML5),
+                'excerpt' => html_entity_decode($excerpt, ENT_QUOTES | ENT_HTML5),
                 'social' => $social
             ];
         }
@@ -989,8 +992,8 @@ function create_vacancies_response_data($query)
 
             $posts[] = [
                 'id' =>  $id,
-                'title' => $title,
-                'excerpt' => $excerpt,
+                'title' => html_entity_decode($title, ENT_QUOTES | ENT_HTML5),
+                'excerpt' => html_entity_decode($excerpt, ENT_QUOTES | ENT_HTML5),
                 'cities' => $terms,
                 'text_more_details' => $text_more_details
             ];
@@ -1008,12 +1011,12 @@ function create_questions_response_data($query) {
             $query->the_post();
             $id = get_the_ID();
             $title = get_the_title();
-            $content = get_the_content();
+            $content = apply_filters('the_content', get_the_content());
 
             $posts[] = [
                 'id' =>  $id,
-                'title' => $title,
-                'content' => $content
+                'title' => html_entity_decode($title, ENT_QUOTES | ENT_HTML5),
+                'content' => html_entity_decode($content, ENT_QUOTES | ENT_HTML5)
             ];
         }
     }

@@ -24,7 +24,7 @@ if (!($attributes['isHide'])):
                                  <img class="h-full w-auto" src="<?= get_template_directory_uri() . '/assets/images/icons/semi-circle-right-double.svg' ?>" alt="decor">
                               </div>
                               <div class="mt-[20px] md:mt-[30px] shrink grow text-md">
-                                 <?= get_the_excerpt(); ?>
+                                 <?= the_excerpt(); ?>
                               </div>
 
                               <div class="mt-[20px] md:mt-[30px] flex gap-[16px]">
@@ -39,7 +39,7 @@ if (!($attributes['isHide'])):
                                  <?php endif ?>
                                  <div class="self-center">
                                     <div class="h4 text-dark-primary">
-                                       <?= get_the_title(); ?>
+                                       <?= the_title(); ?>
                                     </div>
                                     <?php if (check($author_postition)): ?>
                                        <div class="mt-[2px] text-sm">

@@ -33,10 +33,10 @@ if (!($attributes['isHide'])):
                                     <?= get_the_date('j F, Y'); ?>
                                  </div>
                                  <div class="title mt-[5px] md:mt-[10px] h3 text-dark-primary transition-colors lg-max:pr-[20px]">
-                                    <?= get_the_title(); ?>
+                                    <?= the_title(); ?>
                                  </div>
                                  <div style="--line: 5; --line-height: 1.4em;" class="mt-[5px] mb-[16px] md:mb-[30px] text-md md-max:truncate-text text-dark-primary-80">
-                                    <?= get_the_excerpt(); ?>
+                                    <?= the_excerpt(); ?>
                                  </div>
                                  <span class="mt-auto btn-with-arrow accent-first self-start">
                                     <span data-text="<?= $text_more_details ?>"></span>

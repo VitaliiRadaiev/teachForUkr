@@ -51,80 +51,6 @@ function initSmoothScrollByAnchors() {
     }
 }
 
-
-function initAccordions() {
-    const accordions = document.querySelectorAll('[data-accordion]');
-    function scrollToEl(el) {
-        let header = document.querySelector('[data-header]');
-        if (el) {
-            let elTop = Math.abs(document.body.getBoundingClientRect().top) + el.getBoundingClientRect().top;
-            let headerHeight = header ? header.clientHeight : 0;
-            let viewportHeight = window.innerHeight;
-
-            let top = elTop - (viewportHeight * 0.05) - headerHeight;
-
-            setTimeout(() => {
-                window.scrollTo({
-                    top: top,
-                    behavior: 'smooth',
-                });
-            }, 0);
-        }
-    }
-
-    if (accordions.length) {
-        accordions.forEach(accordion => {
-
-            let isOneActiveItem = accordion.dataset.accordion.trim() === 'one' ? true : false;
-            let triggers = accordion.querySelectorAll('[data-accordion-trigger]');
-
-            if (triggers.length) {
-                triggers.forEach(trigger => {
-                    let parent = trigger.parentElement;
-                    let content = trigger.nextElementSibling;
-
-                    // init
-                    if (trigger.classList.contains('active')) {
-                        content.style.display = 'block';
-                        parent.classList.add('active');
-                    }
-
-                    trigger.addEventListener('click', (e) => {
-                        e.preventDefault();
-
-                        parent.classList.toggle('active');
-                        trigger.classList.toggle('active');
-                        content && slideToggle(content, 300);
-
-                        if (trigger.classList.contains('active')) {
-                            setTimeout(async () => {
-                                const isCardVisible = await checkElementVisibility(parent);
-                                if (!isCardVisible) {
-                                    scrollToEl(parent);
-                                }
-                            }, 300);
-                        }
-
-                        if (isOneActiveItem) {
-                            triggers.forEach(i => {
-                                if (i === trigger) return;
-
-                                let parent = i.parentElement;
-                                let content = i.nextElementSibling;
-
-                                parent.classList.remove('active');
-                                i.classList.remove('active');
-                                content && slideUp(content, 300);
-                            })
-                        }
-                    })
-                })
-            }
-        })
-    }
-
-}
-
 function createScrollContainer(htmlEl) {
     const wrapper = document.createElement('div');
     const slide = document.createElement('div');
@@ -205,7 +131,6 @@ function initResponsiveReload(breakpoint) {
         previousWidth = currentWidth;
     });
 }
-
 
 function initInputMask() {
     const elements = document.querySelectorAll('[data-mask]');

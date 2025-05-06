@@ -19,10 +19,10 @@ function render_card_vacancy()
             </div>
         <?php endif; ?>
         <div class="mt-[10px] title h4 text-dark-primary transition-colors first-child-no-margin">
-            <?= get_the_title() ?>
+            <?= the_title() ?>
         </div>
         <div style="--line: 5; --line-height: 1.4em;" class="mt-[5px] mb-[20px] md:mb-[24px] text-md text-dark-primary-60 shrink grow truncate-text">
-            <?= get_the_excerpt() ?>
+            <?= the_excerpt() ?>
         </div>
         <span class="mt-auto btn-with-arrow accent-first self-start">
             <span data-text="<?= $text_more_details ?>"></span>
