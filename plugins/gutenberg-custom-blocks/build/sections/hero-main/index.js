@@ -61,7 +61,7 @@ const IsHide = ({
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/hero-main","version":"0.1.0","title":"Основний баннер","category":"hero","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"},"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"preview":{"type":"string"}},"textdomain":"hero-main","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/hero-main","version":"0.1.0","title":"Основний баннер","category":"hero","icon":"layout","description":"","example":{},"supports":{"html":false},"attributes":{"background":{"type":"string","enum":["bg-light-primary","bg-light-primary-80"],"default":"bg-light-primary-80"},"isHide":{"type":"boolean","default":false},"padding":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"preview":{"type":"string"},"id":{"type":"string"}},"textdomain":"hero-main","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 

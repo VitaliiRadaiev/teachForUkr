@@ -48,6 +48,9 @@
     "decor": {
       "type": "number",
       "default": 5
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "cards-with-number-grid",

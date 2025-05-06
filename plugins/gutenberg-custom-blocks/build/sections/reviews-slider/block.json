@@ -48,6 +48,9 @@
     },
     "preview": {
       "type": "string"
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "reviews-slider",

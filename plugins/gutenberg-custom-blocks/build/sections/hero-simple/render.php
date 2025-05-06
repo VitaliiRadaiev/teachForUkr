@@ -9,7 +9,7 @@ if (!($attributes['isHide'])):
       ($attributes['aligment'] === 'left' ? 'items-start' : ''),
    );
 ?>
-   <section class="hero-simple hero-v1-section pt-[100px] md:pt-[127px] xl:pt-[112px] <?= $classes ?>">
+   <section <?= ($attributes['id'] ?? null) ? 'id="'.$attributes['id'].'"' : '' ?> class="hero-simple hero-v1-section pt-[100px] md:pt-[127px] xl:pt-[112px] <?= $classes ?>">
       <div class="container">
          <div class="breadcrumbs text-sm">
             <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>

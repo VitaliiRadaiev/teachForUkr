@@ -48,6 +48,9 @@
     },
     "preview": {
       "type": "string"
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "cards-with-number-and-image",

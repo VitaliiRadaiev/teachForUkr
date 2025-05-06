@@ -52,6 +52,9 @@
     "selectedCategory": {
       "type": "number",
       "default": 0
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "people-tabs",

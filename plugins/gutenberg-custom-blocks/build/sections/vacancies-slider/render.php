@@ -8,7 +8,7 @@ if (!($attributes['isHide'])):
 
    if ($query->have_posts()):
 ?>
-      <section data-aos="rotate-child" class="vacancies-slider-section rounded-[20px] md:rounded-[30px] overflow-hidden relative <?= $classes ?>">
+      <section <?= ($attributes['id'] ?? null) ? 'id="'.$attributes['id'].'"' : '' ?> data-aos="rotate-child" class="vacancies-slider-section rounded-[20px] md:rounded-[30px] overflow-hidden relative <?= $classes ?>">
          <?= render_section_decor($attributes['decor']); ?>
          <div class="container flex flex-col relative z-2">
             <?= $content; ?>

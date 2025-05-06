@@ -198,3 +198,5 @@
     [popular] => 
 )
 
+[06-May-2025 13:01:12 UTC] Cron unschedule event error for hook: rank_math/sitemap/hit_index, Error code: could_not_set, Error message: Список подій cron не може бути збережений., Data: {"schedule":false,"args":[]}
+[06-May-2025 13:22:22 UTC] PHP Notice:  wp_json_file_decode(): Error when decoding a JSON file at path D:/xampp/htdocs/teachForUkr/wp-content/plugins/gutenberg-custom-blocks/build/blocks/inner-block/block.json: Syntax error in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121

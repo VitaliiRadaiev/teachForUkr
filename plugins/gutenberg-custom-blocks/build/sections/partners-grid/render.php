@@ -14,7 +14,7 @@ if (!($attributes['isHide'])):
 
    if ($query->have_posts()):
 ?>
-      <section data-partners-grid class="partners-grid-section relative <?= $classes ?> <?= $query->max_num_pages != 1 ?: '[&_.show-more-parnters]:!hidden' ?>">
+      <section <?= ($attributes['id'] ?? null) ? 'id="'.$attributes['id'].'"' : '' ?> data-partners-grid class="partners-grid-section relative <?= $classes ?> <?= $query->max_num_pages != 1 ?: '[&_.show-more-parnters]:!hidden' ?>">
          <div class="container flex flex-col">
             <?= $content; ?>
             <div class="mt-[30px] md:mt-[50px] 4xl:mt-[60px] first-child-no-margin order-2 flex flex-col">

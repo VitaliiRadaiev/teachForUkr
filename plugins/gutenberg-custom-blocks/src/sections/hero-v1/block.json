@@ -52,6 +52,9 @@
     },
     "preview": {
       "type": "string"
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "hero-v1",

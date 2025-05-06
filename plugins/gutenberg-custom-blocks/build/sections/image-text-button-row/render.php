@@ -18,7 +18,7 @@ if (!($attributes['isHide'])):
       ($attributes['directions'] === 'right' ? 'flex-col-reverse lg:flex-row-reverse' : ''),
    );
 ?>
-   <section data-aos="rotate-child" class="image-text-button-row rounded-[20px] md:rounded-[30px] relative overflow-hidden <?= $classes ?>">
+   <section <?= ($attributes['id'] ?? null) ? 'id="'.$attributes['id'].'"' : '' ?> data-aos="rotate-child" class="image-text-button-row rounded-[20px] md:rounded-[30px] relative overflow-hidden <?= $classes ?>">
       <?php if ($attributes['decor'] !== 0): ?>
          <div class="<?= combine_classes('absolute z-3 pointer-events-none top-0 left-0 w-full h-full', ($attributes['directions'] === 'right' ? '-scale-x-100' : '')) ?>">
             <div class="container h-full relative">

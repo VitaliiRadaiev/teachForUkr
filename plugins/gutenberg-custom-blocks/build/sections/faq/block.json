@@ -60,6 +60,9 @@
     "popular": {
       "type": "boolean",
       "default": false
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "faq",

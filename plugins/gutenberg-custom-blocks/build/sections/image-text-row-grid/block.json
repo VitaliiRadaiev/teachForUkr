@@ -56,6 +56,9 @@
     },
     "preview": {
       "type": "string"
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "image-text-row-grid",

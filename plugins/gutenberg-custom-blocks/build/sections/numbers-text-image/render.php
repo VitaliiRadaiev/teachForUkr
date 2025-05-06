@@ -7,7 +7,7 @@ if (!($attributes['isHide'])):
       ($attributes['directions'] === 'right' ? 'lg:flex-row' : ''),
    );
 ?>
-   <section data-aos="rotate-child" class="numbers-text-image-section rounded-[20px] md:rounded-[30px] overflow-hidden <?= $classes ?>">
+   <section <?= ($attributes['id'] ?? null) ? 'id="'.$attributes['id'].'"' : '' ?> data-aos="rotate-child" class="numbers-text-image-section rounded-[20px] md:rounded-[30px] overflow-hidden <?= $classes ?>">
       <div class="<?= $container_classes ?>">
          <?= $content; ?>
       </div>

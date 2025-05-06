@@ -65,6 +65,9 @@
     },
     "preview": {
       "type": "string"
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "head-sections",

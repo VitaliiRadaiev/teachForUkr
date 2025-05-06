@@ -6,7 +6,7 @@ if (!($attributes['isHide'])):
 
    if (check($partners_posts)):
 ?>
-      <section class="partners-slider-section rounded-[20px] md:rounded-[30px] overflow-hidden <?= $classes ?>">
+      <section <?= ($attributes['id'] ?? null) ? 'id="'.$attributes['id'].'"' : '' ?> class="partners-slider-section rounded-[20px] md:rounded-[30px] overflow-hidden <?= $classes ?>">
          <div class="container flex flex-col">
             <?= $content; ?>
             <div data-slider="partners" class="mt-[30px] md:mt-[40px] lg:mt-[50px] first-child-no-margin relative order-2">

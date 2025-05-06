@@ -48,6 +48,9 @@
     "decor": {
       "type": "number",
       "default": 0
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "cases-slider",

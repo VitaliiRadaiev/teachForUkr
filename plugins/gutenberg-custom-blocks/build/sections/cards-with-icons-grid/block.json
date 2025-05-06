@@ -48,6 +48,9 @@
     "decor": {
       "type": "number",
       "default": 3
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "cards-with-icon-grid",

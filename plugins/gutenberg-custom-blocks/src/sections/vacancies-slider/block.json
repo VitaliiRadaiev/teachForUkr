@@ -52,6 +52,9 @@
     "selectedCategories": {
       "type": "array",
       "default": []
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "vacancies-slider",

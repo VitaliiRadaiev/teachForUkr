@@ -56,6 +56,9 @@
     "decor": {
       "type": "number",
       "default": 0
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "cards-with-icons-and-text",

@@ -48,6 +48,9 @@
     "decor": {
       "type": "number",
       "default": 1
+    },
+    "id": {
+      "type": "string"
     }
   },
   "textdomain": "cards-with-mask-image-grid-mix",

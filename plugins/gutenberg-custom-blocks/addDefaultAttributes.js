@@ -35,6 +35,9 @@ const requiredAttributes = {
     preview: {
         type: "string"
     },
+    id: {
+        type: "string"
+    },
 };
 
 function defaultUpdate() {
