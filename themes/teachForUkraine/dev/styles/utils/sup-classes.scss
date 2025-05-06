@@ -461,20 +461,37 @@ flag {
 .bg-light-primary {
     --bg: #{$color-light-primary};
     --nested-bg: #{$color-light-primary-80};
+    --nested-bg-filter: #{$color-light-primary-80-filter};
 
     & .nested-bg-item {
         background-color: $color-light-primary-80;
+    }
+
+    & .bg-item-filter {
+        filter: $color-light-primary-filter;
+    }
+
+    & .bg-nested-item-filter {
+        filter: $color-light-primary-80-filter;
     }
 }
 
 .bg-light-primary-80 {
     --bg: #{$color-light-primary-80};
     --nested-bg: #{$color-light-primary};
+    --nested-bg-filter: #{$color-light-primary-filter};
 
     & .nested-bg-item {
         background-color: $color-light-primary;
     }
 
+    & .bg-item-filter {
+        filter: $color-light-primary-80-filter;
+    }
+
+    & .bg-nested-item-filter {
+        filter: $color-light-primary-filter;
+    }
 }
 
 .mt-0.mt-0 {

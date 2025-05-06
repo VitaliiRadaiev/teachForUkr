@@ -67,6 +67,10 @@ function create_block_gutenberg_custom_blocks_block_init()
 			'slug' => 'faq',
 			'title' => 'Питання та відповіді'
 		]);
+		array_unshift($categories, [
+			'slug' => 'different',
+			'title' => 'Різне'
+		]);
 		return $categories;
 	});
 
