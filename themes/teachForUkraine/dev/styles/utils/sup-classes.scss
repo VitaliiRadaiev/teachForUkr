@@ -168,6 +168,11 @@
     filter: $color-light-primary-60-filter;
 }
 
+
+.color-dark-primary-filter {
+    filter: $color-dark-primary-filter;
+}
+
 @each $type, $color in $category-colors {
     .category-colors-#{$type} {
         --category-color: #{map.get($color, main)};

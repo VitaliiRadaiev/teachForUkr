@@ -22,6 +22,7 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<img
+				loading="lazy"
 				draggable
 				src={url && `${document.location.origin}${removeDomain(url)}`}
 				className={clsx({

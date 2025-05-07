@@ -7,6 +7,6 @@ export default function Edit({ attributes }) {
 	const { classes, url } = attributes;
 
 	return (
-		<img className={clsx(classes)} src={getUrlToStaticImages(url)} alt="decor" />
+		<img loading="lazy" className={clsx(classes)} src={getUrlToStaticImages(url)} alt="decor" />
 	);
 }

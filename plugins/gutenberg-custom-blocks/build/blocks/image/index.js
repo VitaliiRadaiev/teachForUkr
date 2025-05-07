@@ -75,6 +75,7 @@ function Edit({
   const imageSelected = !!imageId && !!url;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+      loading: "lazy",
       draggable: true,
       src: url && `${document.location.origin}${(0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.removeDomain)(url)}`,
       className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])({

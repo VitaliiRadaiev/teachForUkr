@@ -216,3 +216,7 @@
 [06-May-2025 13:56:39 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/numbers-text" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121
 [06-May-2025 13:57:22 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/numbers-text" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121
 [06-May-2025 14:00:40 UTC] PHP Notice:  wp_json_file_decode(): Error when decoding a JSON file at path D:/xampp/htdocs/teachForUkr/wp-content/plugins/gutenberg-custom-blocks/build/sections/hero-main/block.json: Syntax error in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121
+[06-May-2025 15:11:15 UTC] Automatic updates starting...
+[06-May-2025 15:11:15 UTC] Automatic updates complete.
+[07-May-2025 06:54:46 UTC] Automatic updates starting...
+[07-May-2025 06:54:50 UTC] Automatic updates complete.

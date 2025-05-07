@@ -54,6 +54,7 @@ function Edit({
     url
   } = attributes;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+    loading: "lazy",
     className: (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])(classes),
     src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_2__.getUrlToStaticImages)(url),
     alt: "decor"

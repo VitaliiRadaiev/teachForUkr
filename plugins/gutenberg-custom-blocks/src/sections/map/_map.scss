@@ -1,4 +1,7 @@
+@use "./utils/abstracts" as *;
+
 [data-aos="map"] {
+    
     &.aos-animate {
         & .level-1 {
             &.item-left {
@@ -22,8 +25,21 @@
             animation: map-svg 2s ease forwards;
         }
 
-        & .t4u-content {
-            animation: map-content 2s ease forwards;
+        & .md-max\:t4u-content {
+            @media (max-width: $mq-md-max) {
+                animation: map-content 2s ease forwards;
+            }
+        }
+        & .md\:t4u-content {
+            @media (min-width: $mq-md) {
+                animation: map-content 2s ease forwards;
+            }
+        }
+
+        & .map-anim-icon {
+            @media (min-width: $mq-md) {
+                animation: map-content-opacity 2s ease forwards;
+            }
         }
     }   
 }
@@ -36,7 +52,7 @@
         transform: translateX(0%);
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-82%);
     }
 }
 @keyframes level-1-right {
@@ -47,7 +63,7 @@
         transform: translateX(0%);
     }
     100% {
-        transform: translateX(100%);
+        transform: translateX(82%);
     }
 }
 @keyframes level-2-left {
@@ -58,7 +74,7 @@
         transform: translateX(-100%);
     }
     100% {
-        transform: translateX(-200%);
+        transform: translateX(-182%);
     }
 }
 @keyframes level-2-right {
@@ -69,7 +85,7 @@
         transform: translateX(100%);
     }
     100% {
-        transform: translateX(200%);
+        transform: translateX(182%);
     }
 }
 
@@ -96,5 +112,73 @@
     100% {
         opacity: 1;
         transform: translateY(0px);
+    }
+}
+@keyframes map-content-opacity {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.map-eay-dot {
+    animation: map-eay-dot 8s ease infinite;
+}
+
+@keyframes map-eay-dot {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    5% {
+        transform: translate(-90%, -50%);
+    }
+    20% {
+        transform: translate(-90%, -50%);
+    }
+    25% {
+        transform: translate(-90%, -70%);
+    }
+    40% {
+        transform: translate(-90%, -70%);
+    }
+    45% {
+        transform: translate(-10%, -30%);
+    }
+    60% {
+        transform: translate(-10%, -30%);
+    }
+    65% {
+        transform: translate(-10%, -50%);
+    }
+    80% {
+        transform: translate(-10%, -50%);
+    }
+    85% {
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+.map-marker {
+    animation: map-marker 5s ease infinite;
+}
+
+@keyframes map-marker {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {transform: rotate(-60deg)}
+    50% {transform: rotate(-60deg)}
+    75% {transform: rotate(-0deg)}
+    100% {
+        transform: rotate(0deg);
     }
 }
