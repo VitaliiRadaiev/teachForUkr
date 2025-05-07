@@ -8,6 +8,7 @@
 @use "../plugins/swiper/swiper-bundle.scss";
 @use "../plugins/fancybox/fancybox.scss";
 @use "../plugins/aos/aos.css";
+@use "../plugins/popup/popup.scss";
 // /= plugins
 
 @use "./global.scss";
@@ -41,4 +42,5 @@
 @use "../../../../plugins/gutenberg-custom-blocks/src/sections/tabs/tabs.scss";
 @use "../../../../plugins/gutenberg-custom-blocks/src/sections/reports/reports.scss"; 
 @use "../../../../plugins/gutenberg-custom-blocks/src/sections/map/map.scss"; 
+@use "../../../../plugins/gutenberg-custom-blocks/src/sections/cta-leave-request/cta-leave-request.scss"; 
 // /= gutenberg-blocks

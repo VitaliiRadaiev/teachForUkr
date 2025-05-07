@@ -71,6 +71,10 @@ function create_block_gutenberg_custom_blocks_block_init()
 			'slug' => 'different',
 			'title' => 'Різне'
 		]);
+		array_unshift($categories, [
+			'slug' => 'cta',
+			'title' => 'Заклик до дії'
+		]);
 		return $categories;
 	});
 

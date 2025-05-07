@@ -72,6 +72,15 @@ function ajax_get_hero_main_decor_buttons_text()
     ]);
 }
 
+function ajax_get_cta_form_decor_buttons_text()
+{
+    return rest_ensure_response([
+        get_field('text_growth', 'options'),
+        get_field('text_team', 'options'),
+        get_field('text_responsibility', 'options')
+    ]);
+}
+
 function ajax_get_partners($request)
 {
     $category = $request->get_param('category');
@@ -534,6 +543,11 @@ function register_endpoints()
     register_rest_route('site-core/v1', 'hero-main-decor-buttons', array(
         'methods'  => 'GET',
         'callback' => 'ajax_get_hero_main_decor_buttons_text',
+        'permission_callback' => '__return_true'
+    ));
+    register_rest_route('site-core/v1', 'cta-form-decor-buttons', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_cta_form_decor_buttons_text',
         'permission_callback' => '__return_true'
     ));
 

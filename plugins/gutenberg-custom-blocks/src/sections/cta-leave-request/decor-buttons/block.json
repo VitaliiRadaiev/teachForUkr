@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/cta-leave-request-decor-buttons",
+	"version": "0.1.0",
+	"title": "Декоративні кнопки",
+	"icon": "smiley",
+	"description": "",
+	"example": {},
+	"supports": {
+	  "html": false
+	},
+	"attributes": {
+	  "classes": {
+		"type": "string",
+		"default": ""
+	  }
+	},
+	"parent": ["t4u/cta-leave-request"],
+	"textdomain": "cta-leave-request-decor-buttons",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+  }

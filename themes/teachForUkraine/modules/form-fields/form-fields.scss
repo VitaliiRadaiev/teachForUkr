@@ -1,0 +1,87 @@
+@use "./utils/abstracts" as *;
+
+.wpcf7 {
+    & .screen-reader-response {
+        display: none;
+    }
+
+    & .wpcf7-response-output {
+        display: none;
+    }
+}
+
+.wpcf7-not-valid-tip,
+.not-valid-tip {
+    font-size: rem(11px);
+    line-height: 1.4em;
+    color: $color-error-80;
+    display: block;
+    margin-top: rem(2px);
+
+    &~.wpcf7-not-valid-tip {
+        display: none;
+    }
+}
+
+.input {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    border-radius: rem(10px);
+    padding: rem(10px) rem(20px);
+    background-color: $color-light-primary-80;
+    font-size: rem(16px);
+    line-height: 1.4em;
+    color: $color-dark-primary;
+    min-height: rem(50px);
+    width: 100%;
+    outline: none !important;
+    border: solid 1px $color-dark-primary-10;
+
+    &::placeholder {
+        color: $color-dark-primary-60;
+        font-size: rem(14px);
+    }
+
+    &:focus-visible,
+    &:focus {
+        border: solid 1px #b7b7b7;
+    }
+}
+
+.textarea {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    border-radius: rem(10px);
+    padding: rem(16px) rem(20px);
+    background-color: $color-light-primary-80;
+    font-size: rem(16px);
+    line-height: 1.4em;
+    color: $color-dark-primary;
+    min-height: rem(86px);
+    width: 100%;
+    outline: none !important;
+    border: solid 1px $color-dark-primary-10;
+    resize: none;
+    overflow: hidden;
+
+    &::placeholder {
+        color: $color-dark-primary-60;
+        font-size: rem(14px);
+    }
+
+    &:focus-visible,
+    &:focus {
+        border: solid 1px #b7b7b7;
+    }
+}
+
+.input,
+.textarea {
+
+    &.wpcf7-not-valid,
+    &.not-valid {
+        border: solid 1px $color-error;
+    }
+}

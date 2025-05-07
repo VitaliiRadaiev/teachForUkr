@@ -1,6 +1,4 @@
 @@include('../plugins/swiper/swiper-bundle.js')
-@@include('../plugins/inputmask/inputmask.min.js')
-@@include('../plugins/fancybox/fancybox.min.js')
 @@include('../plugins/aos/aos.js')
 
 @@include('./utils.js')
@@ -33,12 +31,13 @@ window.addEventListener("DOMContentLoaded", () => {
     initSmoothScrollByAnchors();
     initResponsiveReload(1024);
     initInputMask();
-    initFancybox();
     initScrollContainers();
     initSetElSizeVariables();
 
-    // modules
+    @@include('../plugins/popup/popup.js') 
 
+    // modules
+    @@include("../../modules/form-fields/form-fields.js")
     // /= modules
 
     // sections
