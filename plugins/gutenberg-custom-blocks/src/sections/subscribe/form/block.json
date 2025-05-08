@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/subscribe-form",
+	"version": "0.1.0",
+	"title": "Форма",
+	"icon": "smiley",
+	"description": "",
+	"example": {},
+	"supports": {
+	  "html": false
+	},
+	"attributes": {},
+	"parent": ["t4u/subscribe"],
+	"textdomain": "subscribe-form",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+  }
