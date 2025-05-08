@@ -1,5 +1,6 @@
 @@include('../plugins/swiper/swiper-bundle.js')
 @@include('../plugins/aos/aos.js')
+@@include('../plugins/fancybox/fancybox.min.js')
 
 @@include('./utils.js')
 @@include('./scripts.js')
@@ -31,6 +32,7 @@ window.addEventListener("DOMContentLoaded", () => {
     initSmoothScrollByAnchors();
     initResponsiveReload(1024);
     initInputMask();
+    initFancybox();
     initScrollContainers();
     initSetElSizeVariables();
 

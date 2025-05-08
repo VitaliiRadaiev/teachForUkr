@@ -121,10 +121,10 @@ function example_allowed_block_types($allowed_block_types, $block_editor_context
     );
 
     $allowed_block_types = array_merge([
-        'core/image',
-        'core/list',
-        'core/list-item',
-        'core/paragraph',
+        // 'core/image',
+        // 'core/list',
+        // 'core/list-item',
+        // 'core/paragraph',
     ], $custom_blocks);
 
     return $allowed_block_types;

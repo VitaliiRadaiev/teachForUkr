@@ -35,7 +35,8 @@ export default function Edit({ attributes, setAttributes }) {
 			['t4u/heading', {
 				classes: "mt-[16px] md:mt-[20px] text-dark-primary w-full",
 				container: "xl",
-				acfField: titleAcfField
+				acfField: titleAcfField,
+				htmlTeg: 'h2'
 			}],
 			['t4u/simple-text', {
 				classes: "mt-[20px] lg:mt-[30px] w-full",

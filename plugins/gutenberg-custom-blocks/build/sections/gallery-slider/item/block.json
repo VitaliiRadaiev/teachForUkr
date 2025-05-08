@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/gallery-slider-item",
+  "version": "0.1.0",
+  "title": "Слайд",
+  "icon": "smiley",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "url": {
+      "type": "string",
+      "default": "#"
+    },
+    "id": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "parent": [
+    "t4u/gallery-slider"
+  ],
+  "textdomain": "gallery-slider-item",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

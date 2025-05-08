@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/cta",
+  "version": "0.1.0",
+  "title": "Заклик до дії",
+  "category": "cta",
+  "icon": "layout",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "isHide": {
+      "type": "boolean",
+      "default": false
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": "lg",
+        "right": "",
+        "bottom": "lg",
+        "left": ""
+      }
+    },
+    "margin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "background": {
+      "type": "string",
+      "enum": [
+        "bg-light-primary",
+        "bg-light-primary-80"
+      ],
+      "default": "bg-light-primary-80"
+    },
+    "colorBackground": {
+      "type": "string",
+      "enum": [
+        "bg-accent-second",
+        "bg-accent-first-50"
+      ],
+      "default": "bg-accent-second"
+    },
+    "directions": {
+      "type": "string",
+      "default": ""
+    },
+    "decor": {
+      "type": "number",
+      "default": 0
+    },
+    "preview": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "textdomain": "cta",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}
