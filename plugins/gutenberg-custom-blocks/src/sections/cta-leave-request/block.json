@@ -42,6 +42,14 @@
       ],
       "default": "bg-light-primary-80"
     },
+    "colorBackground": {
+      "type": "string",
+      "enum": [
+        "bg-accent-second",
+        "bg-accent-first-50"
+      ],
+      "default": "bg-accent-second"
+    },
     "decor": {
       "type": "number",
       "default": 0

@@ -17,7 +17,7 @@ import "./editor.scss";
 
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, margin, classes, fontSize, canAddItem, aligment, container } = attributes;
+	const { isHide, margin, classes, fontSize, canAddItem, aligment, container, acfField } = attributes;
 	const [isContainerChange, setIsContainerChange] = useState(false);
 
 	const blockProps = useBlockProps({
@@ -36,7 +36,9 @@ export default function Edit({ attributes, setAttributes }) {
 		)
 	});
 	const { children } = useInnerBlocksProps({}, {
-		template: [['t4u/paragraph', {}]],
+		template: [['t4u/paragraph', {
+			acfField
+		}]],
 		allowedBlocks: canAddItem ? ['t4u/heading', 't4u/paragraph' , 't4u/ul-list-square', 't4u/ol-list-number'] : []
 	});
 

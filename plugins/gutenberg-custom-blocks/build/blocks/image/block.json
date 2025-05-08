@@ -21,6 +21,9 @@
     "classes": {
       "type": "string",
       "default": ""
+    },
+    "acfField": {
+      "type": "string"
     }
   },
   "textdomain": "image",

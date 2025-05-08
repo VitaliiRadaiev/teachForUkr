@@ -38,6 +38,9 @@
 			"type": "string",
 			"enum": ["left", "center", "right"],
 			"default": ""
+		},
+		"acfField": {
+			"type": "string"
 		}
 	},
 	"textdomain": "paragraph",

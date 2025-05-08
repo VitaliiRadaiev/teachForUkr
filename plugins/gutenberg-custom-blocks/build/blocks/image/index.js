@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/image","version":"0.1.0","title":"Зображення","icon":"format-image","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"imageId":{"type":"number"},"url":{"type":"string"},"classes":{"type":"string","default":""}},"textdomain":"image","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/image","version":"0.1.0","title":"Зображення","icon":"format-image","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"imageId":{"type":"number"},"url":{"type":"string"},"classes":{"type":"string","default":""},"acfField":{"type":"string"}},"textdomain":"image","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -48,8 +48,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _hooks_hooks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../hooks/hooks */ "./src/hooks/hooks.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -65,44 +67,50 @@ function Edit({
   const {
     imageId,
     url,
-    classes
+    classes,
+    acfField
   } = attributes;
   const [anchor, setAnchor] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
   const [btnhover, setBtnhover] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
   const [fetching, setFetching] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
   const [hover, setHover] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
   const [isOpenPopup, setisOpenPopup] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-  const imageSelected = !!imageId && !!url;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+  const fetchData = () => (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getOptionsField)(acfField);
+  const {
+    ref,
+    data
+  } = (0,_hooks_hooks__WEBPACK_IMPORTED_MODULE_7__["default"])(fetchData);
+  const imageSelected = !!imageId && !!url || !!data;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
       loading: "lazy",
       draggable: true,
-      src: url && `${document.location.origin}${(0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.removeDomain)(url)}`,
+      src: url && `${document.location.origin}${(0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.removeDomain)(url)}` || !!data && data.value.url,
       className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])({
         'initial': !classes && !imageId,
         'img-can-change': btnhover,
         'fetching': fetching
       }, classes),
-      ref: ref => {
+      ref: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.mergeRefs)(ref, ref => {
         if (ref) {
           setAnchor(ref);
         }
-      },
+      }),
       onMouseEnter: () => setHover(true),
       onMouseLeave: () => setHover(false)
-    }), anchor && (!imageId || isOpenPopup || hover) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Popover, {
-      position: "bottom center",
-      offset: -60,
+    }), anchor && (!(data || imageId) || isOpenPopup || hover) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Popover, {
+      position: "middle center",
+      offset: -anchor.offsetHeight / 2,
       anchor: anchor,
       onMouseEnter: () => setHover(true),
       onMouseLeave: () => setHover(false),
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.MediaUploadCheck, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.MediaUpload, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.MediaUploadCheck, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.MediaUpload, {
           allowedTypes: ["image"],
           render: ({
             open
           }) => {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "flex items-center gap-x-[10px]",
               onMouseEnter: () => {
                 setBtnhover(true);
@@ -110,7 +118,7 @@ function Edit({
               onMouseLeave: () => {
                 setBtnhover(false);
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
                 variant: "primary",
                 className: "media-select",
                 onClick: e => {
@@ -118,7 +126,7 @@ function Edit({
                   setisOpenPopup(true);
                 },
                 children: imageSelected ? "Замінити зображення" : "Обрати зображення"
-              }), imageId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+              }), imageId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
                 variant: "secondary",
                 onClick: () => {
                   setAttributes({
@@ -126,7 +134,7 @@ function Edit({
                     url: null
                   });
                 },
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Dashicon, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Dashicon, {
                   icon: "no-alt"
                 })
               })]
@@ -187,6 +195,74 @@ __webpack_require__.r(__webpack_exports__);
 function Save() {
   return null;
 }
+
+/***/ }),
+
+/***/ "./src/hooks/hooks.js":
+/*!****************************!*\
+  !*** ./src/hooks/hooks.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const useFetchOnVisible = (fetchCallback, deps = [], shouldFetch = true) => {
+  const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [error, setError] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [isFetched, setIsFetched] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [isLoading, setIsLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const observerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!shouldFetch) return;
+    observerRef.current = new IntersectionObserver(([entry], observer) => {
+      if (entry.isIntersecting && !isFetched && typeof fetchCallback === 'function') {
+        setIsLoading(true);
+        fetchCallback()?.then(result => {
+          setData(result);
+          setIsFetched(true);
+          setIsLoading(false);
+          observer.disconnect();
+        })?.catch(err => {
+          setError(err);
+          setIsLoading(false);
+        });
+      }
+    }, {
+      threshold: 0.1
+    });
+    if (ref.current) {
+      observerRef.current.observe(ref.current);
+    }
+    return () => observerRef.current?.disconnect();
+  }, [isFetched, shouldFetch, ...deps]);
+  const refetch = fetchCallback => {
+    setIsLoading(true);
+    fetchCallback()?.then(result => {
+      setData(result);
+      setIsFetched(true);
+      setIsLoading(false);
+      observer.disconnect();
+    })?.catch(err => {
+      setError(err);
+      setIsLoading(false);
+    });
+  };
+  return {
+    ref,
+    data,
+    error,
+    isFetched,
+    isLoading,
+    refetch
+  };
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useFetchOnVisible);
 
 /***/ }),
 
@@ -399,6 +475,16 @@ module.exports = window["wp"]["components"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["element"];
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = window["React"];
 
 /***/ }),
 

@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/simple-text","version":"0.1.0","title":"Текстовий контейнер","icon":"text","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"fontSize":{"type":"string","enum":["no","sm","md","lg","xl"],"default":"md"},"canAddItem":{"type":"boolean","default":true},"aligment":{"type":"string","enum":["left","center","right"],"default":""},"container":{"type":"string","enum":["sm","md","lg","xl","2xl","full",false],"default":false}},"textdomain":"simple-text","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/simple-text","version":"0.1.0","title":"Текстовий контейнер","icon":"text","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"isHide":{"type":"boolean","default":false},"margin":{"type":"object","default":{"top":"","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"fontSize":{"type":"string","enum":["no","sm","md","lg","xl"],"default":"md"},"canAddItem":{"type":"boolean","default":true},"aligment":{"type":"string","enum":["left","center","right"],"default":""},"container":{"type":"string","enum":["sm","md","lg","xl","2xl","full",false],"default":false},"acfField":{"type":"string"}},"textdomain":"simple-text","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -74,7 +74,8 @@ function Edit({
     fontSize,
     canAddItem,
     aligment,
-    container
+    container,
+    acfField
   } = attributes;
   const [isContainerChange, setIsContainerChange] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
@@ -91,7 +92,9 @@ function Edit({
   const {
     children
   } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)({}, {
-    template: [['t4u/paragraph', {}]],
+    template: [['t4u/paragraph', {
+      acfField
+    }]],
     allowedBlocks: canAddItem ? ['t4u/heading', 't4u/paragraph', 't4u/ul-list-square', 't4u/ol-list-number'] : []
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {

@@ -229,3 +229,15 @@
 [07-May-2025 14:23:41 UTC] PHP Warning:  unlink(D:\xampp\htdocs\teachForUkr/wp-content/uploads/2025/05/cta-girl-full_hd.png): No such file or directory in D:\xampp\htdocs\teachForUkr\wp-content\themes\teachForUkraine\functions-parts\_convert_to_webp.php on line 39
 [07-May-2025 14:47:00 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/my-block" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121
 [07-May-2025 14:47:01 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/my-block" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121
+[08-May-2025 06:55:43 UTC] Automatic updates starting...
+[08-May-2025 06:55:46 UTC] Automatic updates complete.
+[08-May-2025 06:55:51 UTC] PHP Fatal error:  Out of memory (allocated 12582912) (tried to allocate 294912 bytes) in D:\xampp\htdocs\teachForUkr\wp-settings.php on line 214
+[08-May-2025 06:55:51 UTC] PHP Fatal error:  Uncaught Error: Call to a member function set() on null in D:\xampp\htdocs\teachForUkr\wp-includes\l10n.php:857
+Stack trace:
+#0 D:\xampp\htdocs\teachForUkr\wp-includes\l10n.php(960): load_textdomain('default', 'D:\\xampp\\htdocs...', 'uk')
+#1 D:\xampp\htdocs\teachForUkr\wp-includes\class-wp-fatal-error-handler.php(49): load_default_textdomain()
+#2 [internal function]: WP_Fatal_Error_Handler->handle()
+#3 {main}
+  thrown in D:\xampp\htdocs\teachForUkr\wp-includes\l10n.php on line 857
+[08-May-2025 08:00:52 UTC] PHP Warning:  unlink(D:\xampp\htdocs\teachForUkr/wp-content/uploads/2025/05/main-hero-img-thumbnail.png): No such file or directory in D:\xampp\htdocs\teachForUkr\wp-content\themes\teachForUkraine\functions-parts\_convert_to_webp.php on line 39
+[08-May-2025 08:00:52 UTC] PHP Warning:  unlink(D:\xampp\htdocs\teachForUkr/wp-content/uploads/2025/05/main-hero-img-medium.png): No such file or directory in D:\xampp\htdocs\teachForUkr\wp-content\themes\teachForUkraine\functions-parts\_convert_to_webp.php on line 39

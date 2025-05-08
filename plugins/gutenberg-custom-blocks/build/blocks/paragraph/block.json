@@ -47,6 +47,9 @@
         "right"
       ],
       "default": ""
+    },
+    "acfField": {
+      "type": "string"
     }
   },
   "textdomain": "paragraph",

@@ -65,6 +65,9 @@
         false
       ],
       "default": false
+    },
+    "acfField": {
+      "type": "string"
     }
   },
   "textdomain": "simple-text",

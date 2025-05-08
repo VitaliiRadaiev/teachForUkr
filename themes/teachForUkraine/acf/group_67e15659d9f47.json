@@ -1321,6 +1321,27 @@
             "append": ""
         },
         {
+            "key": "field_681c55f858c77",
+            "label": "Текст",
+            "name": "cta_form_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_681b6a36ea672",
             "label": "Зображення",
             "name": "cta_form_image",
@@ -1626,5 +1647,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1746628896
+    "modified": 1746687545
 }

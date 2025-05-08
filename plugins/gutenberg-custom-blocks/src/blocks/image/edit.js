@@ -7,41 +7,48 @@ import { Dashicon, Button, Popover } from "@wordpress/components";
 import "./editor.scss";
 import apiFetch from "@wordpress/api-fetch";
 import clsx from "clsx";
-import { removeDomain } from "../../utils/utils";
+import { getOptionsField, mergeRefs, removeDomain } from "../../utils/utils";
+import useFetchOnVisible from "../../hooks/hooks";
 
 
 export default function Edit({ attributes, setAttributes }) {
-	const { imageId, url, classes } = attributes;
+	const { imageId, url, classes, acfField } = attributes;
 	const [anchor, setAnchor] = useState(null);
 	const [btnhover, setBtnhover] = useState(false);
 	const [fetching, setFetching] = useState(false);
 	const [hover, setHover] = useState(false);
 	const [isOpenPopup, setisOpenPopup] = useState(false);
-	const imageSelected = !!imageId && !!url;
+	
+	const fetchData = () => getOptionsField(acfField);
+	const { ref, data } = useFetchOnVisible(fetchData);
+	const imageSelected = (!!imageId && !!url) || !!data;
 
 	return (
 		<>
 			<img
 				loading="lazy"
 				draggable
-				src={url && `${document.location.origin}${removeDomain(url)}`}
+				src={(url && `${document.location.origin}${removeDomain(url)}`) || (!!data && data.value.url)}
 				className={clsx({
 					'initial': (!classes && !imageId),
 					'img-can-change': btnhover,
 					'fetching': fetching
 				}, classes)}
-				ref={(ref) => {
-					if (ref) {
-						setAnchor(ref);
+				ref={mergeRefs(
+					ref,
+					(ref) => {
+						if (ref) {
+							setAnchor(ref);
+						}
 					}
-				}}
+				)}
 				onMouseEnter={() => setHover(true)}
 				onMouseLeave={() => setHover(false)}
 			/>
-			{anchor && (!imageId || isOpenPopup || hover) &&
+			{anchor && ( !(data || imageId) || isOpenPopup || hover) &&
 				<Popover
-					position="bottom center"
-					offset={-60}
+					position="middle center"
+					offset={-anchor.offsetHeight / 2}
 					anchor={anchor}
 					onMouseEnter={() => setHover(true)}
 					onMouseLeave={() => setHover(false)}

@@ -16,6 +16,7 @@ const HighlightButton = ({ isActive, value, onChange, contentRef }) => {
         { name: 'Accent 2', color: '#FF8200', className: 'text-accent-second' },
         { name: 'dark', color: '#1f1f1f', className: 'text-dark-primary' },
         { name: 'dark-80', color: '#4c4c4c', className: 'text-dark-primary-80' },
+        { name: 'light', color: '#ffffff', className: 'text-light-primary' },
     ];
 
     return (

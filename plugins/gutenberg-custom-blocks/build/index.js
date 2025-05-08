@@ -53,6 +53,10 @@ const HighlightButton = ({
     name: 'dark-80',
     color: '#4c4c4c',
     className: 'text-dark-primary-80'
+  }, {
+    name: 'light',
+    color: '#ffffff',
+    className: 'text-light-primary'
   }];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichTextShortcut, {
