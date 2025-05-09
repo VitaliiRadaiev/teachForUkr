@@ -15,7 +15,8 @@ function ajax_get_acf_option_field($request)
     ]);
 }
 
-function ajax_get_acf_global_links() {
+function ajax_get_acf_global_links()
+{
     $fields = get_fields('options');
 
     if (!$fields) {
@@ -40,7 +41,8 @@ function ajax_get_acf_global_links() {
     return rest_ensure_response($result);
 }
 
-function ajax_get_acf_global_buttons_text() {
+function ajax_get_acf_global_buttons_text()
+{
     $fields = get_fields('options');
 
     if (!$fields) {
@@ -360,35 +362,59 @@ function ajax_get_cases_for_block_slider()
     ]);
 }
 
-function ajax_get_reviews()
+function ajax_get_reviews($request)
 {
-    $query = get_reviews();
+    $category = $request->get_param('category');
+    $search = $request->get_param('search');
+    $page = $request->get_param('page');
+    $posts_per_page = $request->get_param('posts_per_page');
 
-    $posts = [];
+    $args = [
+        'page' => $page,
+        'posts_per_page' => $posts_per_page,
+        'search' => $search
+    ];
 
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $id = get_the_ID();
-            $image = get_image(get_post_thumbnail_id(), 'ibg', false, 'medium');
-            $title = get_the_title();
-            $excerpt = get_the_excerpt();
-            $position = get_field('review_position', $id);
-
-            $posts[] = [
-                'id' =>  $id,
-                'image' => $image,
-                'title' => $title,
-                'position' => $position,
-                'excerpt' => $excerpt,
-            ];
-        }
+    if ($category === 'all') {
+        $args = array_merge($args, [
+            'category' => $category
+        ]);
+    } else {
+        $args = array_merge($args, [
+            'category' => array_filter(explode(',', $category), function ($item) {
+                return $item !== 'all';
+            })
+        ]);
     }
 
+    $query = get_reviews($args);
+
+    $posts = create_reviews_response_data($query);
+
+    wp_reset_postdata();
+    return rest_ensure_response([
+        'posts' => $posts,
+        'max_num_pages' => $query->max_num_pages
+    ]);
+}
+function ajax_get_reviews_by_ids($request)
+{
+    $ids = $request->get_param('ids');
+    $query = get_reviews_by_ids(explode(',', $ids));
+
+    $posts = create_reviews_response_data($query);
+
+    wp_reset_postdata();
     return rest_ensure_response([
         'posts' => $posts
     ]);
 }
+function ajax_get_reviews_categories()
+{
+    $terms = get_reviews_categories();
+    return rest_ensure_response($terms);
+}
+
 
 function ajax_get_vacancies($request)
 {
@@ -426,7 +452,8 @@ function ajax_get_vacancies($request)
     ]);
 }
 
-function ajax_get_vacancy_city() {
+function ajax_get_vacancy_city()
+{
     $terms = get_vacancies_cities();
     return rest_ensure_response($terms);
 }
@@ -461,7 +488,8 @@ function ajax_get_reports()
     ]);
 }
 
-function ajax_get_questions($request) {
+function ajax_get_questions($request)
+{
     $category = $request->get_param('category');
     $search = $request->get_param('search');
     $page = $request->get_param('page');
@@ -497,7 +525,8 @@ function ajax_get_questions($request) {
         'max_num_pages' => $query->max_num_pages
     ]);
 }
-function ajax_get_questions_by_ids($request) {
+function ajax_get_questions_by_ids($request)
+{
     $ids = $request->get_param('ids');
     $query = get_questions_by_ids(explode(',', $ids));
 
@@ -508,7 +537,8 @@ function ajax_get_questions_by_ids($request) {
         'posts' => $posts
     ]);
 }
-function ajax_get_questions_categories() {
+function ajax_get_questions_categories()
+{
     $terms = get_questions_categories();
     return rest_ensure_response($terms);
 }
@@ -763,15 +793,64 @@ function register_endpoints()
         )
     ));
 
-    register_rest_route('site-core/v1', 'case-for-slider', array(
-        'methods'  => 'GET',
-        'callback' => 'ajax_get_cases_for_block_slider',
-        'permission_callback' => '__return_true',
-    ));
-
     register_rest_route('site-core/v1', 'review', array(
         'methods'  => 'GET',
         'callback' => 'ajax_get_reviews',
+        'permission_callback' => '__return_true',
+        'args'     => array(
+            'category' => array(
+                'required' => false,
+                'default'  => 'all',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
+                }
+            ),
+            'search' => array(
+                'required' => false,
+                'default'  => '',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
+                }
+            ),
+            'page' => array(
+                'required' => false,
+                'default'  => 1,
+                'validate_callback' => function ($param) {
+                    return is_numeric($param) && intval($param) > 0;
+                }
+            ),
+            'posts_per_page' => array(
+                'required' => false,
+                'default'  => 16,
+                'validate_callback' => function ($param) {
+                    return is_numeric($param) && intval($param) > 0;
+                }
+            )
+        )
+    ));
+    register_rest_route('site-core/v1', 'review-by-ids', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_reviews_by_ids',
+        'permission_callback' => '__return_true',
+        'args'     => array(
+            'ids' => array(
+                'required' => false,
+                'default'  => '',
+                'validate_callback' => function ($param) {
+                    return is_string($param);
+                }
+            )
+        )
+    ));
+    register_rest_route('site-core/v1', 'review-categories', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_reviews_categories',
+        'permission_callback' => '__return_true'
+    ));
+
+    register_rest_route('site-core/v1', 'case-for-slider', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_cases_for_block_slider',
         'permission_callback' => '__return_true',
     ));
 
@@ -990,6 +1069,33 @@ function create_people_response_data($query)
 
     return $posts;
 }
+
+function create_reviews_response_data($query)
+{
+    $posts = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $id = get_the_ID();
+            $image = get_image(get_post_thumbnail_id(), 'ibg', false, 'medium');
+            $title = get_the_title();
+            $excerpt = get_the_excerpt();
+            $position = get_field('review_position', $id);
+
+            $posts[] = [
+                'id' =>  $id,
+                'image' => $image,
+                'title' => $title,
+                'position' => $position,
+                'excerpt' => $excerpt,
+            ];
+        }
+    }
+
+    return $posts;
+}
+
 function create_vacancies_response_data($query)
 {
     $text_more_details = get_field('text_more_details', 'options');
@@ -1017,7 +1123,8 @@ function create_vacancies_response_data($query)
     return $posts;
 }
 
-function create_questions_response_data($query) {
+function create_questions_response_data($query)
+{
     $posts = [];
 
     if ($query->have_posts()) {

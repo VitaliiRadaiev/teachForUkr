@@ -1,8 +1,17 @@
 <?php
 if (!($attributes['isHide'])):
    $classes = combine_classes(get_default_section_classes($attributes));
+   $query = new WP_Query();
+   wp_reset_postdata();
 
-   $query = get_reviews();
+   if (check($attributes['selectedPosts'])) {
+      $query = get_reviews_by_ids($attributes['selectedPosts']);
+   } else {
+      $query = get_reviews([
+         'category' => empty($attributes['selectedCategories']) ? 'all' : $attributes['selectedCategories'],
+      ]);
+   }
+
    if ($query->have_posts()):
 ?>
       <section <?= ($attributes['id'] ?? null) ? 'id="'.$attributes['id'].'"' : '' ?> data-aos="rotate-child" class="reviews-slider-section rounded-[20px] md:rounded-[30px] overflow-hidden relative <?= $classes ?>">

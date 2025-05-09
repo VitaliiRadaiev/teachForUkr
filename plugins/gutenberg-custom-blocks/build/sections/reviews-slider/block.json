@@ -49,6 +49,14 @@
     "preview": {
       "type": "string"
     },
+    "selectedCategories": {
+      "type": "array",
+      "default": []
+    },
+    "selectedPosts": {
+      "type": "array",
+      "default": []
+    },
     "id": {
       "type": "string"
     }
