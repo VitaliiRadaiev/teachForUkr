@@ -53,6 +53,10 @@
 			"type": "string",
 			"enum": ["sm", "md", "lg", "xl"],
 			"default": "sm"
+		},
+		"horisontal": {
+			"type": "number",
+			"default": 0
 		}
 	},
 	"textdomain": "ul-list-square",

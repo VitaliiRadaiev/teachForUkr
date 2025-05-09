@@ -161,7 +161,7 @@
     font-size: rem(15px);
     line-height: 140%;
     letter-spacing: -0.01em;
-    
+
     @media (max-width: $mq-md-max) {
         &:not(.without-break-word) {
             word-break: break-word;
@@ -226,7 +226,7 @@ span {
 .text-xl {
     font-weight: 500;
     font-size: rem(18px);
-    line-height: 120%;
+    line-height: 140%;
     letter-spacing: -0.03em;
 
     @media (min-width: $mq-2xl) {
@@ -421,6 +421,24 @@ span {
 
         &:last-child {
             margin-bottom: 0 !important;
+        }
+    }
+}
+
+p,
+li {
+    & a {
+        color: $color-accent-first;
+        transition: $tran;
+        background: linear-gradient(45deg, currentColor, currentColor);
+        background-repeat: no-repeat;
+        background-size: 100% .1rem;
+        background-position: 0 calc(100% - .1rem);
+
+        @media #{$mouse-device} {
+            &:hover {
+                color: $color-accent-first-50;
+            }
         }
     }
 }

@@ -84,12 +84,12 @@ html :where(.wp-block) {
   box-shadow: 0px 0px 10px 4px rgba(252, 1, 1, 0.1);
 }
 
-.simple-text-content p {
-  line-height: inherit;
-}
-
 .min-h-100 {
   min-height: 100px;
+}
+
+.simple-text-content p:not(.text-sm):not(.text-md):not(.text-lg):not(.text-xl) {
+  line-height: inherit;
 }
 
 .post-type-question .wp-block-post-content > * {

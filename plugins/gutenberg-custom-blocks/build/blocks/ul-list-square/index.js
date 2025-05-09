@@ -23,7 +23,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \**********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/ul-list-square","version":"0.1.0","title":"Список","icon":"editor-ul","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"margin":{"type":"object","default":{"top":"sm","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"accent":{"type":"string","enum":["accent-first","accent-second"],"default":"accent-first"},"fontSize":{"type":"string","enum":["sm","md","lg","xl"],"default":""},"aligment":{"type":"string","enum":["left","center","right"],"default":""},"gap":{"type":"string","enum":["sm","md","lg","xl"],"default":"sm"},"gapClass":{"type":"string","default":"gap-y-[5px]"},"spaceLeft":{"type":"string","enum":["sm","md","lg","xl"],"default":"sm"}},"textdomain":"ul-list-square","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"t4u/ul-list-square","version":"0.1.0","title":"Список","icon":"editor-ul","category":"blocks","description":"","example":{},"supports":{"html":false},"attributes":{"margin":{"type":"object","default":{"top":"sm","right":"","bottom":"","left":""}},"classes":{"type":"string","default":""},"accent":{"type":"string","enum":["accent-first","accent-second"],"default":"accent-first"},"fontSize":{"type":"string","enum":["sm","md","lg","xl"],"default":""},"aligment":{"type":"string","enum":["left","center","right"],"default":""},"gap":{"type":"string","enum":["sm","md","lg","xl"],"default":"sm"},"gapClass":{"type":"string","default":"gap-y-[5px]"},"spaceLeft":{"type":"string","enum":["sm","md","lg","xl"],"default":"sm"},"horisontal":{"type":"number","default":0}},"textdomain":"ul-list-square","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -75,7 +75,8 @@ function Edit({
     aligment,
     gap,
     gapClass,
-    spaceLeft
+    spaceLeft,
+    horisontal
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
     className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('ul-list-square', classes, className, accent, gapClass, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getMarginClasses)(margin), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.combineString)({
@@ -84,7 +85,9 @@ function Edit({
       prefix: 'text-'
     }, aligment), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.combineString)({
       prefix: 'ul-ml-'
-    }, spaceLeft))
+    }, spaceLeft), {
+      'horisontal': !!horisontal
+    })
   });
   const {
     children
@@ -157,6 +160,30 @@ function Edit({
         size: margin,
         setSize: s => setAttributes({
           margin: s
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+        title: "\u0412\u0456\u0434\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u043D\u044F",
+        initialOpen: false,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RadioControl, {
+          selected: +horisontal,
+          options: [{
+            label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+              className: "!h-[100px] w-auto object-contain",
+              src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)(`general/ul-vertical.png`),
+              alt: "icon"
+            }),
+            value: 0
+          }, {
+            label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+              className: "!h-[100px] w-auto object-contain",
+              src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)(`general/ul-horisontal.png`),
+              alt: "icon"
+            }),
+            value: 1
+          }],
+          onChange: value => setAttributes({
+            horisontal: +value
+          })
         })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("ul", {
@@ -505,7 +532,7 @@ const TEXT_SIZES = ["sm", "md", "lg", "xl"];
 const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const CONTAINER_SIZES = ["sm", "md", "lg", "xl", "2xl", "full"];
-const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list-square'];
+const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list-square', 't4u/ol-list-number'];
 const LIST_GAP_Y_MAP = {
   sm: 'gap-y-[5px]',
   md: 'gap-y-[10px]',

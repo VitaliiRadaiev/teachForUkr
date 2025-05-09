@@ -9,6 +9,7 @@
       combine_string(['prefix' => 'text-'], $attributes['fontSize']),
       combine_string(['prefix' => 'text-'], $attributes['aligment']),
       combine_string(['prefix' => 'ul-ml-'], $attributes['spaceLeft']),
+      (boolval($attributes['horisontal']) ? 'horisontal': '')
    );
 ?>
 

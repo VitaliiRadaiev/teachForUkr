@@ -6174,7 +6174,7 @@ span.h1, span.h2, span.h3, span.h4, span.h5 {
 .text-xl {
   font-weight: 500;
   font-size: 1.125rem;
-  line-height: 120%;
+  line-height: 140%;
   letter-spacing: -0.03em;
 }
 
@@ -6265,6 +6265,17 @@ span.h1, span.h2, span.h3, span.h4, span.h5 {
 }
 .simple-text-content > *:last-child {
   margin-bottom: 0 !important;
+}
+
+p a,
+li a {
+  color: #0536FC;
+  -webkit-transition: 0.15s ease;
+  transition: 0.15s ease;
+  background: linear-gradient(45deg, currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 100% 0.1rem;
+  background-position: 0 calc(100% - 0.1rem);
 }
 
 html {
@@ -10013,6 +10024,17 @@ input[type=text].input:focus {
 .ul-list-square.ul-ml-xl {
   margin-left: 3em !important;
 }
+.ul-list-square.horisontal {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-column-gap: 2.5em;
+     -moz-column-gap: 2.5em;
+          column-gap: 2.5em;
+}
 .ul-list-square li::marker {
   color: var(--accent);
 }
@@ -12325,9 +12347,6 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .lg\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(33\.333333\%-\(24px\*2\/3\)\)\]:not(.swiper-initialized) .swiper-slide {
     width: calc(33.333333% - (24px * 2 / 3));
   }
-  .lg\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(25\%-\(24px\*1\/2\)\)\]:not(.swiper-initialized) .swiper-slide {
-    width: calc(25% - (24px * 1 / 2));
-  }
   .lg\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(50\%-\(24px\*1\/2\)\)\]:not(.swiper-initialized) .swiper-slide {
     width: calc(50% - (24px * 1 / 2));
   }
@@ -12630,6 +12649,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .xl\:mt-\[-10px\] {
     margin-top: -10px;
   }
+  .xl\:mt-\[10px\] {
+    margin-top: 10px;
+  }
   .xl\:mt-\[20px\] {
     margin-top: 20px;
   }
@@ -12650,9 +12672,6 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .xl\:mt-\[65px\] {
     margin-top: 65px;
-  }
-  .xl\:mt-\[10px\] {
-    margin-top: 10px;
   }
   .xl\:block {
     display: block;
@@ -12716,14 +12735,14 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .xl\:min-h-\[165px\] {
     min-height: 165px;
   }
+  .xl\:min-h-\[301px\] {
+    min-height: 301px;
+  }
   .xl\:min-h-\[459px\] {
     min-height: 459px;
   }
   .xl\:min-h-\[565px\] {
     min-height: 565px;
-  }
-  .xl\:min-h-\[301px\] {
-    min-height: 301px;
   }
   .xl\:w-\[232px\] {
     width: 232px;
@@ -12733,6 +12752,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .xl\:w-\[36px\] {
     width: 36px;
+  }
+  .xl\:w-\[47\.68\%\] {
+    width: 47.68%;
   }
   .xl\:w-\[470px\] {
     width: 470px;
@@ -12757,9 +12779,6 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .xl\:w-full {
     width: 100%;
-  }
-  .xl\:w-\[47\.68\%\] {
-    width: 47.68%;
   }
   .xl\:min-w-\[115px\] {
     min-width: 115px;
@@ -12949,6 +12968,10 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
     padding-top: 100px;
     padding-bottom: 100px;
   }
+  .xl\:py-\[16px\] {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
   .xl\:py-\[30px\] {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -12969,21 +12992,23 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
     padding-top: 60px;
     padding-bottom: 60px;
   }
-  .xl\:py-\[16px\] {
-    padding-top: 16px;
-    padding-bottom: 16px;
-  }
   .xl\:pb-0 {
     padding-bottom: 0px;
   }
   .xl\:pb-\[20px\] {
     padding-bottom: 20px;
   }
+  .xl\:pl-\[20px\] {
+    padding-left: 20px;
+  }
   .xl\:pl-\[40px\] {
     padding-left: 40px;
   }
   .xl\:pr-0 {
     padding-right: 0px;
+  }
+  .xl\:pr-\[10px\] {
+    padding-right: 10px;
   }
   .xl\:pr-\[125px\] {
     padding-right: 125px;
@@ -13011,12 +13036,6 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .xl\:pt-\[40px\] {
     padding-top: 40px;
-  }
-  .xl\:pl-\[20px\] {
-    padding-left: 20px;
-  }
-  .xl\:pr-\[10px\] {
-    padding-right: 10px;
   }
   .xl\:text-end {
     text-align: end;
@@ -13488,6 +13507,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .\34xl\:min-h-\[29px\] {
     min-height: 29px;
   }
+  .\34xl\:min-h-\[394px\] {
+    min-height: 394px;
+  }
   .\34xl\:min-h-\[496px\] {
     min-height: 496px;
   }
@@ -13505,9 +13527,6 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .\34xl\:min-h-\[730px\] {
     min-height: 730px;
-  }
-  .\34xl\:min-h-\[394px\] {
-    min-height: 394px;
   }
   .\34xl\:w-\[244px\] {
     width: 244px;
@@ -13688,9 +13707,6 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .\34xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(33\.333333\%-\(30px\*2\/3\)\)\]:not(.swiper-initialized) .swiper-slide {
     width: calc(33.333333% - (30px * 2 / 3));
-  }
-  .\34xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(25\%-\(30px\*1\/2\)\)\]:not(.swiper-initialized) .swiper-slide {
-    width: calc(25% - (30px * 1 / 2));
   }
   .\34xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(50\%-\(30px\*1\/2\)\)\]:not(.swiper-initialized) .swiper-slide {
     width: calc(50% - (30px * 1 / 2));
@@ -13912,6 +13928,10 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  p a:hover,
+  li a:hover {
+    color: #829BFE;
+  }
   .btn-primary:hover {
     border-color: var(--accent);
   }

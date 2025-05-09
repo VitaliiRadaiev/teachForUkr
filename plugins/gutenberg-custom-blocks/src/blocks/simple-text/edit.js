@@ -12,12 +12,12 @@ import { MarginYControl } from "../../components/space-control/MarginYControl";
 import { combineString, getMarginClasses, getContainerClasses } from "../../utils/utils";
 import { ButtonsGroup } from "../../components/buttons-group/ButtonsGroup";
 import clsx from "clsx";
-import { CONTAINER_SIZES, TEXT_SIZES } from "../../global/global";
+import { CONTAINER_SIZES, TEXT_CONTENT_ALLOWD_BLOCKS, TEXT_SIZES } from "../../global/global";
 import "./editor.scss";
 
 
 export default function Edit({ attributes, setAttributes }) {
-	const { isHide, margin, classes, fontSize, canAddItem, aligment, container, acfField } = attributes;
+	const { isHide, margin, classes, fontSize, canAddItem, aligment, container, acfField, article } = attributes;
 	const [isContainerChange, setIsContainerChange] = useState(false);
 
 	const blockProps = useBlockProps({
@@ -39,7 +39,9 @@ export default function Edit({ attributes, setAttributes }) {
 		template: [['t4u/paragraph', {
 			acfField
 		}]],
-		allowedBlocks: canAddItem ? ['t4u/heading', 't4u/paragraph' , 't4u/ul-list-square', 't4u/ol-list-number'] : []
+		allowedBlocks: canAddItem 
+		? ( article ? TEXT_CONTENT_ALLOWD_BLOCKS : ['t4u/heading', 't4u/paragraph' , 't4u/ul-list-square', 't4u/ol-list-number'])
+		: []
 	});
 
 	return (

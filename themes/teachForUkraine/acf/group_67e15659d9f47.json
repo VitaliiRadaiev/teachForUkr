@@ -930,6 +930,27 @@
             "append": ""
         },
         {
+            "key": "field_681df7cf89178",
+            "label": "Текст \"Показати більше\"",
+            "name": "text_show_more_v2",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Показати більше",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67f67f8fada71",
             "label": "Текст \"Перейти\"",
             "name": "text_go_to",
@@ -1749,5 +1770,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1746790878
+    "modified": 1746794525
 }

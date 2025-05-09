@@ -5,10 +5,10 @@ import {
 	BlockControls,
 	AlignmentToolbar
 } from "@wordpress/block-editor";
-import { PanelBody } from "@wordpress/components";
+import { PanelBody, RadioControl } from "@wordpress/components";
 import "./editor.scss";
 import clsx from "clsx";
-import { combineString, getMarginClasses } from "../../utils/utils";
+import { combineString, getMarginClasses, getUrlToStaticImages } from "../../utils/utils";
 import { DirectionIcon } from "../../components/direction-icon/DirectionIcon";
 import { ButtonsGroup } from "../../components/buttons-group/ButtonsGroup";
 import { AccentColorPallet } from "../../components/colorPallets/AccentColorPallet";
@@ -17,7 +17,7 @@ import { LIST_GAP_Y_MAP, TEXT_SIZES } from "../../global/global";
 
 
 export default function Edit({ attributes, setAttributes }) {
-	const { margin, classes, className, accent, fontSize, aligment, gap, gapClass, spaceLeft } = attributes;
+	const { margin, classes, className, accent, fontSize, aligment, gap, gapClass, spaceLeft, horisontal } = attributes;
 	const blockProps = useBlockProps({
 		className: clsx(
 			'ul-list-square',
@@ -29,6 +29,9 @@ export default function Edit({ attributes, setAttributes }) {
 			combineString({ prefix: 'text-' }, fontSize),
 			combineString({ prefix: 'text-' }, aligment),
 			combineString({ prefix: 'ul-ml-' }, spaceLeft),
+			{
+				'horisontal': !!horisontal
+			}
 		)
 	});
 
@@ -87,6 +90,22 @@ export default function Edit({ attributes, setAttributes }) {
 					</div>
 				</PanelBody>
 				<MarginYControl size={margin} setSize={(s) => setAttributes({ margin: s })} />
+				<PanelBody title="Відображення" initialOpen={false}>
+					<RadioControl
+						selected={+horisontal}
+						options={[
+							{
+								label: <img className="!h-[100px] w-auto object-contain" src={getUrlToStaticImages(`general/ul-vertical.png`)} alt="icon" />,
+								value: 0
+							},
+							{
+								label: <img className="!h-[100px] w-auto object-contain" src={getUrlToStaticImages(`general/ul-horisontal.png`)} alt="icon" />,
+								value: 1
+							},
+						]}
+						onChange={(value) => setAttributes({ horisontal: +value })}
+					/>
+				</PanelBody>
 			</InspectorControls>
 			<ul {...blockProps} >
 				{children}

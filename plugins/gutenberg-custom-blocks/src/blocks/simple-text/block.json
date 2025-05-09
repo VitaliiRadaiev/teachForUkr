@@ -50,6 +50,10 @@
 		},
 		"acfField": {
 			"type": "string"
+		},
+		"article": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"textdomain": "simple-text",

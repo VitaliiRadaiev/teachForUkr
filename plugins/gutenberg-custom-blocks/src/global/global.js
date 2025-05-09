@@ -18,7 +18,8 @@ export const CONTAINER_SIZES = ["sm", "md", "lg", "xl", "2xl", "full"]
 export const TEXT_CONTENT_ALLOWD_BLOCKS = [
     't4u/heading',
     't4u/paragraph',
-    't4u/ul-list-square'
+    't4u/ul-list-square',
+    't4u/ol-list-number'
 ]
 
 export const LIST_GAP_Y_MAP = {

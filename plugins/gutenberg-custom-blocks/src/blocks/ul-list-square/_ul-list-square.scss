@@ -17,6 +17,12 @@
         margin-left: 3em !important;
     }
 
+    &.horisontal {
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 2.5em;
+    }
+
 
     & li {
         &::marker {

@@ -1,0 +1,1 @@
+<div class="mt-[30px] lg:mt-[50px] w-full mx-auto"></div>
