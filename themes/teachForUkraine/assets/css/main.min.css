@@ -12325,6 +12325,12 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .lg\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(33\.333333\%-\(24px\*2\/3\)\)\]:not(.swiper-initialized) .swiper-slide {
     width: calc(33.333333% - (24px * 2 / 3));
   }
+  .lg\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(25\%-\(24px\*1\/2\)\)\]:not(.swiper-initialized) .swiper-slide {
+    width: calc(25% - (24px * 1 / 2));
+  }
+  .lg\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(50\%-\(24px\*1\/2\)\)\]:not(.swiper-initialized) .swiper-slide {
+    width: calc(50% - (24px * 1 / 2));
+  }
   .lg\:\[\&\:not\(\.swiper-initialized\)_\.swiper-wrapper\]\:gap-\[24px\]:not(.swiper-initialized) .swiper-wrapper {
     gap: 24px;
   }
@@ -12645,6 +12651,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .xl\:mt-\[65px\] {
     margin-top: 65px;
   }
+  .xl\:mt-\[10px\] {
+    margin-top: 10px;
+  }
   .xl\:block {
     display: block;
   }
@@ -12667,6 +12676,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .xl\:hidden {
     display: none;
+  }
+  .xl\:aspect-auto {
+    aspect-ratio: auto;
   }
   .xl\:h-\[110px\] {
     height: 110px;
@@ -12710,6 +12722,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .xl\:min-h-\[565px\] {
     min-height: 565px;
   }
+  .xl\:min-h-\[301px\] {
+    min-height: 301px;
+  }
   .xl\:w-\[232px\] {
     width: 232px;
   }
@@ -12742,6 +12757,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .xl\:w-full {
     width: 100%;
+  }
+  .xl\:w-\[47\.68\%\] {
+    width: 47.68%;
   }
   .xl\:min-w-\[115px\] {
     min-width: 115px;
@@ -12951,6 +12969,10 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
     padding-top: 60px;
     padding-bottom: 60px;
   }
+  .xl\:py-\[16px\] {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
   .xl\:pb-0 {
     padding-bottom: 0px;
   }
@@ -12989,6 +13011,12 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .xl\:pt-\[40px\] {
     padding-top: 40px;
+  }
+  .xl\:pl-\[20px\] {
+    padding-left: 20px;
+  }
+  .xl\:pr-\[10px\] {
+    padding-right: 10px;
   }
   .xl\:text-end {
     text-align: end;
@@ -13478,6 +13506,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .\34xl\:min-h-\[730px\] {
     min-height: 730px;
   }
+  .\34xl\:min-h-\[394px\] {
+    min-height: 394px;
+  }
   .\34xl\:w-\[244px\] {
     width: 244px;
   }
@@ -13657,6 +13688,12 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .\34xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(33\.333333\%-\(30px\*2\/3\)\)\]:not(.swiper-initialized) .swiper-slide {
     width: calc(33.333333% - (30px * 2 / 3));
+  }
+  .\34xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(25\%-\(30px\*1\/2\)\)\]:not(.swiper-initialized) .swiper-slide {
+    width: calc(25% - (30px * 1 / 2));
+  }
+  .\34xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-slide\]\:w-\[calc\(50\%-\(30px\*1\/2\)\)\]:not(.swiper-initialized) .swiper-slide {
+    width: calc(50% - (30px * 1 / 2));
   }
   .\34xl\:\[\&\:not\(\.swiper-initialized\)_\.swiper-wrapper\]\:gap-\[30px\]:not(.swiper-initialized) .swiper-wrapper {
     gap: 30px;

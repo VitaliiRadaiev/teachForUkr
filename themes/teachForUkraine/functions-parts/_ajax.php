@@ -54,6 +54,7 @@ function ajax_get_acf_global_buttons_text()
         'text_more_details' => $fields['text_more_details'] ?? null,
         'text_more' => $fields['text_more'] ?? null,
         'text_all' => $fields['text_all'] ?? null,
+        'text_watchall_all' => $fields['text_watchall_all'] ?? null,
         'text_show_more' => $fields['text_show_more'] ?? null,
         'text_go_to' => $fields['text_go_to'] ?? null,
         'text_review' => $fields['text_review'] ?? null,
