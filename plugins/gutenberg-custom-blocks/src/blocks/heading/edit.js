@@ -27,6 +27,12 @@ const getHeadingSizeClass = (size) => {
 	return sizesMap[size] || 'h2';
 }
 
+const aligmentContainerClasses = {
+	'left': 'mr-auto',
+	'center': 'mx-auto',
+	'right': '!ml-auto'
+}
+
 export default function Edit({ attributes, setAttributes }) {
 	const { isHide, margin, classes, text, htmlTeg, fontSize, aligment, container, acfField } = attributes;
 	const [isContainerChange, setIsContainerChange] = useState(false);
@@ -41,6 +47,7 @@ export default function Edit({ attributes, setAttributes }) {
 			getMarginClasses(margin),
 			getHeadingSizeClass(fontSize),
 			combineString({ prefix: 'text-' }, aligment),
+			aligmentContainerClasses[aligment],
 			{
 				['hide-block']: isHide,
 				'canChangeContainerSize': isContainerChange,

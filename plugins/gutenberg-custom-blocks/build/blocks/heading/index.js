@@ -73,6 +73,11 @@ const getHeadingSizeClass = size => {
   };
   return sizesMap[size] || 'h2';
 };
+const aligmentContainerClasses = {
+  'left': 'mr-auto',
+  'center': 'mx-auto',
+  'right': '!ml-auto'
+};
 function Edit({
   attributes,
   setAttributes
@@ -99,7 +104,7 @@ function Edit({
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
     className: (0,clsx__WEBPACK_IMPORTED_MODULE_8__["default"])(classes, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getMarginClasses)(margin), getHeadingSizeClass(fontSize), (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.combineString)({
       prefix: 'text-'
-    }, aligment), {
+    }, aligment), aligmentContainerClasses[aligment], {
       ['hide-block']: isHide,
       'canChangeContainerSize': isContainerChange
     }, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getContainerClasses)(container))
