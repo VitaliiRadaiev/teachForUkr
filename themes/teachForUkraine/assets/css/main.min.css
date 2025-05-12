@@ -2033,6 +2033,9 @@ video {
 .lowercase {
   text-transform: lowercase;
 }
+.italic {
+  font-style: italic;
+}
 .leading-\[1\.2em\] {
   line-height: 1.2em;
 }
@@ -6071,7 +6074,6 @@ html.with-fancybox body.hide-scrollbar {
   line-height: 100%;
   letter-spacing: -0.05em;
   text-transform: uppercase;
-  color: #1f1f1f;
 }
 .h1 > *:last-child {
   margin-bottom: 0;
@@ -6089,7 +6091,6 @@ html.with-fancybox body.hide-scrollbar {
   line-height: 100%;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  color: #1f1f1f;
 }
 .h2 > *:last-child {
   margin-bottom: 0;
@@ -6107,7 +6108,6 @@ html.with-fancybox body.hide-scrollbar {
   line-height: 120%;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  color: #1f1f1f;
 }
 .h3 > *:last-child {
   margin-bottom: 0;
@@ -6124,7 +6124,6 @@ html.with-fancybox body.hide-scrollbar {
   font-size: 1.125rem;
   line-height: 120%;
   letter-spacing: -0.03em;
-  color: #1f1f1f;
 }
 .h4 > *:last-child {
   margin-bottom: 0;
@@ -6141,7 +6140,6 @@ html.with-fancybox body.hide-scrollbar {
   font-size: 0.9375rem;
   line-height: 140%;
   letter-spacing: -0.01em;
-  color: #1f1f1f;
 }
 .h5 > *:last-child {
   margin-bottom: 0;
@@ -6270,6 +6268,9 @@ span.h1, span.h2, span.h3, span.h4, span.h5 {
 }
 .simple-text-content > *:last-child {
   margin-bottom: 0 !important;
+}
+.simple-text-content .h1, .simple-text-content .h2, .simple-text-content .h3, .simple-text-content .h4, .simple-text-content .h5, .simple-text-content .h6 {
+  color: #1f1f1f;
 }
 
 p a,
@@ -6827,6 +6828,22 @@ main {
 
 .ml-xl {
   margin-left: 40px;
+}
+
+.mt-2xl {
+  margin-top: 60px;
+}
+
+.mr-2xl {
+  margin-right: 60px;
+}
+
+.mb-2xl {
+  margin-bottom: 60px;
+}
+
+.ml-2xl {
+  margin-left: 60px;
 }
 
 .section-mt-sm {
@@ -10983,12 +11000,72 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
           transition-duration: 150ms;
 }
 
+.\[\&_figure\]\:inline-block figure {
+  display: inline-block;
+}
+
 .\[\&_flag\]\:ml-\[0\.2em\] flag {
   margin-left: 0.2em;
 }
 
 .\[\&_img\:not\(\[src\]\)\]\:w-\[140px\] img:not([src]) {
   width: 140px;
+}
+
+.\[\&_img\]\:aspect-\[1\/0\.670\] img {
+  aspect-ratio: 1/0.670;
+}
+
+.\[\&_img\]\:aspect-square img {
+  aspect-ratio: 1 / 1;
+}
+
+.\[\&_img\]\:w-full img {
+  width: 100%;
+}
+
+.\[\&_img\]\:rounded-\[12px\] img {
+  border-radius: 12px;
+}
+
+.\[\&_img\]\:object-bottom img {
+  -o-object-position: bottom;
+     object-position: bottom;
+}
+
+.\[\&_img\]\:object-left img {
+  -o-object-position: left;
+     object-position: left;
+}
+
+.\[\&_img\]\:object-left-bottom img {
+  -o-object-position: left bottom;
+     object-position: left bottom;
+}
+
+.\[\&_img\]\:object-left-top img {
+  -o-object-position: left top;
+     object-position: left top;
+}
+
+.\[\&_img\]\:object-right img {
+  -o-object-position: right;
+     object-position: right;
+}
+
+.\[\&_img\]\:object-right-bottom img {
+  -o-object-position: right bottom;
+     object-position: right bottom;
+}
+
+.\[\&_img\]\:object-right-top img {
+  -o-object-position: right top;
+     object-position: right top;
+}
+
+.\[\&_img\]\:object-top img {
+  -o-object-position: top;
+     object-position: top;
 }
 
 .\[\&_svg\]\:h-full svg {
@@ -11097,6 +11174,18 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .ml-xl {
     margin-left: 40px;
+  }
+  .mt-2xl {
+    margin-top: 60px;
+  }
+  .mr-2xl {
+    margin-right: 60px;
+  }
+  .mb-2xl {
+    margin-bottom: 60px;
+  }
+  .ml-2xl {
+    margin-left: 60px;
   }
   .section-mt-sm {
     margin-top: 50px;
@@ -11770,21 +11859,21 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
     padding-left: 40px;
     padding-right: 40px;
   }
-  .md\:py-\[10px\] {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .md\:py-\[80px\] {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
   .md\:px-\[94px\] {
     padding-left: 94px;
     padding-right: 94px;
   }
+  .md\:py-\[10px\] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
   .md\:py-\[50px\] {
     padding-top: 50px;
     padding-bottom: 50px;
+  }
+  .md\:py-\[80px\] {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   .md\:pb-0 {
     padding-bottom: 0px;
@@ -11875,6 +11964,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .md\:\[\&_\.swiper-slide\]\:w-\[537px\] .swiper-slide {
     width: 537px;
+  }
+  .md\:\[\&_img\]\:aspect-\[1\/0\.482\] img {
+    aspect-ratio: 1/0.482;
   }
   .md\:\[\&\~\.t4u-content\]\:mt-\[40px\]~.t4u-content {
     margin-top: 40px;
@@ -12449,6 +12541,18 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .ml-xl {
     margin-left: 50px;
+  }
+  .mt-2xl {
+    margin-top: 80px;
+  }
+  .mr-2xl {
+    margin-right: 80px;
+  }
+  .mb-2xl {
+    margin-bottom: 80px;
+  }
+  .ml-2xl {
+    margin-left: 80px;
   }
   .section-mt-sm {
     margin-top: 50px;
@@ -13226,6 +13330,18 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .ml-xl {
     margin-left: 60px;
+  }
+  .mt-2xl {
+    margin-top: 80px;
+  }
+  .mr-2xl {
+    margin-right: 80px;
+  }
+  .mb-2xl {
+    margin-bottom: 80px;
+  }
+  .ml-2xl {
+    margin-left: 80px;
   }
   .section-mt-sm {
     margin-top: 60px;

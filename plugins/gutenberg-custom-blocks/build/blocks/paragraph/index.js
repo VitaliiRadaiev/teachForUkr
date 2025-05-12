@@ -407,7 +407,7 @@ __webpack_require__.r(__webpack_exports__);
 const MarginYControl = ({
   size,
   setSize,
-  sizesMap = ['no', 'sm', 'md', 'lg', 'xl']
+  sizesMap = ['no', 'sm', 'md', 'lg', 'xl', '2xl']
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelBody, {
     title: "\u0417\u043E\u0432\u043D\u0456\u0448\u043D\u0456 \u043E\u0442\u0441\u0442\u0443\u043F\u0438",
@@ -443,7 +443,7 @@ const TEXT_SIZES = ["sm", "md", "lg", "xl"];
 const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const CONTAINER_SIZES = ["sm", "md", "lg", "xl", "2xl", "full"];
-const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list-square', 't4u/ol-list-number', 't4u/questionnaire'];
+const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list-square', 't4u/ol-list-number', 't4u/questionnaire', 't4u/article-image', 't4u/buttons-group', 't4u/button'];
 const LIST_GAP_Y_MAP = {
   sm: 'gap-y-[5px]',
   md: 'gap-y-[10px]',

@@ -34,7 +34,7 @@ foreach ($menus_names as $menu_name) {
 
             <div class="mt-[30px] md:mt-[40px] lg:mt-0 md:grid md:gap-x-[20px] md:grid-cols-[242px_1fr] 4xl:grid-cols-[258px_1fr] md:items-center lg:max-w-[722px] 4xl:max-w-[917px] lg:w-full">
                 <div>
-                    <div class="h4 uppercase">
+                    <div class="h4 uppercase text-light-primary">
                         <?= $footer_options['text_subscribe_title'] ?>
                     </div>
                     <div class="mt-[4px] text-sm text-light-primary-40">

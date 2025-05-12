@@ -391,7 +391,7 @@ __webpack_require__.r(__webpack_exports__);
 const MarginYControl = ({
   size,
   setSize,
-  sizesMap = ['no', 'sm', 'md', 'lg', 'xl']
+  sizesMap = ['no', 'sm', 'md', 'lg', 'xl', '2xl']
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelBody, {
     title: "\u0417\u043E\u0432\u043D\u0456\u0448\u043D\u0456 \u043E\u0442\u0441\u0442\u0443\u043F\u0438",

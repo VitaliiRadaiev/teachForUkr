@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/article-image-item",
+  "version": "0.1.0",
+  "title": "Зображення",
+  "icon": "smiley",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {},
+  "parent": [
+    "t4u/article-image"
+  ],
+  "textdomain": "article-image-item",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

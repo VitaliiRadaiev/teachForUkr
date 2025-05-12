@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/article-image",
+	"version": "0.1.0",
+	"title": "Зображення",
+	"icon": "format-image",
+	"category": "blocks",
+	"description": "",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"isHide": {
+			"type": "boolean",
+			"default": false
+		},
+		"margin": {
+			"type": "object",
+			"default": {
+				"top": "xl",
+				"right": "",
+				"bottom": "",
+				"left": ""
+			}
+		},
+		"classes": {
+			"type": "string",
+			"default": ""
+		},
+		"variants": {
+			"type": "number",
+			"default": 0
+		},
+		"isNativeSize": {
+			"type": "boolean",
+			"default": false
+		},
+		"alignment": {
+			"type": "string",
+			"default": "left"
+		},
+		"preview": {
+			"type": "string"
+		},
+		"positioning": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "article-image",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}
