@@ -1,7 +1,8 @@
 <?php
+if (!($attributes['isHide'])):
     $classes = combine_classes(
-       $attributes['classes'],
-       ($attributes['className'] ?? ''),
+        $attributes['classes'],
+        ($attributes['className'] ?? ''),
         get_margin_classes($attributes['margin']),
         combine_string(['prefix' => 'text-'], $attributes['alignment']),
         ((!$attributes['isNativeSize'] && $attributes['variants'] == 0) ? '[&_img]:w-full [&_img]:aspect-[1/0.670] md:[&_img]:aspect-[1/0.482]' : ''),
@@ -10,6 +11,7 @@
     );
 ?>
 
-<div class="<?= $classes ?> article-image [&_img]:rounded-[12px]">
-   <?= $content; ?>
-</div>
+    <div class="<?= $classes ?> article-image [&_img]:rounded-[12px]">
+        <?= $content; ?>
+    </div>
+<?php endif; ?>

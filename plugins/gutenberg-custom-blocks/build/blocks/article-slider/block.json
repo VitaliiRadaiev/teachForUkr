@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/article-slider",
+  "version": "0.1.0",
+  "title": "Слайдер",
+  "icon": "slides",
+  "category": "blocks",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "isHide": {
+      "type": "boolean",
+      "default": false
+    },
+    "margin": {
+      "type": "object",
+      "default": {
+        "top": "xl",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "classes": {
+      "type": "string",
+      "default": ""
+    },
+    "preview": {
+      "type": "string"
+    }
+  },
+  "textdomain": "article-slider",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "viewScript": "file:./script.js",
+  "render": "file:./render.php"
+}
