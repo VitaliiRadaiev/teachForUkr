@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/questionnaire",
+  "version": "0.1.0",
+  "title": "Заповнити анкету",
+  "icon": "smiley",
+  "category": "blocks",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "isHide": {
+      "type": "boolean",
+      "default": false
+    },
+    "margin": {
+      "type": "object",
+      "default": {
+        "top": "xl",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "preview": {
+      "type": "string"
+    },
+    "classes": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "questionnaire",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

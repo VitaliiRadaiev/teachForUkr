@@ -6071,6 +6071,7 @@ html.with-fancybox body.hide-scrollbar {
   line-height: 100%;
   letter-spacing: -0.05em;
   text-transform: uppercase;
+  color: #1f1f1f;
 }
 .h1 > *:last-child {
   margin-bottom: 0;
@@ -6088,6 +6089,7 @@ html.with-fancybox body.hide-scrollbar {
   line-height: 100%;
   letter-spacing: -0.03em;
   text-transform: uppercase;
+  color: #1f1f1f;
 }
 .h2 > *:last-child {
   margin-bottom: 0;
@@ -6105,6 +6107,7 @@ html.with-fancybox body.hide-scrollbar {
   line-height: 120%;
   letter-spacing: -0.03em;
   text-transform: uppercase;
+  color: #1f1f1f;
 }
 .h3 > *:last-child {
   margin-bottom: 0;
@@ -6121,6 +6124,7 @@ html.with-fancybox body.hide-scrollbar {
   font-size: 1.125rem;
   line-height: 120%;
   letter-spacing: -0.03em;
+  color: #1f1f1f;
 }
 .h4 > *:last-child {
   margin-bottom: 0;
@@ -6137,6 +6141,7 @@ html.with-fancybox body.hide-scrollbar {
   font-size: 0.9375rem;
   line-height: 140%;
   letter-spacing: -0.01em;
+  color: #1f1f1f;
 }
 .h5 > *:last-child {
   margin-bottom: 0;
@@ -11772,6 +11777,14 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .md\:py-\[80px\] {
     padding-top: 80px;
     padding-bottom: 80px;
+  }
+  .md\:px-\[94px\] {
+    padding-left: 94px;
+    padding-right: 94px;
+  }
+  .md\:py-\[50px\] {
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
   .md\:pb-0 {
     padding-bottom: 0px;

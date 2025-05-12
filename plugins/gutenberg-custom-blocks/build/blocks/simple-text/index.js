@@ -90,9 +90,7 @@ function Edit({
       'canChangeContainerSize': isContainerChange
     }, (0,_utils_utils__WEBPACK_IMPORTED_MODULE_5__.getContainerClasses)(container))
   });
-  const {
-    children
-  } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)({}, {
+  const innerBlocks = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps)(blockProps, {
     template: [['t4u/paragraph', {
       acfField
     }]],
@@ -145,8 +143,7 @@ function Edit({
         })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      ...blockProps,
-      children: children
+      ...innerBlocks
     })]
   });
 }
@@ -482,7 +479,7 @@ const TEXT_SIZES = ["sm", "md", "lg", "xl"];
 const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const CONTAINER_SIZES = ["sm", "md", "lg", "xl", "2xl", "full"];
-const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list-square', 't4u/ol-list-number'];
+const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list-square', 't4u/ol-list-number', 't4u/questionnaire'];
 const LIST_GAP_Y_MAP = {
   sm: 'gap-y-[5px]',
   md: 'gap-y-[10px]',

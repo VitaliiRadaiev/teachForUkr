@@ -14,7 +14,6 @@ window.addEventListener("DOMContentLoaded", () => {
             setActiveTabButtons(tabButtons, state.category);
 
             const res = await Fetch(`/people?category=${state.category}&page=${state.page}&posts_per_page=12`);
-            console.log(res);
 
             if (res?.posts) {
                 renderLoadedCards(res.posts, postsContainer, prevState.category == state.category);

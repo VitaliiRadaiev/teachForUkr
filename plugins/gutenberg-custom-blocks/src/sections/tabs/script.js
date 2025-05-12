@@ -1,5 +1,4 @@
 window.addEventListener("DOMContentLoaded", () => {
-    console.log('tes');
     
     const tabsContainers = document.querySelectorAll('[data-tabs]');
     if (tabsContainers.length) {

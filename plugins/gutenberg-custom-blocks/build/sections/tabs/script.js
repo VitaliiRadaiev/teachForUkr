@@ -3,7 +3,6 @@
   !*** ./src/sections/tabs/script.js ***!
   \*************************************/
 window.addEventListener("DOMContentLoaded", () => {
-  console.log('tes');
   const tabsContainers = document.querySelectorAll('[data-tabs]');
   if (tabsContainers.length) {
     tabsContainers.forEach(tabsContainer => {

@@ -35,7 +35,7 @@ export default function Edit({ attributes, setAttributes }) {
 			getContainerClasses(container),
 		)
 	});
-	const { children } = useInnerBlocksProps({}, {
+	const innerBlocks = useInnerBlocksProps(blockProps, {
 		template: [['t4u/paragraph', {
 			acfField
 		}]],
@@ -79,9 +79,7 @@ export default function Edit({ attributes, setAttributes }) {
 					</PanelBody>
 				}
 			</InspectorControls>
-			<div {...blockProps}>
-				{children}
-			</div>
+			<div {...innerBlocks}></div>
 		</>
 	);
 }

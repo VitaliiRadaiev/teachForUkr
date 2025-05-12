@@ -10,6 +10,7 @@
     line-height: 100%;
     letter-spacing: -0.05em;
     text-transform: uppercase;
+    color: $color-dark-primary;
 
     @media (max-width: $mq-md-max) {
         &:not(.without-break-word) {
@@ -50,6 +51,7 @@
     line-height: 100%;
     letter-spacing: -0.03em;
     text-transform: uppercase;
+    color: $color-dark-primary;
 
     @media (max-width: $mq-md-max) {
         &:not(.without-break-word) {
@@ -89,6 +91,7 @@
     line-height: 120%;
     letter-spacing: -0.03em;
     text-transform: uppercase;
+    color: $color-dark-primary;
 
     @media (max-width: $mq-md-max) {
         &:not(.without-break-word) {
@@ -127,6 +130,7 @@
     font-size: rem(18px);
     line-height: 120%;
     letter-spacing: -0.03em;
+    color: $color-dark-primary;
 
     @media (max-width: $mq-md-max) {
         &:not(.without-break-word) {
@@ -161,6 +165,7 @@
     font-size: rem(15px);
     line-height: 140%;
     letter-spacing: -0.01em;
+    color: $color-dark-primary;
 
     @media (max-width: $mq-md-max) {
         &:not(.without-break-word) {

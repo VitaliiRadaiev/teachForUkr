@@ -21,7 +21,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	const [isTyping, setIsTyping] = useState(false);
 	const fetchData = () => getOptionsField(acfField);
 	const { ref, data } = useFetchOnVisible(fetchData, [acfField], (!text && !isTyping));
-	const globalText = data?.value || '';
+	const globalText = data?.value.replace(/\n$/, "") || '';
 
 	const { insertBlock, removeBlock, selectPreviousBlock } = useDispatch('core/block-editor');
 	const { parentClientId, parentBlock, index } = useSelect((select) => {
