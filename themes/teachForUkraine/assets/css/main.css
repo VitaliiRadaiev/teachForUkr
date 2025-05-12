@@ -982,6 +982,9 @@ video {
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
+.aspect-\[1\/0\.670\] {
+  aspect-ratio: 1/0.670;
+}
 .\!h-\[100px\] {
   height: 100px !important;
 }
@@ -1125,6 +1128,9 @@ video {
 }
 .h-svh {
   height: 100svh;
+}
+.h-\[69px\] {
+  height: 69px;
 }
 .max-h-\[334px\] {
   max-height: 334px;
@@ -1281,6 +1287,9 @@ video {
 }
 .w-svw {
   width: 100svw;
+}
+.w-\[69px\] {
+  width: 69px;
 }
 .min-w-0 {
   min-width: 0px;
@@ -1766,6 +1775,10 @@ video {
 .bg-white\/75 {
   background-color: rgb(255 255 255 / 0.75);
 }
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
@@ -2084,6 +2097,12 @@ video {
 }
 .opacity-80 {
   opacity: 0.8;
+}
+.opacity-40 {
+  opacity: 0.4;
+}
+.opacity-60 {
+  opacity: 0.6;
 }
 .\!outline-none {
   outline: 2px solid transparent !important;
@@ -11589,6 +11608,9 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   .md\:aspect-\[1\/1\.136\] {
     aspect-ratio: 1/1.136;
   }
+  .md\:aspect-\[1\/0\.482\] {
+    aspect-ratio: 1/0.482;
+  }
   .md\:h-\[164px\] {
     height: 164px;
   }
@@ -14260,6 +14282,13 @@ body.page:has(section.main-hero).page-loaded .decor-btn {
   }
   .\[\&_\.options\]\:hover\:opacity-100:hover .options {
     opacity: 1;
+  }
+  .\[\&_\.play-icon\]\:hover\:scale-105:hover .play-icon {
+    --tw-scale-x: 1.05;
+    --tw-scale-y: 1.05;
+    -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        -ms-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
   .\[\&_\.title\]\:hover\:text-accent-first:hover .title {
     color: var(--color-accent-first);

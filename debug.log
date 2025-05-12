@@ -22,3 +22,4 @@
 [12-May-2025 06:59:42 UTC]   Automatic plugin updates starting...
 [12-May-2025 06:59:42 UTC]   Automatic plugin updates complete.
 [12-May-2025 06:59:42 UTC] Automatic updates complete.
+[12-May-2025 14:18:57 UTC] PHP Notice:  Функцію WP_Block_Type_Registry::register було викликано <strong>неправильно</strong>. Тип блока "t4u/article-slider" вже зареєстрований. Будь ласка, перегляньте <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Виправлення помилок у WordPress</a> для більш детальної інформації. (Це повідомлення додане у версії 5.0.0.) in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121

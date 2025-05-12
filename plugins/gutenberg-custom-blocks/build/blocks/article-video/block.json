@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "t4u/article-video",
+  "version": "0.1.0",
+  "title": "Відео",
+  "icon": "format-video",
+  "category": "blocks",
+  "description": "",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "isHide": {
+      "type": "boolean",
+      "default": false
+    },
+    "margin": {
+      "type": "object",
+      "default": {
+        "top": "xl",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "classes": {
+      "type": "string",
+      "default": ""
+    },
+    "preview": {
+      "type": "string"
+    },
+    "mediaId": {
+      "type": "number"
+    },
+    "mediaURL": {
+      "type": "string",
+      "default": ""
+    },
+    "mediaName": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "article-video",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

@@ -16,7 +16,7 @@ export default function Edit() {
 				classes: 'object-cover nested-bg-item'
 			}],
 			['t4u/inner-block', {
-				classes: 'mt-[10px] italic',
+				classes: 'mt-[10px] italic text-dark-primary-60',
 				tag: 'figcaption',
 				options: {
 					template: [
