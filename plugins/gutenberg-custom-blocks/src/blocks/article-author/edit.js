@@ -1,22 +1,15 @@
 import {
 	useBlockProps,
-	useInnerBlocksProps,
 	InspectorControls,
-	MediaUploadCheck,
-	MediaUpload,
 } from "@wordpress/block-editor";
-import { PanelBody, Button } from "@wordpress/components";
+import { PanelBody } from "@wordpress/components";
 import "./editor.scss";
 import clsx from "clsx";
-import { getMarginClasses, getUrlToStaticImages, removeDomain } from "../../utils/utils";
 import { IsHide } from "../../components/is-hide/IsHide";
-import { MarginYControl } from "../../components/space-control/MarginYControl";
-import { useSelect, useDispatch } from '@wordpress/data';
-import { useEffect } from "@wordpress/element";
 import useFetchOnVisible from "../../hooks/hooks";
 import apiFetch from "@wordpress/api-fetch";
 
-export default function Edit({ attributes, setAttributes, clientId }) {
+export default function Edit({ attributes, setAttributes }) {
 	const { isHide, classes, className, authorId } = attributes;
 
 	const blockProps = useBlockProps({
@@ -33,10 +26,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 	const fetchPosts = () => apiFetch({ path: 'site-core/v1/authors' });
 	const { ref, data, isLoading } = useFetchOnVisible(fetchPosts);
-
-
-	console.log(data);
-
 
 	return (
 		<>

@@ -26,7 +26,8 @@ export const TEXT_CONTENT_ALLOWD_BLOCKS = [
     't4u/button',
     't4u/article-slider',
     't4u/article-video',
-    't4u/article-quote'
+    't4u/article-quote',
+    't4u/article-box'
 ]
 
 export const LIST_GAP_Y_MAP = {

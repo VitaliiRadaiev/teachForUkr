@@ -495,7 +495,7 @@ const TEXT_SIZES = ["sm", "md", "lg", "xl"];
 const SECTIONS_MARGIN_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const SECTIONS_PADDING_MAP = ['no', 'sm', 'md', 'lg', 'xl'];
 const CONTAINER_SIZES = ["sm", "md", "lg", "xl", "2xl", "full"];
-const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list-square', 't4u/ol-list-number', 't4u/questionnaire', 't4u/article-image', 't4u/buttons-group', 't4u/button', 't4u/article-slider', 't4u/article-video', 't4u/article-quote'];
+const TEXT_CONTENT_ALLOWD_BLOCKS = ['t4u/heading', 't4u/paragraph', 't4u/ul-list-square', 't4u/ol-list-number', 't4u/questionnaire', 't4u/article-image', 't4u/buttons-group', 't4u/button', 't4u/article-slider', 't4u/article-video', 't4u/article-quote', 't4u/article-box'];
 const LIST_GAP_Y_MAP = {
   sm: 'gap-y-[5px]',
   md: 'gap-y-[10px]',

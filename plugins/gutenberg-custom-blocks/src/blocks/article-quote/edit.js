@@ -2,23 +2,16 @@ import {
 	useBlockProps,
 	useInnerBlocksProps,
 	InspectorControls,
-	MediaUploadCheck,
-	MediaUpload,
 } from "@wordpress/block-editor";
-import { PanelBody, Button } from "@wordpress/components";
 import "./editor.scss";
 import clsx from "clsx";
-import { getMarginClasses, getUrlToStaticImages, removeDomain } from "../../utils/utils";
+import { getMarginClasses, getUrlToStaticImages } from "../../utils/utils";
 import { IsHide } from "../../components/is-hide/IsHide";
 import { MarginYControl } from "../../components/space-control/MarginYControl";
 import { useSelect, useDispatch } from '@wordpress/data';
-import { useEffect } from "@wordpress/element";
 
-export default function Edit({ attributes, setAttributes, clientId }) {
+export default function Edit({ attributes, setAttributes }) {
 	const { isHide, margin, classes, className, preview } = attributes;
-
-	const { updateBlockAttributes } = useDispatch('core/block-editor');
-	const innerBlocks = useSelect((select) => select('core/block-editor').getBlocks(clientId), [clientId]);
 
 
 	const blockProps = useBlockProps({

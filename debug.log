@@ -34,3 +34,4 @@
 [13-May-2025 08:08:29 UTC] PHP Warning:  Undefined array key "margin" in D:\xampp\htdocs\teachForUkr\wp-content\plugins\gutenberg-custom-blocks\build\blocks\article-author\render.php on line 6
 [13-May-2025 09:02:36 UTC] PHP Warning:  Undefined variable $img in D:\xampp\htdocs\teachForUkr\wp-content\plugins\gutenberg-custom-blocks\build\blocks\article-author\render.php on line 14
 [13-May-2025 09:02:44 UTC] PHP Warning:  Undefined variable $img in D:\xampp\htdocs\teachForUkr\wp-content\plugins\gutenberg-custom-blocks\build\blocks\article-author\render.php on line 14
+[13-May-2025 09:40:09 UTC] PHP Notice:  wp_json_file_decode(): Error when decoding a JSON file at path D:/xampp/htdocs/teachForUkr/wp-content/plugins/gutenberg-custom-blocks/build/sections/tabs/block.json: Syntax error in D:\xampp\htdocs\teachForUkr\wp-includes\functions.php on line 6121
