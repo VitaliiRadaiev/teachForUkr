@@ -529,7 +529,8 @@ function get_vacancies($queries = [])
     return $query;
 }
 
-function get_vacancies_cities() {
+function get_vacancies_cities()
+{
     $terms = get_terms([
         'taxonomy'   => 'vacancy-city',
         'hide_empty' => true,
@@ -576,7 +577,7 @@ function get_questions($queries = [])
         'order' => 'DESC'
     );
 
-    if($queries['popular']) {
+    if ($queries['popular']) {
         $args = array_merge($args, [
             'meta_query' => [
                 'relation' => 'OR',
@@ -587,8 +588,8 @@ function get_questions($queries = [])
                 ]
             ],
         ]);
-    } 
-    
+    }
+
     $search = trim($queries['search']);
     if (check($search)) {
         $args['s'] = $search;
@@ -652,6 +653,17 @@ function get_questions_categories()
     ]);
 
     return $top_level_terms;
+}
+
+function get_authors()
+{
+    $authors = get_users([
+        'role'    => 'author',
+        'orderby' => 'display_name',
+        'order'   => 'ASC',
+    ]);
+
+    return $authors;
 }
 
 // helpers

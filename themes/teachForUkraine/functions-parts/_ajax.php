@@ -545,6 +545,27 @@ function ajax_get_questions_categories()
     return rest_ensure_response($terms);
 }
 
+function ajax_get_authors()
+{
+    $authors = get_authors();
+
+    $posts = [];
+
+    foreach ($authors as $author) {
+        $posts[] = [
+            'id' => $author->ID,
+            'name' => $author->data->display_name,
+            'img' => get_avatar($author->ID, 96, '', '', [
+                'class' => 'h-[44px] w-[44px] object-contain rounded-full shrink-0 grow-0'
+            ])
+        ];
+    }
+
+    return rest_ensure_response([
+        'posts' => $posts
+    ]);
+}
+
 // register endpoints
 function register_endpoints()
 {
@@ -965,6 +986,12 @@ function register_endpoints()
     register_rest_route('site-core/v1', 'question-categories', array(
         'methods'  => 'GET',
         'callback' => 'ajax_get_questions_categories',
+        'permission_callback' => '__return_true'
+    ));
+
+    register_rest_route('site-core/v1', 'authors', array(
+        'methods'  => 'GET',
+        'callback' => 'ajax_get_authors',
         'permission_callback' => '__return_true'
     ));
 }

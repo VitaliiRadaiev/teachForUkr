@@ -11,10 +11,16 @@ import clsx from "clsx";
 import { getMarginClasses, getUrlToStaticImages, removeDomain } from "../../utils/utils";
 import { IsHide } from "../../components/is-hide/IsHide";
 import { MarginYControl } from "../../components/space-control/MarginYControl";
+import { useSelect, useDispatch } from '@wordpress/data';
+import { useEffect } from "@wordpress/element";
 
-
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit({ attributes, setAttributes, clientId }) {
 	const { isHide, margin, classes, className, preview, mediaId, mediaURL, mediaName } = attributes;
+
+	const { updateBlockAttributes } = useDispatch('core/block-editor');
+	const innerBlocks = useSelect((select) => select('core/block-editor').getBlocks(clientId), [clientId]);
+
+
 	const blockProps = useBlockProps({
 		className: clsx(
 			'article-video',
@@ -32,6 +38,11 @@ export default function Edit({ attributes, setAttributes }) {
 			['t4u/inner-block', {
 				classes: 'relative rounded-[12px] overflow-hidden block aspect-[1/0.670] md:aspect-[1/0.482] [&_.play-icon]:hover:scale-105 bg-black',
 				simpleWrapper: true,
+				dataAttributes: {
+					'data-fancybox': '',
+					'href': '#test'
+				},
+				tag: 'a',
 				options: {
 					template: [
 						['t4u/static-image', {
@@ -62,6 +73,18 @@ export default function Edit({ attributes, setAttributes }) {
 
 	});
 
+	useEffect(() => {
+		if (Array.isArray(innerBlocks)) {
+			const videoWrapper = innerBlocks[0];
+			videoWrapper && updateBlockAttributes(videoWrapper.clientId, {
+				dataAttributes: {
+					'data-fancybox': '',
+					'href': mediaURL
+				},
+			})
+		}
+	}, [mediaURL]);
+
 	if (preview) {
 		return <img src={getUrlToStaticImages(preview)} />
 	}
@@ -85,13 +108,13 @@ export default function Edit({ attributes, setAttributes }) {
 							value={mediaId}
 							render={({ open }) => (
 								<Button variant="primary" onClick={open} className="mb-3">
-									{mediaURL ? 'Обрати нове відео' : 'Обрати відео'}
+									{mediaURL ? 'Обрати нове відео' : 'Обрати відео з галереї'}
 								</Button>
 							)}
 						/>
 					</MediaUploadCheck>
 
-					<div className="flex flex-col gap-2">
+					<div className="mt-[20px] flex flex-col gap-2">
 						<label htmlFor="video-url" className="text-sm">
 							Посилання на відео (YouTube, Vimeo)
 						</label>
@@ -119,3 +142,5 @@ export default function Edit({ attributes, setAttributes }) {
 		</>
 	);
 }
+
+

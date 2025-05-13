@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "t4u/article-quote",
+	"version": "0.1.0",
+	"title": "Цитата",
+	"icon": "format-quote",
+	"category": "blocks",
+	"description": "",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"isHide": {
+			"type": "boolean",
+			"default": false
+		},
+		"margin": {
+			"type": "object",
+			"default": {
+				"top": "xl",
+				"right": "",
+				"bottom": "",
+				"left": ""
+			}
+		},
+		"classes": {
+			"type": "string",
+			"default": ""
+		},
+		"preview": {
+			"type": "string"
+		}
+	},
+	"textdomain": "article-quote",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}
