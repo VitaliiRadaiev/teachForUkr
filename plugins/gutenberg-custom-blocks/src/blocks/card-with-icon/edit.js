@@ -41,7 +41,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				}
 			}],
 			['t4u/inner-block', {
-				classes: 'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start [&:not(:has(.btn)):not(:has(.title))]:self-center',
+				classes: 'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start',
 				simpleWrapper: true,
 				options: {
 					template: [
@@ -91,7 +91,16 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 								value: 'flex-row'
 							}
 						]}
-						onChange={(value) => setAttributes({ direction: value })}
+						onChange={(value) => {
+							setAttributes({ direction: value });
+							const content = innerBlocks[1];
+							content && updateBlockAttributes(content.clientId, {
+								classes: clsx({
+									'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start': value == 'flex-col',
+									'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start [&:not(:has(.btn)):not(:has(.title))]:self-center': value == 'flex-row',
+								})
+							})
+						}}
 					/>
 				</PanelBody>
 				<PanelBody title="Розмір карточки" initialOpen={false}>

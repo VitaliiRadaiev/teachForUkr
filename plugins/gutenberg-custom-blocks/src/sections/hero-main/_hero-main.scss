@@ -134,7 +134,7 @@ body.page:has(section.main-hero) {
         }
     }
 
-    & .decor-btn {
+    & .main-hero .decor-btn { 
         opacity: 0;
         transform: translateY(-25px);
 
@@ -280,7 +280,7 @@ body.page:has(section.main-hero).page-loaded {
         }
     }
 
-    & .decor-btn {
+    & .main-hero .decor-btn {
         opacity: 1;
         transform: translateY(0px);
     }

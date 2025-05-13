@@ -146,17 +146,22 @@ export default function Edit({ attributes, setAttributes }) {
 							title="Глобальні посилання"
 							initialOpen={false}
 						>
-							<RadioControl
-								selected={acfField}
-								options={(!!globalLinksArray && Array.isArray(globalLinksArray))
-									? globalLinksArray.map(([key, value]) => ({
-										label: value.title,
-										value: key
-									}))
-									: []
-								}
-								onChange={(value) => changeGlobalLinkHandler(value, globalLinks)}
-							/>
+
+								{isLoadingGlobalLInks && <div className="text-center text-lg">Заватнажується ...</div>}
+								
+
+								<RadioControl
+									selected={acfField}
+									options={(!!globalLinksArray && Array.isArray(globalLinksArray))
+										? globalLinksArray.map(([key, value]) => ({
+											label: value.title,
+											value: key
+										}))
+										: []
+									}
+									onChange={(value) => changeGlobalLinkHandler(value, globalLinks)}
+								/>
+
 						</PanelBody>
 					</>
 				}
@@ -164,6 +169,7 @@ export default function Edit({ attributes, setAttributes }) {
 					title="Глобальні назви"
 					initialOpen={false}
 				>
+					{isLoadingGlobalTexts && <div className="text-center text-lg">Заватнажується ...</div>}
 					<RadioControl
 						selected={acfField}
 						options={(!!globalTextsArray && Array.isArray(globalTextsArray))

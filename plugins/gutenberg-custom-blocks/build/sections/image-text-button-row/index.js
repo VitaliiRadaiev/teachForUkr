@@ -594,7 +594,8 @@ function Edit({
           classes: "mt-[16px] md:mt-[20px] text-dark-primary"
         }], ['t4u/simple-text', {
           classes: "mt-[30px] md:mt-[20px] lg:mt-[30px]",
-          size: "md"
+          size: "md",
+          container: 'sm'
         }], ["t4u/buttons-group", {
           classes: 'mt-[30px] md:mt-[20px] lg:mt-[30px]',
           options: {
@@ -661,10 +662,24 @@ function Edit({
           }, {
             label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
               className: "!h-[100px] w-auto bg-light-primary-80",
+              src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)(`general/image-text-button-row-decor-1-1.jpg`),
+              alt: "icon"
+            }),
+            value: 11
+          }, {
+            label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+              className: "!h-[100px] w-auto bg-light-primary-80",
               src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)(`general/image-text-button-row-decor-2.png`),
               alt: "icon"
             }),
             value: 2
+          }, {
+            label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+              className: "!h-[100px] w-auto bg-light-primary-80",
+              src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)(`general/image-text-button-row-decor-2-2.jpg`),
+              alt: "icon"
+            }),
+            value: 22
           }],
           onChange: value => setAttributes({
             decor: +value
@@ -683,7 +698,8 @@ function Edit({
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
               className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('absolute h-[138px] md:h-[245px] w-auto left-[-64px] md:left-[-125px] lg:left-[-109px] 4xl:left-[-84px] lg:top-[134px] 4xl:top-[130px]', {
                 'top-[70px] md:top-[92px]': directions === 'left',
-                'bottom-[calc(var(--image-height)-68px)] md:bottom-[calc(var(--image-height)-145px)] lg:bottom-auto': directions === 'right'
+                'bottom-[calc(var(--image-height)-68px)] md:bottom-[calc(var(--image-height)-145px)] lg:bottom-auto': directions === 'right',
+                'hidden': decor === 11 || decor === 22
               }),
               src: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)('general/rectangle-turn-left.svg'),
               alt: "decor"
@@ -699,9 +715,9 @@ function Edit({
               className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('absolute h-[106px] md:h-[168px] lg:h-[239px] w-auto right-[-97px] md:right-[-169px] lg:right-[-235px] lg:bottom-[122px] accent-second-50-filter', {
                 'bottom-[68px] md:bottom-[98px]': directions === 'left',
                 'top-[31.5%] md:top-[22.5%] lg:top-auto': directions === 'right',
-                'lg:!bottom-0': decor === 2
+                'lg:!bottom-0': decor === 2 || decor === 22
               }),
-              src: decor === 1 ? (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)('icons/semi-torus-down.svg') : (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)('general/semi-torus-top.svg'),
+              src: decor === 1 || decor === 11 ? (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)('icons/semi-torus-down.svg') : (0,_utils_utils__WEBPACK_IMPORTED_MODULE_4__.getUrlToStaticImages)('icons/semi-torus-top.svg'),
               alt: "decor"
             })
           })

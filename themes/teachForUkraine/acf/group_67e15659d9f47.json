@@ -699,6 +699,27 @@
             "append": ""
         },
         {
+            "key": "field_6823569fcedca",
+            "label": "Текст \"Обрати\"",
+            "name": "text_select",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Обрати",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67f3d33bee81c",
             "label": "Текст \"Учасники\"",
             "name": "text_participants",
@@ -930,6 +951,27 @@
             "append": ""
         },
         {
+            "key": "field_6823392ad9e92",
+            "label": "Текст \"Показати\"",
+            "name": "text_show",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Показати",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_681df7cf89178",
             "label": "Текст \"Показати більше\"",
             "name": "text_show_more_v2",
@@ -951,6 +993,27 @@
             "append": ""
         },
         {
+            "key": "field_68234926b9ea4",
+            "label": "Текст \"Показати всі\"",
+            "name": "text_show_all",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Показати всі",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_67f67f8fada71",
             "label": "Текст \"Перейти\"",
             "name": "text_go_to",
@@ -965,27 +1028,6 @@
                 "id": ""
             },
             "default_value": "Перейти",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_6807a5291631e",
-            "label": "Текст \"Останні новини\"",
-            "name": "text_last_news",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Останні новини",
             "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
@@ -1182,8 +1224,50 @@
             "append": ""
         },
         {
+            "key": "field_682369f604e38",
+            "label": "Текст \"Партнери\"",
+            "name": "text_partners",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Партнери",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6807a5291631e",
+            "label": "Заголовок блока \"Новини\"",
+            "name": "text_last_news",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Останні новини",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6818cfd825bf6",
-            "label": "Текст \"Поширені питання\"",
+            "label": "Заголовок блока \"Поширені питання\"",
             "name": "text_common_questions",
             "aria-label": "",
             "type": "text",
@@ -1924,5 +2008,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1747041645
+    "modified": 1747151396
 }

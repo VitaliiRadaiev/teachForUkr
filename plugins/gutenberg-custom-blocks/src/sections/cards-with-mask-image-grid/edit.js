@@ -29,10 +29,12 @@ export default function Edit({ attributes, setAttributes }) {
 				classes: ""
 			}],
 			['t4u/inner-block', {
-				classes: 'min-h-100 mt-[20px] md:mt-[30px] 4xl:mt-[40px] grid md:grid-cols-2 lg:grid-cols-12 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px]',
+				classes: 'min-h-100 mt-[20px] md:mt-[30px] 4xl:mt-[40px] grid md:grid-cols-2 lg:grid-cols-12 gap-[10px] md:gap-[20px] xl:gap-[24px] 4xl:gap-[30px] first-child-no-margin',
 				canAddItem: true,
 				options: {
-					template: [],
+					template: [
+						['t4u/card-with-mask-image', {}]
+					],
 					allowedBlocks: ['t4u/card-with-mask-image']
 				}
 

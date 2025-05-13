@@ -33,10 +33,11 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 	const { children } = useInnerBlocksProps({}, {
 		template: [
-			['t4u/head-block', {
+			['t4u/head-block', { 
 				classes: "order-1",
 				aligment: "left",
-				container: "lg"
+				container: "lg",
+				subTitleAcfField: 'text_partners'
 			}],
 			["t4u/buttons-group", {
 				classes: 'mt-[40px] xl:mt-[50px] order-3',

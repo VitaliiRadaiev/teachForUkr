@@ -40,7 +40,7 @@ export default function Edit({ attributes }) {
 				canAddItem: true,
 				options: {
 					template: [],
-					allowedBlocks: [...TEXT_CONTENT_ALLOWD_BLOCKS, 't4u/partners-slider-block']
+					allowedBlocks: ['t4u/partners-slider-block', 't4u/heading', 't4u/paragraph' , 't4u/ul-list-square', 't4u/ol-list-number']
 				}
 
 			}],

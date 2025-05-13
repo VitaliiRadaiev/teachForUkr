@@ -5,12 +5,13 @@ if (!($attributes['isHide'])):
       'absolute h-[138px] md:h-[245px] w-auto left-[-64px] md:left-[-125px] lg:left-[-109px] 4xl:left-[-84px] lg:top-[134px] 4xl:top-[130px] aos-rotate-left',
       ($attributes['directions'] === 'left' ? 'top-[70px] md:top-[92px]' : ''),
       ($attributes['directions'] === 'right' ? 'bottom-[calc(var(--image-height)-68px)] md:bottom-[calc(var(--image-height)-145px)] lg:bottom-auto' : ''),
+      (($attributes['decor'] === 11 || $attributes['decor'] === 22) ? 'hidden' : '')
    );
    $decor_2_classes = combine_classes(
       'absolute h-[106px] md:h-[168px] lg:h-[239px] w-auto right-[-97px] md:right-[-169px] lg:right-[-235px] lg:bottom-[122px] aos-rotate-right accent-second-50-filter',
       ($attributes['directions'] === 'left' ? 'bottom-[68px] md:bottom-[98px]' : ''),
       ($attributes['directions'] === 'right' ? 'top-[31.5%] md:top-[22.5%] lg:top-auto' : ''),
-      ($attributes['decor'] === 2 ? 'lg:!bottom-0' : ''),
+      (($attributes['decor'] === 2 || $attributes['decor'] === 22) ? 'lg:!bottom-0' : ''),
    );
    $container_classes = combine_classes(
       'container flex lg:items-center lg:gap-x-[40px] xl:gap-x-[65px] gap-y-[40px] md:gap-y-[50px] relative z-2',
@@ -32,7 +33,7 @@ if (!($attributes['isHide'])):
             <div class="container h-full relative">
                <img
                   class="<?= $decor_2_classes ?>"
-                  src="<?= get_template_directory_uri() . '/assets/images/icons/semi-torus-'. ($attributes['decor'] === 1 ? 'down' : 'top') .'.svg' ?>"
+                  src="<?= get_template_directory_uri() . '/assets/images/icons/semi-torus-'. ($attributes['decor'] === 1 || $attributes['decor'] === 11 ? 'down' : 'top') .'.svg' ?>"
                   alt="decor">
             </div>
          </div>

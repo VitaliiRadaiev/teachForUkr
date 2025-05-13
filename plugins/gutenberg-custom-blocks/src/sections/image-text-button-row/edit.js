@@ -21,7 +21,7 @@ export default function Edit({ attributes, setAttributes }) {
 			getSectionsMarginClasses(margin),
 			getSectionsPaddingClasses(padding),
 			{ ['hide-block']: isHide }
-		)
+		),
 	});
 
 	const { children } = useInnerBlocksProps({}, {
@@ -51,7 +51,8 @@ export default function Edit({ attributes, setAttributes }) {
 						['t4u/heading', { classes: "mt-[16px] md:mt-[20px] text-dark-primary" }],
 						['t4u/simple-text', {
 							classes: "mt-[30px] md:mt-[20px] lg:mt-[30px]",
-							size: "md"
+							size: "md",
+							container: 'sm'
 						}],
 						["t4u/buttons-group", {
 							classes: 'mt-[30px] md:mt-[20px] lg:mt-[30px]',
@@ -107,8 +108,16 @@ export default function Edit({ attributes, setAttributes }) {
 								value: 1
 							},
 							{
+								label: <img className="!h-[100px] w-auto bg-light-primary-80" src={getUrlToStaticImages(`general/image-text-button-row-decor-1-1.jpg`)} alt="icon" />,
+								value: 11
+							},
+							{
 								label: <img className="!h-[100px] w-auto bg-light-primary-80" src={getUrlToStaticImages(`general/image-text-button-row-decor-2.png`)} alt="icon" />,
 								value: 2
+							},
+							{
+								label: <img className="!h-[100px] w-auto bg-light-primary-80" src={getUrlToStaticImages(`general/image-text-button-row-decor-2-2.jpg`)} alt="icon" />,
+								value: 22
 							},
 						]}
 						onChange={(value) => setAttributes({ decor: +value })}
@@ -129,6 +138,7 @@ export default function Edit({ attributes, setAttributes }) {
 										{
 											'top-[70px] md:top-[92px]': directions === 'left',
 											'bottom-[calc(var(--image-height)-68px)] md:bottom-[calc(var(--image-height)-145px)] lg:bottom-auto': directions === 'right',
+											'hidden': decor === 11 || decor === 22
 										}
 									)}
 									src={getUrlToStaticImages('general/rectangle-turn-left.svg')}
@@ -146,10 +156,10 @@ export default function Edit({ attributes, setAttributes }) {
 										{
 											'bottom-[68px] md:bottom-[98px]': directions === 'left',
 											'top-[31.5%] md:top-[22.5%] lg:top-auto': directions === 'right',
-											'lg:!bottom-0': decor === 2
+											'lg:!bottom-0': decor === 2 || decor === 22
 										}
 									)}
-									src={decor === 1 ? getUrlToStaticImages('icons/semi-torus-down.svg') : getUrlToStaticImages('general/semi-torus-top.svg')}
+									src={decor === 1 || decor === 11 ? getUrlToStaticImages('icons/semi-torus-down.svg') : getUrlToStaticImages('icons/semi-torus-top.svg')}
 									alt="decor" />
 							</div>
 						</div>

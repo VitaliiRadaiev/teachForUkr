@@ -10240,42 +10240,42 @@ body.page:has(section.main-hero) .hero-main-bg-decor-inner > *:nth-child(2) {
           transform: translateX(100%);
   opacity: 0;
 }
-body.page:has(section.main-hero) .decor-btn {
+body.page:has(section.main-hero) .main-hero .decor-btn {
   opacity: 0;
   -webkit-transform: translateY(-25px);
       -ms-transform: translateY(-25px);
           transform: translateY(-25px);
   --t: .3s;
 }
-body.page:has(section.main-hero) .decor-btn-2 {
+body.page:has(section.main-hero) .main-hero .decor-btn-2 {
   --delay: 1.2s;
   -webkit-transition: opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
 }
-body.page:has(section.main-hero) .decor-btn-1 {
+body.page:has(section.main-hero) .main-hero .decor-btn-1 {
   --delay: 1.3s;
   -webkit-transition: opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
 }
-body.page:has(section.main-hero) .decor-btn-3 {
+body.page:has(section.main-hero) .main-hero .decor-btn-3 {
   --delay: 1.4s;
   -webkit-transition: opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
 }
-body.page:has(section.main-hero) .decor-btn-5 {
+body.page:has(section.main-hero) .main-hero .decor-btn-5 {
   --delay: 1.5s;
   -webkit-transition: opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
 }
-body.page:has(section.main-hero) .decor-btn-4 {
+body.page:has(section.main-hero) .main-hero .decor-btn-4 {
   --delay: 1.6s;
   -webkit-transition: opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
   transition: opacity var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay), -webkit-transform var(--t) cubic-bezier(0.47, 1.64, 0.41, 0.8) var(--delay);
@@ -10413,7 +10413,7 @@ body.page:has(section.main-hero).page-loaded .hero-main-image > img {
       -ms-transform: translateX(-50%) scale(1);
           transform: translateX(-50%) scale(1);
 }
-body.page:has(section.main-hero).page-loaded .decor-btn {
+body.page:has(section.main-hero).page-loaded .main-hero .decor-btn {
   opacity: 1;
   -webkit-transform: translateY(0px);
       -ms-transform: translateY(0px);

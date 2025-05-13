@@ -90,7 +90,7 @@ function Edit({
         allowedBlocks: []
       }
     }], ['t4u/inner-block', {
-      classes: 'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start [&:not(:has(.btn)):not(:has(.title))]:self-center',
+      classes: 'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start',
       simpleWrapper: true,
       options: {
         template: [['t4u/heading', {
@@ -139,9 +139,18 @@ function Edit({
             }),
             value: 'flex-row'
           }],
-          onChange: value => setAttributes({
-            direction: value
-          })
+          onChange: value => {
+            setAttributes({
+              direction: value
+            });
+            const content = innerBlocks[1];
+            content && updateBlockAttributes(content.clientId, {
+              classes: (0,clsx__WEBPACK_IMPORTED_MODULE_5__["default"])({
+                'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start': value == 'flex-col',
+                'shrink grow flex flex-col first-no-margin last-no-margin sm-max:[&_.btn:not(.btn-with-arrow)]:w-full [&_.btn]:self-start [&:not(:has(.btn)):not(:has(.title))]:self-center': value == 'flex-row'
+              })
+            });
+          }
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: "\u0420\u043E\u0437\u043C\u0456\u0440 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0438",

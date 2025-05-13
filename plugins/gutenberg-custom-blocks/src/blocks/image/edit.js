@@ -52,6 +52,8 @@ export default function Edit({ attributes, setAttributes }) {
 					anchor={anchor}
 					onMouseEnter={() => setHover(true)}
 					onMouseLeave={() => setHover(false)}
+					flip={false}
+					focusOnMount={false}
 				>
 					<MediaUploadCheck>
 						<MediaUpload

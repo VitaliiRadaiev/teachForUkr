@@ -659,7 +659,8 @@ function Edit({
     template: [['t4u/head-block', {
       classes: "order-1",
       aligment: "left",
-      container: "lg"
+      container: "lg",
+      subTitleAcfField: 'text_partners'
     }], ["t4u/buttons-group", {
       classes: 'mt-[40px] xl:mt-[50px] order-3',
       alignment: 'center',
